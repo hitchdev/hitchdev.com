@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Boolean (Bool) - HitchDev</title>
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    
+    <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
+    
+    <link rel="canonical" href="https://example.org/strictyaml/using/alpha/scalar/boolean/">
+    
+    <meta name="author" content="Colm O&#39;Connor">
+    
+
+    <meta property="og:url" content="https://example.org/strictyaml/using/alpha/scalar/boolean/">
+    <meta property="og:title" content="HitchDev">
+    <meta property="og:image" content="https://example.org/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="HitchDev">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://example.org/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://example.org/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://example.org/fonts/icon.eot');
+        src: url('https://example.org/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://example.org/fonts/icon.woff')
+               format('woff'),
+             url('https://example.org/fonts/icon.ttf')
+               format('truetype'),
+             url('https://example.org/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://example.org/stylesheets/application.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://example.org/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-green palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+      
+      
+        <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using">using</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha">alpha</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/scalar">scalar</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/scalar/boolean">boolean</a>
+            
+            
+        
+          
+            
+        
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/hitchdev" title="@hitchdev on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://example.org/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://example.org/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>HitchDev </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="StrictYAML" href="https://example.org/strictyaml/">
+	
+	StrictYAML
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/hitchdev" target="_blank" title="@hitchdev on GitHub">
+              @hitchdev on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Boolean (Bool) </h1>
+
+			<p>Boolean values can be parsed using a Bool validator.</p>
+
+<p>It case-insensitively interprets &ldquo;yes&rdquo;, &ldquo;true&rdquo;, &ldquo;1&rdquo;, &ldquo;on&rdquo; as &ldquo;True&rdquo;, &ldquo;y&rdquo;
+and their opposites as False.</p>
+
+<p>Different values will trigger a validation error.</p>
+
+<p>When updating boolean values on a YAML object with True or False, the roundtripped
+string version is set to &ldquo;yes&rdquo; and &ldquo;no&rdquo;.</p>
+
+<p>To have your boolean values updated to a different yes/no string, update
+with a string instead - e.g. &ldquo;on&rdquo; or &ldquo;off&rdquo;.</p>
+
+<p>Example yaml_snippet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>yes<span class="w">
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="w"></span>c<span class="p">:</span><span class="w"> </span>on<span class="w">
+</span><span class="w"></span>d<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w"></span>e<span class="p">:</span><span class="w"> </span>True<span class="w">
+</span><span class="w"></span>f<span class="p">:</span><span class="w"> </span>Y<span class="w">
+</span><span class="w">
+</span><span class="w"></span>u<span class="p">:</span><span class="w"> </span>n<span class="w">
+</span><span class="w"></span>v<span class="p">:</span><span class="w"> </span>False<span class="w">
+</span><span class="w"></span>w<span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w"></span>x<span class="p">:</span><span class="w"> </span>Off<span class="w">
+</span><span class="w"></span>y<span class="p">:</span><span class="w"> </span>FALSE<span class="w">
+</span><span class="w"></span>z<span class="p">:</span><span class="w"> </span>no</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">,</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Bool</span><span class="p">())</span></code></pre></div>
+<p>Parse to YAML object:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span>
+    <span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;d&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;e&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;f&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+    <span class="sa"></span><span class="s2">&#34;u&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;v&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;w&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;z&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+<span class="p">})</span></code></pre></div>
+<p>YAML object should resolve to True or False:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)[</span><span class="sa"></span><span class="s2">&#34;w&#34;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span></code></pre></div>
+<p>Using .data you can get the actual boolean value parsed:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">assert</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)[</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="ow">is</span> <span class="bp">True</span></code></pre></div>
+<p>.text returns the text of the boolean YAML:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)[</span><span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;FALSE&#34;</span><span class="p">)</span></code></pre></div>
+<p>Update boolean values with string and bool type:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">yaml</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="n">yaml</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;no&#39;</span>
+<span class="n">yaml</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">yaml</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;c&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">print</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>no<span class="w">
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span>no<span class="w">
+</span><span class="w"></span>c<span class="p">:</span><span class="w"> </span>yes<span class="w">
+</span><span class="w"></span>d<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w"></span>e<span class="p">:</span><span class="w"> </span>True<span class="w">
+</span><span class="w"></span>f<span class="p">:</span><span class="w"> </span>Y<span class="w">
+</span><span class="w">
+</span><span class="w"></span>u<span class="p">:</span><span class="w"> </span>n<span class="w">
+</span><span class="w"></span>v<span class="p">:</span><span class="w"> </span>False<span class="w">
+</span><span class="w"></span>w<span class="p">:</span><span class="w"> </span><span class="m">0</span><span class="w">
+</span><span class="w"></span>x<span class="p">:</span><span class="w"> </span>Off<span class="w">
+</span><span class="w"></span>y<span class="p">:</span><span class="w"> </span>FALSE<span class="w">
+</span><span class="w"></span>z<span class="p">:</span><span class="w"> </span>no</code></pre></div>
+<p>Cannot cast boolean to string:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">str</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)[</span><span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">builtins</span><span class="o">.</span><span class="ne">TypeError</span><span class="p">:</span>
+<span class="n">Cannot</span> <span class="n">cast</span> <span class="sa"></span><span class="s1">&#39;YAML(False)&#39;</span> <span class="n">to</span> <span class="nb">str</span><span class="o">.</span>
+<span class="n">Use</span> <span class="nb">str</span><span class="p">(</span><span class="n">yamlobj</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">yamlobj</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="n">instead</span><span class="o">.</span></code></pre></div>
+<p>Different uninterpretable values raise validation error:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;a: yâs&#39;</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
+<span class="n">when</span> <span class="n">expecting</span> <span class="n">a</span> <span class="n">boolean</span> <span class="n">value</span> <span class="p">(</span><span class="n">one</span> <span class="n">of</span> <span class="sa"></span><span class="s2">&#34;yes&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;true&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;on&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;1&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;no&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;false&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;off&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;0&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;n&#34;</span><span class="p">)</span>
+<span class="n">found</span> <span class="n">arbitrary</span> <span class="n">text</span>
+  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;y</span><span class="se">\xE2</span><span class="s2">s&#34;</span>
+     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Executable specification</p>
+<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/boolean.story">boolean.story</a>.</p>
+</div>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2018 Copyright (C) 2017 &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://example.org/strictyaml/why/care-about-yaml/" title="">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://example.org/strictyaml/using/alpha/howto/build-yaml-document/" title="Build a YAML document from scratch in code">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Build a YAML document from scratch in code
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://example.org/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="https://example.org/javascripts/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

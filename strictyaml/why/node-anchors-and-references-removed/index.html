@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>What is wrong with node anchors and references? - HitchDev</title>
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    
+    <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
+    
+    <link rel="canonical" href="https://example.org/strictyaml/why/node-anchors-and-references-removed/">
+    
+    <meta name="author" content="Colm O&#39;Connor">
+    
+
+    <meta property="og:url" content="https://example.org/strictyaml/why/node-anchors-and-references-removed/">
+    <meta property="og:title" content="HitchDev">
+    <meta property="og:image" content="https://example.org/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="HitchDev">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://example.org/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://example.org/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://example.org/fonts/icon.eot');
+        src: url('https://example.org/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://example.org/fonts/icon.woff')
+               format('woff'),
+             url('https://example.org/fonts/icon.ttf')
+               format('truetype'),
+             url('https://example.org/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://example.org/stylesheets/application.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://example.org/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-green palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+      
+      
+        <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why">why</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why/node-anchors-and-references-removed">node-anchors-and-references-removed</a>
+            
+            
+        
+          
+            
+        
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/hitchdev" title="@hitchdev on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://example.org/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://example.org/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>HitchDev </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="StrictYAML" href="https://example.org/strictyaml/">
+	
+	StrictYAML
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/hitchdev" target="_blank" title="@hitchdev on GitHub">
+              @hitchdev on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>What is wrong with node anchors and references? </h1>
+
+			<p>An example of a snippet of YAML that uses node anchors and references is described on the <a href="https://en.wikipedia.org/wiki/YAML#Advanced_components">YAML wikipedia page</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># sequencer protocols for Laser eye surgery</span><span class="w">
+</span><span class="w"></span>---<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w">  </span>&amp;id<span class="m">001</span><span class="w">                  </span><span class="c"># defines anchor label &amp;id001</span><span class="w">
+</span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.4</span><span class="w">
+</span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">12</span><span class="w">
+</span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">1000</span><span class="w">
+</span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>1mm<span class="w">
+</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span>&amp;id<span class="m">002</span><span class="w">
+</span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.0</span><span class="w">
+</span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">10</span><span class="w">
+</span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">500</span><span class="w">
+</span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>2mm<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span>*id<span class="m">001</span><span class="w">                   </span><span class="c"># refers to the first step (with anchor &amp;id001)</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span>*id<span class="m">002</span><span class="w">                   </span><span class="c"># refers to the second step</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> 
+</span><span class="w">    </span>&lt;&lt;<span class="p">:</span><span class="w"> </span>*id<span class="m">001</span><span class="w">
+</span><span class="w">    </span>spotSize<span class="p">:</span><span class="w"> </span>2mm<span class="w">                </span><span class="c"># redefines just this key, refers rest from &amp;id001</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span>*id<span class="m">002</span></code></pre></div>
+<p>While the intent of the feature is obvious (it lets you deduplicate code), the effect is to make the markup
+more or less unreadable to non-programmers.</p>
+
+<p>The example above could be refactored to be clearly as follows:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># sequencer protocols for Laser eye surgery</span><span class="w">
+</span><span class="w"></span>---<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w">
+</span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.4</span><span class="w">
+</span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">12</span><span class="w">
+</span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">1000</span><span class="w">
+</span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>1mm<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w">
+</span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.0</span><span class="w">
+</span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">10</span><span class="w">
+</span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">500</span><span class="w">
+</span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>2mm<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w">
+</span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.4</span><span class="w">
+</span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">12</span><span class="w">
+</span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">1000</span><span class="w">
+</span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>1mm<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w">
+</span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.0</span><span class="w">
+</span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">10</span><span class="w">
+</span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">500</span><span class="w">
+</span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>2mm<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w">
+</span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.4</span><span class="w">
+</span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">12</span><span class="w">
+</span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">1000</span><span class="w">
+</span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>2mm<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w">
+</span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
+</span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.0</span><span class="w">
+</span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">10</span><span class="w">
+</span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">500</span><span class="w">
+</span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>2mm</code></pre></div>
+<p>While much more repetitive, the intent of the above is <em>so much</em> clearer and easier for non-programmers
+to work with, that it more than compensates for the increased repetition.</p>
+
+<p>While it makes little sense to refactor the above snippet to deduplicate repetitive data it may make
+sense to refactor the <em>structure</em> as it grows larger (and more repetitive). However, there are a number of
+ways this could be done without using YAML&rsquo;s nodes and anchors (e.g. splitting the file into two files -
+step definitions and step sequences), depending on the nature and quantity of the repetitiveness.</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2018 Copyright (C) 2017 &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://example.org/strictyaml/why/implicit-typing-removed/" title="What is wrong with implicit typing?">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              What is wrong with implicit typing?
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://example.org/strictyaml/when-to-use-validators/" title="When should I use a validator and when should I not?">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              When should I use a validator and when should I not?
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://example.org/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="https://example.org/javascripts/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

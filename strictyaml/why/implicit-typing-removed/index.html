@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>What is wrong with implicit typing? - HitchDev</title>
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    
+    <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
+    
+    <link rel="canonical" href="https://example.org/strictyaml/why/implicit-typing-removed/">
+    
+    <meta name="author" content="Colm O&#39;Connor">
+    
+
+    <meta property="og:url" content="https://example.org/strictyaml/why/implicit-typing-removed/">
+    <meta property="og:title" content="HitchDev">
+    <meta property="og:image" content="https://example.org/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="HitchDev">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://example.org/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://example.org/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://example.org/fonts/icon.eot');
+        src: url('https://example.org/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://example.org/fonts/icon.woff')
+               format('woff'),
+             url('https://example.org/fonts/icon.ttf')
+               format('truetype'),
+             url('https://example.org/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://example.org/stylesheets/application.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://example.org/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-green palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+      
+      
+        <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why">why</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why/implicit-typing-removed">implicit-typing-removed</a>
+            
+            
+        
+          
+            
+        
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/hitchdev" title="@hitchdev on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://example.org/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://example.org/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>HitchDev </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="StrictYAML" href="https://example.org/strictyaml/">
+	
+	StrictYAML
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/hitchdev" target="_blank" title="@hitchdev on GitHub">
+              @hitchdev on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>What is wrong with implicit typing? </h1>
+
+			<p>Imagine you are parsing a DSL to represent movie scripts:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">-<span class="w"> </span>Don<span class="w"> </span>Corleone<span class="p">:</span><span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>faith<span class="w"> </span>in<span class="w"> </span>my<span class="w"> </span>judgment<span class="p">?</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>Clemenza<span class="p">:</span><span class="w"> </span>Yes<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>Don<span class="w"> </span>Corleone<span class="p">:</span><span class="w"> </span>Do<span class="w"> </span>I<span class="w"> </span>have<span class="w"> </span>your<span class="w"> </span>loyalty<span class="p">?</span></code></pre></div>
+<p>Parse output of <a href="http://pyyaml.org and ruamel.yaml">pyyaml</a>, <a href="https://bitbucket.org/ruamel/yaml">ruamel.yaml</a> and <a href="https://github.com/hackebrot/poyo">Poyo</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">ruamel.yaml</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_godfather</span><span class="p">)</span>
+<span class="p">[{</span><span class="sa"></span><span class="s1">&#39;Don Corleone&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Do you have faith in my judgement?&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Clemenza&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
+  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Don Corleone&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Do I have your loyalty?&#39;</span><span class="p">},]</span></code></pre></div>
+<p>Wait, Clemenza said what??</p>
+
+<p>Parse output of StrictYAML without validators:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">,</span> <span class="n">Str</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_godfather</span><span class="p">)</span>
+<span class="p">[{</span><span class="sa"></span><span class="s1">&#39;Don Corleone&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Do you have faith in my judgement?&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Clemenza&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Yes&#39;</span><span class="p">},</span>
+  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Don Corleone&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Do I have your loyalty?&#39;</span><span class="p">},]</span></code></pre></div>
+<p>Let&rsquo;s try the Matrix instead:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">-<span class="w"> </span>Morpheus<span class="p">:</span><span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>believe<span class="w"> </span>in<span class="w"> </span>fate<span class="p">,</span><span class="w"> </span>Neo<span class="p">?</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>Neo<span class="p">:</span><span class="w"> </span>No</code></pre></div>
+<p>Parse output from pyyaml, ruamel.yaml and poyo:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_matrix</span><span class="p">)</span> <span class="o">==</span> <span class="p">[{</span><span class="sa"></span><span class="s2">&#34;Morpheus&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;Do you belive in fate, Neo?&#34;</span><span class="p">},</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;Neo&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">}]</span></code></pre></div>
+<p>It isn&rsquo;t just a problem in movie scripts:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">python<span class="p">:</span><span class="w"> </span><span class="m">3.5</span>.<span class="m">3</span><span class="w">
+</span><span class="w"></span>postgres<span class="p">:</span><span class="w"> </span><span class="m">9.3</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span> <span class="o">==</span> <span class="p">[{</span><span class="sa"></span><span class="s2">&#34;python&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.5.3&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;postgres&#34;</span><span class="p">:</span> <span class="mf">9.3</span><span class="p">}]</span>    <span class="c1"># oops those *both* should have been strings</span></code></pre></div>
+<p>It&rsquo;s also makes <a href="http://www.wired.com/2015/11/null">Christopher Null</a> unhappy:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">first<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Christopher<span class="w">
+</span><span class="w"></span>surname<span class="p">:</span><span class="w"> </span>Null</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Is it okay if we just call you Christopher None instead?</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;first name&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;Christopher&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;surname&#34;</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span></code></pre></div>
+<p>In the above cases, implicit typing represents a major violation of <a href="https://en.wikipedia.org/wiki/Principle_of_least_astonishment">the principle of least astonishment</a>.</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2018 Copyright (C) 2017 &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://example.org/strictyaml/why/flow-style-removed/" title="What is wrong with flow style YAML?">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              What is wrong with flow style YAML?
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://example.org/strictyaml/why/node-anchors-and-references-removed/" title="What is wrong with node anchors and references?">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              What is wrong with node anchors and references?
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://example.org/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="https://example.org/javascripts/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

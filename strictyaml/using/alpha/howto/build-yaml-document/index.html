@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>Build a YAML document from scratch in code - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/using/alpha/howto/build-yaml-document/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/using/alpha/howto/build-yaml-document/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,36 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using">using</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha">alpha</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/howto">howto</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/howto/build-yaml-document">build-yaml-document</a>
+            
+            
         
           
             
@@ -207,16 +237,36 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>Build a YAML document from scratch in code </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			<div class="admonition warning">
+<p class="admonition-title">Experimental</p>
+<p>This feature is in alpha. The API may change on a minor version increment.</p>
+</div>
 
-<p>At the moment just one is documented:</p>
+<p>YAML documents can be built from dicts and lists of
+scalar values.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
+<span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">as_document</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 
-<ul>
-<li><a href="strictyaml">StrictYAML</a></li>
-</ul>
+<span class="c1"># Can also use regular dict if an arbitrary ordering is ok</span>
+<span class="n">yaml</span> <span class="o">=</span> <span class="n">as_document</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">(</span>
+    <span class="p">[(</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="bp">True</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])]</span>
+<span class="p">))</span></code></pre></div>
+<p>Then dump:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>yes<span class="w">
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span>hello<span class="w">
+</span><span class="w"></span>c<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="m">3</span></code></pre></div>
+<p>Start line:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">start_line</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
+<p><div class="admonition note">
+<p class="admonition-title">Executable specification</p>
+<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/build-yaml-document-from-scratch.story">build-yaml-document-from-scratch.story</a>.</p>
+</div></p>
 
 
 			<aside class="copyright" role="note">
@@ -235,7 +285,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/using/alpha/scalar/boolean/" title="Boolean (Bool)">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +295,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              Boolean (Bool)
             </div>
           </div>
         </div>
@@ -255,14 +305,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/using/alpha/compound/" title="Compound StrictYAML Validators">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Compound StrictYAML Validators
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

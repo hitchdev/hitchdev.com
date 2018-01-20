@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>Design Justifications - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/why/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/why/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,18 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why">why</a>
+            
+            
         
           
             
@@ -207,16 +219,31 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>Design Justifications </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
-
-<p>At the moment just one is documented:</p>
+			<p>StrictYAML is the result of some carefully considered, although
+controversial design decisions. These are justified here.</p>
 
 <ul>
-<li><a href="strictyaml">StrictYAML</a></li>
+<li><a href="../why/explicit-tags-removed">What is wrong with explicit tags?</a></li>
+<li><a href="../why/syntax-typing-bad">What is wrong with explicit syntax typing in a readable configuration language?</a></li>
+<li><a href="../why/implicit-typing-removed">What is wrong with implicit typing?</a></li>
+<li><a href="../why/flow-style-removed">What is wrong with flow style YAML?</a></li>
+<li><a href="../why/only-parse-strings-not-files">Why does StrictYAML only parse from strings and not files?</a></li>
+<li><a href="../why/duplicate-keys-disallowed">What is wrong with duplicate keys?</a></li>
+<li><a href="../why/binary-data-removed">Why does StrictYAML not parse direct representations of python objects?</a></li>
+<li><a href="../why/node-anchors-and-references-removed">What is wrong with node anchors and references?</a></li>
+<li><a href="../why/turing-complete-schema">Why does StrictYAML make you define a schema in python - a turing complete language?</a></li>
 </ul>
+
+<p>Please feel free to raise
+If you have seen a relevant counterargument to you&rsquo;d like to link
+to addressed at StrictYAML, please create a pull request and
+link to it in the relevant document.</p>
+
+<p>If you&rsquo;d like to write your own rebuttal to any argument raised
+here, raise a ticket and issue a pull request linking to it at
+the end of the document.</p>
 
 
 			<aside class="copyright" role="note">
@@ -235,7 +262,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/using/alpha/scalar/decimal/" title="Decimal numbers (Decimal)">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +272,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              Decimal numbers (Decimal)
             </div>
           </div>
         </div>
@@ -255,14 +282,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/using/alpha/restrictions/disallowed-yaml/" title="Disallowed YAML">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Disallowed YAML
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>Email and URL validators - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/using/alpha/scalar/email-and-url/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/using/alpha/scalar/email-and-url/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,36 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using">using</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha">alpha</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/scalar">scalar</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/scalar/email-and-url">email-and-url</a>
+            
+            
         
           
             
@@ -207,16 +237,27 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>Email and URL validators </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			<p>StrictYAML can validate emails (using a simplified regex) and
+URLs.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Email</span><span class="p">,</span> <span class="n">Url</span><span class="p">,</span> <span class="n">Map</span><span class="p">,</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
-<p>At the moment just one is documented:</p>
-
-<ul>
-<li><a href="strictyaml">StrictYAML</a></li>
-</ul>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Email</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Url</span><span class="p">()})</span></code></pre></div>
+<p>Valid 1:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;billg@microsoft.com&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;http://www.google.com/&#34;</span><span class="p">})</span></code></pre></div>
+<p>Invalid:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
+<span class="n">when</span> <span class="n">expecting</span> <span class="n">an</span> <span class="n">email</span> <span class="n">address</span>
+<span class="n">found</span> <span class="n">non</span><span class="o">-</span><span class="n">matching</span> <span class="n">string</span>
+  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">:</span> <span class="n">notanemail</span>
+     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Executable specification</p>
+<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/email-url.story">email-url.story</a>.</p>
+</div>
 
 
 			<aside class="copyright" role="note">
@@ -235,7 +276,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/using/alpha/howto/either-or-validation/" title="Either/or schema validation of two equally valid different kinds of YAML">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +286,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              Either/or schema validation of two equally valid different kinds of YAML
             </div>
           </div>
         </div>
@@ -255,14 +296,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/using/alpha/scalar/empty/" title="Empty key validation">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Empty key validation
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>Why not HOCON? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/why-not/hocon/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/why-not/hocon/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,24 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not">why-not</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not/hocon">hocon</a>
+            
+            
         
           
             
@@ -207,16 +225,19 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>Why not HOCON? </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			<p><a href="https://github.com/typesafehub/config/blob/master/HOCON.md">HOCON</a> is another &ldquo;redesigned&rdquo; JSON, ironically enough, taking JSON and making it even more complicated.</p>
 
-<p>At the moment just one is documented:</p>
+<p>Along with JSON&rsquo;s <a href="../../why/syntax-typing-bad">syntax typing</a> - a downside of most non-YAML alternatives, HOCON makes the following mistakes in its design:</p>
 
 <ul>
-<li><a href="strictyaml">StrictYAML</a></li>
+<li>It does not fail loudly on duplicate keys.</li>
+<li>It has a confusing rules for deciding on concatenations and substitutions.
+-* It has a mechanism for substitutions similar to YAML&rsquo;s node/anchor feature - which, unless used extremely sparingly, can create confusing markup that, ironically, is <em>not</em> human optimized.</li>
 </ul>
+
+<p>In addition, its attempt at using &ldquo;less pedantic&rdquo; syntax creates a system of rules which makes the behavior of the parser much less obvious and edge cases more frequent.</p>
 
 
 			<aside class="copyright" role="note">
@@ -235,7 +256,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/why/only-parse-strings-not-files/" title="Why does StrictYAML only parse from strings and not files?">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +266,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              Why does StrictYAML only parse from strings and not files?
             </div>
           </div>
         </div>
@@ -255,14 +276,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/why-not/json/" title="Why not JSON for simple configuration files?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Why not JSON for simple configuration files?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

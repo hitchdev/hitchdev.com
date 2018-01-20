@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>Why not use the YAML 2.0 standard? - we don&#39;t need a new standard! - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/why-not/ordinary-yaml/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/why-not/ordinary-yaml/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,24 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not">why-not</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not/ordinary-yaml">ordinary-yaml</a>
+            
+            
         
           
             
@@ -207,15 +225,32 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>Why not use the YAML 2.0 standard? - we don&#39;t need a new standard! </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			<p><img src="http://imgs.xkcd.com/comics/standards.png" alt="Standards" title="Fortnately the configuration one has been solved now that we have Strict uh... wait, no it hasn't..." /></p>
 
-<p>At the moment just one is documented:</p>
+<p>StrictYAML is composed of two parts:</p>
 
 <ul>
-<li><a href="strictyaml">StrictYAML</a></li>
+<li>A new YAML specification which parses a restricted subset of the YAML 2.0 specification and <em>only</em> parse to ordered dict, list or string.</li>
+<li>An optional validator (which will, as requested, validate and cast parse some of those scalar string values to ints, floats, datetimes, etc.).</li>
+</ul>
+
+<p>Note that StrictYAML is <em>not</em> a new standard. If you have a syntax highlighter or editor or anything else that recognizes
+or reads YAML it will recognize StrictYAML in the same way.</p>
+
+<p>While not all YAML output by other programs will be readable by StrictYAML (it is, after all, stricter), a lot will be.</p>
+
+<p>The features removed from the YAML spec, and their rationalels are as follows:</p>
+
+<ul>
+<li><a href="../../why/implicit-typing-removed">Implicit Typing</a></li>
+<li><a href="../../why/binary-data-removed">Direct representations of objects</a></li>
+<li><a href="../../why/explicit-tags-removed">Explicit tags</a></li>
+<li><a href="../../why/node-anchors-and-references-removed">Node anchors and refs</a></li>
+<li><a href="../../why/flow-style-removed">Flow style</a></li>
+<li><a href="../../why/implicit-typing-removed">Implicit Typing</a></li>
+<li><a href="../../why/duplicate-keys-disallowed">Duplicate Keys Disallowed</a></li>
 </ul>
 
 
@@ -235,7 +270,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/why-not/python-schema/" title="Why not use python&#39;s schema library for validation?">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +280,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              Why not use python&#39;s schema library for validation?
             </div>
           </div>
         </div>
@@ -255,14 +290,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/why-not/turing-complete-code/" title="Why shouldn&#39;t I just use python code for configuration?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Why shouldn&#39;t I just use python code for configuration?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

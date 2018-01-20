@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>Duplicate keys - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/using/alpha/restrictions/duplicate-keys/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/using/alpha/restrictions/duplicate-keys/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,36 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using">using</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha">alpha</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/restrictions">restrictions</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/restrictions/duplicate-keys">duplicate-keys</a>
+            
+            
         
           
             
@@ -207,16 +237,44 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>Duplicate keys </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			<p>Duplicate keys are allowed in regular YAML - as parsed by pyyaml, ruamel.yaml and poyo:</p>
 
-<p>At the moment just one is documented:</p>
+<p>Not only is it unclear whether x should be &ldquo;cow&rdquo; or &ldquo;bull&rdquo; (the parser will decide &lsquo;bull&rsquo;, but did you know that?),
+if there are 200 lines between x: cow and x: bull, a user might very likely change the <em>first</em> x and erroneously believe
+that the resulting value of x has been changed - when it has not.</p>
 
-<ul>
-<li><a href="strictyaml">StrictYAML</a></li>
-</ul>
+<p>In order to avoid all possible confusion, StrictYAML will simply refuse to parse this and will only accept associative
+arrays where all of the keys are unique. It will throw a DuplicateKeysDisallowed exception.</p>
+
+<p>Example yaml_snippet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>cow<span class="w">
+</span><span class="w"></span>a<span class="p">:</span><span class="w"> </span>bull</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span><span class="p">,</span> <span class="n">DuplicateKeysDisallowed</span></code></pre></div>
+<p>Nameless exception:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">DuplicateKeysDisallowed</span><span class="p">:</span>
+<span class="n">While</span> <span class="n">parsing</span>
+  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">:</span> <span class="n">bull</span>
+    <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Duplicate</span> <span class="n">key</span> <span class="sa"></span><span class="s1">&#39;a&#39;</span> <span class="n">found</span>
+  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">:</span> <span class="n">bull</span>
+     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span></code></pre></div>
+<p>Named exception:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;mylabel&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">DuplicateKeysDisallowed</span><span class="p">:</span>
+<span class="n">While</span> <span class="n">parsing</span>
+  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;mylabel&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">:</span> <span class="n">bull</span>
+    <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">Duplicate</span> <span class="n">key</span> <span class="sa"></span><span class="s1">&#39;a&#39;</span> <span class="n">found</span>
+  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;mylabel&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">:</span> <span class="n">bull</span>
+     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Executable specification</p>
+<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/duplicatekeys.story">duplicatekeys.story</a>.</p>
+</div>
 
 
 			<aside class="copyright" role="note">
@@ -235,7 +293,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/using/alpha/restrictions/disallowed-yaml/" title="Disallowed YAML">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +303,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              Disallowed YAML
             </div>
           </div>
         </div>
@@ -255,14 +313,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/using/alpha/compound/either-or-validation/" title="Either/Or validation">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Either/Or validation
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

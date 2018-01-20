@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>Parsing YAML without a schema - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/using/alpha/howto/without-a-schema/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/using/alpha/howto/without-a-schema/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,36 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using">using</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha">alpha</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/howto">howto</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/howto/without-a-schema">without-a-schema</a>
+            
+            
         
           
             
@@ -207,16 +237,38 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>Parsing YAML without a schema </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			<p>When using strictyaml you do not have to specify a schema. If
+you do this, the validator &ldquo;Any&rdquo; is used which will accept any
+mapping and any list and any scalar values (which will always be
+interpreted as a string, unlike regular YAML).</p>
 
-<p>At the moment just one is documented:</p>
+<p>This is the recommended approach when rapidly prototyping and the
+desired schema is fluid.</p>
 
-<ul>
-<li><a href="strictyaml">StrictYAML</a></li>
-</ul>
+<p>When your prototype code is parsing YAML that has a more fixed
+structure, we recommend that you &lsquo;lock it down&rsquo; with a schema.</p>
+
+<p>The Any validator can be used inside fixed structures as well.</p>
+
+<p>Example yaml_snippet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w">
+</span><span class="w">  </span>x<span class="p">:</span><span class="w"> </span><span class="m">9</span><span class="w">
+</span><span class="w">  </span>y<span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w"></span>c<span class="p">:</span><span class="w"> </span><span class="m">3</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">,</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span></code></pre></div>
+<p>Parse without validator:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;9&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;8&#34;</span><span class="p">},</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;2&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3&#34;</span><span class="p">})</span></code></pre></div>
+<p>Parse with any validator - equivalent:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">Any</span><span class="p">()))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;9&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;8&#34;</span><span class="p">},</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;2&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3&#34;</span><span class="p">})</span></code></pre></div>
+<p>Fix higher levels of schema:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Any</span><span class="p">())))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;9&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;8&#34;</span><span class="p">},</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;2&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3&#34;</span><span class="p">})</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Executable specification</p>
+<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/non-schema-validation.story">non-schema-validation.story</a>.</p>
+</div>
 
 
 			<aside class="copyright" role="note">
@@ -235,7 +287,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/using/alpha/howto/merge-yaml-documents/" title="Merge YAML documents">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +297,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              Merge YAML documents
             </div>
           </div>
         </div>
@@ -255,14 +307,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/using/alpha/scalar/comma-separated/" title="Parsing comma separated items (CommaSeparated)">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Parsing comma separated items (CommaSeparated)
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

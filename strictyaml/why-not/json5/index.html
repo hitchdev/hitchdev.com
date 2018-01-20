@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>Why not JSON5? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/why-not/json5/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/why-not/json5/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,24 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not">why-not</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not/json5">json5</a>
+            
+            
         
           
             
@@ -207,15 +225,26 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>Why not JSON5? </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			<p><a href="http://json5.org/">JSON5</a> is also a proposed extension to JSON to make it more readable.</p>
 
-<p>At the moment just one is documented:</p>
+<p>Its main criticism of YAML is::</p>
+
+<p>There are other formats that are human-friendlier, like YAML, but changing from JSON to a completely different format is undesirable in many cases.</p>
+
+<p>This is, I belive, mistaken. It is better if a language is not subtly different if you are going to use it as such. Subtle differences invite mistakes brought on by confusion.</p>
+
+<p>JSON5 looks like a hybrid of YAML and JSON::</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span>
+    <span class="err">foo:</span> <span class="err">&#39;bar&#39;,</span>
+    <span class="err">while:</span> <span class="err">true,</span>
+<span class="p">}</span></code></pre></div>
+<p>It has weaknesses similar to TOML:</p>
 
 <ul>
-<li><a href="strictyaml">StrictYAML</a></li>
+<li>The noisiness of the delimiters that supplant significant whitespace make it less readable and editable.</li>
+<li>The use of <a href="../../why/syntax-typing-bad">syntax typing</a> is neither necessary, nor an aid to stricter typing if you have a schema.</li>
 </ul>
 
 
@@ -235,7 +264,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/why-not/json/" title="Why not JSON for simple configuration files?">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +274,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              Why not JSON for simple configuration files?
             </div>
           </div>
         </div>
@@ -255,14 +284,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/why-not/" title="Why not X?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Why not X?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

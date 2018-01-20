@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>What is wrong with flow style YAML? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/why/flow-style-removed/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/why/flow-style-removed/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,24 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why">why</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why/flow-style-removed">flow-style-removed</a>
+            
+            
         
           
             
@@ -207,15 +225,26 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>What is wrong with flow style YAML? </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			
 
-<p>At the moment just one is documented:</p>
+<p>Flow style is essentially JSON embedded in YAML - making use of curly { } and square brackets to denote lists and mappings.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span>{c<span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span>d<span class="p">:</span><span class="w"> </span><span class="m">4</span>}</code></pre></div>
+<p>This use of JSONesque { and } is also ugly and hampers readability - <em>especially</em> when { and } are used for other purposes (e.g. templating) and the human reader/writer of YAML has to give themselves a headache figuring out what <em>kind</em> of curly bracket it is.</p>
+
+<p>The <em>first</em> question in the FAQ of pyyaml actually subtly indicates that this feature wasn&rsquo;t a good idea - see &ldquo;<a href="http://pyyaml.org/wiki/PyYAMLDocumentation#Dictionarieswithoutnestedcollectionsarenotdumpedcorrectly">why does my YAML look wrong?</a>&rdquo;.</p>
+
+<p>To take a real life example, use of flow style in <a href="https://github.com/saltstack-formulas/mysql-formula/blob/master/mysql/server.sls#L27">this saltstack YAML definition</a> which blurs the distinction between flow style and jinja2,
+confusing the reader.</p>
+
+<h2 id="counterarguments">Counterarguments</h2>
 
 <ul>
-<li><a href="strictyaml">StrictYAML</a></li>
+<li><a href="https://github.com/crdoconnor/strictyaml/issues/20">https://github.com/crdoconnor/strictyaml/issues/20</a></li>
 </ul>
 
 
@@ -235,7 +264,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/why/explicit-tags-removed/" title="What is wrong with explicit tags?">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +274,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              What is wrong with explicit tags?
             </div>
           </div>
         </div>
@@ -255,14 +284,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/why/implicit-typing-removed/" title="What is wrong with implicit typing?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              What is wrong with implicit typing?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

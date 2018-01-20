@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Get line numbers of YAML elements - HitchDev</title>
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    
+    <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
+    
+    <link rel="canonical" href="https://example.org/strictyaml/using/alpha/howto/what-line/">
+    
+    <meta name="author" content="Colm O&#39;Connor">
+    
+
+    <meta property="og:url" content="https://example.org/strictyaml/using/alpha/howto/what-line/">
+    <meta property="og:title" content="HitchDev">
+    <meta property="og:image" content="https://example.org/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="HitchDev">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://example.org/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://example.org/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://example.org/fonts/icon.eot');
+        src: url('https://example.org/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://example.org/fonts/icon.woff')
+               format('woff'),
+             url('https://example.org/fonts/icon.ttf')
+               format('truetype'),
+             url('https://example.org/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://example.org/stylesheets/application.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://example.org/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://example.org/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-green palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+      
+      
+        <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using">using</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha">alpha</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/howto">howto</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/using/alpha/howto/what-line">what-line</a>
+            
+            
+        
+          
+            
+        
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/hitchdev" title="@hitchdev on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://example.org/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://example.org/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>HitchDev </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="StrictYAML" href="https://example.org/strictyaml/">
+	
+	StrictYAML
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/hitchdev" target="_blank" title="@hitchdev on GitHub">
+              @hitchdev on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Get line numbers of YAML elements </h1>
+
+			<p>Line numbers, the text of an item and text of surrounding lines
+can be grabbed from returned YAML objects - using .start_line,
+.end_line, lines(), lines_before(x) and lines_after(x).</p>
+
+<p>Example yaml_snippet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">y<span class="p">:</span><span class="w"> </span>p<span class="w">
+</span><span class="w"></span><span class="c"># Some comment</span><span class="w">
+</span><span class="w">    
+</span><span class="w"></span>a<span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">  x</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Another comment</span><span class="w">
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span>y<span class="w">
+</span><span class="w"></span>c<span class="p">:</span><span class="w"> </span>a<span class="w">
+</span><span class="w">
+</span><span class="w"></span>d<span class="p">:</span><span class="w"> </span>b</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">YAMLValidationError</span><span class="p">,</span> <span class="n">load</span>
+<span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;d&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()})</span>
+
+<span class="n">snippet</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div>
+<p>If there is preceding comment for an item the start line includes it:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">snippet</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">start_line</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">Ensure</span><span class="p">(</span><span class="n">snippet</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;d&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">start_line</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span></code></pre></div>
+<p>If there is a trailing comment the end line includes it:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">snippet</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">end_line</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">Ensure</span><span class="p">(</span><span class="n">snippet</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;d&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">end_line</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code></pre></div>
+<p>You can grab the start line of a key:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">snippet</span><span class="o">.</span><span class="n">keys</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">start_line</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span></code></pre></div>
+<p>Start line and end line of whole snippet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">snippet</span><span class="o">.</span><span class="n">start_line</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Ensure</span><span class="p">(</span><span class="n">snippet</span><span class="o">.</span><span class="n">end_line</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span></code></pre></div>
+<p>Grabbing a line before an item:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">snippet</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lines_before</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;y: p&#34;</span><span class="p">)</span></code></pre></div>
+<p>Grabbing a line after an item:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">snippet</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lines_after</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;b: y</span><span class="se">\n</span><span class="s2">c: a</span><span class="se">\n\n</span><span class="s2">d: b&#34;</span><span class="p">)</span></code></pre></div>
+<p>Grabbing the lines of an item including comments before and after:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)[</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lines</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Some comment</span><span class="w">
+</span><span class="w"></span>a<span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">  x</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="c"># Another comment</span></code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Executable specification</p>
+<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/whatline.story">whatline.story</a>.</p>
+</div>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2018 Copyright (C) 2017 &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://example.org/strictyaml/using/alpha/scalar/float/" title="Floating point numbers (Float)">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Floating point numbers (Float)
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://example.org/" title="HitchDev">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              HitchDev
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://example.org/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="https://example.org/javascripts/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

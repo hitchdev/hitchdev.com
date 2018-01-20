@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title> - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/why-not/syntax-typing/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/why-not/syntax-typing/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,24 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not">why-not</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not/syntax-typing">syntax-typing</a>
+            
+            
         
           
             
@@ -207,16 +225,55 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1> </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			
 
-<p>At the moment just one is documented:</p>
+<h2 id="what-is-wrong-with-explicit-syntax-typing-in-a-readable-configuration-languages">What is wrong with explicit syntax typing in a readable configuration languages?</h2>
+
+<p>Explicit syntax typing is the process of using syntax to define types in markup. So, for instance in JSON, quotation marks are used to define name as a string and age as a number:</p>
+
+<p>.. code-block:: json</p>
+
+<p>{&ldquo;name&rdquo;: &ldquo;Arthur Dent&rdquo;, &ldquo;age&rdquo;: 42}</p>
+
+<p>This helps distinguish the types for the parser, which is useful for JSON, but it also comes with two disadvantages:</p>
 
 <ul>
-<li><a href="strictyaml">StrictYAML</a></li>
+<li>The distinction is subtle and not particularly clear to <em>non-programmers</em>, who will not necessarily understand that a directive needs to be given to the parser to avoid it being misinterpreted.</li>
+<li>It&rsquo;s not necessary if the type structure is maintained outside of the markup.</li>
+<li>Verbosity - two extra characters per string makes the markup longer and noisier.</li>
 </ul>
+
+<p>In JSON when being used as a REST API, syntax typing is often an <em>advantage</em> - it is explicit to the machine reading the JSON that &ldquo;string&rdquo; and &ldquo;age&rdquo; is an integer and it can convert accordingly <em>in the absence of a schema</em>.</p>
+
+<p>StrictYAML assumes all values are strings unless the schema explicitly indicates otherwise (e.g. Map(Int(), Int())).</p>
+
+<p>StrictYAML does not require quotation marks for strings that are implicitly converted to other types (e.g. yes or 1.5), but it does require quotation marks for strings that are syntactically confusing (e.g. &ldquo;{ text in curly brackets }&rdquo;)</p>
+
+<p>Regular YAML has explicit <code>syntax typing &lt;https://github.com/crdoconnor/strictyaml/blob/master/FAQ.rst#whats-wrong-with-syntax-typing-in-a-readable-configuration-language&gt;</code>_
+to explicitly declare strings, although it&rsquo;s confusing as hell to know when it&rsquo;s required and when it is not. For example::</p>
+
+<p>a: text               # not necessary
+  b: &ldquo;yes&rdquo;              # necessary
+  c: &ldquo;0&rdquo;                # necessary
+  d: &ldquo;3.5&rdquo;              # necessary
+  e: in                 # not necssary
+  f: out                # not necesary
+  g: shake it all about # not necessary
+  h: &ldquo;on&rdquo;               # necessary</p>
+
+<p>Several other configuration language formats also have syntax typing in lieu of schemas. They are:</p>
+
+<ul>
+<li>TOML</li>
+<li>JSON5</li>
+<li>HJSON</li>
+<li>SDLang</li>
+<li>HOCON</li>
+</ul>
+
+<p>INI does not.</p>
 
 
 			<aside class="copyright" role="note">
@@ -235,7 +292,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/new-faq/" title="">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +302,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              
             </div>
           </div>
         </div>
@@ -255,14 +312,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/why/care-about-yaml/" title="">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

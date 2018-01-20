@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchDev - HitchDev</title>
+    <title>Why not use TOML? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://example.org/">
+    <link rel="canonical" href="https://example.org/strictyaml/why-not/toml/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://example.org/">
+    <meta property="og:url" content="https://example.org/strictyaml/why-not/toml/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://example.org/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -97,6 +97,24 @@
       
       
         <a style="display:unset;" href="https://example.org/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml">strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not">why-not</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://example.org/strictyaml/why-not/toml">toml</a>
+            
+            
         
           
             
@@ -207,16 +225,54 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchDev </h1>
+			<h1>Why not use TOML? </h1>
 
-			<p>HitchDev is a group of small, self contained open source dogfooded python
-libraries.</p>
+			<p><a href="https://github.com/toml-lang/toml">TOML</a> is a redesigned configuration language that&rsquo;s essentially an extended version of INI which
+allows the expression of both hierarchical and typed data.</p>
 
-<p>At the moment just one is documented:</p>
+<p>TOML&rsquo;s main criticism of YAML is spot on::</p>
 
-<ul>
-<li><a href="strictyaml">StrictYAML</a></li>
-</ul>
+<p>TOML aims for simplicity, a goal which is not apparent in the YAML specification.</p>
+
+<p>StrictYAML&rsquo;s cut down version of the YAML specification however - with implicit typing, node anchors/references and flow style cut out,
+ends up being simpler than TOML.</p>
+
+<p>The main complication in TOML is its inconsistency in how it handles tables and arrays. For example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="c"># not clear that this is an array</span>
+<span class="p">[[</span><span class="nx">tables</span><span class="p">]]</span>
+<span class="nx">foo</span> <span class="p">=</span> <span class="s2">&#34;foo&#34;</span></code></pre></div>
+<p>Similarly, all arrays have the type <code>array</code>. So even though arrays are homogenous in TOML, you can oddly do:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">array</span> <span class="p">=</span> <span class="p">[[</span><span class="s2">&#34;foo&#34;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+
+<span class="c"># but not</span>
+<span class="nx">array</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;foo&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span></code></pre></div>
+<p>TOML&rsquo;s use of special characters for delimiters instead of whitespace like YAML makes the resulting output noiser and harder for humans
+to parse. Here&rsquo;s an example from the TOML site:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[[</span><span class="nx">fruit</span><span class="p">]]</span>
+<span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;apple&#34;</span>
+
+<span class="p">[</span><span class="nx">fruit</span><span class="p">.</span><span class="nx">physical</span><span class="p">]</span>
+<span class="nx">color</span> <span class="p">=</span> <span class="s2">&#34;red&#34;</span>
+<span class="nx">shape</span> <span class="p">=</span> <span class="s2">&#34;round&#34;</span></code></pre></div>
+<p>Equivalent YAML:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">fruit<span class="p">:</span><span class="w">
+</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>apple<span class="w">
+</span><span class="w">  </span>physical<span class="p">:</span><span class="w">
+</span><span class="w">    </span>color<span class="p">:</span><span class="w"> </span>red<span class="w">
+</span><span class="w">    </span>shape<span class="p">:</span><span class="w"> </span>round</code></pre></div>
+<p>It also embeds type information used by the parser into the syntax:</p>
+<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">flt2</span> <span class="p">=</span> <span class="mf">3.1415</span>
+<span class="nx">string</span> <span class="p">=</span> <span class="s2">&#34;hello&#34;</span></code></pre></div>
+<p>Whereas strictyaml:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">flt<span class="m">2</span><span class="p">:</span><span class="w"> </span><span class="m">3.1415</span><span class="w">
+</span><span class="w"></span>string<span class="p">:</span><span class="w"> </span>hello</code></pre></div>
+<p>Will yield this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+<span class="p">{</span><span class="sa"></span><span class="s2">&#34;flt2&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.1415&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">}</span></code></pre></div>
+<p>Or this:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">,</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;flt2&#34;</span><span class="p">:</span> <span class="n">Float</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()}))</span><span class="o">.</span><span class="n">data</span>
+<span class="p">{</span><span class="sa"></span><span class="s2">&#34;flt&#34;</span><span class="p">:</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">}</span></code></pre></div>
+<p>This not only eliminates the need for <a href="https://github.com/crdoconnor/strictyaml/blob/master/FAQ.rst#what-is-wrong-with-explicit-syntax-typing-in-a-readable-configuration-languages">syntax typing</a>, it adds more type safety.</p>
 
 
 			<aside class="copyright" role="note">
@@ -235,7 +291,7 @@ libraries.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/what-line/" title="Get line numbers of YAML elements">
+      <a href="https://example.org/strictyaml/why-not/sdlang/" title="Why not use SDLang?">
         <span class="direction">
           Previous
         </span>
@@ -245,7 +301,7 @@ libraries.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Get line numbers of YAML elements
+              Why not use SDLang?
             </div>
           </div>
         </div>
@@ -255,14 +311,14 @@ libraries.</p>
 
   <div class="next">
   
-      <a href="https://example.org/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://example.org/strictyaml/why-not/xml/" title="Why not use XML for configuration or DSLs?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Why not use XML for configuration or DSLs?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
