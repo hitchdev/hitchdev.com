@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Principles on HitchDev</title>
+    <link>http://hitchdev.com/principles/</link>
+    <description>Recent content in Principles on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (C) 2017</copyright>
+    
+	<atom:link href="http://hitchdev.com/principles/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Commit messages and their meanings</title>
+      <link>http://hitchdev.com/principles/commits/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hitchdev.com/principles/commits/</guid>
+      <description>Each commit message takes the form TYPE : Message.
+These messages are, in a sense, alpha. They take effect on March 1st, 2018:
+TOOLING Changes to the tooling code. No changes to actual code of the project.
+Changes to project code : no
+DOCS Changes to documentation page or documentation template.
+Changes to project code : no
+STORY Refactoring of an existing story, its metadata, names, etc.
+Changes to project code : no</description>
+    </item>
+    
+    <item>
+      <title>Principles of HitchDev</title>
+      <link>http://hitchdev.com/principles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hitchdev.com/principles/</guid>
+      <description>Documented principles of HitchDev:
+HitchDev project conventions:
+ Commit messages  Coding standards (still TODO):
+ Write the least code possible Loose coupling Rule of least expressive power Fail fast and fail clearly One step tooling High cohesion Deterministic code Code consistency Disambiguated, clearly defined names and accurate metaphors.  </description>
+    </item>
+    
+  </channel>
+</rss>

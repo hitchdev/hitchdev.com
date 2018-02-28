@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Validating strings with regexes (Regex) - HitchDev</title>
+    <title>Principles of HitchDev - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="http://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/">
+    <link rel="canonical" href="http://hitchdev.com/principles/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="http://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/">
+    <meta property="og:url" content="http://hitchdev.com/principles/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="http://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,31 +100,7 @@
         
           
             
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml">strictyaml</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/using">using</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/using/alpha">alpha</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/using/alpha/scalar">scalar</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions">regular-expressions</a>
+            / <a style="display:unset;" href="http://hitchdev.com/principles">principles</a>
             
             
         
@@ -237,30 +213,29 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Validating strings with regexes (Regex) </h1>
+			<h1>Principles of HitchDev </h1>
 
-			<p>StrictYAML can validate regular expressions and return a
-string. If the regular expression does not match, an
-exception is raised.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Regex</span><span class="p">,</span> <span class="n">Map</span><span class="p">,</span> <span class="n">load</span>
-<span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
+			<p>Documented principles of HitchDev:</p>
 
-<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Regex</span><span class="p">(</span><span class="sa">u</span><span class="s2">&#34;[1-4]&#34;</span><span class="p">),</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Regex</span><span class="p">(</span><span class="sa">u</span><span class="s2">&#34;[5-9]&#34;</span><span class="p">)})</span></code></pre></div>
-<p>Parsed correctly:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">5</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;1&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;5&#34;</span><span class="p">})</span></code></pre></div>
-<p>Non-matching:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">5</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
-<span class="n">when</span> <span class="n">expecting</span> <span class="n">string</span> <span class="n">matching</span> <span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">found</span> <span class="n">non</span><span class="o">-</span><span class="n">matching</span> <span class="n">string</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">a</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;5&#39;</span>
-     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Executable specification</p>
-<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/regexp.story">regexp.story</a>.</p>
-</div>
+<p>HitchDev project conventions:</p>
+
+<ul>
+<li><a href="commits">Commit messages</a></li>
+</ul>
+
+<p>Coding standards (still TODO):</p>
+
+<ol>
+<li>Write the least code possible</li>
+<li>Loose coupling</li>
+<li>Rule of least expressive power</li>
+<li>Fail fast and fail clearly</li>
+<li>One step tooling</li>
+<li>High cohesion</li>
+<li>Deterministic code</li>
+<li>Code consistency</li>
+<li>Disambiguated, clearly defined names and accurate metaphors.</li>
+</ol>
 
 
 			<aside class="copyright" role="note">
@@ -279,7 +254,7 @@ exception is raised.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://hitchdev.com/strictyaml/using/alpha/compound/optional-keys/" title="Validating optional keys in mappings (Map)">
+      <a href="http://hitchdev.com/strictyaml/using/alpha/scalar/string/" title="Parsing strings (Str)">
         <span class="direction">
           Previous
         </span>
@@ -289,7 +264,7 @@ exception is raised.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Validating optional keys in mappings (Map)
+              Parsing strings (Str)
             </div>
           </div>
         </div>
@@ -299,14 +274,14 @@ exception is raised.</p>
 
   <div class="next">
   
-      <a href="http://hitchdev.com/strictyaml/features-removed/" title="What YAML features does StrictYAML remove?">
+      <a href="http://hitchdev.com/strictyaml/using/alpha/howto/roundtripping/" title="Reading in YAML, editing it and writing it back out">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              What YAML features does StrictYAML remove?
+              Reading in YAML, editing it and writing it back out
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

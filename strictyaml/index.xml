@@ -179,8 +179,8 @@ Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: False}) Int seco
       <description>StrictYAML can be directed to parse two different elements or blocks of YAML.
 If the first thing does not parse correctly, it attempts to parse the second. If the second does not parse correctly, it raises an exception.
 from strictyaml import Map, Bool, Int, YAMLValidationError, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Bool() | Int()}) Boolean first choice true:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: True}) Boolean first choice false:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: False}) Int second choice:</description>
+a:yesEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: True}) Boolean first choice false:
+a:noEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: False}) Int second choice:</description>
     </item>
     
     <item>
@@ -191,8 +191,8 @@ Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: False}) Int seco
       <guid>http://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</guid>
       <description>StrictYAML can validate emails (using a simplified regex) and URLs.
 from strictyaml import Email, Url, Map, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Email(), &amp;#34;b&amp;#34;: Url()}) Valid 1:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;billg@microsoft.com&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;http://www.google.com/&amp;#34;}) Invalid:
-load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting an email address found non-matching string in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: notanemail ^ (line: 1) Executable specification
+a:billg@microsoft.comb:http://www.google.com/Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;billg@microsoft.com&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;http://www.google.com/&amp;#34;}) Invalid:
+a:notanemailb:notaurlload(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting an email address found non-matching string in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: notanemail ^ (line: 1) Executable specification
 Page automatically generated from email-url.story.
  </description>
     </item>
@@ -219,8 +219,8 @@ Ensure(load(yaml_snippet, Map({&amp;#34;a&amp;#34;: EmptyNone() | Enum([&amp;#34
       <description>StrictYAML allows you to ensure that a scalar value can only be one of a set number of items.
 It will throw an exception if any strings not in the list are found.
 from strictyaml import Map, Enum, MapPattern, YAMLValidationError, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Enum([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;, &amp;#34;C&amp;#34;])}) Valid because it contains &amp;lsquo;A&amp;rsquo;:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;A&amp;#34;}) Valid because it contains &amp;lsquo;B&amp;rsquo;:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;B&amp;#34;}) Valid because it contains &amp;lsquo;C&amp;rsquo;:</description>
+a:AEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;A&amp;#34;}) Valid because it contains &amp;lsquo;B&amp;rsquo;:
+a:BEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;B&amp;#34;}) Valid because it contains &amp;lsquo;C&amp;rsquo;:</description>
     </item>
     
     <item>
@@ -231,8 +231,8 @@ Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;B&amp;#
       <guid>http://hitchdev.com/strictyaml/using/alpha/compound/fixed-length-sequences/</guid>
       <description>Sequences of fixed length can be validated with a series of different (or the same) types.
 from strictyaml import FixedSeq, Str, Map, Int, Float, YAMLValidationError, load from ensure import Ensure schema = FixedSeq([Int(), Map({&amp;#34;x&amp;#34;: Str()}), Float()]) Equivalent list:
-Ensure(load(yaml_snippet, schema)).equals([1, {&amp;#34;x&amp;#34;: &amp;#34;5&amp;#34;}, 2.5, ]) Invalid list 1:
-load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting a sequence of 3 elements in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: &amp;#39;1&amp;#39; ^ (line: 1) found a mapping in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 3, column 1: c: &amp;#39;3&amp;#39; ^ (line: 3) Invalid list 2:</description>
+-1-x:5-2.5Ensure(load(yaml_snippet, schema)).equals([1, {&amp;#34;x&amp;#34;: &amp;#34;5&amp;#34;}, 2.5, ]) Invalid list 1:
+a:1b:2c:3load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting a sequence of 3 elements in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: &amp;#39;1&amp;#39; ^ (line: 1) found a mapping in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 3, column 1: c: &amp;#39;3&amp;#39; ^ (line: 3) Invalid list 2:</description>
     </item>
     
     <item>
@@ -316,8 +316,8 @@ Name:UnitedKingdomcountry-code:GBDIALCODE:+44officiallanguages:-English-Welshfro
       <description>When you do not wish to let the user define the key names in a mapping and and only specify what type the keys are, use a MapPattern.
 When you wish to specify the exact key name, use the &amp;lsquo;Map&amp;rsquo; validator instead.
 from strictyaml import MapPattern, Int, Str, YAMLValidationError, load from ensure import Ensure schema = MapPattern(Str(), Int()) Equivalence 1:
-Ensure(load(yaml_snippet, schema)).equals({u&amp;#34;â&amp;#34;: 1, &amp;#34;b&amp;#34;: 2}) Equivalence 2:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;c&amp;#34;: 3}) Equivalence 3:</description>
+â:1b:2Ensure(load(yaml_snippet, schema)).equals({u&amp;#34;â&amp;#34;: 1, &amp;#34;b&amp;#34;: 2}) Equivalence 2:
+a:1c:3Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;c&amp;#34;: 3}) Equivalence 3:</description>
     </item>
     
     <item>
@@ -365,9 +365,9 @@ When your prototype code is parsing YAML that has a more fixed structure, we rec
       <description>Comma-separated values can be validated and parsed using the CommaSeparated validator.
 Note that the space following the commas is stripped by default when parsed.
 from strictyaml import CommaSeparated, Int, Str, Map, load from ensure import Ensure int_schema = Map({&amp;#34;a&amp;#34;: CommaSeparated(Int())}) str_schema = Map({&amp;#34;a&amp;#34;: CommaSeparated(Str())}) Parse as int:
-Ensure(load(yaml_snippet, int_schema)).equals({&amp;#34;a&amp;#34;: [1, 2, 3]}) Parse as string:
-Ensure(load(yaml_snippet, str_schema)).equals({&amp;#34;a&amp;#34;: [&amp;#34;1&amp;#34;, &amp;#34;2&amp;#34;, &amp;#34;3&amp;#34;]}) Invalid int comma separated sequence:
-load(yaml_snippet, int_schema)strictyaml.exceptions.YAMLValidationError: when expecting an integer in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 2, column 1: ^ (line: 2) found arbitrary text in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: 1, x, 3 ^ (line: 1) Executable specification</description>
+a:1,2,3Ensure(load(yaml_snippet, int_schema)).equals({&amp;#34;a&amp;#34;: [1, 2, 3]}) Parse as string:
+a:1,2,3Ensure(load(yaml_snippet, str_schema)).equals({&amp;#34;a&amp;#34;: [&amp;#34;1&amp;#34;, &amp;#34;2&amp;#34;, &amp;#34;3&amp;#34;]}) Invalid int comma separated sequence:
+a:1,x,3load(yaml_snippet, int_schema)strictyaml.exceptions.YAMLValidationError: when expecting an integer in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 2, column 1: ^ (line: 2) found arbitrary text in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: 1, x, 3 ^ (line: 1) Executable specification</description>
     </item>
     
     <item>
@@ -440,8 +440,8 @@ assert load(yaml_snippet, Seq(Str())).is_sequence() .</description>
 Example yaml_snippet:
 -A-B-Cfrom strictyaml import UniqueSeq, Str, load from ensure import Ensure schema = UniqueSeq(Str()) Valid:
 Ensure(load(yaml_snippet, schema)).equals([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;, &amp;#34;C&amp;#34;, ]) One dupe:
-load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: while parsing a sequence in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: - A ^ (line: 1) duplicate found in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 3, column 1: - B ^ (line: 3) All dupes:
-load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: while parsing a sequence in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: - &amp;#39;3&amp;#39; ^ (line: 1) duplicate found in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 3, column 1: - &amp;#39;3&amp;#39; ^ (line: 3) Executable specification</description>
+-A-B-Bload(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: while parsing a sequence in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: - A ^ (line: 1) duplicate found in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 3, column 1: - B ^ (line: 3) All dupes:
+-3-3-3load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: while parsing a sequence in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: - &amp;#39;3&amp;#39; ^ (line: 1) duplicate found in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 3, column 1: - &amp;#39;3&amp;#39; ^ (line: 3) Executable specification</description>
     </item>
     
     <item>
@@ -512,9 +512,9 @@ To retrieve the equivalent dict (containing just other dicts, lists and strings/
       <guid>http://hitchdev.com/strictyaml/using/alpha/compound/optional-keys/</guid>
       <description>Not every key in a YAML mapping will be required. If you use the &amp;ldquo;Optional(&amp;lsquo;key&amp;rsquo;)&amp;rdquo; validator with YAML, you can signal that a key/value pair is not required.
 from strictyaml import Map, Int, Str, Bool, Optional, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), Optional(&amp;#34;b&amp;#34;): Bool(), }) Valid example 1:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;b&amp;#34;: True}) Valid example 2:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;b&amp;#34;: False}) Valid example missing key:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: 1}) Invalid 1:</description>
+a:1b:yesEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;b&amp;#34;: True}) Valid example 2:
+a:1b:noEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;b&amp;#34;: False}) Valid example missing key:
+a:1Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: 1}) Invalid 1:</description>
     </item>
     
     <item>
@@ -525,8 +525,8 @@ Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: 1}) Invalid 1:</
       <guid>http://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/</guid>
       <description>StrictYAML can validate regular expressions and return a string. If the regular expression does not match, an exception is raised.
 from strictyaml import Regex, Map, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Regex(u&amp;#34;[1-4]&amp;#34;), &amp;#34;b&amp;#34;: Regex(u&amp;#34;[5-9]&amp;#34;)}) Parsed correctly:
-Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;5&amp;#34;}) Non-matching:
-load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting string matching [1-4] found non-matching string in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: &amp;#39;5&amp;#39; ^ (line: 1) Executable specification
+a:1b:5Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;5&amp;#34;}) Non-matching:
+a:5b:5load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting string matching [1-4] found non-matching string in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: &amp;#39;5&amp;#39; ^ (line: 1) Executable specification
 Page automatically generated from regexp.</description>
     </item>
     

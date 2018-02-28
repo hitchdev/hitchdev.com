@@ -28,6 +28,10 @@
   </url>
   
   <url>
+    <loc>http://hitchdev.com/principles/commits/</loc>
+  </url>
+  
+  <url>
     <loc>http://hitchdev.com/strictyaml/using/alpha/compound/</loc>
   </url>
   
@@ -130,6 +134,15 @@
   
   <url>
     <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/string/</loc>
+  </url>
+  
+  <url>
+    <loc>http://hitchdev.com/principles/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hitchdev.com/principles/</loc>
   </url>
   
   <url>

@@ -247,31 +247,26 @@
 
 <p>StrictYAML does not require quotation marks for strings that are implicitly converted to other types (e.g. yes or 1.5), but it does require quotation marks for strings that are syntactically confusing (e.g. &ldquo;{ text in curly brackets }&rdquo;)</p>
 
-<p>Regular YAML has explicit <code>syntax typing &lt;https://github.com/crdoconnor/strictyaml/blob/master/FAQ.rst#whats-wrong-with-syntax-typing-in-a-readable-configuration-language&gt;</code>_
-to explicitly declare strings, although it&rsquo;s confusing as hell to know when it&rsquo;s required and when it is not. For example::</p>
-
-<p>´´´yaml
-  a: text               # not necessary
-  b: &ldquo;yes&rdquo;              # necessary
-  c: &ldquo;0&rdquo;                # necessary
-  d: &ldquo;3.5&rdquo;              # necessary
-  e: in                 # not necssary
-  f: out                # not necesary
-  g: shake it all about # not necessary
-  h: &ldquo;on&rdquo;               # necessary
-´´´</p>
-
+<p>Regular YAML has explicit syntax typing to explicitly declare strings, although it&rsquo;s confusing as hell to know when it&rsquo;s required and when it is not. For example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>text<span class="w">               </span><span class="c"># not necessary</span><span class="w">
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="s2">&#34;yes&#34;</span><span class="w">              </span><span class="c"># necessary</span><span class="w">
+</span><span class="w"></span>c<span class="p">:</span><span class="w"> </span><span class="s2">&#34;0&#34;</span><span class="w">                </span><span class="c"># necessary</span><span class="w">
+</span><span class="w"></span>d<span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.5&#34;</span><span class="w">              </span><span class="c"># necessary</span><span class="w">
+</span><span class="w"></span>e<span class="p">:</span><span class="w"> </span>in<span class="w">                 </span><span class="c"># not necssary</span><span class="w">
+</span><span class="w"></span>f<span class="p">:</span><span class="w"> </span>out<span class="w">                </span><span class="c"># not necesary</span><span class="w">
+</span><span class="w"></span>g<span class="p">:</span><span class="w"> </span>shake<span class="w"> </span>it<span class="w"> </span>all<span class="w"> </span>about<span class="w"> </span><span class="c"># not necessary</span><span class="w">
+</span><span class="w"></span>h<span class="p">:</span><span class="w"> </span><span class="s2">&#34;on&#34;</span><span class="w">               </span><span class="c"># necessary</span></code></pre></div>
 <p>Several other configuration language formats also have syntax typing in lieu of schemas. They are:</p>
 
 <ul>
-<li>TOML</li>
-<li>JSON5</li>
-<li>HJSON</li>
-<li>SDLang</li>
-<li>HOCON</li>
+<li><a href="../why-not/toml">TOML</a></li>
+<li><a href="../why-not/json5">JSON5</a></li>
+<li><a href="../why-not/hjson">HJSON</a></li>
+<li><a href="../why-not/sdlang">SDLang</a></li>
+<li><a href="../why-not/hocon">HOCON</a></li>
 </ul>
 
-<p>INI does not.</p>
+<p><a href="../why-not/ini">INI</a> does not have explicit syntax typing however.</p>
 
 
 			<aside class="copyright" role="note">

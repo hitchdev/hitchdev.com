@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Validating strings with regexes (Regex) - HitchDev</title>
+    <title>Commit messages and their meanings - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="http://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/">
+    <link rel="canonical" href="http://hitchdev.com/principles/commits/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="http://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/">
+    <meta property="og:url" content="http://hitchdev.com/principles/commits/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="http://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,31 +100,13 @@
         
           
             
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="http://hitchdev.com/principles">principles</a>
             
             
         
           
             
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/using">using</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/using/alpha">alpha</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/using/alpha/scalar">scalar</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions">regular-expressions</a>
+            / <a style="display:unset;" href="http://hitchdev.com/principles/commits">commits</a>
             
             
         
@@ -237,30 +219,90 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Validating strings with regexes (Regex) </h1>
+			<h1>Commit messages and their meanings </h1>
 
-			<p>StrictYAML can validate regular expressions and return a
-string. If the regular expression does not match, an
-exception is raised.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Regex</span><span class="p">,</span> <span class="n">Map</span><span class="p">,</span> <span class="n">load</span>
-<span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
+			
 
-<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Regex</span><span class="p">(</span><span class="sa">u</span><span class="s2">&#34;[1-4]&#34;</span><span class="p">),</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Regex</span><span class="p">(</span><span class="sa">u</span><span class="s2">&#34;[5-9]&#34;</span><span class="p">)})</span></code></pre></div>
-<p>Parsed correctly:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">5</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;1&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;5&#34;</span><span class="p">})</span></code></pre></div>
-<p>Non-matching:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">5</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
-<span class="n">when</span> <span class="n">expecting</span> <span class="n">string</span> <span class="n">matching</span> <span class="p">[</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
-<span class="n">found</span> <span class="n">non</span><span class="o">-</span><span class="n">matching</span> <span class="n">string</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">a</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;5&#39;</span>
-     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Executable specification</p>
-<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/regexp.story">regexp.story</a>.</p>
-</div>
+<p>Each commit message takes the form TYPE : Message.</p>
+
+<p>These messages are, in a sense, alpha. They take effect on March 1st, 2018:</p>
+
+<h2 id="tooling">TOOLING</h2>
+
+<p>Changes to the tooling code. No changes to actual code of the project.</p>
+
+<p>Changes to project code : no</p>
+
+<h2 id="docs">DOCS</h2>
+
+<p>Changes to documentation page or documentation template.</p>
+
+<p>Changes to project code : no</p>
+
+<h2 id="story">STORY</h2>
+
+<p>Refactoring of an existing story, its metadata, names, etc.</p>
+
+<p>Changes to project code : no</p>
+
+<h2 id="refactor-patch">REFACTOR PATCH</h2>
+
+<p>Changes to code that do not intentionally impact defined behavior. All code changes
+should be covered by stories. Does not need to come accompanied with story.</p>
+
+<p>Changes to project code : yes</p>
+
+<h2 id="back-compatible-feature">BACK COMPATIBLE FEATURE</h2>
+
+<p>Newly implemented feature that does not intentionally impact pre-existing defined
+behavior. Should come accompanied with a story or change to a story that invokes
+and describes the behavior.</p>
+
+<p>Changes to project code : yes</p>
+
+<h2 id="back-compatible-bugfix">BACK COMPATIBLE BUGFIX</h2>
+
+<p>Bugfix on implemented feature that does not intentionally impact pre-existing defined
+behavior. Should typically come with a story or change to a story that invokes the behavior
+that failed before the bug was fixed.</p>
+
+<p>Changes to project code : yes</p>
+
+<h2 id="backwards-incompatible-refactor">BACKWARDS INCOMPATIBLE REFACTOR</h2>
+
+<p>A refactoring that is not intended to change the functionality of the project and will break existing APIs. This will typically be done to make publicly facing APIs cleaner or remove functionality deemed unnecessary.</p>
+
+<p>One or more commits should involve the project version changing like so:</p>
+
+<ul>
+<li>For project still in alpha : 0.3.5 -&gt; 0.4.0 (minor version bump)</li>
+<li>For project out of alpha : 1.3.4 -&gt; 2.0.0 (major version bump)</li>
+</ul>
+
+<p>Changes to project code : yes</p>
+
+<h2 id="backwards-incompatible-feature">BACKWARDS INCOMPATIBLE FEATURE</h2>
+
+<p>A feature that deliberately breaks existing functionality.</p>
+
+<p>Changes to project code : yes</p>
+
+<h2 id="backwards-incompatible-bugfix">BACKWARDS INCOMPATIBLE BUGFIX</h2>
+
+<p>A bugfix that deliberately breaks existing functionality.</p>
+
+<p>Changes to project code : yes</p>
+
+<h2 id="release">RELEASE</h2>
+
+<p>Commit message of form &ldquo;0.3.0 -&gt; 0.3.1&rdquo;.</p>
+
+<p>This should <em>only</em> be an automatically generated commit created by the &ldquo;deploy&rdquo; command.</p>
+
+<h2 id="misc">MISC</h2>
+
+<p>Anything that does not appear in one of the above categories. These should be rare. If they
+become too common it indicates that another commit type is necessary.</p>
 
 
 			<aside class="copyright" role="note">
@@ -279,7 +321,7 @@ exception is raised.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://hitchdev.com/strictyaml/using/alpha/compound/optional-keys/" title="Validating optional keys in mappings (Map)">
+      <a href="http://hitchdev.com/strictyaml/using/alpha/howto/build-yaml-document/" title="Build a YAML document from scratch in code">
         <span class="direction">
           Previous
         </span>
@@ -289,7 +331,7 @@ exception is raised.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Validating optional keys in mappings (Map)
+              Build a YAML document from scratch in code
             </div>
           </div>
         </div>
@@ -299,14 +341,14 @@ exception is raised.</p>
 
   <div class="next">
   
-      <a href="http://hitchdev.com/strictyaml/features-removed/" title="What YAML features does StrictYAML remove?">
+      <a href="http://hitchdev.com/strictyaml/using/alpha/compound/" title="Compound StrictYAML Validators">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              What YAML features does StrictYAML remove?
+              Compound StrictYAML Validators
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
