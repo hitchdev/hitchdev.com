@@ -3,316 +3,316 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://hitchdev.com/principles/code-quality/naming/</loc>
+    <loc>https://hitchdev.com/principles/code-quality/naming/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/new-faq/</loc>
+    <loc>https://hitchdev.com/strictyaml/new-faq/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/boolean/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/boolean/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/howto/build-yaml-document/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/build-yaml-document/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/categories/</loc>
+    <loc>https://hitchdev.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/principles/code-quality/</loc>
+    <loc>https://hitchdev.com/principles/code-quality/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/principles/commits/</loc>
+    <loc>https://hitchdev.com/principles/commits/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/compound/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/datetime/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/datetime/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/decimal/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/decimal/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/restrictions/disallowed-yaml/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/disallowed-yaml/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/restrictions/duplicate-keys/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/duplicate-keys/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/howto/either-or-validation/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/either-or-validation/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/empty/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/empty/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/enum/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/enum/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/compound/fixed-length-sequences/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/fixed-length-sequences/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/float/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/float/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/howto/what-line/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/what-line/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/</loc>
+    <loc>https://hitchdev.com/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/</loc>
+    <loc>https://hitchdev.com/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/howto/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/integer/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/integer/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/howto/label-exceptions/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/label-exceptions/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/compound/mapping-with-slug-keys/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/mapping-with-slug-keys/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/compound/map-pattern/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/map-pattern/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/compound/mapping/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/mapping/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/howto/merge-yaml-documents/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/merge-yaml-documents/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/comma-separated/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/comma-separated/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/string/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/string/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/principles/</loc>
+    <loc>https://hitchdev.com/principles/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/principles/</loc>
+    <loc>https://hitchdev.com/principles/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/howto/roundtripping/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/roundtripping/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/restrictions/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/howto/revalidation/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/revalidation/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/compound/sequences/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/sequences/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/compound/sequences-of-unique-items/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/sequences-of-unique-items/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/</loc>
+    <loc>https://hitchdev.com/strictyaml/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/</loc>
+    <loc>https://hitchdev.com/strictyaml/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/tags/</loc>
+    <loc>https://hitchdev.com/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/compound/mapping-yaml-object/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/mapping-yaml-object/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/compound/optional-keys/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/</loc>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/features-removed/</loc>
+    <loc>https://hitchdev.com/strictyaml/features-removed/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/what-is-yaml/</loc>
+    <loc>https://hitchdev.com/strictyaml/what-is-yaml/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/syntax-typing-bad/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/explicit-tags-removed/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/explicit-tags-removed/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/flow-style-removed/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/flow-style-removed/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/implicit-typing-removed/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/node-anchors-and-references-removed/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/node-anchors-and-references-removed/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/when-to-use-validators/</loc>
+    <loc>https://hitchdev.com/strictyaml/when-to-use-validators/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/turing-complete-schema/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/turing-complete-schema/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/binary-data-removed/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/binary-data-removed/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/only-parse-strings-not-files/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why/speed-not-a-priority/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/speed-not-a-priority/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/hocon/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/hocon/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/json/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/json/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/json5/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/json5/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/hjson/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/hjson/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/ini/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/ini/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/json-schema/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/json-schema/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/sdlang/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/sdlang/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/toml/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/toml/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/xml/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/xml/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/pykwalify/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/pykwalify/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/python-schema/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/python-schema/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/ordinary-yaml/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/ordinary-yaml/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/strictyaml/why-not/turing-complete-code/</loc>
+    <loc>https://hitchdev.com/strictyaml/why-not/turing-complete-code/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/principles/code-quality/least-expressive-power/</loc>
+    <loc>https://hitchdev.com/principles/code-quality/least-expressive-power/</loc>
   </url>
   
   <url>
-    <loc>http://hitchdev.com/principles/code-quality/write-least-code/</loc>
+    <loc>https://hitchdev.com/principles/code-quality/write-least-code/</loc>
   </url>
   
 </urlset>
