@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Design Justifications - HitchDev</title>
+    <title>Why is parsing speed not a high priority for StrictYAML? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="http://hitchdev.com/strictyaml/why/">
+    <link rel="canonical" href="http://hitchdev.com/strictyaml/why/speed-not-a-priority/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="http://hitchdev.com/strictyaml/why/">
+    <meta property="og:url" content="http://hitchdev.com/strictyaml/why/speed-not-a-priority/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="http://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -107,6 +107,12 @@
           
             
             / <a style="display:unset;" href="http://hitchdev.com/strictyaml/why">why</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/why/speed-not-a-priority">speed-not-a-priority</a>
             
             
         
@@ -219,31 +225,34 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Design Justifications </h1>
+			<h1>Why is parsing speed not a high priority for StrictYAML? </h1>
 
-			<p>StrictYAML is the result of some carefully considered, although
-controversial design decisions. These are justified here.</p>
+			<p>JSON and StrictYAML are essentially complementary formats. They both allow
+a relatively loose representation of data that just contains, mappings and
+sequences. They are serialization formats that are relatively straightforward
+for both humans and machines to read and write.</p>
 
-<ul>
-<li><a href="../explicit-tags-removed">What is wrong with explicit tags?</a></li>
-<li><a href="../syntax-typing-bad">What is wrong with explicit syntax typing in a readable configuration language?</a></li>
-<li><a href="../implicit-typing-removed">What is wrong with implicit typing?</a></li>
-<li><a href="../flow-style-removed">What is wrong with flow style YAML?</a></li>
-<li><a href="../only-parse-strings-not-files">Why does StrictYAML only parse from strings and not files?</a></li>
-<li><a href="../duplicate-keys-disallowed">What is wrong with duplicate keys?</a></li>
-<li><a href="../binary-data-removed">Why does StrictYAML not parse direct representations of python objects?</a></li>
-<li><a href="../speed-not-a-priority">Why is parsing speed not a high priority for StrictYAML?</a></li>
-<li><a href="../node-anchors-and-references-removed">What is wrong with node anchors and references?</a></li>
-<li><a href="../turing-complete-schema">Why does StrictYAML make you define a schema in python - a turing complete language?</a></li>
-</ul>
+<p>The main difference is simply one of degree:</p>
 
-<p>If you have seen a relevant counterargument to you&rsquo;d like to link
-to addressed at StrictYAML, please create a pull request and
-link to it in the relevant document.</p>
+<p>JSON is primariliy optimized for <em>machine</em> readability and writability, while
+still maintaining human readability.</p>
 
-<p>If you&rsquo;d like to write your own rebuttal to any argument raised
-here, raise a ticket and issue a pull request linking to it at
-the end of the document.</p>
+<p>YAML is optimized for <em>human</em> readability and writability, while maintaining
+machine readability and writability.</p>
+
+<p>This means that the two formats are better suited to slightly different applications.
+For instance, JSON is better suited as a format for use with REST APIs while
+YAML is better suited as a format for use by configuration languages and DSLs.</p>
+
+<p>If you are using YAML primarily as a readable medium to express a markup language
+or represent configuration in, this probably means that 1) what you are reading is
+probably relatively short (e.g. &lt; 1,000 lines) and 2) it will be read/written
+infrequently (e.g. once, when a program starts).</p>
+
+<p>For this reason, it is assumed that for most StrictYAML applications, parsing
+speed is of a lower importance than strictness, readability and ease of use.</p>
+
+<p>That being said, any requests that improve parsing or writing speed are welcome.</p>
 
 
 			<aside class="copyright" role="note">
@@ -262,7 +271,7 @@ the end of the document.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://hitchdev.com/strictyaml/using/alpha/compound/" title="Compound StrictYAML Validators">
+      <a href="http://hitchdev.com/strictyaml/why/only-parse-strings-not-files/" title="Why does StrictYAML only parse from strings and not files?">
         <span class="direction">
           Previous
         </span>
@@ -272,7 +281,7 @@ the end of the document.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Compound StrictYAML Validators
+              Why does StrictYAML only parse from strings and not files?
             </div>
           </div>
         </div>
@@ -282,14 +291,14 @@ the end of the document.</p>
 
   <div class="next">
   
-      <a href="http://hitchdev.com/" title="HitchDev">
+      <a href="http://hitchdev.com/strictyaml/why-not/hocon/" title="Why not HOCON?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              HitchDev
+              Why not HOCON?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

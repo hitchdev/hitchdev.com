@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Design Justifications - HitchDev</title>
+    <title> - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="http://hitchdev.com/strictyaml/why/">
+    <link rel="canonical" href="http://hitchdev.com/principles/code-quality/naming/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="http://hitchdev.com/strictyaml/why/">
+    <meta property="og:url" content="http://hitchdev.com/principles/code-quality/naming/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="http://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,13 +100,19 @@
         
           
             
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="http://hitchdev.com/principles">principles</a>
             
             
         
           
             
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/why">why</a>
+            / <a style="display:unset;" href="http://hitchdev.com/principles/code-quality">code-quality</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="http://hitchdev.com/principles/code-quality/naming">naming</a>
             
             
         
@@ -219,31 +225,39 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Design Justifications </h1>
+			<h1> </h1>
 
-			<p>StrictYAML is the result of some carefully considered, although
-controversial design decisions. These are justified here.</p>
+			
+
+<hr />
+
+<h2 id="title-clear-naming">title: Clear naming</h2>
+
+<p>Naming is applied in various different contexts that apply to code:</p>
 
 <ul>
-<li><a href="../explicit-tags-removed">What is wrong with explicit tags?</a></li>
-<li><a href="../syntax-typing-bad">What is wrong with explicit syntax typing in a readable configuration language?</a></li>
-<li><a href="../implicit-typing-removed">What is wrong with implicit typing?</a></li>
-<li><a href="../flow-style-removed">What is wrong with flow style YAML?</a></li>
-<li><a href="../only-parse-strings-not-files">Why does StrictYAML only parse from strings and not files?</a></li>
-<li><a href="../duplicate-keys-disallowed">What is wrong with duplicate keys?</a></li>
-<li><a href="../binary-data-removed">Why does StrictYAML not parse direct representations of python objects?</a></li>
-<li><a href="../speed-not-a-priority">Why is parsing speed not a high priority for StrictYAML?</a></li>
-<li><a href="../node-anchors-and-references-removed">What is wrong with node anchors and references?</a></li>
-<li><a href="../turing-complete-schema">Why does StrictYAML make you define a schema in python - a turing complete language?</a></li>
+<li>Variables</li>
+<li>Methods</li>
+<li>Classes</li>
+<li>Module names</li>
+<li>Project names</li>
 </ul>
 
-<p>If you have seen a relevant counterargument to you&rsquo;d like to link
-to addressed at StrictYAML, please create a pull request and
-link to it in the relevant document.</p>
+<p>These principles apply to all of them.</p>
 
-<p>If you&rsquo;d like to write your own rebuttal to any argument raised
-here, raise a ticket and issue a pull request linking to it at
-the end of the document.</p>
+<p>There are typically three problems which lead to unclear naming:</p>
+
+<ul>
+<li>Ambiguous names</li>
+<li>Undefined names</li>
+<li>Misleading metaphors</li>
+</ul>
+
+<p>Example principle conflicts:</p>
+
+<ul>
+<li>Write the least code possible - short names mean writing less code.</li>
+</ul>
 
 
 			<aside class="copyright" role="note">
@@ -262,34 +276,18 @@ the end of the document.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://hitchdev.com/strictyaml/using/alpha/compound/" title="Compound StrictYAML Validators">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Compound StrictYAML Validators
-            </div>
-          </div>
-        </div>
-      </a>
-  
   </div>
 
   <div class="next">
   
-      <a href="http://hitchdev.com/" title="HitchDev">
+      <a href="http://hitchdev.com/strictyaml/new-faq/" title="">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              HitchDev
+              
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

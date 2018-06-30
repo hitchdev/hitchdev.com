@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Design Justifications - HitchDev</title>
+    <title>Code quality principles - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="http://hitchdev.com/strictyaml/why/">
+    <link rel="canonical" href="http://hitchdev.com/principles/code-quality/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="http://hitchdev.com/strictyaml/why/">
+    <meta property="og:url" content="http://hitchdev.com/principles/code-quality/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="http://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,13 +100,13 @@
         
           
             
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="http://hitchdev.com/principles">principles</a>
             
             
         
           
             
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/why">why</a>
+            / <a style="display:unset;" href="http://hitchdev.com/principles/code-quality">code-quality</a>
             
             
         
@@ -219,31 +219,36 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Design Justifications </h1>
+			<h1>Code quality principles </h1>
 
-			<p>StrictYAML is the result of some carefully considered, although
-controversial design decisions. These are justified here.</p>
+			<p>Improved code quality is about reduced code maintenance costs. Code quality consideration is <em>not</em> a religious exercise, it is a budgeting exercise.</p>
+
+<p>All of the principles here are important but they ought to be applied on a cost/benefit basis. They are all trade offs. There is <em>sometimes</em> a right answer (when improving code quality incurs a very small cost, you should always do it). There is sometimes no right answer.</p>
+
+<p>Therefore:</p>
 
 <ul>
-<li><a href="../explicit-tags-removed">What is wrong with explicit tags?</a></li>
-<li><a href="../syntax-typing-bad">What is wrong with explicit syntax typing in a readable configuration language?</a></li>
-<li><a href="../implicit-typing-removed">What is wrong with implicit typing?</a></li>
-<li><a href="../flow-style-removed">What is wrong with flow style YAML?</a></li>
-<li><a href="../only-parse-strings-not-files">Why does StrictYAML only parse from strings and not files?</a></li>
-<li><a href="../duplicate-keys-disallowed">What is wrong with duplicate keys?</a></li>
-<li><a href="../binary-data-removed">Why does StrictYAML not parse direct representations of python objects?</a></li>
-<li><a href="../speed-not-a-priority">Why is parsing speed not a high priority for StrictYAML?</a></li>
-<li><a href="../node-anchors-and-references-removed">What is wrong with node anchors and references?</a></li>
-<li><a href="../turing-complete-schema">Why does StrictYAML make you define a schema in python - a turing complete language?</a></li>
+<li>If maintenance costs of your system are not important, these principles may not be either.</li>
+<li>Building the wrong thing in the right way slowly is <em>far</em> worse than building the wrong thing in the wrong way quickly.</li>
+<li>Functional requirements (features, bugs, speed) may sometimes take precedence over maintenance cost.</li>
+<li>Code quality principles should <em>not</em> be applied religiously - everything here is a trade off.</li>
+<li>They will conflict (e.g. some code might have higher cohesion but not be as DRY) and in such cases the costs and benefit of following each principle should be acknowledged before deciding which one to prioritize.</li>
+<li>Perfectionism is a curse.</li>
 </ul>
 
-<p>If you have seen a relevant counterargument to you&rsquo;d like to link
-to addressed at StrictYAML, please create a pull request and
-link to it in the relevant document.</p>
+<p>Principles:</p>
 
-<p>If you&rsquo;d like to write your own rebuttal to any argument raised
-here, raise a ticket and issue a pull request linking to it at
-the end of the document.</p>
+<ol>
+<li><a href="write-least-code">Write the least code</a> possible</li>
+<li><a href="loose-coupling">Loosely couple</a> all interacting code</li>
+<li>Use language that uses the <a href="least-expressive-power">least expressive power</a> necessary</li>
+<li><a href="fail-fast-and-fail-clearly">Fail fast and fail clearly</a></li>
+<li><a href="automation">Automate</a> repetitive development tasks</li>
+<li>Write code with <a href="high-cohesion">high cohesion</a></li>
+<li>Write <a href="deterministic">deterministic code</a></li>
+<li>Write code in a <a href="consistency">consistent way</a></li>
+<li>Write code with clear <a href="naming">naming</a></li>
+</ol>
 
 
 			<aside class="copyright" role="note">
@@ -262,7 +267,7 @@ the end of the document.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://hitchdev.com/strictyaml/using/alpha/compound/" title="Compound StrictYAML Validators">
+      <a href="http://hitchdev.com/strictyaml/new-faq/" title="">
         <span class="direction">
           Previous
         </span>
@@ -272,7 +277,7 @@ the end of the document.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Compound StrictYAML Validators
+              
             </div>
           </div>
         </div>
@@ -282,14 +287,14 @@ the end of the document.</p>
 
   <div class="next">
   
-      <a href="http://hitchdev.com/" title="HitchDev">
+      <a href="http://hitchdev.com/principles/commits/" title="Commit messages and their meanings">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              HitchDev
+              Commit messages and their meanings
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

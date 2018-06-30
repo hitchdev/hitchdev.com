@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Design Justifications - HitchDev</title>
+    <title>Write code with the least expressive power - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="http://hitchdev.com/strictyaml/why/">
+    <link rel="canonical" href="http://hitchdev.com/principles/code-quality/least-expressive-power/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="http://hitchdev.com/strictyaml/why/">
+    <meta property="og:url" content="http://hitchdev.com/principles/code-quality/least-expressive-power/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="http://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,13 +100,19 @@
         
           
             
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="http://hitchdev.com/principles">principles</a>
             
             
         
           
             
-            / <a style="display:unset;" href="http://hitchdev.com/strictyaml/why">why</a>
+            / <a style="display:unset;" href="http://hitchdev.com/principles/code-quality">code-quality</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="http://hitchdev.com/principles/code-quality/least-expressive-power">least-expressive-power</a>
             
             
         
@@ -219,31 +225,51 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Design Justifications </h1>
+			<h1>Write code with the least expressive power </h1>
 
-			<p>StrictYAML is the result of some carefully considered, although
-controversial design decisions. These are justified here.</p>
+			
+
+<h2 id="examples">Examples</h2>
 
 <ul>
-<li><a href="../explicit-tags-removed">What is wrong with explicit tags?</a></li>
-<li><a href="../syntax-typing-bad">What is wrong with explicit syntax typing in a readable configuration language?</a></li>
-<li><a href="../implicit-typing-removed">What is wrong with implicit typing?</a></li>
-<li><a href="../flow-style-removed">What is wrong with flow style YAML?</a></li>
-<li><a href="../only-parse-strings-not-files">Why does StrictYAML only parse from strings and not files?</a></li>
-<li><a href="../duplicate-keys-disallowed">What is wrong with duplicate keys?</a></li>
-<li><a href="../binary-data-removed">Why does StrictYAML not parse direct representations of python objects?</a></li>
-<li><a href="../speed-not-a-priority">Why is parsing speed not a high priority for StrictYAML?</a></li>
-<li><a href="../node-anchors-and-references-removed">What is wrong with node anchors and references?</a></li>
-<li><a href="../turing-complete-schema">Why does StrictYAML make you define a schema in python - a turing complete language?</a></li>
+<li>YAML vs Python</li>
+<li>The story of JSON</li>
+<li>Whither garbage collector</li>
+<li>Metaprogramming</li>
+<li>LINQ vs. C#</li>
+<li>SQL vs. imperative</li>
+<li>DSL traps</li>
+<li>C++ templating language</li>
+<li></li>
 </ul>
 
-<p>If you have seen a relevant counterargument to you&rsquo;d like to link
-to addressed at StrictYAML, please create a pull request and
-link to it in the relevant document.</p>
+<h2 id="subprinciples">Subprinciples</h2>
 
-<p>If you&rsquo;d like to write your own rebuttal to any argument raised
-here, raise a ticket and issue a pull request linking to it at
-the end of the document.</p>
+<p>These are principles which I think can partially be derived from this principle.</p>
+
+<ul>
+<li>Immutability vs. Mutability (side effects)</li>
+<li>Accidental turing completeness</li>
+<li>State isolation</li>
+<li>Lazy evaluation</li>
+<li>Principle of least privilege in protocol design - <a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">https://en.wikipedia.org/wiki/Principle_of_least_privilege</a></li>
+</ul>
+
+<h2 id="other-people-talking-about-the-same-principle">Other people talking about the same principle</h2>
+
+<p>Commentary: While most of these discuss languages as if their power is uniform
+and static I consider this to wrong. There are languages which have a diversity
+of approaches and which have more powerful features and less powerful features.</p>
+
+<ul>
+<li><p><a href="https://www.w3.org/DesignIssues/Principles.html#PLP">https://www.w3.org/DesignIssues/Principles.html#PLP</a> (treats &lsquo;language power&rsquo; as uniform across a programming language - although it can vary from feature to feature - e.g. functional vs. imperative).</p></li>
+
+<li><p><a href="https://events.ccc.de/congress/2011/Fahrplan/events/4763.en.html">https://events.ccc.de/congress/2011/Fahrplan/events/4763.en.html</a> (applied specifically to security)</p></li>
+
+<li><p><a href="https://www.w3.org/2001/tag/doc/leastPower.html">https://www.w3.org/2001/tag/doc/leastPower.html</a></p></li>
+
+<li><p><a href="https://blog.codinghorror.com/the-principle-of-least-power/">https://blog.codinghorror.com/the-principle-of-least-power/</a> Jeff Atwood</p></li>
+</ul>
 
 
 			<aside class="copyright" role="note">
@@ -262,7 +288,7 @@ the end of the document.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://hitchdev.com/strictyaml/using/alpha/compound/" title="Compound StrictYAML Validators">
+      <a href="http://hitchdev.com/strictyaml/why-not/turing-complete-code/" title="Why shouldn&#39;t I just use python code for configuration?">
         <span class="direction">
           Previous
         </span>
@@ -272,7 +298,7 @@ the end of the document.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Compound StrictYAML Validators
+              Why shouldn&#39;t I just use python code for configuration?
             </div>
           </div>
         </div>
@@ -282,14 +308,14 @@ the end of the document.</p>
 
   <div class="next">
   
-      <a href="http://hitchdev.com/" title="HitchDev">
+      <a href="http://hitchdev.com/principles/code-quality/write-least-code/" title="Write the least code possible">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              HitchDev
+              Write the least code possible
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

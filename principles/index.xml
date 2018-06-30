@@ -12,6 +12,29 @@
     
     
     <item>
+      <title></title>
+      <link>http://hitchdev.com/principles/code-quality/naming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hitchdev.com/principles/code-quality/naming/</guid>
+      <description> title: Clear naming Naming is applied in various different contexts that apply to code:
+ Variables Methods Classes Module names Project names  These principles apply to all of them.
+There are typically three problems which lead to unclear naming:
+ Ambiguous names Undefined names Misleading metaphors  Example principle conflicts:
+ Write the least code possible - short names mean writing less code.  </description>
+    </item>
+    
+    <item>
+      <title>Code quality principles</title>
+      <link>http://hitchdev.com/principles/code-quality/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hitchdev.com/principles/code-quality/</guid>
+      <description>Improved code quality is about reduced code maintenance costs. Code quality consideration is not a religious exercise, it is a budgeting exercise.
+All of the principles here are important but they ought to be applied on a cost/benefit basis. They are all trade offs. There is sometimes a right answer (when improving code quality incurs a very small cost, you should always do it). There is sometimes no right answer.</description>
+    </item>
+    
+    <item>
       <title>Commit messages and their meanings</title>
       <link>http://hitchdev.com/principles/commits/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -34,9 +57,28 @@ Changes to project code : no</description>
       
       <guid>http://hitchdev.com/principles/</guid>
       <description>Documented principles of HitchDev:
-HitchDev project conventions:
- Commit messages  Coding standards (still TODO):
- Write the least code possible Loose coupling Rule of least expressive power Fail fast and fail clearly One step tooling High cohesion Deterministic code Code consistency Disambiguated, clearly defined names and accurate metaphors.  </description>
+ HitchDev Code Quality Principles HitchDev Project Commit Message Rules  </description>
+    </item>
+    
+    <item>
+      <title>Write code with the least expressive power</title>
+      <link>http://hitchdev.com/principles/code-quality/least-expressive-power/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hitchdev.com/principles/code-quality/least-expressive-power/</guid>
+      <description>Examples  YAML vs Python The story of JSON Whither garbage collector Metaprogramming LINQ vs. C# SQL vs. imperative DSL traps C++ templating language   Subprinciples These are principles which I think can partially be derived from this principle.
+ Immutability vs. Mutability (side effects) Accidental turing completeness State isolation Lazy evaluation Principle of least privilege in protocol design - https://en.wikipedia.org/wiki/Principle_of_least_privilege  Other people talking about the same principle Commentary: While most of these discuss languages as if their power is uniform and static I consider this to wrong.</description>
+    </item>
+    
+    <item>
+      <title>Write the least code possible</title>
+      <link>http://hitchdev.com/principles/code-quality/write-least-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://hitchdev.com/principles/code-quality/write-least-code/</guid>
+      <description> If you don&amp;rsquo;t need it, don&amp;rsquo;t write it.
+If you wrote it twice or thrice, deduplicate it.
+Subprinciples  DRY Don&amp;rsquo;t reinvent the wheel YAGNI  </description>
     </item>
     
   </channel>
