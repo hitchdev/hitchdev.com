@@ -319,11 +319,52 @@ Below is a series of documented justifications:</p>
 
 <p>How to:</p>
 
+<ul>
+<li><a href="using/alpha/howto/what-line">Get line numbers of YAML elements</a></li>
+<li><a href="using/alpha/howto/revalidation">Revalidate an already validated document</a></li>
+<li><a href="using/alpha/howto/build-yaml-document">Build a YAML document from scratch in code</a></li>
+<li><a href="using/alpha/howto/roundtripping">Reading in YAML, editing it and writing it back out</a></li>
+<li><a href="using/alpha/howto/label-exceptions">Labeling exceptions</a></li>
+<li><a href="using/alpha/howto/merge-yaml-documents">Merge YAML documents</a></li>
+<li><a href="using/alpha/howto/either-or-validation">Either/or schema validation of two equally valid different kinds of YAML</a></li>
+<li><a href="using/alpha/howto/without-a-schema">Parsing YAML without a schema</a></li>
+</ul>
+
 <p>Compound validators:</p>
+
+<ul>
+<li><a href="using/alpha/compound/mapping-yaml-object">Using a YAML object of a parsed mapping</a></li>
+<li><a href="using/alpha/compound/sequences">Sequence/list validator (Seq)</a></li>
+<li><a href="using/alpha/compound/sequences-of-unique-items">Sequences of unique items (UniqueSeq)</a></li>
+<li><a href="using/alpha/compound/mapping-with-slug-keys">Mapping with defined keys and a custom key validator (Map)</a></li>
+<li><a href="using/alpha/compound/fixed-length-sequences">Fixed length sequences (FixedSeq)</a></li>
+<li><a href="using/alpha/compound/map-pattern">Mappings with arbitrary key names (MapPattern)</a></li>
+<li><a href="using/alpha/compound/mapping">Mappings with defined keys (Map)</a></li>
+<li><a href="using/alpha/compound/optional-keys">Validating optional keys in mappings (Map)</a></li>
+</ul>
 
 <p>Scalar validators:</p>
 
+<ul>
+<li><a href="using/alpha/scalar/regular-expressions">Validating strings with regexes (Regex)</a></li>
+<li><a href="using/alpha/scalar/comma-separated">Parsing comma separated items (CommaSeparated)</a></li>
+<li><a href="using/alpha/scalar/datetime">Datetimes (Datetime)</a></li>
+<li><a href="using/alpha/scalar/empty">Empty key validation</a></li>
+<li><a href="using/alpha/scalar/decimal">Decimal numbers (Decimal)</a></li>
+<li><a href="using/alpha/scalar/boolean">Boolean (Bool)</a></li>
+<li><a href="using/alpha/scalar/integer">Integers (Int)</a></li>
+<li><a href="using/alpha/scalar/enum">Enumerated scalars (Enum)</a></li>
+<li><a href="using/alpha/scalar/float">Floating point numbers (Float)</a></li>
+<li><a href="using/alpha/scalar/email-and-url">Email and URL validators</a></li>
+<li><a href="using/alpha/scalar/string">Parsing strings (Str)</a></li>
+</ul>
+
 <p>Restrictions:</p>
+
+<ul>
+<li><a href="using/alpha/restrictions/disallowed-yaml">Disallowed YAML</a></li>
+<li><a href="using/alpha/restrictions/duplicate-keys">Duplicate keys</a></li>
+</ul>
 
 <h2 id="design-justifications">Design justifications</h2>
 
@@ -373,7 +414,7 @@ and/or not obvious. Those are documented here:</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="http://hitchdev.com/strictyaml/using/alpha/scalar/" title="Scalar StrictYAML Validators">
+      <a href="http://hitchdev.com/strictyaml/using/alpha/compound/sequences-of-unique-items/" title="Sequences of unique items (UniqueSeq)">
         <span class="direction">
           Previous
         </span>
@@ -383,7 +424,7 @@ and/or not obvious. Those are documented here:</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Scalar StrictYAML Validators
+              Sequences of unique items (UniqueSeq)
             </div>
           </div>
         </div>
