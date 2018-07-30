@@ -736,7 +736,7 @@ This is, I belive, mistaken. It is better if a language is not subtly different 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/why-not/</guid>
-      <description>There are a number of formats and approaches that can achieve more or less the same purpose as StrictYAML. I&amp;rsquo;ve tried to make it the best one. Below is a series of documented justifications:
+      <description>There are a number of formats and approaches that can achieve more or less the same purpose as StrictYAML. Below is a series of comparisons with some of the more famous ones:
  Why not JSON for simple configuration files? Why not use HJSON? Why not use TOML? Why not use the YAML 2.0 standard? - we don&amp;rsquo;t need a new standard! Why not use kwalify with standard YAML to validate my YAML?</description>
     </item>
     
