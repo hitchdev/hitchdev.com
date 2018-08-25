@@ -13,6 +13,19 @@
     
     <item>
       <title></title>
+      <link>https://hitchdev.com/hitchstory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/</guid>
+      <description>HitchStory HitchStory is a python 3 library for building and running BDD-style executable specifications.
+Unlike other BDD libraries the specification is written with StrictYAML.
+The specifications are designed to be simple to write, easy to read and to integrate seamlessly with the code that executes them.
+Hitchstory also lets you:
+ Write parameterized stories and do property based testing. Generate documentation from your stories. Write stories that rewrite themselves. Write stories that inherit from one another.</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>https://hitchdev.com/principles/code-quality/naming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -53,6 +66,31 @@ docs/why-not/json5.rst
 docs/why-not/sdlang.rst
 docs/why-not/pykwalify.rst
 docs/why-not/disagree.rst</description>
+    </item>
+    
+    <item>
+      <title>Abort a story with ctrl-C</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/aborting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/aborting/</guid>
+      <description>When an in-progress story is hit with any of the following termination signals:
+ SIGTERM SIGINT SIGQUIT SIGHUP  Then it triggers the tear_down method of the engine.
+In practical terms this means that if you are running a series of stories, Ctrl-C should halt current execution, run tear_down and then not run any more stories.
+example.story:
+Createfiles:steps:-PauseforeverShouldneverrun:steps:-Shouldnothappen engine.py:
+from hitchstory import BaseEngine from code_that_does_things import reticulate_splines import psutil class Engine(BaseEngine): def pause_forever(self): psutil.</description>
+    </item>
+    
+    <item>
+      <title>Arguments to steps</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/steps-and-step-arguments/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/steps-and-step-arguments/</guid>
+      <description>Arguments are fed to steps in a way that is largely consistent with how python methods work:
+ Named arguments (e.g. &amp;ldquo;How many times&amp;rdquo;) are put in equivalent named variables (e.g. &amp;ldquo;how_many_times&amp;rdquo;). If the method has **kwargs then the key names of kwargs will match the named arguments exactly (i.e. no underscores).  engine.py:
+from code_that_does_things import * from strictyaml import Int, Str, Bool from hitchstory import BaseEngine, validate class Engine(BaseEngine): def fill_form(self, **kwargs): for name, content in kwargs.</description>
     </item>
     
     <item>
@@ -118,6 +156,20 @@ Changes to project code : no</description>
     </item>
     
     <item>
+      <title>Continue on failure when playing multiple stories</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/continue-on-failure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/continue-on-failure/</guid>
+      <description>By default whenever stories are played in sequence, they stop when the first failure is encountered.
+However, if your stories take a long time to run you may wish to continue after the first failure.
+example1.story:
+ACreatefile:steps:-CreatefileBCreatefile:steps:-Fail example2.story:
+CCreatefileathirdtime:steps:-Createfilefrom hitchstory import StoryCollection, BaseEngine from pathquery import pathquery class Engine(BaseEngine): def create_file(self, filename=&amp;#34;step1.txt&amp;#34;, content=&amp;#34;example&amp;#34;): with open(filename, &amp;#39;w&amp;#39;) as handle: handle.write(content) def fail(self): raise Exception(&amp;#34;Error&amp;#34;) Stop on failure is default behavior:
+StoryCollection( pathquery(&amp;#34;.</description>
+    </item>
+    
+    <item>
       <title>Datetimes (Datetime)</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/scalar/datetime/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -142,6 +194,18 @@ Parsing and validating as a Decimal is best for values which require precision, 
     </item>
     
     <item>
+      <title>Declarative User Stories</title>
+      <link>https://hitchdev.com/hitchstory/why/declarative/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/declarative/</guid>
+      <description>HitchStory StoryFiles are declarative and not turing complete.
+At their core, they essentially just contain marked up data - a set of preconditions (in &amp;lsquo;given&amp;rsquo;), a set of steps and arguments and the ability to parameterize the preconditions, step arguments and inherit one story from another.
+No loops. No if statements. Deliberately turing incomplete.
+Using a less powerful language to write tests in sounds counter-intuitive. Surely you want as much power as possible when writing tests so you can do as much as possible?</description>
+    </item>
+    
+    <item>
       <title>Design Justifications</title>
       <link>https://hitchdev.com/strictyaml/why/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -149,6 +213,19 @@ Parsing and validating as a Decimal is best for values which require precision, 
       <guid>https://hitchdev.com/strictyaml/why/</guid>
       <description>StrictYAML is the result of some carefully considered, although controversial design decisions. These are justified here.
  What is wrong with explicit tags? What is wrong with explicit syntax typing in a readable configuration language? What is wrong with implicit typing? What is wrong with flow style YAML? Why does StrictYAML only parse from strings and not files? What is wrong with duplicate keys? Why does StrictYAML not parse direct representations of python objects?</description>
+    </item>
+    
+    <item>
+      <title>Differences to Gherkin</title>
+      <link>https://hitchdev.com/hitchstory/why-not/gherkin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why-not/gherkin/</guid>
+      <description>HitchStory and Gherkin are both DSLs for writing user stories that can double as acceptance tests, but they have different philosophies and approach.
+Gherkin scenarios emphasize the following values:
+ The use of English to facilitate customer collaboration. Showing information that is &amp;ldquo;interesting to the business&amp;rdquo;.  Here are some examples.
+From the Cucumber website:
+Scenario: Buy last coffee Given there are 1 coffees left in the machine And I have deposited 1$ When I press the coffee button Then I should be served a coffee Hitch scenarios, by contrast, emphasizes the following values:</description>
     </item>
     
     <item>
@@ -162,6 +239,17 @@ For an explanation as to why these features are stripped out of StrictYAML, see 
 Disallowed YAML features raise Disallowed exceptions while syntactically invalid YAML raises ScannerError or ComposerError.
 Every error inherits from YAMLError.
 from strictyaml import Map, Int, Any, load from strictyaml import TagTokenDisallowed, FlowMappingDisallowed, AnchorTokenDisallowed schema = Map({&amp;#34;x&amp;#34;: Map({&amp;#34;a&amp;#34;: Any(), &amp;#34;b&amp;#34;: Any(), &amp;#34;c&amp;#34;: Any()})}) Tag tokens:</description>
+    </item>
+    
+    <item>
+      <title>Discussion of requested feature inheritance in Cucumber</title>
+      <link>https://hitchdev.com/hitchstory/why/inheritance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/inheritance/</guid>
+      <description>Inheritance is a feature which was deliberately left out of Cucumber:
+https://stackoverflow.com/questions/41872376/can-a-cucumber-feature-file-inherit-from-a-parent-feature-file
+However, it was deliberately added to hitchstory.</description>
     </item>
     
     <item>
@@ -194,8 +282,8 @@ a:noEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: False}) Int 
       
       <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</guid>
       <description>StrictYAML can validate emails (using a simplified regex) and URLs.
-from strictyaml import Email, Url, Map, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Email(), &amp;#34;b&amp;#34;: Url()}) Valid 1:
-a:billg@microsoft.comb:http://www.google.com/Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;billg@microsoft.com&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;http://www.google.com/&amp;#34;}) Invalid:
+from strictyaml import Email, Url, Map, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Email(), &amp;#34;b&amp;#34;: Url()}) Parsed:
+a:billg@microsoft.comb:http://www.google.com/Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;billg@microsoft.com&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;http://www.google.com/&amp;#34;}) Exception:
 a:notanemailb:notaurlload(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting an email address found non-matching string in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: notanemail ^ (line: 1) Executable specification
 Page automatically generated from email-url.story.
  </description>
@@ -228,6 +316,17 @@ a:BEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;B&am
     </item>
     
     <item>
+      <title>Extra story metadata - e.g. adding JIRA ticket numbers to stories</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/metadata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/metadata/</guid>
+      <description>Stories do not exist in a vaccuum. Each and every story is related to issues on issue trackers, specialist documentation, people, external resources and much more.
+The best place to document this additional metadata is within the story itself. You can thus define additional YAML metadata to be included alongside the story.
+What kind of metadata you add to stories is up to you - simply add the names of the properties you want to add in the info parameter of your engine InfoDefinition and specify the structure of the metadata using StrictYAML validators inside the InfoProperty object.</description>
+    </item>
+    
+    <item>
       <title>Fixed length sequences (FixedSeq)</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/compound/fixed-length-sequences/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -237,6 +336,19 @@ a:BEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;B&am
 from strictyaml import FixedSeq, Str, Map, Int, Float, YAMLValidationError, load from ensure import Ensure schema = FixedSeq([Int(), Map({&amp;#34;x&amp;#34;: Str()}), Float()]) Equivalent list:
 -1-x:5-2.5Ensure(load(yaml_snippet, schema)).equals([1, {&amp;#34;x&amp;#34;: &amp;#34;5&amp;#34;}, 2.5, ]) Invalid list 1:
 a:1b:2c:3load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting a sequence of 3 elements in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: &amp;#39;1&amp;#39; ^ (line: 1) found a mapping in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 3, column 1: c: &amp;#39;3&amp;#39; ^ (line: 3) Invalid list 2:</description>
+    </item>
+    
+    <item>
+      <title>Flaky Tests</title>
+      <link>https://hitchdev.com/hitchstory/why/flaky-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/flaky-tests/</guid>
+      <description>Flaky tests are tests which will do not pass or fail consistently.
+Higher level tests suffer more from flakiness than low level tests, although this tends to be only because high level tests are testing more code.
+The probability of flakiness increases with the amount of code being tested.
+How to deal with flakiness? Flakiness in any test should be considered a bug to be fixed.
+It should not ever, ever just be considered &amp;ldquo;just a fact of life&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -254,6 +366,17 @@ Ensure(type(load(yaml_snippet, schema)[&amp;#34;a&amp;#34;].</description>
     </item>
     
     <item>
+      <title>Generate documentation from stories</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/generate-documentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/generate-documentation/</guid>
+      <description>While hitchstory YAML stories are designed to be as readable as possible while still remaining terse and easy to maintain, it is not readable user documentation and is not intended for use by stakeholders to understand how a system operates.
+However, stakeholders do need documentation and user stories form an excellent base to build documentation from.
+Using hitchstory story and story list objects you can generate documentation using a simple templating language.</description>
+    </item>
+    
+    <item>
       <title>Get line numbers of YAML elements</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/howto/what-line/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -265,14 +388,74 @@ y:p# Some commenta:| x# Another commentb:yc:ad:bfrom strictyaml import Map, Str,
     </item>
     
     <item>
+      <title>Given preconditions</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/given/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/given/</guid>
+      <description>All stories start with a set of preconditions. Hitchstory lets you define these &amp;lsquo;given&amp;rsquo; preconditions using YAML and access them in the story using &amp;lsquo;self.given[&amp;lsquo;property name&amp;rsquo;] in the engine.
+The given property names should be specified in the engine using GivenDefinition and GivenPropery as demonstrated below.
+example.story:
+Createfiles:given:thing:content:thingsListofthings:-thingone-thingtwoscalarthing:35steps:-Createfile engine.py:
+from hitchstory import BaseEngine, GivenDefinition, GivenProperty from strictyaml import Str, Map, Seq, Int, MapPattern def output(contents): with open(&amp;#34;output.txt&amp;#34;, &amp;#39;a&amp;#39;) as handle: handle.</description>
+    </item>
+    
+    <item>
+      <title>Gradual typing of story steps</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/gradual-typing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/gradual-typing/</guid>
+      <description>In order to speed up prototyping and development of a story suite, the structure of your YAML data specified in preconditions, parameters and step arguments need not be specified in advance.
+All data that is parsed without a validator is parsed either as a dict, list or string, as per the StrictYAML spec.
+When your story suite matures and the structure of your story files has solidified, you can specify validators that fail fast when YAML snippets with an invalid structure are used.</description>
+    </item>
+    
+    <item>
+      <title>Handling failing tests</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/failing-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/failing-tests/</guid>
+      <description>By default, a failing story will show:
+ A snippet of the YAML where the story failed with the failing step highlighted. A stack trace from engine.py where the exception was raised.  example.story:
+Failingstory:steps:-Passingstep-Failingstep-Notexecutedstep engine.py:
+from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_does_things import raise_example_exception, output, ExampleException class Engine(BaseEngine): def passing_step(self): pass def failing_step(self): raise_example_exception(&amp;#34;Towel not located&amp;#34;) @no_stacktrace_for(ExampleException) def failing_step_without_stacktrace(self): raise_example_exception(&amp;#34;Expected exception&amp;#34;) def raise_special_failure_exception(self): raise Failure(&amp;#34;Special failure exception - no stacktrace printed!</description>
+    </item>
+    
+    <item>
+      <title>Hiding stacktraces for expected exceptions</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/expected-exceptions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/expected-exceptions/</guid>
+      <description>For common expected failures where you do not want to see the whole stacktrace, apply the &amp;ldquo;@no_stacktrace_for&amp;rdquo; decorator.
+example.story:
+Failingstory:steps:-Failingstepwithoutstacktrace engine.py:
+from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_does_things import raise_example_exception, output, ExampleException class Engine(BaseEngine): def passing_step(self): pass def failing_step(self): raise_example_exception(&amp;#34;Towel not located&amp;#34;) @no_stacktrace_for(ExampleException) def failing_step_without_stacktrace(self): raise_example_exception(&amp;#34;Expected exception&amp;#34;) def raise_special_failure_exception(self): raise Failure(&amp;#34;Special failure exception - no stacktrace printed!&amp;#34;) def step_that_will_not_run(self): pass def on_failure(self, result): pass def not_executed_step(self): passfrom hitchstory import StoryCollection from engine import Engine from pathquery import pathquery story_collection = StoryCollection(pathquery(&amp;#34;.</description>
+    </item>
+    
+    <item>
       <title>HitchDev</title>
       <link>https://hitchdev.com/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/</guid>
       <description>HitchDev is a group of small, self contained open source dogfooded python libraries.
-At the moment just one is documented:
- StrictYAML  </description>
+At the moment just two projects are documented:
+ StrictYAML HitchStory  </description>
+    </item>
+    
+    <item>
+      <title>HitchStory Philosophy</title>
+      <link>https://hitchdev.com/hitchstory/why/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/</guid>
+      <description>HitchStory is a BDD/ATDD framework for writing executable stories which follows a set of 10 principles.
+These principles both differ slightly from BDD principles and go beyond them.
+Story Principles #1 Stories should follow the &amp;ldquo;screenplay principle&amp;rdquo; - if it is visible to the user, it should be reflected in the story.
+Note that this differs from the principle of BDD that &amp;ldquo;if it is interesting to the business&amp;rdquo; it should be reflected in the story.</description>
     </item>
     
     <item>
@@ -285,6 +468,40 @@ At the moment just one is documented:
     </item>
     
     <item>
+      <title>I am perfectly happy with py.test (or other unit testing framework). Why should I use hitchstory?</title>
+      <link>https://hitchdev.com/hitchstory/why/unit-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/unit-tests/</guid>
+      <description>Ultimately it boils down to two programming principles which hitchstory provides &amp;lsquo;rails&amp;rsquo; to guide you:
+ The rule of least power Separation of concerns  Hitchstory stories describe a sequence of events which describe either a user or a user-system interacting with your code. This can be used to describe the functioning of any software system. It is not necessary** to use turing complete code to describe a sequence of events, therefore, according to the rule of least power, you shouldn&amp;rsquo;t use turing complete code to do it.</description>
+    </item>
+    
+    <item>
+      <title>I see given but where is when and then?</title>
+      <link>https://hitchdev.com/hitchstory/why/given-when-then/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/given-when-then/</guid>
+      <description>You can certainly write user stories using when and then like so:
+Given:Ihave:redboxSteps:-WhenIclick:theredbutton-Thenitgoeskaboom However, hitchstory does not require this, and it is not generally encouraged because, as with code, terseness and ease of editing is of primary importance and this languge is designed for use primarily by programmers.
+Writing the story like this is terser and no less clear:
+given:box:redsteps:-click:redbutton-goeskaboom Where stakeholders wish to read documentation that is longer form and more flowing, the latter can still be used to generate it.</description>
+    </item>
+    
+    <item>
+      <title>Inherit one story from another</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/inheritance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/inheritance/</guid>
+      <description>You can break most software down into a series of individual linear behavioral stories.
+However, software stories naturally branch. In order to send an email or delete an email you must first always log in.
+While it would be possible to write out each individual story for every possible branch, this would result in a story suite that is WET instead of DRY and that creates a maintenance headache.
+Story inheritance allows you to base stories on other stories.</description>
+    </item>
+    
+    <item>
       <title>Integers (Int)</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/scalar/integer/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -294,6 +511,29 @@ At the moment just one is documented:
 This is what that can object can do - in many cases if parsed as a integer, it will behave in the same way.
 Example yaml_snippet:
 a:1b:5from strictyaml import Map, Int, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), &amp;#34;b&amp;#34;: Int()}) parsed = load(yaml_snippet, schema) Parsed correctly:</description>
+    </item>
+    
+    <item>
+      <title>Is HitchStory for writing &#34;human writable&#34; stories?</title>
+      <link>https://hitchdev.com/hitchstory/why/human-writable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/human-writable/</guid>
+      <description>No. Having &amp;ldquo;analysts&amp;rdquo; write stories instead of programmers is an explicit non-goal, unlike that of Cucumber.
+It ought to be possible to write hitch stories with less training than is required to be a programmer since the language is conceptually simpler than turing complete programming languages.
+However, it still would require some training to write and instincts that are generally only honed by programmers - e.g the instinct to DRY the code, the instinct to parameterize and to generalize are often not present among non-programmers.</description>
+    </item>
+    
+    <item>
+      <title>Is hitchstory a BDD language?</title>
+      <link>https://hitchdev.com/hitchstory/why/bdd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/bdd/</guid>
+      <description>Yes and no.
+Primarily, BDD is about customer collaboration on writing stories. It does not have any technical requirements - simply jotting down an expected behavior on the back of a napkin with a customer is technically considered BDD, no matter what tools are used after that.
+However, HitchStory can be used to make BDD easier for a number of reasons:
+ The executable stories will be easier for non-programmers subject matter experts to read than turing complete code (e.</description>
     </item>
     
     <item>
@@ -398,6 +638,20 @@ a:1b:yesc:âstringd:| multiline stringfrom strictyaml import Str, Map, load from
     </item>
     
     <item>
+      <title>Play multiple stories in sequence</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/play-multiple-stories/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/play-multiple-stories/</guid>
+      <description>Running multiple stories in sequence is necessary when you want to do a regression sweep to make sure nothing has broken.
+By default hitchstory will stop when it sees its first failure. This behavior can be changed though.
+Example base.story:
+Basestory:given:randomvariable:somevalue example1.story:
+Createfile:basedon:basestorysteps:-CreatefileCreatefileagain:basedon:basestorysteps:-Createfile example2.story:
+Createfiles:basedon:basestorysteps:-Createfilefrom hitchstory import StoryCollection, BaseEngine, GivenDefinition, GivenProperty from pathquery import pathquery from ensure import Ensure class Engine(BaseEngine): given_definition=GivenDefinition( random_variable=GivenProperty() ) def create_file(self, filename=&amp;#34;step1.txt&amp;#34;, content=&amp;#34;example&amp;#34;): with open(filename, &amp;#39;w&amp;#39;) as handle: handle.</description>
+    </item>
+    
+    <item>
       <title>Principles of HitchDev</title>
       <link>https://hitchdev.com/principles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -441,12 +695,37 @@ capitals:UK:1Germany:2countries:-Germany-UKfrom strictyaml import Str, Int, Map,
     </item>
     
     <item>
+      <title>Running a single named story successfully</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/run-single-named-story/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/run-single-named-story/</guid>
+      <description>How a story runs when it is successful - i.e. when no exception is raised during its run.
+example.story:
+Createfiles:steps:-Createfile-Createfile:step2.txt-Createfile:filename:step3.txtcontent:thirdstep engine.py:
+from hitchstory import BaseEngine class Engine(BaseEngine): def create_file(self, file_name=&amp;#34;step1.txt&amp;#34;, content=&amp;#34;example&amp;#34;): with open(file_name, &amp;#39;w&amp;#39;) as handle: handle.write(content) def on_success(self): print(&amp;#34;splines reticulated&amp;#34;) with open(&amp;#34;ranstory.txt&amp;#34;, &amp;#39;w&amp;#39;) as handle: handle.write(self.story.name)from hitchstory import StoryCollection from pathquery import pathquery from engine import EngineStoryCollection(pathquery(&amp;#34;.&amp;#34;).ext(&amp;#34;story&amp;#34;), Engine()).named(&amp;#34;Create files&amp;#34;).play() Will output:
+RUNNING Create files in /path/to/example.story ... splines reticulated SUCCESS in 0.</description>
+    </item>
+    
+    <item>
       <title>Scalar StrictYAML Validators</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/scalar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/</guid>
       <description> Validating strings with regexes (Regex) Parsing comma separated items (CommaSeparated) Datetimes (Datetime) Empty key validation Decimal numbers (Decimal) Boolean (Bool) Integers (Int) Enumerated scalars (Enum) Floating point numbers (Float) Email and URL validators Parsing strings (Str)  </description>
+    </item>
+    
+    <item>
+      <title>Screenplay Principle</title>
+      <link>https://hitchdev.com/hitchstory/why/screenplay-principle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/screenplay-principle/</guid>
+      <description>You don&amp;rsquo;t tell your audience your story, you show them. You must learn to write a screenplay visually. Write what they will see and what they will hear.
+ - http://www.screenwriting.info  An iron rule of screenplay writing is that you do not write what a character thinks. You must demonstrate via their actions and words what they think.
+This parallels a similar problem with software specification:
+ Overspecification - where a specification defines how a problem is to be achieved, rather than what problem is to be achieved.</description>
     </item>
     
     <item>
@@ -479,6 +758,58 @@ Ensure(load(yaml_snippet, schema)).equals([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#
     </item>
     
     <item>
+      <title>Shortcut lookup for story names</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/shortcut-lookup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/shortcut-lookup/</guid>
+      <description>Hunting for and specifying particular story to run can be a pain.
+Using the &amp;lsquo;shortcut&amp;rsquo; function you can select a specific story to run just by specifying one or more key words that appear in the story title. The case is ignored, as are special characters.
+If you specify key words that match no stories or more than one story, an error is raised.
+example1.story:
+Createfile:steps:-CreatefileCreatefileagain:steps:-Createfile example2.story:
+Createfiles:steps:-Createfilefrom hitchstory import StoryCollection, BaseEngine from ensure import Ensure from pathquery import pathquery class Engine(BaseEngine): def create_file(self, filename=&amp;#34;step1.</description>
+    </item>
+    
+    <item>
+      <title>Special exception named failure</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/special-failure-exception/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/special-failure-exception/</guid>
+      <description>If you want to indicate a test failure, raise the &amp;ldquo;Failure&amp;rdquo; exception.
+This is by default an expected exception, so no stack trace will be printed if it is raised.
+example.story:
+Failingstory:steps:-Raisespecialfailureexception-Stepthatwillnotrun-Stepthatwillnotrun engine.py:
+from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_does_things import raise_example_exception, output, ExampleException class Engine(BaseEngine): def passing_step(self): pass def failing_step(self): raise_example_exception(&amp;#34;Towel not located&amp;#34;) @no_stacktrace_for(ExampleException) def failing_step_without_stacktrace(self): raise_example_exception(&amp;#34;Expected exception&amp;#34;) def raise_special_failure_exception(self): raise Failure(&amp;#34;Special failure exception - no stacktrace printed!&amp;#34;) def step_that_will_not_run(self): pass def on_failure(self, result): pass def not_executed_step(self): passfrom hitchstory import StoryCollection from engine import Engine from pathquery import pathquery story_collection = StoryCollection(pathquery(&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>Story that rewrites itself</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/rewrite-story/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/rewrite-story/</guid>
+      <description>Hitch stories can be partially rewritten when the code is changed when a step involves verifying a block of text.
+It is a time saver when you only want to make modifications to messages output by a program and ensure that those modifications are verified.
+Instead of manually constructing the exact output you are expecting you can simply visually inspect the output to verify that it is the desired output.</description>
+    </item>
+    
+    <item>
+      <title>Story with parameters</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/parameterized-stories/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/parameterized-stories/</guid>
+      <description>Parameterized stories are used to describe stories which are essentially the same except for one or more variables which can vary.
+A common example is a story for a user to log in with a browser which may be done with a number of different browsers.
+Parameters can be used in preconditions and in steps by surrounding the parameter name with (( brackets )).
+example.story:
+Clickmagicbutton:with:browser:name:firefoxversion:37given:browser:((browser))steps:-Clickonbutton-Savescreenshot:forbrowser:((browser))variations:withchrome:with:browser:name:chromeversion:153 engine.py:
+from hitchstory import BaseEngine, GivenDefinition, GivenProperty, validate from strictyaml import Map, Seq, Int, Str, Optional from code_that_does_things import * class Engine(BaseEngine): given_definition=GivenDefinition( browser=GivenProperty( schema=Map({&amp;#34;name&amp;#34;: Str(), &amp;#34;version&amp;#34;: Int()}), ), ) def set_up(self): print(self.</description>
+    </item>
+    
+    <item>
       <title>StrictYAML</title>
       <link>https://hitchdev.com/strictyaml/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -487,6 +818,41 @@ Ensure(load(yaml_snippet, schema)).equals([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#
       <description>StrictYAML is a type-safe YAML parser that parses a restricted subset of the YAML specificaton.
 Priorities:
  Beautiful API Refusing to parse the ugly, hard to read and insecure features of YAML. Strict validation of markup and straightforward type casting. Clear, readable exceptions with code snippets and line numbers. Acting as a near-drop in replacement for pyyaml, ruamel.yaml or poyo. Ability to read in YAML, make changes and write it out again with comments preserved.</description>
+    </item>
+    
+    <item>
+      <title>Strong typing</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/strong-typing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/strong-typing/</guid>
+      <description>By default all specified given properties and step arguments accept any kind of YAML which will always be parsed to a string or a nested combination of lists, dicts and strings.
+In order to restrict what kind of YAML is allowed and/or to parse strings as something else (e.g. integers), you can use the validator decorator on step methods or the schema parameter on the GivenProperty object.
+The &amp;lsquo;mini-schemas&amp;rsquo; you feed these objects should be standard StrictYAML validator objects.</description>
+    </item>
+    
+    <item>
+      <title>The BDD movement&#39;s mistakes - what counts as interesting to &#34;the business&#34;?</title>
+      <link>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</guid>
+      <description>When Cucumber first gained some popularity, there was something of a backlash from the original developers that the users &amp;ldquo;weren&amp;rsquo;t using it correctly&amp;rdquo;:
+The specific complaint was that it was being used as an integration testing framework rather than a tool for &amp;ldquo;communicating with the business&amp;rdquo;.
+There are several things wrong with this:
+#1 There isn&amp;rsquo;t really a clearly defined &amp;ldquo;the business&amp;rdquo;, there are just stakeholders - lots of different people are interested in the behavior of the software.</description>
+    </item>
+    
+    <item>
+      <title>Triality</title>
+      <link>https://hitchdev.com/hitchstory/why/triality/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/triality/</guid>
+      <description>All great software needs three things:
+ Specification Tests Documentation  Each of these things is intimately tied. Every new feature must be specified, tested and documented.
+If each of these things are done separately, it violates another core principle of software: DRY.
+However, if each of these things are intrinsically the same - the specification IS the test which IS the documentation, then there is no need to duplicate effort, code and writing.</description>
     </item>
     
     <item>
@@ -547,6 +913,33 @@ Page automatically generated from regexp.</description>
     </item>
     
     <item>
+      <title>Variations</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/variations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/variations/</guid>
+      <description>Some stories are very similar except for a few changed items. You can create substories within the same story in order to enumerate all of the possible permutations.
+This works in the same way as inheritance.
+example.story:
+Createfiles:given:content:doghierarchicalcontent:x:1y:-42steps:-Dothingwithprecondition-Dootherthing:dog-Doyetanotherthing-Doafourththing:animals:pondanimal:frogvariations:cat:given:content:catfrom hitchstory import StoryCollection, BaseEngine, GivenDefinition, GivenProperty, validate from strictyaml import Map, Seq, Int, Str, Optional from pathquery import pathquery from ensure import Ensure class Engine(BaseEngine): given_definition=GivenDefinition( content=GivenProperty(schema=Str()), hierarchical_content=GivenProperty( schema=Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Seq(Str())}) ), ) def do_other_thing(self, parameter): assert type(parameter) is str print(parameter) def do_thing_with_precondition(self): assert type(self.</description>
+    </item>
+    
+    <item>
+      <title>What Cucumber/Gherkin got right</title>
+      <link>https://hitchdev.com/hitchstory/why/cucumbers-mistakes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/cucumbers-mistakes/</guid>
+      <description>Emphasis on readability of the specs TODO
+The idea that specifications should be executable and double as tests TODO
+The deliberate use of a simplified configuration language for specifications TODO
+Deliberate separation of concerns between specification and story execution TODO
+Parameterization TODO
+The idea that the notion of specifications, tests and documentation are all intrinsically linked TODO
+What Cucumber/Gherkin got wrong Syntax Design English is vague. English is verbose. English is messy.</description>
+    </item>
+    
+    <item>
       <title>What YAML features does StrictYAML remove?</title>
       <link>https://hitchdev.com/strictyaml/features-removed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -572,6 +965,18 @@ load(yaml) == {&amp;#39;x&amp;#39;: 2} Example StrictYAML</description>
 Example from wikipedia page on YAML:
 receipt:Oz-WarePurchaseInvoicedate:2012-08-06customer:firstname:Harryfamilyname:Potteraddress:|-4PrivetDrive,LittleWhinging,Englanditems:-part_no:A4786description:WaterBucket(Filled)price:1.47quantity:4-part_no:E1628description:HighHeeled&amp;#34;Ruby&amp;#34;Slipperssize:8price:133.7quantity:1 Key features:
  Things which are associated with other things - delimited by the colon (:). Ordered lists of things - delimited by the prepended dash (-). Multi-line strings - delimited by the bar (|) if there is another newline at the end of the string, or bar + dash (|-) if not.</description>
+    </item>
+    
+    <item>
+      <title>What is the difference betweeen a test and a story?</title>
+      <link>https://hitchdev.com/hitchstory/why/test-or-story/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/test-or-story/</guid>
+      <description>While a test is turing complete code that tests behavior, a story is turing-incomplete code which defines behavior.
+A test is simply code that is executed and either raises an exception indicating a failure or passes.
+A story must be played using an execution engine.
+A story can be translated into readable documentation, often with the aid of artefacts created when running the story (e.g. screenshots).</description>
     </item>
     
     <item>
@@ -650,6 +1055,16 @@ Parse output of StrictYAML without validators:
       <description>When starting out on greenfield projects it&amp;rsquo;s much quicker not to create a validator. In such cases it&amp;rsquo;s often more prudent to just parse the YAML and convert the strings explicitly on the fly (e.g. int(yaml[&amp;lsquo;key&amp;rsquo;])).
 If the YAML is also going to be largely under the control of the developer it also might not make sense to write a validator either.
 If you have written software that is going to parse YAML from a source you do not control - especially by somebody who might make a mistake - then it probably does make sense to write a validator.</description>
+    </item>
+    
+    <item>
+      <title>Why did you not use standard YAML for hitch?</title>
+      <link>https://hitchdev.com/hitchstory/why/standard-yaml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/standard-yaml/</guid>
+      <description>hitchtest (the precursor to hitchstory) actually did use standard YAML and the more I used it the more convinced I was that it contained serious flaws.
+I wrote StrictYAML, which is a restricted subset of standard YAML, in response to those flaws. It replaces implicit typing with strong typing and deactivates rarely used and confusing YAML features.</description>
     </item>
     
     <item>
@@ -738,6 +1153,18 @@ This is, I belive, mistaken. It is better if a language is not subtly different 
       <guid>https://hitchdev.com/strictyaml/why-not/</guid>
       <description>There are a number of formats and approaches that can achieve more or less the same purpose as StrictYAML. Below is a series of comparisons with some of the more famous ones:
  Why not JSON for simple configuration files? Why not use HJSON? Why not use TOML? Why not use the YAML 2.0 standard? - we don&amp;rsquo;t need a new standard! Why not use kwalify with standard YAML to validate my YAML?</description>
+    </item>
+    
+    <item>
+      <title>Why not use Cucumber or other Gherkin-derived languages?</title>
+      <link>https://hitchdev.com/hitchstory/why/cucumber/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/cucumber/</guid>
+      <description>Python equivalents: lettuce, behave Java equivalent: JBehave
+Cucumber was the original &amp;lsquo;BDD&amp;rsquo; frameworks and probably the most popular. It is essentially a parser for the Gherkin language, which is a high level &amp;ldquo;English-like&amp;rdquo; declarative language that can be used to specify user stories which can be executed.
+This approach has the following advantages:
+ Stories are descriptive and declarative. Turing complete languages (python, Java, Ruby, C, etc.) are more powerful than necessary to describe user stories.</description>
     </item>
     
     <item>
@@ -830,6 +1257,16 @@ Problems:
     </item>
     
     <item>
+      <title>Why not use the Robot Framework?</title>
+      <link>https://hitchdev.com/hitchstory/why-not/robot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why-not/robot/</guid>
+      <description>TODO : Write about when it wouldn&amp;rsquo;t say which line it failed on (does it still do this?).
+TODO : Syntax issues.</description>
+    </item>
+    
+    <item>
       <title>Why not use the YAML 2.0 standard? - we don&#39;t need a new standard!</title>
       <link>https://hitchdev.com/strictyaml/why-not/ordinary-yaml/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -849,6 +1286,18 @@ Problems:
 Why does using YAML (or indeed, any configuration language) avoid this? Because they are less powerful languages than python.
 While this may not intrinsically seem like a good thing (more power seems better at first glance), it isn&amp;rsquo;t:
  We need less powerful languages. Rule of least power (wikipedia).</description>
+    </item>
+    
+    <item>
+      <title>Why unit testing needs to die</title>
+      <link>https://hitchdev.com/hitchstory/why/why-not-unit-test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/why-not-unit-test/</guid>
+      <description>This is a controversial argument but, one that needs to be made:
+The world needs to move on from unit testing.
+It ought to be noted that this is not an argument against any of the following, which are often conflated with unit testing:
+ Testing in general Property based testing (e.g. hypothesis). Test driven development The testing pyramid Mocking  All of those things are great. Please do not mistake this as an argument against any of them in principle.</description>
     </item>
     
     <item>

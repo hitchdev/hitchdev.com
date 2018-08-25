@@ -155,8 +155,8 @@ a:noEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: False}) Int 
       
       <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</guid>
       <description>StrictYAML can validate emails (using a simplified regex) and URLs.
-from strictyaml import Email, Url, Map, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Email(), &amp;#34;b&amp;#34;: Url()}) Valid 1:
-a:billg@microsoft.comb:http://www.google.com/Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;billg@microsoft.com&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;http://www.google.com/&amp;#34;}) Invalid:
+from strictyaml import Email, Url, Map, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Email(), &amp;#34;b&amp;#34;: Url()}) Parsed:
+a:billg@microsoft.comb:http://www.google.com/Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;billg@microsoft.com&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;http://www.google.com/&amp;#34;}) Exception:
 a:notanemailb:notaurlload(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting an email address found non-matching string in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: notanemail ^ (line: 1) Executable specification
 Page automatically generated from email-url.story.
  </description>

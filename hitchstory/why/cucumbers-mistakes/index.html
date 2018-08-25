@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>What Cucumber/Gherkin got right - HitchDev</title>
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    
+    <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
+    
+    <link rel="canonical" href="https://hitchdev.com/hitchstory/why/cucumbers-mistakes/">
+    
+    <meta name="author" content="Colm O&#39;Connor">
+    
+
+    <meta property="og:url" content="https://hitchdev.com/hitchstory/why/cucumbers-mistakes/">
+    <meta property="og:title" content="HitchDev">
+    <meta property="og:image" content="https://hitchdev.com/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="HitchDev">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://hitchdev.com/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://hitchdev.com/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://hitchdev.com/fonts/icon.eot');
+        src: url('https://hitchdev.com/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://hitchdev.com/fonts/icon.woff')
+               format('woff'),
+             url('https://hitchdev.com/fonts/icon.ttf')
+               format('truetype'),
+             url('https://hitchdev.com/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/application.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://hitchdev.com/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-green palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+      
+      
+        <a style="display:unset;" href="https://hitchdev.com/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory">hitchstory</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/why">why</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/why/cucumbers-mistakes">cucumbers-mistakes</a>
+            
+            
+        
+          
+            
+        
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/hitchdev" title="@hitchdev on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://hitchdev.com/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://hitchdev.com/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>HitchDev </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="HitchStory" href="https://hitchdev.com/hitchstory/">
+	
+	HitchStory
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="StrictYAML" href="https://hitchdev.com/strictyaml/">
+	
+	StrictYAML
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/hitchdev" target="_blank" title="@hitchdev on GitHub">
+              @hitchdev on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>What Cucumber/Gherkin got right </h1>
+
+			
+
+<h2 id="emphasis-on-readability-of-the-specs">Emphasis on readability of the specs</h2>
+
+<p>TODO</p>
+
+<h2 id="the-idea-that-specifications-should-be-executable-and-double-as-tests">The idea that specifications should be executable and double as tests</h2>
+
+<p>TODO</p>
+
+<h2 id="the-deliberate-use-of-a-simplified-configuration-language-for-specifications">The deliberate use of a simplified configuration language for specifications</h2>
+
+<p>TODO</p>
+
+<h2 id="deliberate-separation-of-concerns-between-specification-and-story-execution">Deliberate separation of concerns between specification and story execution</h2>
+
+<p>TODO</p>
+
+<h2 id="parameterization">Parameterization</h2>
+
+<p>TODO</p>
+
+<h2 id="the-idea-that-the-notion-of-specifications-tests-and-documentation-are-all-intrinsically-linked">The idea that the notion of specifications, tests and documentation are all intrinsically linked</h2>
+
+<p>TODO</p>
+
+<h1 id="what-cucumber-gherkin-got-wrong">What Cucumber/Gherkin got wrong</h1>
+
+<h2 id="syntax-design">Syntax Design</h2>
+
+<p>English is vague. English is verbose. English is messy. English is not strongly typed.</p>
+
+<p>Like actual code, specifications need to be precise. Specifications need to be DRY. Specifications need to be exact. Whether executable or not.</p>
+
+<p>Making English the basis of an executable specification language was only going to bring out the worst o</p>
+
+<p>The first attempt at making a programming language that looked like English - COBOL - ended up being one of the hardest programming languages to learn.</p>
+
+<p>Gherkin is not as bad as COBOL - it is a configuration language that tried to look like English - not a programming language.</p>
+
+<p>Because of the ambiguous syntax design, there is no clear mapping between step definitions and</p>
+
+<h2 id="the-use-of-given-when-then-and-as-bdd-training-wheels-that-never-come-off">The use of Given/When/Then/And as BDD training wheels that never come off</h2>
+
+<p>BDD emphasizes the notion of using Given, When and Then as a way of structuring example based test cases.</p>
+
+<p>And, to be fair, almost every test case should follow this pattern.</p>
+
+<p>However, making these keywords which are used to emphasize the structure every test case should follow
+part of the language itself simply adds unnecessary syntactic noise.</p>
+
+<p>For this reason, hitchstory doesn&rsquo;t use this syntax. You&rsquo;re encouraged to follow the structure of
+<em>thinking</em> about &ldquo;given, when, then&rdquo;, but to codify it as:</p>
+
+<p>given:
+    something: something else
+  steps:
+  - step 1 # when
+  - step 2 # then
+  - step 3 # and
+  - step 4 # but</p>
+
+<p>The keyword &lsquo;given&rsquo; is still used to distinguish parameters used to set up the environment from steps.</p>
+
+<p>Why does this matter? It results in shorter test cases which means less code to manage.</p>
+
+<p>This does not seem as important looking at one user story - multiply that by a thousand and you have
+a lot more code.</p>
+
+<h2 id="no-inheritance">No inheritance</h2>
+
+<p><a href="https://stackoverflow.com/questions/41872376/can-a-cucumber-feature-file-inherit-from-a-parent-feature-file">https://stackoverflow.com/questions/41872376/can-a-cucumber-feature-file-inherit-from-a-parent-feature-file</a></p>
+
+<p>&ldquo;The short answer, no. Feature files can&rsquo;t inherit from another feature file.&rdquo;</p>
+
+<p>Inheritance is about keeping code DRY. Specifications are configuration and just like
+programming code, configuration is best kept DRY.</p>
+
+<p>From the Stack overflow question:</p>
+
+<p>&ldquo;A common background is to login in a system. Login is important but it can often be hidden in the steps.&rdquo;</p>
+
+<p>It <em>can</em> be.</p>
+
+<p>It <em>shouldn&rsquo;t</em> be.</p>
+
+<p>The steps that lead to login are part of the specification of the system, so <em>why should it be hidden</em>?</p>
+
+<p>This conflict between the desire to keep steps DRY and not hide meaningful details in steps
+puts users of Cucumber in a horrible and unnecessary position.</p>
+
+<p>In this article: <a href="https://makandracards.com/makandra/18905-how-to-not-repeat-yourself-in-cucumber-scenarios">https://makandracards.com/makandra/18905-how-to-not-repeat-yourself-in-cucumber-scenarios</a></p>
+
+<p>I see somebody valiantly <em>struggling</em> to find a solution to &ldquo;how can we achieve the same thing as
+inheritance?&rdquo; and finding 4 mediocre equivalents.</p>
+
+<h2 id="the-idea-that-test-cases-should-necessarily-be-non-technical">The idea that test cases should necessarily be non-technical</h2>
+
+<p>Most software doesn&rsquo;t actually interact with humans it interacts with other software.</p>
+
+<p>This interaction can be via code - in which case the specification ought to be defined
+with snippets of code.</p>
+
+<p>The interaction might instead be with a REST API - in which case, in order to be able
+to define the interaction, you must understand and define the semantics of REST APIs
+and be able to write them out if you are defining a spec.</p>
+
+<p>The specification should not attempt to conceal or dumb down these details.</p>
+
+<p>To be fair, this isn&rsquo;t a problem with the syntax of Gherkin or design of Cucumber
+- it is mostly a cultural affectation.</p>
+
+<h2 id="programmers-need-to-want-to-use-it-even-if-the-business-isn-t-interested">Programmers need to want to use it even if the business isn&rsquo;t interested</h2>
+
+<p>Due to all of the above problems, Gherkin does not have a wide adoption among developers.</p>
+
+<p>It&rsquo;s not like deliberately simplified languages are not popular with developers for
+other forms of configuration.</p>
+
+<p>If programmers don&rsquo;t like using a tool or technology that interfaces to their code,
+forget about getting the business to use it.</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2018 Copyright (C) 2018 &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://hitchdev.com/hitchstory/using/alpha/variations/" title="Variations">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Variations
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://hitchdev.com/strictyaml/features-removed/" title="What YAML features does StrictYAML remove?">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              What YAML features does StrictYAML remove?
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://hitchdev.com/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="https://hitchdev.com/javascripts/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

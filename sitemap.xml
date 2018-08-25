@@ -3,11 +3,23 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/principles/code-quality/naming/</loc>
   </url>
   
   <url>
     <loc>https://hitchdev.com/strictyaml/new-faq/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/aborting/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/steps-and-step-arguments/</loc>
   </url>
   
   <url>
@@ -36,6 +48,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/continue-on-failure/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/datetime/</loc>
   </url>
   
@@ -44,11 +60,23 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/why/declarative/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/why/</loc>
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/why-not/gherkin/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/disallowed-yaml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/inheritance/</loc>
   </url>
   
   <url>
@@ -72,7 +100,15 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/metadata/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/compound/fixed-length-sequences/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/flaky-tests/</loc>
   </url>
   
   <url>
@@ -80,7 +116,27 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/generate-documentation/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/howto/what-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/given/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/gradual-typing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/failing-tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/expected-exceptions/</loc>
   </url>
   
   <url>
@@ -93,11 +149,40 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/why/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/howto/</loc>
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/why/unit-tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/given-when-then/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/inheritance/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/integer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/human-writable/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/bdd/</loc>
   </url>
   
   <url>
@@ -133,6 +218,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/play-multiple-stories/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/principles/</loc>
     <priority>0</priority>
   </url>
@@ -154,7 +243,15 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/run-single-named-story/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/screenplay-principle/</loc>
   </url>
   
   <url>
@@ -166,17 +263,45 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/shortcut-lookup/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/special-failure-exception/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/rewrite-story/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/parameterized-stories/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/</loc>
   </url>
   
   <url>
     <loc>https://hitchdev.com/strictyaml/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/strong-typing/</loc>
   </url>
   
   <url>
     <loc>https://hitchdev.com/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/triality/</loc>
   </url>
   
   <url>
@@ -200,11 +325,23 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/variations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/cucumbers-mistakes/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/features-removed/</loc>
   </url>
   
   <url>
     <loc>https://hitchdev.com/strictyaml/what-is-yaml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/test-or-story/</loc>
   </url>
   
   <url>
@@ -233,6 +370,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/when-to-use-validators/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/standard-yaml/</loc>
   </url>
   
   <url>
@@ -268,6 +409,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/why/cucumber/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/why-not/hjson/</loc>
   </url>
   
@@ -300,11 +445,19 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/why-not/robot/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/why-not/ordinary-yaml/</loc>
   </url>
   
   <url>
     <loc>https://hitchdev.com/strictyaml/why-not/turing-complete-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/why-not-unit-test/</loc>
   </url>
   
   <url>
