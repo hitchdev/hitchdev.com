@@ -18,10 +18,10 @@
       
       <guid>https://hitchdev.com/hitchstory/</guid>
       <description>HitchStory HitchStory is a python 3 library for building and running BDD-style executable specifications.
-Unlike other BDD libraries the specification is written with StrictYAML.
-The specifications are designed to be simple to write, easy to read and to integrate seamlessly with the code that executes them.
-Hitchstory also lets you:
- Write parameterized stories and do property based testing. Generate documentation from your stories. Write stories that rewrite themselves. Write stories that inherit from one another.</description>
+Unlike most other BDD tools which use, e.g. Gherkin the specification is written with a StrictYAML dialect.
+Example example.story:
+Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.comcontents:| # long form textHeyguys,IthinkIgothacked!-Click:sendemail-Emailwassent engine.py:
+from hitchstory import BaseEngine, GivenDefinition, GivenProperty from mockemailchecker import email_was_sent from mockselenium import Webdriver from strictyaml import Str class Engine(BaseEngine): given_definition = GivenDefinition( website=GivenProperty(Str()), ) def set_up(self): self.</description>
     </item>
     
     <item>
@@ -35,6 +35,17 @@ Hitchstory also lets you:
 There are typically three problems which lead to unclear naming:
  Ambiguous names Undefined names Misleading metaphors  Example principle conflicts:
  Write the least code possible - short names mean writing less code.  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hitchdev.com/seleniumdirector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/</guid>
+      <description>SeleniumDirector SeleniumDirector is a python 3 library that makes it straightforward to write easily maintainable python code to interact with websites in a non-brittle way using the screenplay pattern with selenium.
+Seleniumdirector reads YAML &amp;ldquo;selector&amp;rdquo; files which associate readable labels with complex selectors - i.e. class name selectors, id selectors, attribute selectors, text and xpath.
+It requires writing a lot less python code than typical &amp;ldquo;page object pattern&amp;rdquo; and relies largely upon configuration.</description>
     </item>
     
     <item>
@@ -276,6 +287,20 @@ a:noEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: False}) Int 
     </item>
     
     <item>
+      <title>Element should not be on page</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/disappearing-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/disappearing-element/</guid>
+      <description>The following example shows a &amp;lsquo;loading overlay&amp;rsquo; element which must disappear before the page can be interacted with.
+Using .should_not_be_on_page(after=seconds) selenium director can wait for the absence of the element and, if it is still there after a timeout, raise an exception.
+This is also useful for writing stories to invoke bugs that accidentally display elements that shouldn&amp;rsquo;t be there.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;h4&amp;gt;Dashboard&amp;lt;/h4&amp;gt; &amp;lt;p id=&amp;#34;id_dashboard_message&amp;#34;&amp;gt;hello!&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; Javascript embedded in above HTML:</description>
+    </item>
+    
+    <item>
       <title>Email and URL validators</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -321,8 +346,8 @@ a:BEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;B&am
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/using/alpha/metadata/</guid>
-      <description>Stories do not exist in a vaccuum. Each and every story is related to issues on issue trackers, specialist documentation, people, external resources and much more.
-The best place to document this additional metadata is within the story itself. You can thus define additional YAML metadata to be included alongside the story.
+      <description>Each and every story is related to issues on issue trackers, specialist documentation, people, external resources and much more.
+The best place to document this additional metadata is not buried in word documents on company wikis but within the story itself.
 What kind of metadata you add to stories is up to you - simply add the names of the properties you want to add in the info parameter of your engine InfoDefinition and specify the structure of the metadata using StrictYAML validators inside the InfoProperty object.</description>
     </item>
     
@@ -349,6 +374,17 @@ Higher level tests suffer more from flakiness than low level tests, although thi
 The probability of flakiness increases with the amount of code being tested.
 How to deal with flakiness? Flakiness in any test should be considered a bug to be fixed.
 It should not ever, ever just be considered &amp;ldquo;just a fact of life&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Flaky story detection</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/flaky-story-detection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/flaky-story-detection/</guid>
+      <description>Dealing with flaky stories, especially with higher level integration tests is a constant battle.
+These examples show how flaky stories can be detected by rerunning stories several times and checking that the result is the same. This kind of regression testing can be usefully run separately from normal regression testing in order to get separate feedback about problematic tests in a &amp;lsquo;flake&amp;rsquo; report.
+This cannot detect all kinds of flakiness, but it can be effective at detecting flakiness caused by, for example:</description>
     </item>
     
     <item>
@@ -393,11 +429,12 @@ y:p# Some commenta:| x# Another commentb:yc:ad:bfrom strictyaml import Map, Str,
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/using/alpha/given/</guid>
-      <description>All stories start with a set of preconditions. Hitchstory lets you define these &amp;lsquo;given&amp;rsquo; preconditions using YAML and access them in the story using &amp;lsquo;self.given[&amp;lsquo;property name&amp;rsquo;] in the engine.
-The given property names should be specified in the engine using GivenDefinition and GivenPropery as demonstrated below.
+      <description>Stories optionally start with a set of preconditions.
+Hitchstory lets you define these &amp;lsquo;given&amp;rsquo; preconditions using YAML mapping and access them in the story by using self.given as you would a dict - e.g. self.given[&amp;lsquo;property name&amp;rsquo;].
+The given property names need to first be specified in the engine using GivenDefinition and GivenPropery - optionally with a StrictYAML schema.
 example.story:
 Createfiles:given:thing:content:thingsListofthings:-thingone-thingtwoscalarthing:35steps:-Createfile engine.py:
-from hitchstory import BaseEngine, GivenDefinition, GivenProperty from strictyaml import Str, Map, Seq, Int, MapPattern def output(contents): with open(&amp;#34;output.txt&amp;#34;, &amp;#39;a&amp;#39;) as handle: handle.</description>
+from hitchstory import BaseEngine, GivenDefinition, GivenProperty from strictyaml import Str, Map, Seq, Int, MapPattern def output(contents): with open(&amp;#34;output.</description>
     </item>
     
     <item>
@@ -441,9 +478,9 @@ from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_doe
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/</guid>
-      <description>HitchDev is a group of small, self contained open source dogfooded python libraries.
-At the moment just two projects are documented:
- StrictYAML HitchStory  </description>
+      <description>HitchDev is a group of self contained, heavily dogfooded python libraries - mainly used for setting up and running dev and test environments:
+Current fully documented projects:
+ StrictYAML &amp;ndash; YAML parser and validator that parses a restricted subset of the YAML spec. HitchStory &amp;ndash; StrictYAML based BDD framework. SeleniumDirector &amp;ndash; declare page (CSS/ID/xpath/etc.) selectors and give them readable names which can be used in readable python code or tests.  Projects that will be documented soon:</description>
     </item>
     
     <item>
@@ -601,6 +638,19 @@ Page automatically generated from merge-documents.story.
     </item>
     
     <item>
+      <title>Overlay - should_be_on_top</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/</guid>
+      <description>This example demonstrates .should_be_on_top() which waits not only for an element to be present on the page (without display:none set), it will wait until no other element covers it.
+should_be_on_top checks the dead center of the element to see if it is covered. If the middle is covered and the corners are not then it will still think that the element is covered.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;h4&amp;gt;Dashboard&amp;lt;/h4&amp;gt; &amp;lt;p id=&amp;#34;id_dashboard_message&amp;#34;&amp;gt;hello!&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; Javascript embedded in above HTML:</description>
+    </item>
+    
+    <item>
       <title>Parsing YAML without a schema</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -729,6 +779,57 @@ This parallels a similar problem with software specification:
     </item>
     
     <item>
+      <title>Selector for element inside iframe</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/iframe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/iframe/</guid>
+      <description>If an element you are trying to use is inside an iframe, use &amp;ldquo;in iframe&amp;rdquo; in the list of elements to refer to an selector name that uniquely identifies the iframe.
+HTML:
+iframe.html:
+&amp;lt;p id=&amp;#34;id_dashboard_message&amp;#34;&amp;gt;hello!&amp;lt;/a&amp;gt; index.html:
+&amp;lt;div id=&amp;#34;id_login_page&amp;#34; class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a id=&amp;#34;id_ok_button&amp;#34; href=&amp;#34;/dashboard.html&amp;#34; class=&amp;#34;btn btn-primary btn-md&amp;#34;&amp;gt;login &amp;lt;i class=&amp;#34;fa fa-sign-in&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Selectors using HTML contents</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/html-element-contents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/html-element-contents/</guid>
+      <description>This story demonstrates using the textual content of HTML elements to select them.
+Either &amp;ldquo;text is&amp;rdquo; to match the text exactly or &amp;ldquo;text contains&amp;rdquo; to match partial text.
+Use &amp;lsquo;which&amp;rsquo; to match a specific element when more than one matches.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;div&amp;gt;login&amp;lt;/div&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_username form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_password form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;#&amp;#34; class=&amp;#34;btn btn-primary btn-md&amp;#34;&amp;gt;not login &amp;lt;i class=&amp;#34;fa fa-sign-in&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;#34;/dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Selectors with HTML IDs</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/html-ids/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/html-ids/</guid>
+      <description>This example demonstrates how to look for of HTML IDs to select and use HTML elements by using &amp;lsquo;id=class_name&amp;rsquo; or &amp;lsquo;id: class_name&amp;rsquo;.
+This is often the ideal kind of selector to use if an element has an ID, since IDs tend to be relatively unchanging and the likelihood of accidentally selecting the wrong element is low.
+If there is more than one element matching a ID (shouldn&amp;rsquo;t be common since that&amp;rsquo;s a violation of HTML semantics, but it still happens!</description>
+    </item>
+    
+    <item>
+      <title>Selectors with HTML classes</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/html-classes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/html-classes/</guid>
+      <description>This example demonstrates how to look for the presence of HTML classes to select and use HTML elements by using &amp;lsquo;class=class_name&amp;rsquo; or &amp;lsquo;class: class_name&amp;rsquo;.
+If there is more than one element matching a class (common, since that&amp;rsquo;s how classes are supposed to be used), the element to use can be specified using &amp;lsquo;which: [ number ]&amp;rsquo; or which: last.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;class_this_is_a_login_page form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_username form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_password form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;/dashboard.</description>
+    </item>
+    
+    <item>
       <title>Sequence/list validator (Seq)</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/compound/sequences/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -769,6 +870,21 @@ If you specify key words that match no stories or more than one story, an error 
 example1.story:
 Createfile:steps:-CreatefileCreatefileagain:steps:-Createfile example2.story:
 Createfiles:steps:-Createfilefrom hitchstory import StoryCollection, BaseEngine from ensure import Ensure from pathquery import pathquery class Engine(BaseEngine): def create_file(self, filename=&amp;#34;step1.</description>
+    </item>
+    
+    <item>
+      <title>Should contain text</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/should-contain-text/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/should-contain-text/</guid>
+      <description>This example demonstrates .should_contain(&amp;ldquo;text&amp;rdquo;) which first waits for the specified element to appear and then waits for it to contain part or all of the text specified.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a id=&amp;#34;id_ok_button&amp;#34; href=&amp;#34;/dashboard.html&amp;#34; class=&amp;#34;btn btn-primary btn-md&amp;#34;&amp;gt;login &amp;lt;i class=&amp;#34;fa fa-sign-in&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; selectors.yml:
+login:appearswhen:loginpageidentifierelements:loginpageidentifier:id=id_usernameloginbutton:id=id_ok_buttonnonexistent:id=not_there set up:
+fromseleniumdirectorimportWebDirectorfromseleniumimportwebdriverdriver=webdriver.Chrome()selector=WebDirector(driver,&amp;#34;selectors.yml&amp;#34;,default_timeout=5) successful:
+selector.visit(&amp;#34;http://localhost:8000&amp;#34;) selector.</description>
     </item>
     
     <item>
@@ -832,6 +948,20 @@ The &amp;lsquo;mini-schemas&amp;rsquo; you feed these objects should be standard
     </item>
     
     <item>
+      <title>Sub-elements</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/subelements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/subelements/</guid>
+      <description>This example demonstrates both how to reference subelements (using subelements:) as well as how to select elements by selector and asking for the parent (using but parent:).
+It also shows how to grab these subelements - i.e. parent name / child name.
+This is an useful feature when grabbing things in groups or tables.
+HTML:
+index.html:
+&amp;lt;div id=&amp;#34;dashboard&amp;#34;&amp;gt; &amp;lt;h4&amp;gt;Dashboard&amp;lt;/h4&amp;gt; &amp;lt;table id=&amp;#34;founder_table&amp;#34;&amp;gt; &amp;lt;thead&amp;gt; &amp;lt;th&amp;gt;Name&amp;lt;/th&amp;gt; &amp;lt;th&amp;gt;Age&amp;lt;/th&amp;gt; &amp;lt;th&amp;gt;Company&amp;lt;/th&amp;gt; &amp;lt;/thead&amp;gt; &amp;lt;tbody&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td class=&amp;#34;col_name&amp;#34;&amp;gt;Bill Gates&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_age&amp;#34;&amp;gt;35&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_company&amp;#34;&amp;gt;Microsoft&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td class=&amp;#34;col_name&amp;#34;&amp;gt;Paul Allen&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_age&amp;#34;&amp;gt;33&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_company&amp;#34;&amp;gt;Microsoft&amp;lt;/td&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;td class=&amp;#34;col_name&amp;#34;&amp;gt;Steve Jobs&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_age&amp;#34;&amp;gt;29&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_company&amp;#34;&amp;gt;Apple&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; selectors.</description>
+    </item>
+    
+    <item>
       <title>The BDD movement&#39;s mistakes - what counts as interesting to &#34;the business&#34;?</title>
       <link>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -884,6 +1014,20 @@ However, if each of these things are intrinsically the same - the specification 
       <description>When a YAML document with mappings is parsed, it is not parsed as a dict but as a YAML object which behaves very similarly to a dict, but with some extra capabilities.
 You can use .items(), .keys(), .values(), look up items with square bracket notation, .get(key, with_default_if_nonexistent) and use &amp;ldquo;x in y&amp;rdquo; notation to determine key membership.
 To retrieve the equivalent dict (containing just other dicts, lists and strings/ints/etc.) use .</description>
+    </item>
+    
+    <item>
+      <title>Using a selenium element object</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/using-selenium-element-object/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/using-selenium-element-object/</guid>
+      <description>If you want to use a selenium object directly (e.g. to implement functionality which seleniumdirector doesn&amp;rsquo;t have), you can use .element.
+It&amp;rsquo;s generally a good idea to use the element&amp;rsquo;s iframe context manager. If your element isn&amp;rsquo;t in an iframe it does nothing. If there is an iframe it switches to it.
+HTML:
+iframe.html:
+&amp;lt;p id=&amp;#34;id_dashboard_message&amp;#34;&amp;gt;hello!&amp;lt;/a&amp;gt; index.html:
+&amp;lt;div id=&amp;#34;id_login_page&amp;#34; class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a id=&amp;#34;id_ok_button&amp;#34; href=&amp;#34;/dashboard.</description>
     </item>
     
     <item>
@@ -1009,7 +1153,7 @@ This helps distinguish the types for the parser, which is useful for JSON, but i
       <guid>https://hitchdev.com/strictyaml/why/explicit-tags-removed/</guid>
       <description>Explicit tags are tags that have an explicit type attached that is used to determine what type to convert the data to when it is parsed.
 For example, if it were to be applied to &amp;ldquo;fix&amp;rdquo; the Godfather movie script parsing issue described above, it would look like this:
--DonCorleone:Doyouhavefaithinmyjudgment?-Clemenza:!!strYes-DonCorleone:DoIhaveyourloyalty? Explicit typecasts in YAML markup are not only ugly, they confuse non-programmers. StrictYAML&amp;rsquo;s philosophy is that type information should be kept strictly separated from data, so this &amp;lsquo;feature&amp;rsquo; of YAML is switched off.</description>
+-DonCorleone:Doyouhavefaithinmyjudgment?-Clemenza:!!strYes-DonCorleone:DoIhaveyourloyalty? Explicit typecasts in YAML markup are slightly confusing for non-programmers, much like the concept of &amp;lsquo;types&amp;rsquo; in general. StrictYAML&amp;rsquo;s philosophy is that types should be kept strictly separated from data, so this &amp;lsquo;feature&amp;rsquo; of YAML is switched off.</description>
     </item>
     
     <item>
@@ -1147,12 +1291,30 @@ This is, I belive, mistaken. It is better if a language is not subtly different 
     
     <item>
       <title>Why not X?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/</guid>
+      <description>Why not use the Robot Framework? Why not use Capybara? Why not use the page object pattern? Why not use splinter?  If you&amp;rsquo;d like to write or link to a rebuttal to any argument raised here, feel free to raise a ticket.</description>
+    </item>
+    
+    <item>
+      <title>Why not X?</title>
       <link>https://hitchdev.com/strictyaml/why-not/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/why-not/</guid>
       <description>There are a number of formats and approaches that can achieve more or less the same purpose as StrictYAML. Below is a series of comparisons with some of the more famous ones:
  Why not JSON for simple configuration files? Why not use HJSON? Why not use TOML? Why not use the YAML 2.0 standard? - we don&amp;rsquo;t need a new standard! Why not use kwalify with standard YAML to validate my YAML?</description>
+    </item>
+    
+    <item>
+      <title>Why not use Capybara?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/capybara/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/capybara/</guid>
+      <description>[ TODO flesh out ]</description>
     </item>
     
     <item>
@@ -1257,6 +1419,18 @@ Problems:
     </item>
     
     <item>
+      <title>Why not use splinter?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/splinter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/splinter/</guid>
+      <description>Splinter is a python library designed to provide a nicer wrapper around selenium.
+seleniumdirector tries to do approximately the same thing, but it does not attempt to abstract away selector logic in to a configuration file to clean up the code.
+Currently there are certain convenient features of splinter which seleniumdirector can&amp;rsquo;t do, some of which will be added to future versions.
+Unlike splinter, seleniumdirector expects you to set up the selenium webdriver object yourself.</description>
+    </item>
+    
+    <item>
       <title>Why not use the Robot Framework?</title>
       <link>https://hitchdev.com/hitchstory/why-not/robot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1267,6 +1441,15 @@ TODO : Syntax issues.</description>
     </item>
     
     <item>
+      <title>Why not use the Robot Framework?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/robot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/robot/</guid>
+      <description>[ TODO ]</description>
+    </item>
+    
+    <item>
       <title>Why not use the YAML 2.0 standard? - we don&#39;t need a new standard!</title>
       <link>https://hitchdev.com/strictyaml/why-not/ordinary-yaml/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1274,6 +1457,16 @@ TODO : Syntax issues.</description>
       <guid>https://hitchdev.com/strictyaml/why-not/ordinary-yaml/</guid>
       <description>StrictYAML is composed of two parts:
  A new YAML specification which parses a restricted subset of the YAML 2.0 specification and only parse to ordered dict, list or string. An optional validator (which will, as requested, validate and cast parse some of those scalar string values to ints, floats, datetimes, etc.).  Note that StrictYAML is not a new standard. If you have a syntax highlighter or editor or anything else that recognizes or reads YAML it will recognize StrictYAML in the same way.</description>
+    </item>
+    
+    <item>
+      <title>Why not use the page object pattern?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/page-object/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/page-object/</guid>
+      <description>Rule of least power  [ TODO: Flesh out ]
+[ TODO : Webium ]</description>
     </item>
     
     <item>
@@ -1301,13 +1494,27 @@ It ought to be noted that this is not an argument against any of the following, 
     </item>
     
     <item>
+      <title>With HTML attributes</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/attributes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/attributes/</guid>
+      <description>This example demonstrates how to use HTML attributes to select and use HTML elements by using &amp;lsquo;attribute: attrib-name=attrib-value&amp;rsquo;.
+If there is more than one element matching that attribute, the element to use can be specified using &amp;lsquo;which: [ number ]&amp;rsquo; or which: last.
+HTML:
+index.html:
+&amp;lt;div data-id=&amp;#34;login-page&amp;#34; class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; data-id=&amp;#34;username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; data-id=&amp;#34;password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a data-id=&amp;#34;ok&amp;#34; href=&amp;#34;/dashboard.</description>
+    </item>
+    
+    <item>
       <title>Write code with the least expressive power</title>
       <link>https://hitchdev.com/principles/code-quality/least-expressive-power/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/principles/code-quality/least-expressive-power/</guid>
-      <description>Examples  YAML vs Python The story of JSON Whither garbage collector Metaprogramming LINQ vs. C# SQL vs. imperative DSL traps C++ templating language   Subprinciples These are principles which I think can partially be derived from this principle.
- Immutability vs. Mutability (side effects) Accidental turing completeness State isolation Lazy evaluation Principle of least privilege in protocol design - https://en.wikipedia.org/wiki/Principle_of_least_privilege  Other people talking about the same principle Commentary: While most of these discuss languages as if their power is uniform and static I consider this to wrong.</description>
+      <description>Write code with the least expressive power necessary is a [tradeoff principle of code quality].
+Examples  YAML vs Python The story of JSON Whither garbage collector Metaprogramming LINQ vs. C# SQL vs. imperative The DSL merry-go-round C++ templating language  Subprinciples These are principles which can be partially or in whole be derived from this principle.
+ Immutability vs. Mutability (side effects) State isolation Lazy evaluation Principle of least privilege in protocol design  Other people talking about the same principle These explanations discuss languages as if their power is uniform and static, whereas this principle also applies to problems and the power of features used to solve them within the same language.</description>
     </item>
     
     <item>

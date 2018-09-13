@@ -544,7 +544,7 @@ This helps distinguish the types for the parser, which is useful for JSON, but i
       <guid>https://hitchdev.com/strictyaml/why/explicit-tags-removed/</guid>
       <description>Explicit tags are tags that have an explicit type attached that is used to determine what type to convert the data to when it is parsed.
 For example, if it were to be applied to &amp;ldquo;fix&amp;rdquo; the Godfather movie script parsing issue described above, it would look like this:
--DonCorleone:Doyouhavefaithinmyjudgment?-Clemenza:!!strYes-DonCorleone:DoIhaveyourloyalty? Explicit typecasts in YAML markup are not only ugly, they confuse non-programmers. StrictYAML&amp;rsquo;s philosophy is that type information should be kept strictly separated from data, so this &amp;lsquo;feature&amp;rsquo; of YAML is switched off.</description>
+-DonCorleone:Doyouhavefaithinmyjudgment?-Clemenza:!!strYes-DonCorleone:DoIhaveyourloyalty? Explicit typecasts in YAML markup are slightly confusing for non-programmers, much like the concept of &amp;lsquo;types&amp;rsquo; in general. StrictYAML&amp;rsquo;s philosophy is that types should be kept strictly separated from data, so this &amp;lsquo;feature&amp;rsquo; of YAML is switched off.</description>
     </item>
     
     <item>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seleniumdirectors on HitchDev</title>
+    <link>https://hitchdev.com/seleniumdirector/</link>
+    <description>Recent content in Seleniumdirectors on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (C) 2018</copyright>
+    
+	<atom:link href="https://hitchdev.com/seleniumdirector/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hitchdev.com/seleniumdirector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/</guid>
+      <description>SeleniumDirector SeleniumDirector is a python 3 library that makes it straightforward to write easily maintainable python code to interact with websites in a non-brittle way using the screenplay pattern with selenium.
+Seleniumdirector reads YAML &amp;ldquo;selector&amp;rdquo; files which associate readable labels with complex selectors - i.e. class name selectors, id selectors, attribute selectors, text and xpath.
+It requires writing a lot less python code than typical &amp;ldquo;page object pattern&amp;rdquo; and relies largely upon configuration.</description>
+    </item>
+    
+    <item>
+      <title>Element should not be on page</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/disappearing-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/disappearing-element/</guid>
+      <description>The following example shows a &amp;lsquo;loading overlay&amp;rsquo; element which must disappear before the page can be interacted with.
+Using .should_not_be_on_page(after=seconds) selenium director can wait for the absence of the element and, if it is still there after a timeout, raise an exception.
+This is also useful for writing stories to invoke bugs that accidentally display elements that shouldn&amp;rsquo;t be there.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;h4&amp;gt;Dashboard&amp;lt;/h4&amp;gt; &amp;lt;p id=&amp;#34;id_dashboard_message&amp;#34;&amp;gt;hello!&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; Javascript embedded in above HTML:</description>
+    </item>
+    
+    <item>
+      <title>Overlay - should_be_on_top</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/</guid>
+      <description>This example demonstrates .should_be_on_top() which waits not only for an element to be present on the page (without display:none set), it will wait until no other element covers it.
+should_be_on_top checks the dead center of the element to see if it is covered. If the middle is covered and the corners are not then it will still think that the element is covered.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;h4&amp;gt;Dashboard&amp;lt;/h4&amp;gt; &amp;lt;p id=&amp;#34;id_dashboard_message&amp;#34;&amp;gt;hello!&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; Javascript embedded in above HTML:</description>
+    </item>
+    
+    <item>
+      <title>Selector for element inside iframe</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/iframe/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/iframe/</guid>
+      <description>If an element you are trying to use is inside an iframe, use &amp;ldquo;in iframe&amp;rdquo; in the list of elements to refer to an selector name that uniquely identifies the iframe.
+HTML:
+iframe.html:
+&amp;lt;p id=&amp;#34;id_dashboard_message&amp;#34;&amp;gt;hello!&amp;lt;/a&amp;gt; index.html:
+&amp;lt;div id=&amp;#34;id_login_page&amp;#34; class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a id=&amp;#34;id_ok_button&amp;#34; href=&amp;#34;/dashboard.html&amp;#34; class=&amp;#34;btn btn-primary btn-md&amp;#34;&amp;gt;login &amp;lt;i class=&amp;#34;fa fa-sign-in&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Selectors using HTML contents</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/html-element-contents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/html-element-contents/</guid>
+      <description>This story demonstrates using the textual content of HTML elements to select them.
+Either &amp;ldquo;text is&amp;rdquo; to match the text exactly or &amp;ldquo;text contains&amp;rdquo; to match partial text.
+Use &amp;lsquo;which&amp;rsquo; to match a specific element when more than one matches.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;div&amp;gt;login&amp;lt;/div&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_username form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_password form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;#&amp;#34; class=&amp;#34;btn btn-primary btn-md&amp;#34;&amp;gt;not login &amp;lt;i class=&amp;#34;fa fa-sign-in&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;a href=&amp;#34;/dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Selectors with HTML IDs</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/html-ids/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/html-ids/</guid>
+      <description>This example demonstrates how to look for of HTML IDs to select and use HTML elements by using &amp;lsquo;id=class_name&amp;rsquo; or &amp;lsquo;id: class_name&amp;rsquo;.
+This is often the ideal kind of selector to use if an element has an ID, since IDs tend to be relatively unchanging and the likelihood of accidentally selecting the wrong element is low.
+If there is more than one element matching a ID (shouldn&amp;rsquo;t be common since that&amp;rsquo;s a violation of HTML semantics, but it still happens!</description>
+    </item>
+    
+    <item>
+      <title>Selectors with HTML classes</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/html-classes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/html-classes/</guid>
+      <description>This example demonstrates how to look for the presence of HTML classes to select and use HTML elements by using &amp;lsquo;class=class_name&amp;rsquo; or &amp;lsquo;class: class_name&amp;rsquo;.
+If there is more than one element matching a class (common, since that&amp;rsquo;s how classes are supposed to be used), the element to use can be specified using &amp;lsquo;which: [ number ]&amp;rsquo; or which: last.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;class_this_is_a_login_page form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_username form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_password form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;/dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Should contain text</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/should-contain-text/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/should-contain-text/</guid>
+      <description>This example demonstrates .should_contain(&amp;ldquo;text&amp;rdquo;) which first waits for the specified element to appear and then waits for it to contain part or all of the text specified.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a id=&amp;#34;id_ok_button&amp;#34; href=&amp;#34;/dashboard.html&amp;#34; class=&amp;#34;btn btn-primary btn-md&amp;#34;&amp;gt;login &amp;lt;i class=&amp;#34;fa fa-sign-in&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; selectors.yml:
+login:appearswhen:loginpageidentifierelements:loginpageidentifier:id=id_usernameloginbutton:id=id_ok_buttonnonexistent:id=not_there set up:
+fromseleniumdirectorimportWebDirectorfromseleniumimportwebdriverdriver=webdriver.Chrome()selector=WebDirector(driver,&amp;#34;selectors.yml&amp;#34;,default_timeout=5) successful:
+selector.visit(&amp;#34;http://localhost:8000&amp;#34;) selector.</description>
+    </item>
+    
+    <item>
+      <title>Sub-elements</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/subelements/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/subelements/</guid>
+      <description>This example demonstrates both how to reference subelements (using subelements:) as well as how to select elements by selector and asking for the parent (using but parent:).
+It also shows how to grab these subelements - i.e. parent name / child name.
+This is an useful feature when grabbing things in groups or tables.
+HTML:
+index.html:
+&amp;lt;div id=&amp;#34;dashboard&amp;#34;&amp;gt; &amp;lt;h4&amp;gt;Dashboard&amp;lt;/h4&amp;gt; &amp;lt;table id=&amp;#34;founder_table&amp;#34;&amp;gt; &amp;lt;thead&amp;gt; &amp;lt;th&amp;gt;Name&amp;lt;/th&amp;gt; &amp;lt;th&amp;gt;Age&amp;lt;/th&amp;gt; &amp;lt;th&amp;gt;Company&amp;lt;/th&amp;gt; &amp;lt;/thead&amp;gt; &amp;lt;tbody&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td class=&amp;#34;col_name&amp;#34;&amp;gt;Bill Gates&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_age&amp;#34;&amp;gt;35&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_company&amp;#34;&amp;gt;Microsoft&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;td class=&amp;#34;col_name&amp;#34;&amp;gt;Paul Allen&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_age&amp;#34;&amp;gt;33&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_company&amp;#34;&amp;gt;Microsoft&amp;lt;/td&amp;gt; &amp;lt;tr&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;td class=&amp;#34;col_name&amp;#34;&amp;gt;Steve Jobs&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_age&amp;#34;&amp;gt;29&amp;lt;/td&amp;gt; &amp;lt;td class=&amp;#34;col_company&amp;#34;&amp;gt;Apple&amp;lt;/td&amp;gt; &amp;lt;/tr&amp;gt; &amp;lt;/tbody&amp;gt; &amp;lt;/table&amp;gt; &amp;lt;/div&amp;gt; selectors.</description>
+    </item>
+    
+    <item>
+      <title>Using a selenium element object</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/using-selenium-element-object/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/using-selenium-element-object/</guid>
+      <description>If you want to use a selenium object directly (e.g. to implement functionality which seleniumdirector doesn&amp;rsquo;t have), you can use .element.
+It&amp;rsquo;s generally a good idea to use the element&amp;rsquo;s iframe context manager. If your element isn&amp;rsquo;t in an iframe it does nothing. If there is an iframe it switches to it.
+HTML:
+iframe.html:
+&amp;lt;p id=&amp;#34;id_dashboard_message&amp;#34;&amp;gt;hello!&amp;lt;/a&amp;gt; index.html:
+&amp;lt;div id=&amp;#34;id_login_page&amp;#34; class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a id=&amp;#34;id_ok_button&amp;#34; href=&amp;#34;/dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Why not X?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/</guid>
+      <description>Why not use the Robot Framework? Why not use Capybara? Why not use the page object pattern? Why not use splinter?  If you&amp;rsquo;d like to write or link to a rebuttal to any argument raised here, feel free to raise a ticket.</description>
+    </item>
+    
+    <item>
+      <title>Why not use Capybara?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/capybara/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/capybara/</guid>
+      <description>[ TODO flesh out ]</description>
+    </item>
+    
+    <item>
+      <title>Why not use splinter?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/splinter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/splinter/</guid>
+      <description>Splinter is a python library designed to provide a nicer wrapper around selenium.
+seleniumdirector tries to do approximately the same thing, but it does not attempt to abstract away selector logic in to a configuration file to clean up the code.
+Currently there are certain convenient features of splinter which seleniumdirector can&amp;rsquo;t do, some of which will be added to future versions.
+Unlike splinter, seleniumdirector expects you to set up the selenium webdriver object yourself.</description>
+    </item>
+    
+    <item>
+      <title>Why not use the Robot Framework?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/robot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/robot/</guid>
+      <description>[ TODO ]</description>
+    </item>
+    
+    <item>
+      <title>Why not use the page object pattern?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/page-object/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/page-object/</guid>
+      <description>Rule of least power  [ TODO: Flesh out ]
+[ TODO : Webium ]</description>
+    </item>
+    
+    <item>
+      <title>With HTML attributes</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/attributes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/attributes/</guid>
+      <description>This example demonstrates how to use HTML attributes to select and use HTML elements by using &amp;lsquo;attribute: attrib-name=attrib-value&amp;rsquo;.
+If there is more than one element matching that attribute, the element to use can be specified using &amp;lsquo;which: [ number ]&amp;rsquo; or which: last.
+HTML:
+index.html:
+&amp;lt;div data-id=&amp;#34;login-page&amp;#34; class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; data-id=&amp;#34;username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; data-id=&amp;#34;password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a data-id=&amp;#34;ok&amp;#34; href=&amp;#34;/dashboard.</description>
+    </item>
+    
+  </channel>
+</rss>

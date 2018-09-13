@@ -66,8 +66,9 @@ Changes to project code : no</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/principles/code-quality/least-expressive-power/</guid>
-      <description>Examples  YAML vs Python The story of JSON Whither garbage collector Metaprogramming LINQ vs. C# SQL vs. imperative DSL traps C++ templating language   Subprinciples These are principles which I think can partially be derived from this principle.
- Immutability vs. Mutability (side effects) Accidental turing completeness State isolation Lazy evaluation Principle of least privilege in protocol design - https://en.wikipedia.org/wiki/Principle_of_least_privilege  Other people talking about the same principle Commentary: While most of these discuss languages as if their power is uniform and static I consider this to wrong.</description>
+      <description>Write code with the least expressive power necessary is a [tradeoff principle of code quality].
+Examples  YAML vs Python The story of JSON Whither garbage collector Metaprogramming LINQ vs. C# SQL vs. imperative The DSL merry-go-round C++ templating language  Subprinciples These are principles which can be partially or in whole be derived from this principle.
+ Immutability vs. Mutability (side effects) State isolation Lazy evaluation Principle of least privilege in protocol design  Other people talking about the same principle These explanations discuss languages as if their power is uniform and static, whereas this principle also applies to problems and the power of features used to solve them within the same language.</description>
     </item>
     
     <item>

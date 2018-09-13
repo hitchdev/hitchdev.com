@@ -202,6 +202,24 @@
 
 
 
+<a  title="SeleniumDirector" href="https://hitchdev.com/seleniumdirector/">
+	
+	SeleniumDirector
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="StrictYAML" href="https://hitchdev.com/strictyaml/">
 	
 	StrictYAML
@@ -245,15 +263,23 @@
 		<div class="wrapper">
 			<h1>What is wrong with explicit tags? </h1>
 
-			<p>Explicit tags are tags that have an explicit type attached that is used to determine what type to convert the data to when it is parsed.</p>
+			
+
+<p>Explicit tags are tags that have an explicit type attached that is used to determine what type to convert the data to when it is parsed.</p>
 
 <p>For example, if it were to be applied to &ldquo;fix&rdquo; the Godfather movie script parsing issue described above, it would look like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">-<span class="w"> </span>Don<span class="w"> </span>Corleone<span class="p">:</span><span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>faith<span class="w"> </span>in<span class="w"> </span>my<span class="w"> </span>judgment<span class="p">?</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>Clemenza<span class="p">:</span><span class="w"> </span><span class="cp">!!str</span><span class="w"> </span>Yes<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>Don<span class="w"> </span>Corleone<span class="p">:</span><span class="w"> </span>Do<span class="w"> </span>I<span class="w"> </span>have<span class="w"> </span>your<span class="w"> </span>loyalty<span class="p">?</span></code></pre></div>
-<p>Explicit typecasts in YAML markup are not only ugly, they confuse non-programmers. StrictYAML&rsquo;s philosophy is that type information should be kept strictly separated from data, so this &lsquo;feature&rsquo; of YAML is switched off.</p>
+<p>Explicit typecasts in YAML markup are slightly confusing for non-programmers, much like the concept of &lsquo;types&rsquo; in general. StrictYAML&rsquo;s philosophy is that types should be kept strictly separated from data, so this &lsquo;feature&rsquo; of YAML is switched off.</p>
 
-<p>If data like this is seen in a YAML file it will raise a special exception.</p>
+<p>If tags are seen in a YAML file it will raise a special TagTokenDisallowed exception.</p>
+
+<h2 id="counterpoints">Counterpoints</h2>
+
+<ul>
+<li><a href="https://github.com/crdoconnor/strictyaml/issues/37">Valid usage in AWS cloudformation syntax?</a></li>
+</ul>
 
 
 			<aside class="copyright" role="note">

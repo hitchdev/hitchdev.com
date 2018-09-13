@@ -208,6 +208,24 @@
 
 
 
+<a  title="SeleniumDirector" href="https://hitchdev.com/seleniumdirector/">
+	
+	SeleniumDirector
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="StrictYAML" href="https://hitchdev.com/strictyaml/">
 	
 	StrictYAML
@@ -251,13 +269,15 @@
 		<div class="wrapper">
 			<h1>Given preconditions </h1>
 
-			<p>All stories start with a set of preconditions. Hitchstory
-lets you define these &lsquo;given&rsquo; preconditions using YAML
-and access them in the story using &lsquo;self.given[&lsquo;property name&rsquo;]
-in the engine.</p>
+			<p>Stories optionally start with a set of preconditions.</p>
 
-<p>The given property names should be specified in the engine
-using GivenDefinition and GivenPropery as demonstrated below.</p>
+<p>Hitchstory lets you define these &lsquo;given&rsquo; preconditions using YAML
+mapping and access them in the story by using self.given as you
+would a dict - e.g. self.given[&lsquo;property name&rsquo;].</p>
+
+<p>The given property names need to first be specified in the engine
+using GivenDefinition and GivenPropery - optionally
+with a <a href="https://hitchdev.com/strictyaml">StrictYAML schema</a>.</p>
 
 <p>example.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Create<span class="w"> </span>files<span class="p">:</span><span class="w">
@@ -286,9 +306,10 @@ using GivenDefinition and GivenPropery as demonstrated below.</p>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;thing&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;content&#39;</span><span class="p">))</span>
-        <span class="n">output</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;, &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;List of things&#39;</span><span class="p">]))</span>
-        <span class="n">output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;scalar thing&#39;</span><span class="p">])</span>
+        <span class="n">output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;thing&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;content&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="sa"></span><span class="s1">&#39;thing&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">given</span> <span class="k">else</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="n">output</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;, &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;List of things&#39;</span><span class="p">,</span> <span class="p">[])))</span>
+        <span class="n">output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;scalar thing&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="sa"></span><span class="s1">&#39;scalar thing&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">given</span> <span class="k">else</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="n">output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;scalar thing&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;default&#39;</span><span class="p">))</span>
         <span class="n">output</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
         <span class="n">output</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
@@ -300,7 +321,7 @@ using GivenDefinition and GivenPropery as demonstrated below.</p>
 <pre><code>RUNNING Create files in /path/to/example.story ... SUCCESS in 0.1 seconds.
 </code></pre>
 
-<p>Defaults to empty list, None or empty dict if nothing specified:</p>
+<p>Defaulting to empty list, None or empty dict:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">one</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 

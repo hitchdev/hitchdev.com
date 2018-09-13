@@ -193,6 +193,24 @@
 
 
 
+<a  title="SeleniumDirector" href="https://hitchdev.com/seleniumdirector/">
+	
+	SeleniumDirector
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="StrictYAML" href="https://hitchdev.com/strictyaml/">
 	
 	StrictYAML
@@ -242,23 +260,8 @@
 
 <p>HitchStory is a python 3 library for building and running BDD-style executable specifications.</p>
 
-<p>Unlike other BDD libraries the specification is written with <a href="https://hitchdev.com/strictyaml">StrictYAML</a>.</p>
-
-<p>The specifications are designed to be simple to write, easy to read and to integrate seamlessly with the
-code that executes them.</p>
-
-<p>Hitchstory also lets you:</p>
-
-<ul>
-<li>Write parameterized stories and do property based testing.</li>
-<li>Generate documentation from your stories.</li>
-<li>Write stories that rewrite themselves.</li>
-<li>Write stories that inherit from one another.</li>
-</ul>
-
-<p>This library was dogfooded for years to BDD, test and autodocument a variety
-of different kinds of software - web apps, python libraries, command line apps, replacing
-other forms of unit, integration and end to end tests.</p>
+<p>Unlike most other BDD tools which use, e.g. Gherkin the specification is written
+with a <a href="https://hitchdev.com/strictyaml">StrictYAML</a> dialect.</p>
 
 <h2 id="example">Example</h2>
 
@@ -338,8 +341,13 @@ SUCCESS in 0.1 seconds.
 
 <h2 id="install">Install</h2>
 
-<p>To install:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install hitchstory</code></pre></div>
+<p>It&rsquo;s recommended to install and <a href="setup-with-hitchkey">set up hitchstory with hitchkey</a>, which can take care of auto-setting
+up a python 3 virtualenv, installing other packages and providing an isolated directory which can be used to build code
+and artefacts in.</p>
+
+<p>Nonetheless, it is also possible to set up and use your own python 3 virtualenv and simply pip install hitchstory
+from pypi.</p>
+
 <h2 id="using-hitchstory">Using HitchStory</h2>
 
 <ul>
@@ -350,6 +358,7 @@ SUCCESS in 0.1 seconds.
 <li><a href="using/alpha/continue-on-failure">Continue on failure when playing multiple stories</a></li>
 <li><a href="using/alpha/play-multiple-stories">Play multiple stories in sequence</a></li>
 <li><a href="using/alpha/variations">Variations</a></li>
+<li><a href="using/alpha/flaky-story-detection">Flaky story detection</a></li>
 <li><a href="using/alpha/generate-documentation">Generate documentation from stories</a></li>
 <li><a href="using/alpha/gradual-typing">Gradual typing of story steps</a></li>
 <li><a href="using/alpha/metadata">Extra story metadata - e.g. adding JIRA ticket numbers to stories</a></li>
@@ -365,17 +374,54 @@ SUCCESS in 0.1 seconds.
 
 <h2 id="tell-me-more">Tell me more</h2>
 
-<p>HitchStory is a YAML based DSL for writing stories that is designed primarily to be ergonomic
-for developers and only <em>incidentally</em> &ldquo;<a href="https://www.martinfowler.com/bliki/BusinessReadableDSL.html">business readable</a>&rdquo;.</p>
+<p>HitchStory is a YAML based DSL for writing story &lsquo;specificatoins&rsquo;, designed to be simple to write, easy to read, to integrate seamlessly with the
+code that executes them.</p>
 
-<p>By ergonomic for programmers, I mean:</p>
+<p>This library was dogfooded for years to TDD / BDD, test and autodocument a variety
+of different kinds of software - web apps, python libraries, command line apps,
+replacing other forms of unit, integration and end to end tests.</p>
+
+<p>Unlike traditional &ldquo;BDD&rdquo; frameworks like Cucumber, hitchstory is not primarily designed for
+&ldquo;<a href="https://www.martinfowler.com/bliki/BusinessReadableDSL.html">business readability</a>&rdquo;,
+but rather for simplicity ease of maintenance by developers.</p>
+
+<p>This means:</p>
 
 <ul>
 <li>Stories can <em>and should</em> inherit from one another, because <em>specifications ought to be DRY too</em>.</li>
-<li>Stories are defined and validated using strongly typed StrictYAML. Step arguments and preconditions (&lsquo;given&rsquo;) schemas can be defined by the programmer.</li>
-<li>The execution engine can be programmed to rewrite the executing story based upon program behavior changes (e.g. screen output changes, labels on a web app change).</li>
-<li>Running stories is done via a python API so you can easily write customized test workflows to suit your workflows.</li>
-<li>Story parameterization is built in.</li>
+<li>Stories are defined and validated using strongly typed StrictYAML. Step arguments and precondition (&lsquo;given&rsquo;) schemas can be strictly defined by the programmer.</li>
+<li>The execution engine can be programmed to rewrite the executing story based upon certain kinds of behavior changes (e.g. output strings, screen output changes, messages in a web app).</li>
+<li>Running stories is done via a python API rather than a so you can easily program customized test workflows.</li>
+<li>Built in story parameterization for property based testing.</li>
+<li>Stories can be easily tested for flakiness.</li>
+<li>While the stories themselves are not designed primarily for readability, they are designed to be easily used to build readable documentation.</li>
+</ul>
+
+<h2 id="recommended-complementary-tools">Recommended Complementary Tools</h2>
+
+<p>This library was also designed alongside a number of other recommended tools which seamlessly
+integrate with hitchstory, providing functionality to easily build and to test various different
+kinds of software.</p>
+
+<ul>
+<li><a href="https://github.com/hitchdev/hitchkey">hitchkey</a> - create a project &ldquo;key.py&rdquo; of simple methods that can be used to run project-specific commands written in python 3 in an isolated virtualenv and easily run them directly from the command line (e.g. &ldquo;hk bdd my test name&rdquo; or &ldquo;hk regression&rdquo;, &ldquo;hk lint&rdquo; or &ldquo;hk deploy&rdquo;).</li>
+<li><a href="https://github.com/hitchdev/seleniumdirector">seleniumdirector</a> &ndash; tool that wraps selenium, making it easy to write simple, readable stories that interact with websites.</li>
+<li><a href="https://github.com/hitchdev/hitchbuildpy">hitchbuildpy</a> - tool that bundles pyenv and builds virtualenvs from it which can be used to install, run and test python code in one or many different versions.</li>
+<li><a href="https://github.com/hitchdev/hitchrunpy">hitchrunpy</a> - tool that can be used to run and monitor snippets of python code (can be used with hitchstory to write &lsquo;better unit tests&rsquo; - for projects which provide a python API).</li>
+<li><a href="https://github.com/hitchdev/dirtemplate">dirtemplate</a> &ndash; tool that generates a directory tree of text files from a directory tree of jinja2 templates - this can be used with hitchstory to autobuild documentation from stories.</li>
+<li><a href="https://github.com/hitchdev/hitchbuildpg">hitchbuildpg</a> &ndash; tool that builds a local postgres database in a clearly defined state which can be used to develop or test with.</li>
+<li><a href="https://github.com/hitchdev/pretendsmtp">pretendsmtp</a> &ndash; mock SMTP server which can be used to test code which sends emails via SMTP.</li>
+</ul>
+
+<p>Coming soon:</p>
+
+<ul>
+<li>Mock REST server &ndash; library to test code that calls REST APIs.</li>
+<li>interceptbrowser &ndash; library to intercept browser traffic - can be used to intercept selenium browser traffic and modify browser headers, inject javascript (e.g. to mock time in the browser)</li>
+<li>hitchbuildmysql &ndash; similar to hitchbuildpg but for mysql.</li>
+<li>hitchbuildredis &ndash; build isolated redis server.</li>
+<li>hitchbuildnode &ndash; build node environment.</li>
+<li>Suggestions welcome</li>
 </ul>
 
 <h2 id="why-not-x-instead">Why not X instead?</h2>

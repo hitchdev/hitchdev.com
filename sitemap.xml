@@ -11,6 +11,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/seleniumdirector/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/new-faq/</loc>
   </url>
   
@@ -88,6 +92,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/disappearing-element/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</loc>
   </url>
   
@@ -109,6 +117,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/why/flaky-tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/flaky-story-detection/</loc>
   </url>
   
   <url>
@@ -206,6 +218,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/</loc>
   </url>
   
@@ -255,6 +271,27 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/iframe/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/html-element-contents/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/html-ids/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/html-classes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/compound/sequences/</loc>
   </url>
   
@@ -264,6 +301,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/shortcut-lookup/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/should-contain-text/</loc>
   </url>
   
   <url>
@@ -292,6 +333,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/subelements/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/tags/</loc>
     <priority>0</priority>
   </url>
@@ -314,6 +359,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/compound/mapping-yaml-object/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/using-selenium-element-object/</loc>
   </url>
   
   <url>
@@ -405,7 +454,15 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/why-not/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/capybara/</loc>
   </url>
   
   <url>
@@ -445,11 +502,23 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/splinter/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/why-not/robot/</loc>
   </url>
   
   <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/robot/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/why-not/ordinary-yaml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/page-object/</loc>
   </url>
   
   <url>
@@ -458,6 +527,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/why/why-not-unit-test/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/attributes/</loc>
   </url>
   
   <url>

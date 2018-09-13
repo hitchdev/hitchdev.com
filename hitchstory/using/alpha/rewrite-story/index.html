@@ -208,6 +208,24 @@
 
 
 
+<a  title="SeleniumDirector" href="https://hitchdev.com/seleniumdirector/">
+	
+	SeleniumDirector
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="StrictYAML" href="https://hitchdev.com/strictyaml/">
 	
 	StrictYAML
@@ -266,6 +284,10 @@ the desired output.</p>
 text strings are rewritten. This mode can be used when doing development
 when you expect textual changes.</p>
 
+<p>If the story passes then the file will be rewritten with the updated
+contents. If the story fails for any reason then the file will not
+be touched.</p>
+
 <p>If rewrite=False is fed through to the story engine instead, the story
 will always fail when seeing different text. This mode can be used when,
 for example, running all the stories on jenkins or when you are refactoring
@@ -302,10 +324,7 @@ and <em>not</em> expecting textual output changes.</p>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rewrite</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">current_step</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
                 <span class="n">variable_2</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;complicated:</span><span class="se">\n</span><span class="s2">multiline</span><span class="se">\n</span><span class="s2">string&#34;</span>
-            <span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">on_success</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">new_story</span><span class="o">.</span><span class="n">save</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
+            <span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 <span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span></code></pre></div>
 <p>Rewritten:</p>

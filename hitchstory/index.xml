@@ -18,10 +18,10 @@
       
       <guid>https://hitchdev.com/hitchstory/</guid>
       <description>HitchStory HitchStory is a python 3 library for building and running BDD-style executable specifications.
-Unlike other BDD libraries the specification is written with StrictYAML.
-The specifications are designed to be simple to write, easy to read and to integrate seamlessly with the code that executes them.
-Hitchstory also lets you:
- Write parameterized stories and do property based testing. Generate documentation from your stories. Write stories that rewrite themselves. Write stories that inherit from one another.</description>
+Unlike most other BDD tools which use, e.g. Gherkin the specification is written with a StrictYAML dialect.
+Example example.story:
+Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.comcontents:| # long form textHeyguys,IthinkIgothacked!-Click:sendemail-Emailwassent engine.py:
+from hitchstory import BaseEngine, GivenDefinition, GivenProperty from mockemailchecker import email_was_sent from mockselenium import Webdriver from strictyaml import Str class Engine(BaseEngine): given_definition = GivenDefinition( website=GivenProperty(Str()), ) def set_up(self): self.</description>
     </item>
     
     <item>
@@ -105,8 +105,8 @@ However, it was deliberately added to hitchstory.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/using/alpha/metadata/</guid>
-      <description>Stories do not exist in a vaccuum. Each and every story is related to issues on issue trackers, specialist documentation, people, external resources and much more.
-The best place to document this additional metadata is within the story itself. You can thus define additional YAML metadata to be included alongside the story.
+      <description>Each and every story is related to issues on issue trackers, specialist documentation, people, external resources and much more.
+The best place to document this additional metadata is not buried in word documents on company wikis but within the story itself.
 What kind of metadata you add to stories is up to you - simply add the names of the properties you want to add in the info parameter of your engine InfoDefinition and specify the structure of the metadata using StrictYAML validators inside the InfoProperty object.</description>
     </item>
     
@@ -121,6 +121,17 @@ Higher level tests suffer more from flakiness than low level tests, although thi
 The probability of flakiness increases with the amount of code being tested.
 How to deal with flakiness? Flakiness in any test should be considered a bug to be fixed.
 It should not ever, ever just be considered &amp;ldquo;just a fact of life&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Flaky story detection</title>
+      <link>https://hitchdev.com/hitchstory/using/alpha/flaky-story-detection/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/using/alpha/flaky-story-detection/</guid>
+      <description>Dealing with flaky stories, especially with higher level integration tests is a constant battle.
+These examples show how flaky stories can be detected by rerunning stories several times and checking that the result is the same. This kind of regression testing can be usefully run separately from normal regression testing in order to get separate feedback about problematic tests in a &amp;lsquo;flake&amp;rsquo; report.
+This cannot detect all kinds of flakiness, but it can be effective at detecting flakiness caused by, for example:</description>
     </item>
     
     <item>
@@ -140,11 +151,12 @@ Using hitchstory story and story list objects you can generate documentation usi
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/using/alpha/given/</guid>
-      <description>All stories start with a set of preconditions. Hitchstory lets you define these &amp;lsquo;given&amp;rsquo; preconditions using YAML and access them in the story using &amp;lsquo;self.given[&amp;lsquo;property name&amp;rsquo;] in the engine.
-The given property names should be specified in the engine using GivenDefinition and GivenPropery as demonstrated below.
+      <description>Stories optionally start with a set of preconditions.
+Hitchstory lets you define these &amp;lsquo;given&amp;rsquo; preconditions using YAML mapping and access them in the story by using self.given as you would a dict - e.g. self.given[&amp;lsquo;property name&amp;rsquo;].
+The given property names need to first be specified in the engine using GivenDefinition and GivenPropery - optionally with a StrictYAML schema.
 example.story:
 Createfiles:given:thing:content:thingsListofthings:-thingone-thingtwoscalarthing:35steps:-Createfile engine.py:
-from hitchstory import BaseEngine, GivenDefinition, GivenProperty from strictyaml import Str, Map, Seq, Int, MapPattern def output(contents): with open(&amp;#34;output.txt&amp;#34;, &amp;#39;a&amp;#39;) as handle: handle.</description>
+from hitchstory import BaseEngine, GivenDefinition, GivenProperty from strictyaml import Str, Map, Seq, Int, MapPattern def output(contents): with open(&amp;#34;output.</description>
     </item>
     
     <item>
