@@ -462,15 +462,11 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/seleniumdirector/why-not/capybara/</loc>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/</loc>
   </url>
   
   <url>
     <loc>https://hitchdev.com/hitchstory/why/cucumber/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/strictyaml/why-not/hjson/</loc>
   </url>
   
   <url>
@@ -479,6 +475,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/why-not/json-schema/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/robot/</loc>
   </url>
   
   <url>
@@ -502,15 +502,7 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/seleniumdirector/why-not/splinter/</loc>
-  </url>
-  
-  <url>
     <loc>https://hitchdev.com/hitchstory/why-not/robot/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/seleniumdirector/why-not/robot/</loc>
   </url>
   
   <url>

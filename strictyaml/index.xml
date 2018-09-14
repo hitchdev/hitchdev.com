@@ -677,20 +677,7 @@ This is, I belive, mistaken. It is better if a language is not subtly different 
       
       <guid>https://hitchdev.com/strictyaml/why-not/</guid>
       <description>There are a number of formats and approaches that can achieve more or less the same purpose as StrictYAML. Below is a series of comparisons with some of the more famous ones:
- Why not JSON for simple configuration files? Why not use HJSON? Why not use TOML? Why not use the YAML 2.0 standard? - we don&amp;rsquo;t need a new standard! Why not use kwalify with standard YAML to validate my YAML?</description>
-    </item>
-    
-    <item>
-      <title>Why not use HJSON?</title>
-      <link>https://hitchdev.com/strictyaml/why-not/hjson/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/strictyaml/why-not/hjson/</guid>
-      <description>HJSON is an attempt at fixing the aforementioned lack of readability of JSON.
-It has the following criticisms of YAML:
- JSON is easier to explain (compare the JSON and YAML specs).
- JSON is not bloated (it does not have anchors, substitutions or concatenation).
-  As with TOML&amp;rsquo;s criticism, these are spot on. However, strictyaml fixes this by cutting out those parts of the spec, leaving something that is actually simpler than HJSON.</description>
+ Why not JSON for simple configuration files? Why not use TOML? Why not use the YAML 2.0 standard? - we don&amp;rsquo;t need a new standard! Why not use kwalify with standard YAML to validate my YAML? Why not use python&amp;rsquo;s schema library for validation?</description>
     </item>
     
     <item>

@@ -149,37 +149,28 @@ iframe.html:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/seleniumdirector/why-not/</guid>
-      <description>Why not use the Robot Framework? Why not use Capybara? Why not use the page object pattern? Why not use splinter?  If you&amp;rsquo;d like to write or link to a rebuttal to any argument raised here, feel free to raise a ticket.</description>
+      <description>Why not use Capybara-Py or Splinter? Why not use Robot SeleniumLibrary? Why not use the page object pattern?  If you&amp;rsquo;d like to write or link to a rebuttal to any argument raised here, feel free to raise a ticket.</description>
     </item>
     
     <item>
-      <title>Why not use Capybara?</title>
-      <link>https://hitchdev.com/seleniumdirector/why-not/capybara/</link>
+      <title>Why not use Capybara-Py or Splinter?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/seleniumdirector/why-not/capybara/</guid>
-      <description>[ TODO flesh out ]</description>
+      <guid>https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/</guid>
+      <description>Capybara-Py (and Capybara) and Splinter are both wrappers around selenium which can be used to write acceptance tests.
+Similar to seleniumdirector, both wrap around a selenium Webdriver object and provide a nicer API on it. They by and large provide all the same functionality that selenium does.
+Seleniumdirector is different because separates selector management from actions on elements. Selectors are specified in a YAML file while actions are executed with code.</description>
     </item>
     
     <item>
-      <title>Why not use splinter?</title>
-      <link>https://hitchdev.com/seleniumdirector/why-not/splinter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/seleniumdirector/why-not/splinter/</guid>
-      <description>Splinter is a python library designed to provide a nicer wrapper around selenium.
-seleniumdirector tries to do approximately the same thing, but it does not attempt to abstract away selector logic in to a configuration file to clean up the code.
-Currently there are certain convenient features of splinter which seleniumdirector can&amp;rsquo;t do, some of which will be added to future versions.
-Unlike splinter, seleniumdirector expects you to set up the selenium webdriver object yourself.</description>
-    </item>
-    
-    <item>
-      <title>Why not use the Robot Framework?</title>
+      <title>Why not use Robot SeleniumLibrary?</title>
       <link>https://hitchdev.com/seleniumdirector/why-not/robot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/seleniumdirector/why-not/robot/</guid>
-      <description>[ TODO ]</description>
+      <description>Robot&amp;rsquo;s SeleniumLibrary is a layer around selenium designed to integrate it with the Robot framework. It is designed to create test cases like this:
+*** Settings *** Library SeleniumLibrary *** Test Cases *** The user can search for flights [Tags]	search_flights Open browser http://blazedemo.com/ Chrome Select From List By Value xpath://select[@name=&#39;fromPort&#39;] Paris Select From List by Value xpath://select[@name=&#39;toPort&#39;] London Click Button css:input[type=&#39;submit&#39;] @{flights}= Get WebElements css:table[class=&#39;table&#39;]&amp;gt;tbody tr Should Not Be Empty ${flights} Close All Browsers  Example taken from https://www.</description>
     </item>
     
     <item>

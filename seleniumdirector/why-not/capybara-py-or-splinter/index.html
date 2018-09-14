@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Why not use Robot SeleniumLibrary? - HitchDev</title>
+    <title>Why not use Capybara-Py or Splinter? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/seleniumdirector/why-not/robot/">
+    <link rel="canonical" href="https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/seleniumdirector/why-not/robot/">
+    <meta property="og:url" content="https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -112,7 +112,7 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/seleniumdirector/why-not/robot">robot</a>
+            / <a style="display:unset;" href="https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter">capybara-py-or-splinter</a>
             
             
         
@@ -261,31 +261,36 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Why not use Robot SeleniumLibrary? </h1>
+			<h1>Why not use Capybara-Py or Splinter? </h1>
 
-			<p>Robot&rsquo;s SeleniumLibrary is a layer around selenium designed to integrate it
-with the Robot framework. It is designed to create test cases like this:</p>
+			<p>Capybara-Py (and Capybara) and Splinter are both wrappers around selenium
+which can be used to write acceptance tests.</p>
 
-<pre><code>*** Settings ***
-Library  SeleniumLibrary
+<p>Similar to seleniumdirector, both wrap around a selenium Webdriver object
+and provide a nicer API on it. They by and large provide all the same
+functionality that selenium does.</p>
 
-*** Test Cases ***
-The user can search for flights
-    [Tags]	    search_flights
-    Open browser    http://blazedemo.com/   Chrome
-    Select From List By Value   xpath://select[@name='fromPort']  Paris
-    Select From List by Value   xpath://select[@name='toPort']    London
-    Click Button    css:input[type='submit']
-    @{flights}=  Get WebElements    css:table[class='table']&gt;tbody tr
-    Should Not Be Empty     ${flights}
-    Close All Browsers
+<p>Seleniumdirector is different because separates selector management
+from actions on elements. Selectors are specified in a YAML file while
+actions are executed with code. This separation of concerns helps
+keep the code and the selector management simpler.</p>
 
-</code></pre>
+<p>This allows:</p>
 
-<p>Example taken from <a href="https://www.blazemeter.com/blog/robot-framework-the-ultimate-guide-to-running-your-tests">https://www.blazemeter.com/blog/robot-framework-the-ultimate-guide-to-running-your-tests</a></p>
+<ul>
+<li>Code that actually interacts with the page elements to be easier to read and simpler to maintain as it just interacts with labels.</li>
+<li>Selector management to be done by a non-programmer.</li>
+<li>Seamless integration with <a href="https://hitchdev.com/hitchstory">hitchstory</a> and the ability to flexibly write complex stories with the absolute minimum of code.</li>
+</ul>
 
-<p>[ TODO : Two concerns smushed together ]</p>
-
+<p>Capybara-py example <a href="https://elliterate.github.io/capybara.py/">from the docs</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">find</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;xpath&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;//table/tr&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span></code></pre></div>
+<p>Equivalent seleniumdirector code:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">director</span><span class="o">.</span><span class="n">the</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;first table row&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span></code></pre></div>
+<p>And YAML:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">my<span class="w"> </span>page<span class="p">:</span><span class="w">
+</span><span class="w">  </span>first<span class="w"> </span>table<span class="w"> </span>row<span class="p">:</span><span class="w">
+</span><span class="w">    </span>xpath<span class="p">:</span><span class="w"> </span>//table/tr</code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -303,7 +308,7 @@ The user can search for flights
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/why-not/json-schema/" title="Why not use JSON Schema for validation?">
+      <a href="https://hitchdev.com/strictyaml/why-not/" title="Why not X?">
         <span class="direction">
           Previous
         </span>
@@ -313,7 +318,7 @@ The user can search for flights
           </div>
           <div class="stretch">
             <div class="title">
-              Why not use JSON Schema for validation?
+              Why not X?
             </div>
           </div>
         </div>
@@ -323,14 +328,14 @@ The user can search for flights
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/why-not/sdlang/" title="Why not use SDLang?">
+      <a href="https://hitchdev.com/hitchstory/why/cucumber/" title="Why not use Cucumber or other Gherkin-derived languages?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Why not use SDLang?
+              Why not use Cucumber or other Gherkin-derived languages?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -456,8 +456,9 @@ This approach has the following advantages:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/why-not/robot/</guid>
-      <description>TODO : Write about when it wouldn&amp;rsquo;t say which line it failed on (does it still do this?).
-TODO : Syntax issues.</description>
+      <description>HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.
+The last straw was trying to debug a robot test failure and discovering that the step that the test failed on was not displayed to the end user. It turned out that the maintainers had reasons for doing this, but they were bad reasons.
+I eventually dumped it and used python&amp;rsquo;s built in unit testing framework, which is unsuitable for many other reasons.</description>
     </item>
     
     <item>

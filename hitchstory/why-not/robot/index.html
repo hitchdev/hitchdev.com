@@ -263,9 +263,31 @@
 		<div class="wrapper">
 			<h1>Why not use the Robot Framework? </h1>
 
-			<p>TODO : Write about when it wouldn&rsquo;t say which line it failed on (does it still do this?).</p>
+			<p>HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.</p>
 
-<p>TODO : Syntax issues.</p>
+<p>The last straw was trying to debug a robot test failure and discovering that the step that the test failed on was not displayed to the end user. It turned out that the maintainers had reasons for doing this, but they were bad reasons.</p>
+
+<p>I eventually dumped it and used python&rsquo;s built in unit testing framework, which is unsuitable for many <a href="unit-testing-framework">other reasons</a>.</p>
+
+<p>Robot did, I think, get one thing right - a feature it shares in common with cucumber and hitchstory - it enforced a clear separation of concerns between execution code and story definitions - a different kind of language to the one that executes the test.</p>
+
+<p>However, it also made several mistakes:</p>
+
+<p>#1 The language was too complicated</p>
+
+<p>The robot language was supposed to be a readable equivalent to python. Unfortunately, like many other languages that get on the [DSL treadmill] there were features added until it became Turing complete.</p>
+
+<p>The language has conditionals, loops and variables - it essentially is a programming language, except not a very good one.</p>
+
+<p>#2 The debugging tooling is poor and the framework is not really designed to be ergonomic when debugging</p>
+
+<p>#2 RobotSelenium is tightly coupled to Robot</p>
+
+<p>I made this mistake too initially when designing hitchstory. The temptation to have prewritten steps that could be plugged in (e.g. click) was pretty strong. It wasn&rsquo;t a good approach however - flexibility is too valuable.</p>
+
+<p>In the end I figured that a better approach was to leave the contents of the step methods entirely up to the discretion of the developer and provide libraries that are framework agnostic. seleniumdirector may have been designed to work well with hitchstory and can be used to write some &ldquo;one liner steps&rdquo; like click but the API has no intrinsic connection to it and vice versa. It could work <em>just</em> as easily with py.test or unittest or be used to scrape websites.</p>
+
+<p>Similarly all the libraries that form the hitch framework are designed to have a single, tightly scoped purpose (UNIX philosophy) and to be completely agnostic about what the programmer chooses to do with them.</p>
 
 
 			<aside class="copyright" role="note">
@@ -284,7 +306,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/seleniumdirector/why-not/splinter/" title="Why not use splinter?">
+      <a href="https://hitchdev.com/strictyaml/why-not/python-schema/" title="Why not use python&#39;s schema library for validation?">
         <span class="direction">
           Previous
         </span>
@@ -294,7 +316,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Why not use splinter?
+              Why not use python&#39;s schema library for validation?
             </div>
           </div>
         </div>
@@ -304,14 +326,14 @@
 
   <div class="next">
   
-      <a href="https://hitchdev.com/seleniumdirector/why-not/robot/" title="Why not use the Robot Framework?">
+      <a href="https://hitchdev.com/strictyaml/why-not/ordinary-yaml/" title="Why not use the YAML 2.0 standard? - we don&#39;t need a new standard!">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Why not use the Robot Framework?
+              Why not use the YAML 2.0 standard? - we don&#39;t need a new standard!
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

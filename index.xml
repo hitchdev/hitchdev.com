@@ -1295,7 +1295,7 @@ This is, I belive, mistaken. It is better if a language is not subtly different 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/seleniumdirector/why-not/</guid>
-      <description>Why not use the Robot Framework? Why not use Capybara? Why not use the page object pattern? Why not use splinter?  If you&amp;rsquo;d like to write or link to a rebuttal to any argument raised here, feel free to raise a ticket.</description>
+      <description>Why not use Capybara-Py or Splinter? Why not use Robot SeleniumLibrary? Why not use the page object pattern?  If you&amp;rsquo;d like to write or link to a rebuttal to any argument raised here, feel free to raise a ticket.</description>
     </item>
     
     <item>
@@ -1305,16 +1305,18 @@ This is, I belive, mistaken. It is better if a language is not subtly different 
       
       <guid>https://hitchdev.com/strictyaml/why-not/</guid>
       <description>There are a number of formats and approaches that can achieve more or less the same purpose as StrictYAML. Below is a series of comparisons with some of the more famous ones:
- Why not JSON for simple configuration files? Why not use HJSON? Why not use TOML? Why not use the YAML 2.0 standard? - we don&amp;rsquo;t need a new standard! Why not use kwalify with standard YAML to validate my YAML?</description>
+ Why not JSON for simple configuration files? Why not use TOML? Why not use the YAML 2.0 standard? - we don&amp;rsquo;t need a new standard! Why not use kwalify with standard YAML to validate my YAML? Why not use python&amp;rsquo;s schema library for validation?</description>
     </item>
     
     <item>
-      <title>Why not use Capybara?</title>
-      <link>https://hitchdev.com/seleniumdirector/why-not/capybara/</link>
+      <title>Why not use Capybara-Py or Splinter?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/seleniumdirector/why-not/capybara/</guid>
-      <description>[ TODO flesh out ]</description>
+      <guid>https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/</guid>
+      <description>Capybara-Py (and Capybara) and Splinter are both wrappers around selenium which can be used to write acceptance tests.
+Similar to seleniumdirector, both wrap around a selenium Webdriver object and provide a nicer API on it. They by and large provide all the same functionality that selenium does.
+Seleniumdirector is different because separates selector management from actions on elements. Selectors are specified in a YAML file while actions are executed with code.</description>
     </item>
     
     <item>
@@ -1327,19 +1329,6 @@ This is, I belive, mistaken. It is better if a language is not subtly different 
 Cucumber was the original &amp;lsquo;BDD&amp;rsquo; frameworks and probably the most popular. It is essentially a parser for the Gherkin language, which is a high level &amp;ldquo;English-like&amp;rdquo; declarative language that can be used to specify user stories which can be executed.
 This approach has the following advantages:
  Stories are descriptive and declarative. Turing complete languages (python, Java, Ruby, C, etc.) are more powerful than necessary to describe user stories.</description>
-    </item>
-    
-    <item>
-      <title>Why not use HJSON?</title>
-      <link>https://hitchdev.com/strictyaml/why-not/hjson/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/strictyaml/why-not/hjson/</guid>
-      <description>HJSON is an attempt at fixing the aforementioned lack of readability of JSON.
-It has the following criticisms of YAML:
- JSON is easier to explain (compare the JSON and YAML specs).
- JSON is not bloated (it does not have anchors, substitutions or concatenation).
-  As with TOML&amp;rsquo;s criticism, these are spot on. However, strictyaml fixes this by cutting out those parts of the spec, leaving something that is actually simpler than HJSON.</description>
     </item>
     
     <item>
@@ -1361,6 +1350,16 @@ It has the following criticisms of YAML:
       <description>JSON schema can also be used to validate YAML. This presumes that you might want to use jsonschema and pyyaml/ruamel.yaml together.
 [ TODO Flesh out ]
  Line numbers Simpler errors in StrictYAML StrictYAML is a more flexible schema Turing incompleteness / inflexibility  </description>
+    </item>
+    
+    <item>
+      <title>Why not use Robot SeleniumLibrary?</title>
+      <link>https://hitchdev.com/seleniumdirector/why-not/robot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/why-not/robot/</guid>
+      <description>Robot&amp;rsquo;s SeleniumLibrary is a layer around selenium designed to integrate it with the Robot framework. It is designed to create test cases like this:
+*** Settings *** Library SeleniumLibrary *** Test Cases *** The user can search for flights [Tags]	search_flights Open browser http://blazedemo.com/ Chrome Select From List By Value xpath://select[@name=&#39;fromPort&#39;] Paris Select From List by Value xpath://select[@name=&#39;toPort&#39;] London Click Button css:input[type=&#39;submit&#39;] @{flights}= Get WebElements css:table[class=&#39;table&#39;]&amp;gt;tbody tr Should Not Be Empty ${flights} Close All Browsers  Example taken from https://www.</description>
     </item>
     
     <item>
@@ -1419,34 +1418,14 @@ Problems:
     </item>
     
     <item>
-      <title>Why not use splinter?</title>
-      <link>https://hitchdev.com/seleniumdirector/why-not/splinter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/seleniumdirector/why-not/splinter/</guid>
-      <description>Splinter is a python library designed to provide a nicer wrapper around selenium.
-seleniumdirector tries to do approximately the same thing, but it does not attempt to abstract away selector logic in to a configuration file to clean up the code.
-Currently there are certain convenient features of splinter which seleniumdirector can&amp;rsquo;t do, some of which will be added to future versions.
-Unlike splinter, seleniumdirector expects you to set up the selenium webdriver object yourself.</description>
-    </item>
-    
-    <item>
       <title>Why not use the Robot Framework?</title>
       <link>https://hitchdev.com/hitchstory/why-not/robot/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/why-not/robot/</guid>
-      <description>TODO : Write about when it wouldn&amp;rsquo;t say which line it failed on (does it still do this?).
-TODO : Syntax issues.</description>
-    </item>
-    
-    <item>
-      <title>Why not use the Robot Framework?</title>
-      <link>https://hitchdev.com/seleniumdirector/why-not/robot/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/seleniumdirector/why-not/robot/</guid>
-      <description>[ TODO ]</description>
+      <description>HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.
+The last straw was trying to debug a robot test failure and discovering that the step that the test failed on was not displayed to the end user. It turned out that the maintainers had reasons for doing this, but they were bad reasons.
+I eventually dumped it and used python&amp;rsquo;s built in unit testing framework, which is unsuitable for many other reasons.</description>
     </item>
     
     <item>
