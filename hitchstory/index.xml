@@ -12,19 +12,6 @@
     
     
     <item>
-      <title></title>
-      <link>https://hitchdev.com/hitchstory/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/</guid>
-      <description>HitchStory HitchStory is a python 3 library for building and running BDD-style executable specifications.
-Unlike most other BDD tools which use, e.g. Gherkin the specification is written with a StrictYAML dialect.
-Example example.story:
-Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.comcontents:| # long form textHeyguys,IthinkIgothacked!-Click:sendemail-Emailwassent engine.py:
-from hitchstory import BaseEngine, GivenDefinition, GivenProperty from mockemailchecker import email_was_sent from mockselenium import Webdriver from strictyaml import Str class Engine(BaseEngine): given_definition = GivenDefinition( website=GivenProperty(Str()), ) def set_up(self): self.</description>
-    </item>
-    
-    <item>
       <title>Abort a story with ctrl-C</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/aborting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -192,6 +179,19 @@ from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_doe
 example.story:
 Failingstory:steps:-Failingstepwithoutstacktrace engine.py:
 from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_does_things import raise_example_exception, output, ExampleException class Engine(BaseEngine): def passing_step(self): pass def failing_step(self): raise_example_exception(&amp;#34;Towel not located&amp;#34;) @no_stacktrace_for(ExampleException) def failing_step_without_stacktrace(self): raise_example_exception(&amp;#34;Expected exception&amp;#34;) def raise_special_failure_exception(self): raise Failure(&amp;#34;Special failure exception - no stacktrace printed!&amp;#34;) def step_that_will_not_run(self): pass def on_failure(self, result): pass def not_executed_step(self): passfrom hitchstory import StoryCollection from engine import Engine from pathquery import pathquery story_collection = StoryCollection(pathquery(&amp;#34;.</description>
+    </item>
+    
+    <item>
+      <title>HitchStory</title>
+      <link>https://hitchdev.com/hitchstory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/</guid>
+      <description>HitchStory is a python 3 library for building and running BDD-style executable specifications.
+Unlike most other BDD tools which use, e.g. Gherkin the specification is written with a StrictYAML dialect.
+Example example.story:
+Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.comcontents:| # long form textHeyguys,IthinkIgothacked!-Click:sendemail-Emailwassent engine.py:
+from hitchstory import BaseEngine, GivenDefinition, GivenProperty from mockemailchecker import email_was_sent from mockselenium import Webdriver from strictyaml import Str class Engine(BaseEngine): given_definition = GivenDefinition( website=GivenProperty(Str()), ) def set_up(self): self.</description>
     </item>
     
     <item>

@@ -13,19 +13,6 @@
     
     <item>
       <title></title>
-      <link>https://hitchdev.com/hitchstory/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/</guid>
-      <description>HitchStory HitchStory is a python 3 library for building and running BDD-style executable specifications.
-Unlike most other BDD tools which use, e.g. Gherkin the specification is written with a StrictYAML dialect.
-Example example.story:
-Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.comcontents:| # long form textHeyguys,IthinkIgothacked!-Click:sendemail-Emailwassent engine.py:
-from hitchstory import BaseEngine, GivenDefinition, GivenProperty from mockemailchecker import email_was_sent from mockselenium import Webdriver from strictyaml import Str class Engine(BaseEngine): given_definition = GivenDefinition( website=GivenProperty(Str()), ) def set_up(self): self.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://hitchdev.com/principles/code-quality/naming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -492,6 +479,19 @@ from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_doe
       <description>HitchDev is a group of self contained, heavily dogfooded python libraries - mainly used for setting up and running dev and test environments:
 Current fully documented projects:
  StrictYAML &amp;ndash; YAML parser and validator that parses a restricted subset of the YAML spec. HitchStory &amp;ndash; StrictYAML based BDD framework. SeleniumDirector &amp;ndash; declare page (CSS/ID/xpath/etc.) selectors and give them readable names which can be used in readable python code or tests.  Projects that will be documented soon:</description>
+    </item>
+    
+    <item>
+      <title>HitchStory</title>
+      <link>https://hitchdev.com/hitchstory/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/</guid>
+      <description>HitchStory is a python 3 library for building and running BDD-style executable specifications.
+Unlike most other BDD tools which use, e.g. Gherkin the specification is written with a StrictYAML dialect.
+Example example.story:
+Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.comcontents:| # long form textHeyguys,IthinkIgothacked!-Click:sendemail-Emailwassent engine.py:
+from hitchstory import BaseEngine, GivenDefinition, GivenProperty from mockemailchecker import email_was_sent from mockselenium import Webdriver from strictyaml import Str class Engine(BaseEngine): given_definition = GivenDefinition( website=GivenProperty(Str()), ) def set_up(self): self.</description>
     </item>
     
     <item>
