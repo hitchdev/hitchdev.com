@@ -113,6 +113,17 @@ Parsing and validating as a Decimal is best for values which require precision, 
     </item>
     
     <item>
+      <title>Dirty load</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/restrictions/loading-dirty-yaml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/restrictions/loading-dirty-yaml/</guid>
+      <description>StrictYAML refuses to parse flow style and node anchors by default, but since there have since been some requests to parse flow style, this now allowed with the &amp;ldquo;dirty_load&amp;rdquo; method.
+from strictyaml import Map, Int, MapPattern, Seq, Str, Any, dirty_load schema = Map({&amp;#34;x&amp;#34;: Map({&amp;#34;a&amp;#34;: Any(), &amp;#34;b&amp;#34;: Any(), &amp;#34;c&amp;#34;: Any()}), &amp;#34;y&amp;#34;: MapPattern(Str(), Str()), &amp;#34;z&amp;#34;: Seq(Str())}) Flow style mapping:
+x:{a:1,b:2,c:3}y:{}z:[]assert dirty_load(yaml_snippet, schema, allow_flow_style=True) == {&amp;#34;x&amp;#34;: {&amp;#34;a&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;2&amp;#34;, &amp;#34;c&amp;#34;: &amp;#34;3&amp;#34;}, &amp;#34;y&amp;#34;: {}, &amp;#34;z&amp;#34;: []} Executable specification</description>
+    </item>
+    
+    <item>
       <title>Disallowed YAML</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/restrictions/disallowed-yaml/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -365,7 +376,7 @@ Example yaml_snippet:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/using/alpha/restrictions/</guid>
-      <description> Disallowed YAML Duplicate keys  </description>
+      <description> Disallowed YAML Duplicate keys Dirty load  </description>
     </item>
     
     <item>
@@ -401,7 +412,7 @@ See also UniqueSeq and FixedSeq for other types of sequence validation.
 Example yaml_snippet:
 -1-2-3from strictyaml import Seq, Str, Int, load from ensure import Ensure Valid Parsed:
 Ensure(load(yaml_snippet, Seq(Str()))).equals([&amp;#34;1&amp;#34;, &amp;#34;2&amp;#34;, &amp;#34;3&amp;#34;, ]) Is sequence:
-assert load(yaml_snippet, Seq(Str())).is_sequence() .</description>
+assert load(yaml_snippet, Seq(Str())).is_sequence() Iterator:</description>
     </item>
     
     <item>

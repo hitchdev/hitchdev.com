@@ -263,13 +263,39 @@
 		<div class="wrapper">
 			<h1>Why not use the page object pattern? </h1>
 
-			<ul>
-<li>Rule of least power</li>
-</ul>
+			<p>The <a href="https://www.martinfowler.com/bliki/PageObject.html">page object pattern</a> is a design pattern for creating a code API abstraction around web pages to simplify their usage in GUI tests.</p>
 
-<p>[ TODO: Flesh out ]</p>
+<p>The general idea is to enact a <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of concerns</a> between providing an API around <em>HTML</em> and code that wrapping and providing an API around the <em>web application</em>.</p>
 
-<p>[ TODO : Webium ]</p>
+<ol>
+<li>It leads to an overabundance of test code where configuration would have been sufficient
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</li>
+</ol>
+
+<p>The thorniest complexity in interacting with web pages is not really about what the user does, it&rsquo;s about finding elements on the page.</p>
+
+<p>What is often obvious to the user (e.g. username text box) is often ambiguous to code. This is, in part, because HTML&rsquo;s design did not make this easy. However, HTML is here and we&rsquo;re stuck with it so we need to deal with it.</p>
+
+<p>Selenium has a number of different kinds of selectors (ID, class, attribute, xpath) each of which is appropriate to use in multitude of different situations. None of this is remotely interesting to anybody except the person writing the test - users just want to grab elements and perform actions upon them. Whether an element is grabbed by a class selector or an ID selector is of no importance.</p>
+
+<p>Separating the concern of &ldquo;how to grab an element&rdquo; from &ldquo;what to do with it&rdquo;</p>
+
+<p>If the problem of <em>finding</em> elements on a page can be cleanly abstracted, the problem of what to do with them doesn&rsquo;t <em>have</em> to be abstracted.</p>
+
+<p>The user might click, enter text, drag and drop, scroll to, etc. Whatever you do with an element <em>that is part of the specification</em> - a story in a todo app where a &ldquo;todo&rdquo; is created by dragging and dropping an existing todo on to a &ldquo;clone&rdquo; space is substantially different to a story where a todo is created by entering text and clicking a button.</p>
+
+<p>If the user actions on elements are exposed at the highest level in a test that removes  ambiguity about what the test actually does is better than a test that leaves user interactions ambiguous.</p>
+
+<ol>
+<li>It often leads to relevant details about the test&rsquo;s interaction with the web page being concealed in code rather than exposed
+&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</li>
+</ol>
+
+<p>A clear example of this anti-pattern can be seen in <a href="https://robots.thoughtbot.com/better-acceptance-tests-with-page-objects">this tutorial</a>, ironically titled &ldquo;how to write better acceptance tests&rdquo;.</p>
+
+<p>The page object for &ldquo;Todo&rdquo; has a step &ldquo;create&rdquo;. <em>How</em> is the todo created though? What did the mock user do while they were creating? Can you tell from the scenario? Nope. You have to dig in to the code in order to do figure out what happened. It literally just gives you the most abstract view possible, which would not be enough for the &ldquo;customer&rdquo; (say, the CEO of this todo-app business) to know if it did what they wanted.</p>
+
+<p>Of course, this is still a tendency and it is entirely possible to create page objects that do not do this. Sadly, this is a tendency that is frequently <a href="http://aslakhellesoy.com/post/11055981222/the-training-wheels-came-off">actively encouraged</a> as a &ldquo;best practice&rdquo;.</p>
 
 
 			<aside class="copyright" role="note">
