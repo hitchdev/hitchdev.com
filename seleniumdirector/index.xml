@@ -12,17 +12,6 @@
     
     
     <item>
-      <title></title>
-      <link>https://hitchdev.com/seleniumdirector/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/seleniumdirector/</guid>
-      <description>SeleniumDirector SeleniumDirector is a python 3 library that makes it straightforward to write easily maintainable python code to interact with websites in a non-brittle way using the screenplay pattern with selenium.
-Seleniumdirector reads YAML &amp;ldquo;selector&amp;rdquo; files which associate readable labels with complex selectors - i.e. class name selectors, id selectors, attribute selectors, text and xpath.
-It requires writing a lot less python code than typical &amp;ldquo;page object pattern&amp;rdquo; and relies largely upon configuration.</description>
-    </item>
-    
-    <item>
       <title>Element should not be on page</title>
       <link>https://hitchdev.com/seleniumdirector/using/alpha/disappearing-element/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -98,6 +87,17 @@ If there is more than one element matching a class (common, since that&amp;rsquo
 HTML:
 index.html:
 &amp;lt;div class=&amp;#34;class_this_is_a_login_page form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_username form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; class=&amp;#34;class_password form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a href=&amp;#34;/dashboard.</description>
+    </item>
+    
+    <item>
+      <title>SeleniumDirector</title>
+      <link>https://hitchdev.com/seleniumdirector/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/</guid>
+      <description>SeleniumDirector is a python 3 library that makes it straightforward to write easily maintainable python code to interact with websites in a non-brittle way using the screenplay pattern with selenium.
+Seleniumdirector reads YAML &amp;ldquo;selector&amp;rdquo; files which associate readable labels with complex selectors - i.e. class name selectors, id selectors, attribute selectors, text and xpath.
+Separating the &amp;ldquo;element selection&amp;rdquo; concern from element interaction allows for simpler, more straightforward and more readable code.</description>
     </item>
     
     <item>
@@ -180,8 +180,8 @@ Seleniumdirector is different because separates selector management from actions
       
       <guid>https://hitchdev.com/seleniumdirector/why-not/page-object/</guid>
       <description>The page object pattern is a design pattern for creating a code API abstraction around web pages to simplify their usage in GUI tests.
-The general idea is to enact a separation of concerns between providing an API around HTML and code that wrapping and providing an API around the web application.
- It leads to an overabundance of test code where configuration would have been sufficient &amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-  The thorniest complexity in interacting with web pages is not really about what the user does, it&amp;rsquo;s about finding elements on the page.</description>
+The idea of the page object pattern is is to enact a separation of concerns between the code that interacts directly with HTML and the code which interacts with the web application.
+While identifying a real problem and proposing a solution that works to solve that problem, it is not the most elegant solution to that problem.</description>
     </item>
     
     <item>

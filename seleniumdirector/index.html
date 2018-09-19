@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title> - HitchDev</title>
+    <title>SeleniumDirector - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -252,11 +252,12 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1> </h1>
+			<h1>SeleniumDirector </h1>
 
 			
 
-<h1 id="seleniumdirector">SeleniumDirector</h1>
+<p><iframe src="https://ghbtns.com/github-btn.html?user=hitchdev&repo=seleniumdirector&type=star&count=true" frameborder="0" scrolling="0" width="300px" height="40px"></iframe></p>
+
 
 <p>SeleniumDirector is a python 3 library that makes it straightforward to write easily maintainable
 python code to interact with websites in a non-brittle way using the screenplay pattern with
@@ -265,8 +266,8 @@ selenium.</p>
 <p>Seleniumdirector reads YAML &ldquo;selector&rdquo; files which associate readable labels with complex selectors
 - i.e. class name selectors, id selectors, attribute selectors, text and xpath.</p>
 
-<p>It requires writing a lot less python code than typical &ldquo;page object pattern&rdquo;
-and relies largely upon configuration.</p>
+<p>Separating the &ldquo;element selection&rdquo; concern from element interaction allows for simpler, more straightforward
+and more readable code.</p>
 
 <p>SeleniumDirector was built to be used with <a href="https://hitchdev.com/hitchstory">HitchStory</a> as a means
 of writing straightforward to maintain integration/browser tests, but it completely agnostic about
@@ -344,11 +345,7 @@ specified using &lsquo;which: [ number ]&rsquo; or which: last.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">seleniumdirector</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MoreThanOneElement</span><span class="p">:</span>
 <span class="n">More</span> <span class="n">than</span> <span class="n">one</span> <span class="n">element</span> <span class="n">matches</span> <span class="n">your</span> <span class="n">query</span> <span class="sa"></span><span class="s1">&#39;//*[@id=&#39;</span><span class="n">id_dashboard_message</span><span class="sa"></span><span class="s1">&#39;]&#39;</span><span class="o">.</span></code></pre></div>
 <h2 id="install">Install</h2>
-
-<p>.. code:: bash</p>
-
-<p>$ pip install seleniumdirector</p>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install seleniumdirector</code></pre></div>
 <h2 id="using-seleniumdirector">Using SeleniumDirector</h2>
 
 <ul>
@@ -389,7 +386,7 @@ specified using &lsquo;which: [ number ]&rsquo; or which: last.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/principles/code-quality/naming/" title="">
+      <a href="https://hitchdev.com/seleniumdirector/using/alpha/html-classes/" title="Selectors with HTML classes">
         <span class="direction">
           Previous
         </span>
@@ -399,7 +396,7 @@ specified using &lsquo;which: [ number ]&rsquo; or which: last.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              
+              Selectors with HTML classes
             </div>
           </div>
         </div>
@@ -409,14 +406,14 @@ specified using &lsquo;which: [ number ]&rsquo; or which: last.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/new-faq/" title="">
+      <a href="https://hitchdev.com/strictyaml/using/alpha/compound/sequences/" title="Sequence/list validator (Seq)">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              
+              Sequence/list validator (Seq)
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

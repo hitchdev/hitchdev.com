@@ -7,10 +7,6 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/seleniumdirector/</loc>
-  </url>
-  
-  <url>
     <loc>https://hitchdev.com/strictyaml/new-faq/</loc>
   </url>
   
@@ -288,6 +284,10 @@
   
   <url>
     <loc>https://hitchdev.com/seleniumdirector/using/alpha/html-classes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/</loc>
   </url>
   
   <url>
