@@ -263,7 +263,9 @@
 		<div class="wrapper">
 			<h1>Why not use TOML? </h1>
 
-			<p><a href="https://github.com/toml-lang/toml">TOML</a> is a redesigned configuration language that&rsquo;s essentially an extended version of INI which
+			
+
+<p><a href="https://github.com/toml-lang/toml">TOML</a> is a redesigned configuration language that&rsquo;s essentially an extended version of INI which
 allows the expression of both hierarchical and typed data.</p>
 
 <p>TOML&rsquo;s main criticism of YAML is spot on::</p>
@@ -273,8 +275,10 @@ allows the expression of both hierarchical and typed data.</p>
 <p>StrictYAML&rsquo;s cut down version of the YAML specification - with implicit typing, node anchors/references and flow style cut out,
 ends up being <em>simpler</em> than TOML.</p>
 
-<p>While TOML works well enough for simple data - much like the INI files which inspired it - things start to get a little
-hairier when you have nested tables/arrays.</p>
+<p>While TOML works well enough for simple data - perhaps as a drop in replacement for the INI files which inspired it -
+things start to get a little hairier when you have more complex nested tables/arrays.</p>
+
+<h2 id="1-nesting">1. Nesting</h2>
 
 <p>For example:</p>
 <div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="c"># not clear that this is an array</span>
@@ -298,19 +302,35 @@ hairier when you have nested tables/arrays.</p>
 </span><span class="w">  </span>physical<span class="p">:</span><span class="w">
 </span><span class="w">    </span>color<span class="p">:</span><span class="w"> </span>red<span class="w">
 </span><span class="w">    </span>shape<span class="p">:</span><span class="w"> </span>round</code></pre></div>
-<p>Finally, like most other markup languages it does <a href="../why/syntax-typing-bad">syntax typing</a>:</p>
+<p>In order to partially circumvent this issue, complicated TOML is often presented with indentation. For example:</p>
+
+<ul>
+<li><a href="https://github.com/gazreese/gazreese.com/blob/c4c3fa7d576a4c316f11f0f7a652ca11ab23586d/Hugo/config.toml">https://github.com/gazreese/gazreese.com/blob/c4c3fa7d576a4c316f11f0f7a652ca11ab23586d/Hugo/config.toml</a></li>
+<li><a href="https://github.com/leereilly/csi/blob/567e5b55f766847c9dcc7de482c0fd241fa7377a/lib/data/master.toml">https://github.com/leereilly/csi/blob/567e5b55f766847c9dcc7de482c0fd241fa7377a/lib/data/master.toml</a></li>
+<li><a href="https://github.com/CzarSimon/simonlindgren.info/blob/a391a6345b16f2d8093f6d4c5f422399b4b901eb/simon-cv/config.toml">https://github.com/CzarSimon/simonlindgren.info/blob/a391a6345b16f2d8093f6d4c5f422399b4b901eb/simon-cv/config.toml</a></li>
+</ul>
+
+<h2 id="2-syntax-typing">2. Syntax Typing</h2>
+
+<p>Like most other markup languages TOML has <a href="../../why/syntax-typing-bad">syntax typing</a>.</p>
 <div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">flt2</span> <span class="p">=</span> <span class="mf">3.1415</span>
 <span class="nx">string</span> <span class="p">=</span> <span class="s2">&#34;hello&#34;</span></code></pre></div>
-<p>Whereas, strictyaml(except for a few niche edge cases) simply does not need quotes around any value:</p>
+<p>StrictYAML (except for a few very niche edge cases) simply does not require quotes around any value to
+infer a data type. So, for instance:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">flt<span class="m">2</span><span class="p">:</span><span class="w"> </span><span class="m">3.1415</span><span class="w">
 </span><span class="w"></span>string<span class="p">:</span><span class="w"> </span>hello</code></pre></div>
-<p>&hellip;since is parses <em>everything</em> as string by default:</p>
+<p>Will simply parse as string:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 <span class="p">{</span><span class="sa"></span><span class="s2">&#34;flt2&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.1415&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">}</span></code></pre></div>
-<p>&hellip;and will parse to other types if that&rsquo;s what the schema says to do:</p>
+<p>&hellip;unless directed to parse as something else by the schema:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">,</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;flt2&#34;</span><span class="p">:</span> <span class="n">Float</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()}))</span><span class="o">.</span><span class="n">data</span>
 <span class="p">{</span><span class="sa"></span><span class="s2">&#34;flt&#34;</span><span class="p">:</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">}</span></code></pre></div>
-<p>The schema based approach not only eliminates the need for syntax typing, it is more typesafe.</p>
+<p>The schema based approach not only eliminates the need for syntax typing, making the markup terser,
+it is more type-safe at the same time.</p>
+
+<h2 id="3-duplicate-keys">3. Duplicate keys</h2>
+
+<p>TOML, like standard YAML, allows <a href="../../why/duplicate-keys-disallowed">duplicate keys</a> which can lead to ambiguity and bugs.</p>
 
 
 			<aside class="copyright" role="note">

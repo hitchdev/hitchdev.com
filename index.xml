@@ -942,7 +942,7 @@ from hitchstory import BaseEngine, GivenDefinition, GivenProperty, validate from
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/</guid>
-      <description>StrictYAML is a type-safe YAML parser that parses a restricted subset of the YAML specificaton.
+      <description>StrictYAML is a type-safe YAML parser that parses and validates a restricted subset of the YAML specification.
 Priorities:
  Beautiful API Refusing to parse the ugly, hard to read and insecure features of YAML. Strict validation of markup and straightforward type casting. Clear, readable exceptions with code snippets and line numbers. Acting as a near-drop in replacement for pyyaml, ruamel.yaml or poyo. Ability to read in YAML, make changes and write it out again with comments preserved.</description>
     </item>
