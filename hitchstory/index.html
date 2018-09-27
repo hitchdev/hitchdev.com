@@ -344,7 +344,7 @@ Email was sent
 SUCCESS in 0.1 seconds.
 </code></pre>
 
-<h2 id="install">Install</h2>
+<h2 id="installing">Installing</h2>
 
 <p>It&rsquo;s recommended to install and <a href="setup-with-hitchkey">set up hitchstory with hitchkey</a>, which can take care of automatically
 setting up a up the <a href="approach/recommended-environment">recommended hitchstory environment</a>.</p>
@@ -375,69 +375,38 @@ setting up a up the <a href="approach/recommended-environment">recommended hitch
 <li><a href="using/alpha/inheritance">Inherit one story from another</a></li>
 </ul>
 
-<h2 id="tell-me-more">Tell me more</h2>
+<h2 id="approach-to-using-hitchstory">Approach to using HitchStory</h2>
 
-<p>HitchStory is a YAML based DSL for writing story &lsquo;specifications&rsquo;, designed to be simple to write, easy to read, to integrate seamlessly with the
-code that executes them.</p>
-
-<p>This library was dogfooded for years to TDD / BDD, test and autodocument a variety
-of different kinds of software - web apps, python libraries, command line apps,
-replacing all other forms of unit, integration and end to end tests.</p>
-
-<p>Unlike traditional &ldquo;BDD&rdquo; frameworks like Cucumber, hitchstory is not primarily designed for
-&ldquo;<a href="https://www.martinfowler.com/bliki/BusinessReadableDSL.html">business readability</a>&rdquo;,
-but rather for simplicity ease of maintenance by developers.</p>
-
-<p>This means:</p>
+<p>Best practices, how the tool was meant to be used, etc.</p>
 
 <ul>
-<li>Stories can <em>and should</em> inherit from one another, because <em>specifications ought to be DRY too</em>.</li>
-<li>Stories are defined and validated using strongly typed StrictYAML. Step arguments and precondition (&lsquo;given&rsquo;) schemas can be strictly defined by the programmer.</li>
-<li>The execution engine can be programmed to rewrite the executing story based upon certain kinds of behavior changes (e.g. output strings, screen output changes, messages in a web app).</li>
-<li>Running stories is done via a python API rather than the command line so you can easily program customized test workflows.</li>
-<li>There is built  in story parameterization so you can do property based testing.</li>
-<li>Stories can be easily tested for flakiness.</li>
-<li>The stories are designed to be easily used to build readable documentation.</li>
+<li><a href="approach/complementary-tools">Recommended complementary tools</a></li>
+<li><a href="approach/human-writable">Does hitchstory let your BA or Product Manager write stories while you just write the code?</a></li>
+<li><a href="approach/screenplay-principle">Screenplay Principle</a></li>
+<li><a href="approach/bdd">Can I do BDD with hitchstory? How do I do BDD with hitchstory?</a></li>
+<li><a href="approach/recommended-environment">Recommended Environment</a></li>
+<li><a href="approach/test-or-story">What is the difference betweeen a test and a story?</a></li>
+<li><a href="approach/triality">Triality</a></li>
+<li><a href="approach/flaky-tests">Flaky Tests</a></li>
 </ul>
 
-<h2 id="recommended-complementary-tools">Recommended Complementary Tools</h2>
+<h2 id="design-decisions-and-principles">Design decisions and principles</h2>
 
-<p>This library was also designed alongside a number of other recommended tools which seamlessly
-integrate with hitchstory, providing functionality to easily build and to test various different
-kinds of software.</p>
+<p>Somewhat controversial design decisions are justified here.</p>
 
 <ul>
-<li><a href="https://github.com/hitchdev/hitchkey">hitchkey</a> - create a project &ldquo;key.py&rdquo; of simple methods that can be used to run project-specific commands written in python 3 in an isolated virtualenv and easily run them directly from the command line (e.g. &ldquo;hk bdd my test name&rdquo; or &ldquo;hk regression&rdquo;, &ldquo;hk lint&rdquo; or &ldquo;hk deploy&rdquo;).</li>
-<li><a href="https://github.com/hitchdev/seleniumdirector">seleniumdirector</a> &ndash; tool that wraps selenium, making it easy to write simple, readable stories that interact with websites.</li>
-<li><a href="https://github.com/hitchdev/hitchbuildpy">hitchbuildpy</a> - tool that bundles pyenv and builds virtualenvs from it which can be used to install, run and test python code in one or many different versions.</li>
-<li><a href="https://github.com/hitchdev/hitchrunpy">hitchrunpy</a> - tool that can be used to run and monitor snippets of python code (can be used with hitchstory to write &lsquo;better unit tests&rsquo; - for projects which provide a python API).</li>
-<li><a href="https://github.com/hitchdev/dirtemplate">dirtemplate</a> &ndash; tool that generates a directory tree of text files from a directory tree of jinja2 templates - this can be used with hitchstory to autobuild documentation from stories.</li>
-<li><a href="https://github.com/hitchdev/hitchbuildpg">hitchbuildpg</a> &ndash; tool that builds a local postgres database in a clearly defined state which can be used to develop or test with.</li>
-<li><a href="https://github.com/hitchdev/pretendsmtp">pretendsmtp</a> &ndash; mock SMTP server which can be used to test code which sends emails via SMTP.</li>
-</ul>
-
-<p>Coming soon:</p>
-
-<ul>
-<li>Mock REST server &ndash; library to test code that calls REST APIs.</li>
-<li>interceptbrowser &ndash; library to intercept browser traffic - can be used to intercept selenium browser traffic and modify browser headers, inject javascript (e.g. to mock time in the browser)</li>
-<li>hitchbuildmysql &ndash; similar to hitchbuildpg but for mysql.</li>
-<li>hitchbuildredis &ndash; build isolated redis server.</li>
-<li>hitchbuildnode &ndash; build node environment.</li>
-<li>Suggestions welcome</li>
-</ul>
-
-<h2 id="design-decisions">Design decisions</h2>
-
-<p>TODO : Needs fleshing out.</p>
-
-<ul>
-<li>Why inheritance</li>
+<li><a href="why/principles">Principles</a></li>
+<li><a href="why/given-when-then">I see given but where is when and then?</a></li>
+<li><a href="why/strictyaml">Why does HitchStory use StrictYAML?</a></li>
+<li><a href="why/interesting-to-the-business">Why does hitchstory not have an opinion on what counts as interesting to &ldquo;the business&rdquo;?</a></li>
+<li><a href="why/inheritance">Discussion of requested feature inheritance in Cucumber</a></li>
+<li><a href="why/declarative">Declarative User Stories</a></li>
+<li><a href="why/2-unit-tests-0-integration-tests">Two Unit Tests, Zero Integration Tests</a></li>
 </ul>
 
 <h2 id="why-not-x-instead">Why not X instead?</h2>
 
-<p>TODO : Section needs fleshing out more.</p>
+<p>There are several tools you can use instead, this is why you should use this one instead:</p>
 
 <ul>
 <li><a href="why-not/gherkin">Why not use Behave, Lettuce or Cucumber (Gherkin)?</a></li>

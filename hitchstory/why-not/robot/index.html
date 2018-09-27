@@ -263,7 +263,11 @@
 		<div class="wrapper">
 			<h1>Why not use the Robot Framework? </h1>
 
-			<p>HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.</p>
+			
+
+<p>NOTE: This argument is a work in progress and there are still several things that need amending / adding.</p>
+
+<p>HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.</p>
 
 <p>The last straw was trying to debug a robot test failure and discovering that the step that the test failed on was not displayed to the end user. It turned out that the maintainers had reasons for doing this, but they were bad reasons.</p>
 
@@ -273,15 +277,17 @@
 
 <p>However, it also made several mistakes:</p>
 
-<p>#1 The language was too complicated</p>
+<h1 id="1-the-language-is-too-complicated">1 The language is too complicated</h1>
 
-<p>The robot language was supposed to be a readable equivalent to python. Unfortunately, like many other languages that get on the [DSL treadmill] there were features added until it became Turing complete.</p>
+<p>The robot language was supposed to be a readable equivalent to python. Unfortunately, like many other languages that get on the DSL treadmill there were features added until it became Turing complete.</p>
 
 <p>The language has conditionals, loops and variables - it essentially is a programming language, except not a very good one.</p>
 
-<p>#2 The debugging tooling is poor and the framework is not really designed to be ergonomic when debugging</p>
+<h1 id="2-the-debugging-tooling-is-poor-and-the-framework-is-not-really-designed-to-be-ergonomic-when-debugging">2 The debugging tooling is poor and the framework is not really designed to be ergonomic when debugging</h1>
 
-<p>#2 RobotSelenium is tightly coupled to Robot</p>
+<p>TODO</p>
+
+<h1 id="3-robotselenium-is-tightly-coupled-to-robot">3 RobotSelenium is tightly coupled to Robot</h1>
 
 <p>I made this mistake too initially when designing hitchstory. The temptation to have prewritten steps that could be plugged in (e.g. click) was pretty strong. It wasn&rsquo;t a good approach however - flexibility is too valuable.</p>
 

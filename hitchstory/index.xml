@@ -80,7 +80,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/hitchstory/why/</guid>
       <description>HitchStory is the result of some carefully considered, although controversial design decisions. These are justified here.
- I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Discussion of requested feature inheritance in Cucumber Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
+ Principles I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Discussion of requested feature inheritance in Cucumber Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
     </item>
     
     <item>
@@ -259,6 +259,18 @@ Createfiles:basedon:basestorysteps:-Createfilefrom hitchstory import StoryCollec
     </item>
     
     <item>
+      <title>Principles</title>
+      <link>https://hitchdev.com/hitchstory/why/principles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/principles/</guid>
+      <description>This library was dogfooded for years to TDD / BDD, test and autodocument a variety of different kinds of software - web apps, python libraries, command line apps, replacing all other forms of unit, integration and end to end tests.
+Unlike traditional &amp;ldquo;BDD&amp;rdquo; frameworks like Cucumber, hitchstory is not primarily designed for &amp;ldquo;business readability&amp;rdquo;, but rather for simplicity ease of maintenance by developers.
+This means:
+ Stories can and should inherit from one another, because specifications ought to be DRY too.</description>
+    </item>
+    
+    <item>
       <title>Recommended Environment</title>
       <link>https://hitchdev.com/hitchstory/approach/recommended-environment/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -267,6 +279,16 @@ Createfiles:basedon:basestorysteps:-Createfilefrom hitchstory import StoryCollec
       <description>HitchStory was designed and built on the presumption that it would always be run in a different environment to the environment used to run the code. This is in stark contrast to how unit testing frameworks are presumed to run - i.e. in python, in the same virtualenv.
 There are two reasons for this:
  HitchStory dependencies and related tools are unable to conflict with application code if they run in a separate, segrated environment.</description>
+    </item>
+    
+    <item>
+      <title>Recommended complementary tools</title>
+      <link>https://hitchdev.com/hitchstory/approach/complementary-tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/complementary-tools/</guid>
+      <description>This library was also designed alongside a number of other recommended tools which seamlessly integrate with hitchstory, providing functionality to easily build and to test various different kinds of software.
+ hitchkey - create a project &amp;ldquo;key.py&amp;rdquo; of simple methods that can be used to run project-specific commands written in python 3 in an isolated virtualenv and easily run them directly from the command line (e.g. &amp;ldquo;hk bdd my test name&amp;rdquo; or &amp;ldquo;hk regression&amp;rdquo;, &amp;ldquo;hk lint&amp;rdquo; or &amp;ldquo;hk deploy&amp;rdquo;).</description>
     </item>
     
     <item>
@@ -456,9 +478,9 @@ Scenario: Buy last coffee Given there are 1 coffees left in the machine And I ha
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/why-not/robot/</guid>
-      <description>HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.
-The last straw was trying to debug a robot test failure and discovering that the step that the test failed on was not displayed to the end user. It turned out that the maintainers had reasons for doing this, but they were bad reasons.
-I eventually dumped it and used python&amp;rsquo;s built in unit testing framework, which is unsuitable for many other reasons.</description>
+      <description>NOTE: This argument is a work in progress and there are still several things that need amending / adding.
+HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.
+The last straw was trying to debug a robot test failure and discovering that the step that the test failed on was not displayed to the end user.</description>
     </item>
     
     <item>
@@ -467,10 +489,10 @@ I eventually dumped it and used python&amp;rsquo;s built in unit testing framewo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/why-not/unit-test/</guid>
-      <description>This is not an argument against the following:
+      <description>NOTE: This argument is a work in progress and there are still several things that need amending / adding.
+This is not an argument against the following:
  Testing in general Test driven development Low level testing (of classes and methods or otherwise) Property based testing (e.g. hypothesis). Mocking Doctests  All have their place.
-This simply about the use of unit testing frameworks - py.test, nose, unittest2, jUnit, etc. for low level testing, integration testing and end to end testing.
-There are, broadly speaking, two types of code - algorithmic code and integration code.</description>
+This simply about the use of unit testing frameworks - py.test, nose, unittest2, jUnit, etc.</description>
     </item>
     
   </channel>

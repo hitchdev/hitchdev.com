@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Design Justifications - HitchDev</title>
+    <title>Principles - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/hitchstory/why/">
+    <link rel="canonical" href="https://hitchdev.com/hitchstory/why/principles/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/hitchstory/why/">
+    <meta property="og:url" content="https://hitchdev.com/hitchstory/why/principles/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -107,6 +107,12 @@
           
             
             / <a style="display:unset;" href="https://hitchdev.com/hitchstory/why">why</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/why/principles">principles</a>
             
             
         
@@ -255,24 +261,27 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Design Justifications </h1>
+			<h1>Principles </h1>
 
-			<p>HitchStory is the result of some carefully considered, although
-controversial design decisions. These are justified here.</p>
+			<p>This library was dogfooded for years to TDD / BDD, test and autodocument a variety
+of different kinds of software - web apps, python libraries, command line apps,
+replacing all other forms of unit, integration and end to end tests.</p>
+
+<p>Unlike traditional &ldquo;BDD&rdquo; frameworks like Cucumber, hitchstory is not primarily designed for
+&ldquo;<a href="https://www.martinfowler.com/bliki/BusinessReadableDSL.html">business readability</a>&rdquo;,
+but rather for simplicity ease of maintenance by developers.</p>
+
+<p>This means:</p>
 
 <ul>
-<li><a href="principles">Principles</a></li>
-<li><a href="given-when-then">I see given but where is when and then?</a></li>
-<li><a href="strictyaml">Why does HitchStory use StrictYAML?</a></li>
-<li><a href="interesting-to-the-business">Why does hitchstory not have an opinion on what counts as interesting to &ldquo;the business&rdquo;?</a></li>
-<li><a href="inheritance">Discussion of requested feature inheritance in Cucumber</a></li>
-<li><a href="declarative">Declarative User Stories</a></li>
-<li><a href="2-unit-tests-0-integration-tests">Two Unit Tests, Zero Integration Tests</a></li>
+<li>Stories can <em>and should</em> inherit from one another, because <em>specifications ought to be DRY too</em>.</li>
+<li>Stories are defined and validated using strongly typed StrictYAML. Step arguments and precondition (&lsquo;given&rsquo;) schemas can be strictly defined by the programmer.</li>
+<li>The execution engine can be programmed to rewrite the executing story based upon certain kinds of behavior changes (e.g. output strings, screen output changes, messages in a web app).</li>
+<li>Running stories is done via a python API rather than the command line so you can easily program customized test workflows.</li>
+<li>There is built  in story parameterization so you can do property based testing.</li>
+<li>Stories can be easily tested for flakiness.</li>
+<li>The stories are designed to be easily used to build readable documentation.</li>
 </ul>
-
-<p>Rebuttals and critiques, especially from users and designers of
-competing tools are welcome. Either raise a ticket on github
-or open a pull request with a link.</p>
 
 
 			<aside class="copyright" role="note">
@@ -291,7 +300,7 @@ or open a pull request with a link.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/hitchstory/why/declarative/" title="Declarative User Stories">
+      <a href="https://hitchdev.com/hitchstory/using/alpha/play-multiple-stories/" title="Play multiple stories in sequence">
         <span class="direction">
           Previous
         </span>
@@ -301,7 +310,7 @@ or open a pull request with a link.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Declarative User Stories
+              Play multiple stories in sequence
             </div>
           </div>
         </div>
@@ -311,14 +320,14 @@ or open a pull request with a link.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/why/" title="Design Justifications">
+      <a href="https://hitchdev.com/principles/" title="Principles of HitchDev">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Design Justifications
+              Principles of HitchDev
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
