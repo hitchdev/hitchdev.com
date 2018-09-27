@@ -257,17 +257,17 @@
 		<div class="wrapper">
 			<h1>Set up with HitchKey </h1>
 
-			<p>You can quickstart hitchstory with hitchkey by installing the hitchkey bootstrapper with pipsi:</p>
+			<p>You can quickstart hitchstory with hitchkey by installing the hitchkey bootstrapper with <a href="https://github.com/mitsuhiko/pipsi">pipsi</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pipsi install hitchkey</code></pre></div>
-<p>Or, if you prefer to not use pipsi, this is also safe and won&rsquo;t mess with any system dependencies:</p>
+<p>Or, if you don&rsquo;t want to install pipsi, this is also safe and won&rsquo;t affect any system dependencies:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pip install hitchkey</code></pre></div>
 <p>In your project, create a &ldquo;hitch&rdquo; directory and drop the following files in it:</p>
 
-<p>mystory.story, containing:</p>
+<p>mystory.story, containing a story with one step:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">My<span class="w"> </span>first<span class="w"> </span>story<span class="p">:</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>Do<span class="w"> </span>something</code></pre></div>
-<p>engine.py, containing:</p>
+<p>engine.py, containing code that executes stories but doesn&rsquo;t do anything:</p>
 
 <pre><code>from hitchstory import BaseEngine
 
@@ -282,7 +282,7 @@ class Engine(BaseEngine):
         pass
 </code></pre>
 
-<p>key.py, containing:</p>
+<p>key.py, containing code to run stories:</p>
 
 <pre><code>from hitchstory import exceptions, StoryCollection
 from pathquery import pathquery
@@ -305,14 +305,14 @@ def regression():
     StoryCollection(pathquery(DIR.key).ext(&quot;story&quot;), Engine(DIR)).ordered_by_name().play()
 </code></pre>
 
-<p>hitchreqs.in, containing all the python dependencies you want from pypi:</p>
+<p>hitchreqs.in, containing all the python packages you want installed in the virtualenv used by key.py and engine.py:</p>
 
 <pre><code>hitchstory
 pathquery
 hitchrun
 </code></pre>
 
-<p>Then, you can enter any directory in your project and run:</p>
+<p>Then, you can enter <em>any</em> directory in your project and run:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hk bdd my</code></pre></div>
 <p>And you should get a lot of virtualenv set up followed by:</p>
 

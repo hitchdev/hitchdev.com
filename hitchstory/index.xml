@@ -301,11 +301,10 @@ This parallels a similar problem with software specification:
       
       <guid>https://hitchdev.com/hitchstory/setup-with-hitchkey/</guid>
       <description>You can quickstart hitchstory with hitchkey by installing the hitchkey bootstrapper with pipsi:
-pipsi install hitchkey Or, if you prefer to not use pipsi, this is also safe and won&amp;rsquo;t mess with any system dependencies:
+pipsi install hitchkey Or, if you don&amp;rsquo;t want to install pipsi, this is also safe and won&amp;rsquo;t affect any system dependencies:
 sudo pip install hitchkey In your project, create a &amp;ldquo;hitch&amp;rdquo; directory and drop the following files in it:
-mystory.story, containing:
-Myfirststory:steps:-Dosomething engine.py, containing:
-from hitchstory import BaseEngine class Engine(BaseEngine): def __init__(self, paths): self.path = paths def set_up(self): pass def do_something(self): pass  key.</description>
+mystory.story, containing a story with one step:
+Myfirststory:steps:-Dosomething engine.py, containing code that executes stories but doesn&amp;rsquo;t do anything:</description>
     </item>
     
     <item>
