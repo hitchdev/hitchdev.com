@@ -268,12 +268,13 @@
 <p><a href="https://github.com/toml-lang/toml">TOML</a> is a redesigned configuration language that&rsquo;s essentially an extended version of INI which
 allows the expression of both hierarchical and typed data.</p>
 
-<p>TOML&rsquo;s main criticism of YAML is spot on::</p>
+<p>TOML&rsquo;s main criticism of <em>YAML</em> is spot on:</p>
 
-<p>TOML aims for simplicity, a goal which is not apparent in the YAML specification.</p>
+<pre><code>TOML aims for simplicity, a goal which is not apparent in the YAML specification.
+</code></pre>
 
-<p>StrictYAML&rsquo;s cut down version of the YAML specification - with implicit typing, node anchors/references and flow style cut out,
-ends up being <em>simpler</em> than TOML.</p>
+<p>Yet StrictYAML&rsquo;s cut down version of the YAML specification - with implicit typing, node anchors/references and flow style cut out,
+is simpler than both standard YAML and TOML.</p>
 
 <p>While TOML works well enough for simple data - perhaps as a drop in replacement for the INI files which inspired it -
 things start to get a little hairier when you have more complex nested tables/arrays.</p>

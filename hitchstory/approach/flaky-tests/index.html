@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Flaky Tests - HitchDev</title>
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    
+    <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
+    
+    <link rel="canonical" href="https://hitchdev.com/hitchstory/approach/flaky-tests/">
+    
+    <meta name="author" content="Colm O&#39;Connor">
+    
+
+    <meta property="og:url" content="https://hitchdev.com/hitchstory/approach/flaky-tests/">
+    <meta property="og:title" content="HitchDev">
+    <meta property="og:image" content="https://hitchdev.com/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="HitchDev">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://hitchdev.com/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://hitchdev.com/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://hitchdev.com/fonts/icon.eot');
+        src: url('https://hitchdev.com/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://hitchdev.com/fonts/icon.woff')
+               format('woff'),
+             url('https://hitchdev.com/fonts/icon.ttf')
+               format('truetype'),
+             url('https://hitchdev.com/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/application.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://hitchdev.com/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-green palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+      
+      
+        <a style="display:unset;" href="https://hitchdev.com/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory">hitchstory</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach">approach</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach/flaky-tests">flaky-tests</a>
+            
+            
+        
+          
+            
+        
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/hitchdev" title="@hitchdev on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://hitchdev.com/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://hitchdev.com/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>HitchDev </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="HitchStory" href="https://hitchdev.com/hitchstory/">
+	
+	HitchStory
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="SeleniumDirector" href="https://hitchdev.com/seleniumdirector/">
+	
+	SeleniumDirector
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="StrictYAML" href="https://hitchdev.com/strictyaml/">
+	
+	StrictYAML
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/hitchdev" target="_blank" title="@hitchdev on GitHub">
+              @hitchdev on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Flaky Tests </h1>
+
+			
+
+<p>Flaky tests are tests which will do not pass or fail consistently.</p>
+
+<p>Higher level tests suffer more from flakiness than low level tests, although
+this tends to be only because high level tests are testing more code.</p>
+
+<p>The probability of flakiness increases with the amount of code being tested.</p>
+
+<h2 id="how-to-deal-with-flakiness">How to deal with flakiness?</h2>
+
+<p>Extreme flakiness can lead to test failure habituation and, in extreme
+cases, test abandonment.</p>
+
+<p>Flakiness in any test should mainly be considered an undesirable property
+to test for and, when detected, a bug to be fixed.</p>
+
+<h2 id="causes">Causes</h2>
+
+<p>There are a number of common causes of flaky tests:</p>
+
+<ul>
+<li>Timing issues
+** The selenium sleep</li>
+<li>Dependencies behaving in unexpected ways:
+** Upgraded packages
+** New data from a downloaded database.</li>
+<li>Environment behaving in unexpected ways:
+** Odd time</li>
+<li>Bugs and indeterminism in testing code</li>
+<li>Code that behaves non-deterministically</li>
+</ul>
+
+<p>Flaky tests can almost always be solved through more:</p>
+
+<ul>
+<li>Increasing isolation</li>
+<li>Changing code to be deterministic</li>
+<li>Accomodating indeterminism</li>
+</ul>
+
+<h2 id="useful-flakiness">Useful flakiness</h2>
+
+<p>Mostly test flakiness is just an irritation.</p>
+
+<p>However, sometimes, flakiness is actually useful in that it highlights a
+bug that would previously have remained uncovered.</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2018 Copyright (C) 2018 &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://hitchdev.com/strictyaml/using/alpha/compound/fixed-length-sequences/" title="Fixed length sequences (FixedSeq)">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Fixed length sequences (FixedSeq)
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://hitchdev.com/hitchstory/using/alpha/flaky-story-detection/" title="Flaky story detection">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Flaky story detection
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://hitchdev.com/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="https://hitchdev.com/javascripts/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

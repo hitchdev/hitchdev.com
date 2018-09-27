@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>HitchStory Philosophy - HitchDev</title>
+    <title>Design Justifications - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -255,84 +255,23 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>HitchStory Philosophy </h1>
+			<h1>Design Justifications </h1>
 
-			
-
-<p>HitchStory is a BDD/ATDD framework for writing executable stories which follows a set of 10 principles.</p>
-
-<p>These principles both differ slightly from BDD principles and go beyond them.</p>
-
-<h2 id="story-principles">Story Principles</h2>
-
-<p>#1 Stories should follow the &ldquo;screenplay principle&rdquo; - if it is visible to the user, it should be reflected in the story.</p>
-
-<p>Note that this differs from the principle of BDD that &ldquo;if it is interesting to the business&rdquo; it should be reflected in the story.</p>
-
-<p>#2 Stories should be <em>specified</em> in a non-turing complete configuration language with preconditions, steps, parameters and metadata.</p>
-
-<p>Turing completeness is both a blessing and a curse. According to the rule of least power, the language you use for any given task should
-be as powerful as required but <em>no more powerful</em>.</p>
-
-<p>A symptom of languages that are too powerful is an excess of technical debt, a lack of readability and maintainability.</p>
-
-<p>Languages that are not powerful enough will prevent the user doing the task at hand, often necessitating nasty hacks to circumvent the lack of power.</p>
-
-<p>Specifications should not require turing completeness.</p>
-
-<p>#3 Stories should be written by programmers, be understandable by expert users of the software and generate documentation for non-expert users of the software.</p>
-
-<p>Written by programmers:</p>
-
-<p>While it is not strictly necessary for programmers to write stories, there are a number of non-obvious pitfalls
-which non-programmers (and even beginner programmers) can and will fall in to when writing stories:</p>
+			<p>HitchStory is the result of some carefully considered, although
+controversial design decisions. These are justified here.</p>
 
 <ul>
-<li>Specifying implementation details rather than defining behavior.</li>
-<li>Writing repetitive stories.</li>
-<li>Missing key edge cases.</li>
-<li>Being too specific or not specifc enough.</li>
-<li>Not seeing or understanding where stories need refactoring.</li>
+<li><a href="given-when-then">I see given but where is when and then?</a></li>
+<li><a href="strictyaml">Why does HitchStory use StrictYAML?</a></li>
+<li><a href="interesting-to-the-business">Why does hitchstory not have an opinion on what counts as interesting to &ldquo;the business&rdquo;?</a></li>
+<li><a href="inheritance">Discussion of requested feature inheritance in Cucumber</a></li>
+<li><a href="declarative">Declarative User Stories</a></li>
+<li><a href="2-unit-tests-0-integration-tests">Two Unit Tests, Zero Integration Tests</a></li>
 </ul>
 
-<p>Note that this contrasts with some interpretations of BDD, where product owners are supposed (in theory) to write stories which will be implemented by developers.</p>
-
-<p>Understandable by expert users of the software</p>
-
-<p>HitchStory stories are <em>not</em> English and not intended to be English, however they are designed to be simple and structured in an obvious way
-while maintaining syntactic terseness as well as being DRY.</p>
-
-<p>Expert users who are familiar with the domain and the software should be able to understand the stories,
-picking up on contextual clues where necessary without the need for additional training to understand the language.</p>
-
-<p>Because stories are written to be DRY, they will often lack contextual information and be devoid of explanations of the software domain,
-so it does not work ideally as a form of documentation for use by everybody.</p>
-
-<p>Generate documentation for non-expert users of the software</p>
-
-<p>Non-expert users will need documentation describing the system&rsquo;s behavior too, although they will need a lot more context in order to
-understand what is going on.</p>
-
-<p>Using the stories and their metadata as a base, it should be possible to generate highly readable, well written documentation
-that even a beginner being introduced to the software should be able to understand.</p>
-
-<p>Readable, highly contextual documentation will not be DRY.</p>
-
-<p>#4 Small changes in the software should automatically rewrite stories where appropriate.</p>
-
-<p>#5 Stories should be made DRY using inheritance and parameterization.</p>
-
-<h2 id="engine-principles">Engine Principles</h2>
-
-<p>#1 The engine code, written in a turing complete language, should <em>only</em> execute and verify stories and generate documentation.</p>
-
-<p>#3 While story defintions should be written in a declarative, non-turing complete language, the story engine that executes, verifies the stories and generates the documentation - the story <em>engine</em> needs to be written in a turing complete language to allow the flexibility.</p>
-
-<p>#3 Mocks should be as realistic as is feasible given resources and time to run and build.</p>
-
-<p>#4 Where the real thing is cheap and fast enough to use, use the real thing (e.g. a database) instead of using a mock or a less realistic equivalent (e.g. sqlite instead of postgres).</p>
-
-<p>#5 Where the real thing would be expensive to invoke regularly (e.g. a story that sends an SMS via a REST API), use tools to generate a mock equivalent from the real thing.</p>
+<p>Rebuttals and critiques, especially from users and designers of
+competing tools are welcome. Either raise a ticket on github
+or open a pull request with a link.</p>
 
 
 			<aside class="copyright" role="note">
@@ -351,7 +290,7 @@ that even a beginner being introduced to the software should be able to understa
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/hitchstory/" title="HitchStory">
+      <a href="https://hitchdev.com/hitchstory/why/declarative/" title="Declarative User Stories">
         <span class="direction">
           Previous
         </span>
@@ -361,7 +300,7 @@ that even a beginner being introduced to the software should be able to understa
           </div>
           <div class="stretch">
             <div class="title">
-              HitchStory
+              Declarative User Stories
             </div>
           </div>
         </div>
@@ -371,14 +310,14 @@ that even a beginner being introduced to the software should be able to understa
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://hitchdev.com/strictyaml/why/" title="Design Justifications">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              Design Justifications
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

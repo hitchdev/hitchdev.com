@@ -730,9 +730,8 @@ Example:
       
       <guid>https://hitchdev.com/strictyaml/why-not/toml/</guid>
       <description>TOML is a redesigned configuration language that&amp;rsquo;s essentially an extended version of INI which allows the expression of both hierarchical and typed data.
-TOML&amp;rsquo;s main criticism of YAML is spot on::
-TOML aims for simplicity, a goal which is not apparent in the YAML specification.
-StrictYAML&amp;rsquo;s cut down version of the YAML specification - with implicit typing, node anchors/references and flow style cut out, ends up being simpler than TOML.</description>
+TOML&amp;rsquo;s main criticism of YAML is spot on:
+TOML aims for simplicity, a goal which is not apparent in the YAML specification.  Yet StrictYAML&amp;rsquo;s cut down version of the YAML specification - with implicit typing, node anchors/references and flow style cut out, is simpler than both standard YAML and TOML.</description>
     </item>
     
     <item>

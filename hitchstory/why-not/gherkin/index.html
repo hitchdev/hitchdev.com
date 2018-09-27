@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Differences to Gherkin - HitchDev</title>
+    <title>Why not use Behave, Lettuce or Cucumber (Gherkin)? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -261,9 +261,11 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Differences to Gherkin </h1>
+			<h1>Why not use Behave, Lettuce or Cucumber (Gherkin)? </h1>
 
-			<p>HitchStory and Gherkin are both DSLs for writing user stories that can double as
+			
+
+<p>HitchStory and Gherkin are both DSLs for writing user stories that can double as
 acceptance tests, but they have different philosophies and approach.</p>
 
 <p>Gherkin scenarios emphasize the following values:</p>
@@ -299,6 +301,127 @@ acceptance tests, but they have different philosophies and approach.</p>
 </span><span class="w">  </span>-<span class="w"> </span>Deposit<span class="p">:</span><span class="w"> </span>$<span class="m">1</span><span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>Press<span class="w"> </span>button<span class="p">:</span><span class="w"> </span>coffee<span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>Served<span class="w"> </span>up<span class="p">:</span><span class="w"> </span>coffee</code></pre></div>
+<h1 id="what-cucumber-gherkin-got-wrong">What Cucumber/Gherkin got wrong</h1>
+
+<h2 id="being-an-english-like-language">Being an English-like language</h2>
+
+<p>English is vague. English is verbose. English is messy. English is imprecise. These are ideal qualities for some purposes but they are not ideal for writing specifications.</p>
+
+<p>Like actual code, to be effective, specifications must be exact, precise and DRY - whether executable or not.</p>
+
+<p>The imprecision of English is drawn out in Gherkin specifications - they usually lack precision and critical details and end up serving as a sort of high level description of what the program it&rsquo;s describing does.</p>
+
+<h2 id="parser-hell">Parser hell</h2>
+
+<p>Some people, when confronted with a problem, think &ldquo;I know, I&rsquo;ll use regular expressions.&rdquo; Now they have two problems. - Jamie Zawinksi</p>
+
+<p>Because of the Englishy nature of the language, parsing is also difficult. Gherkin requires very</p>
+
+<p>There are a multiplicity of examples around the web where it went wrong causing many headaches for users of Cucumber
+and often leading to hours of unnecessary debugging and <a href="http://coryschires.com/ten-tips-for-writing-better-cucumber-steps/">workarounds</a>.</p>
+
+<p>One of the facets of the syntactic ambiguity is that some parsers require you to write regular expressions to parse segments
+of the Gherkin.</p>
+
+<h2 id="given-when-then-and-are-bdd-training-wheels-that-don-t-come-off">Given/When/Then/And are BDD training wheels that don&rsquo;t come off</h2>
+
+<p>BDD emphasizes the notion of using Given, When and Then as a way of structuring example based test cases.</p>
+
+<p>And, to be fair, almost every test case <em>should</em> follow this pattern. However, these keywords do not hold
+any meaning for the parser and are ignored.</p>
+
+<p>For this reason, hitchstory advocates the Given/When/Then <em>pattern</em> but, apart from &lsquo;given&rsquo; does not use these
+keywords. &ldquo;Given&rdquo; is a user defined mapping of arbitrary YAML that can be used to configure how set_up behaves,
+while the meat of the stories is in the steps.</p>
+
+<p>given:
+    something: something else
+  steps:
+  - step 1 # when
+  - step 2 # then
+  - step 3 # and
+  - step 4 # but</p>
+
+<p>Why does this matter? It results in executable specifications which are naturally terser and which have more
+room for your business logic.</p>
+
+<h2 id="verbosity">Verbosity</h2>
+
+<h2 id="weakly-typed">Weakly typed</h2>
+
+<h2 id="no-inheritance">No inheritance</h2>
+
+<p><a href="https://stackoverflow.com/questions/41872376/can-a-cucumber-feature-file-inherit-from-a-parent-feature-file">https://stackoverflow.com/questions/41872376/can-a-cucumber-feature-file-inherit-from-a-parent-feature-file</a></p>
+
+<p>&ldquo;The short answer, no. Feature files can&rsquo;t inherit from another feature file.&rdquo;</p>
+
+<p>Inheritance is, and always has been about keeping code DRY. It is a thorny tool because, while it can reduce
+repetition it can sacrifice readability. For this reason, Gherkin left it out.</p>
+
+<p>From the Stack overflow question:</p>
+
+<p>&ldquo;A common background is to login in a system. Login is important but it can often be hidden in the steps.&rdquo;</p>
+
+<p>It <em>can</em> be.</p>
+
+<p>It <em>shouldn&rsquo;t</em> be.</p>
+
+<p>The steps that lead to login are part of the specification of the system, so <em>why should it be hidden</em>?</p>
+
+<p>This conflict between the desire to keep steps DRY and not hide meaningful details in steps
+puts users of Cucumber in a horrible and unnecessary position.</p>
+
+<p>In the article <a href="https://makandracards.com/makandra/18905-how-to-not-repeat-yourself-in-cucumber-scenarios">how not to repeat yourself in cucumber scenarios</a>
+I see somebody valiantly <em>struggling</em> to find a solution to &ldquo;how can we achieve the same thing as
+inheritance?&rdquo; and finding 4 mediocre equivalents.</p>
+
+<h2 id="the-idea-that-executable-specifications-should-necessarily-be-non-technical">The idea that executable specifications should necessarily be non technical</h2>
+
+<p>Talking about music is like dancing about architecture &ndash; Marvin Mull</p>
+
+<p>Most software packages under test don&rsquo;t actually interact with humans they interacts with other software.</p>
+
+<p>This interaction can be via code - in which case the specification ought to be defined
+with snippets of code.</p>
+
+<p>The interaction might instead be with a REST API - in which case, in order to be able
+to define the interaction, you must understand and define the semantics of REST APIs
+and be able to write them out if you are defining a spec.</p>
+
+<p>The specification should not attempt to conceal or dumb down these details.</p>
+
+<p>To be fair, this isn&rsquo;t a problem with the syntax of Gherkin or design of Cucumber
+- it is mostly a cultural affectation.</p>
+
+<h2 id="programmers-need-to-want-to-use-the-executable-specification-tool-even-if-the-business-isn-t-interested">Programmers need to want to use the executable specification tool even if the business isn&rsquo;t interested</h2>
+
+<p>Due to all of the above problems, Gherkin does not have a wide adoption among developers.</p>
+
+<p>It&rsquo;s not like deliberately simplified languages are not popular with developers for
+other forms of configuration.</p>
+
+<p>If programmers don&rsquo;t like using a tool or technology that interfaces to their code,
+forget about getting the business to use it.</p>
+
+<h2 id="what-gherkin-got-right">What Gherkin got right</h2>
+
+<p>Cucumber and their related tools became popular for good reasons, even though they made
+many mistakes. They also got a lot of (non-obvious) stuff right:</p>
+
+<ul>
+<li><p>Emphasis on readability of the specs</p></li>
+
+<li><p>The idea that specifications should be executable and double as tests</p></li>
+
+<li><p>The deliberate use of a simplified configuration language for specifications</p></li>
+
+<li><p>Deliberate separation of concerns between specification and story execution</p></li>
+
+<li><p>Built in Parameterization</p></li>
+
+<li><p>The idea that the notion of specifications, tests and documentation are all intrinsically linked</p></li>
+</ul>
+
 
 			<aside class="copyright" role="note">
 				
@@ -316,7 +439,7 @@ acceptance tests, but they have different philosophies and approach.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/why/" title="Design Justifications">
+      <a href="https://hitchdev.com/strictyaml/why-not/" title="Why not X?">
         <span class="direction">
           Previous
         </span>
@@ -326,7 +449,7 @@ acceptance tests, but they have different philosophies and approach.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Design Justifications
+              Why not X?
             </div>
           </div>
         </div>
@@ -336,14 +459,14 @@ acceptance tests, but they have different philosophies and approach.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/restrictions/loading-dirty-yaml/" title="Dirty load">
+      <a href="https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/" title="Why not use Capybara-Py or Splinter?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Dirty load
+              Why not use Capybara-Py or Splinter?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

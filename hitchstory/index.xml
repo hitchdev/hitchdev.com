@@ -37,6 +37,17 @@ from code_that_does_things import * from strictyaml import Int, Str, Bool from h
     </item>
     
     <item>
+      <title>Can I do BDD with hitchstory? How do I do BDD with hitchstory?</title>
+      <link>https://hitchdev.com/hitchstory/approach/bdd/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/bdd/</guid>
+      <description>Short answer: yes, but you can also do BDD with a pencil and a napkin.
+The time when it was most useful as a &amp;ldquo;BDD tool&amp;rdquo; was when I was working with an extremely technical product manager who was proposing behavior in a command line tool he wanted.
+Initially I received a word document describing the complex logic flows and behavior which he wanted. Gradually I turned those descriptions in to HitchStory specifications that described how the command line tool was supposed to behave.</description>
+    </item>
+    
+    <item>
       <title>Continue on failure when playing multiple stories</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/continue-on-failure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -63,16 +74,13 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
     </item>
     
     <item>
-      <title>Differences to Gherkin</title>
-      <link>https://hitchdev.com/hitchstory/why-not/gherkin/</link>
+      <title>Design Justifications</title>
+      <link>https://hitchdev.com/hitchstory/why/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/hitchstory/why-not/gherkin/</guid>
-      <description>HitchStory and Gherkin are both DSLs for writing user stories that can double as acceptance tests, but they have different philosophies and approach.
-Gherkin scenarios emphasize the following values:
- The use of English to facilitate customer collaboration. Showing information that is &amp;ldquo;interesting to the business&amp;rdquo;.  Here are some examples.
-From the Cucumber website:
-Scenario: Buy last coffee Given there are 1 coffees left in the machine And I have deposited 1$ When I press the coffee button Then I should be served a coffee Hitch scenarios, by contrast, emphasizes the following values:</description>
+      <guid>https://hitchdev.com/hitchstory/why/</guid>
+      <description>HitchStory is the result of some carefully considered, although controversial design decisions. These are justified here.
+ I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Discussion of requested feature inheritance in Cucumber Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
     </item>
     
     <item>
@@ -84,6 +92,16 @@ Scenario: Buy last coffee Given there are 1 coffees left in the machine And I ha
       <description>Inheritance is a feature which was deliberately left out of Cucumber:
 https://stackoverflow.com/questions/41872376/can-a-cucumber-feature-file-inherit-from-a-parent-feature-file
 However, it was deliberately added to hitchstory.</description>
+    </item>
+    
+    <item>
+      <title>Does hitchstory let your BA or Product Manager write stories while you just write the code?</title>
+      <link>https://hitchdev.com/hitchstory/approach/human-writable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/human-writable/</guid>
+      <description>No. Having &amp;ldquo;analysts&amp;rdquo; write stories instead of programmers is an explicit non-goal, unlike that of Cucumber. Well maintained stories require the eye of a programmer - to ensure they are DRY and to maintain a proper separation of concerns between implementation and specification.
+It ought to be possible to write hitch stories with less training than is required to be a programmer since the language is conceptually simpler than turing complete programming languages.</description>
     </item>
     
     <item>
@@ -99,15 +117,15 @@ What kind of metadata you add to stories is up to you - simply add the names of 
     
     <item>
       <title>Flaky Tests</title>
-      <link>https://hitchdev.com/hitchstory/why/flaky-tests/</link>
+      <link>https://hitchdev.com/hitchstory/approach/flaky-tests/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/hitchstory/why/flaky-tests/</guid>
+      <guid>https://hitchdev.com/hitchstory/approach/flaky-tests/</guid>
       <description>Flaky tests are tests which will do not pass or fail consistently.
 Higher level tests suffer more from flakiness than low level tests, although this tends to be only because high level tests are testing more code.
 The probability of flakiness increases with the amount of code being tested.
-How to deal with flakiness? Flakiness in any test should be considered a bug to be fixed.
-It should not ever, ever just be considered &amp;ldquo;just a fact of life&amp;rdquo;.</description>
+How to deal with flakiness? Extreme flakiness can lead to test failure habituation and, in extreme cases, test abandonment.
+Flakiness in any test should mainly be considered an undesirable property to test for and, when detected, a bug to be fixed.</description>
     </item>
     
     <item>
@@ -119,6 +137,16 @@ It should not ever, ever just be considered &amp;ldquo;just a fact of life&amp;r
       <description>Dealing with flaky stories, especially with higher level integration tests is a constant battle.
 These examples show how flaky stories can be detected by rerunning stories several times and checking that the result is the same. This kind of regression testing can be usefully run separately from normal regression testing in order to get separate feedback about problematic tests in a &amp;lsquo;flake&amp;rsquo; report.
 This cannot detect all kinds of flakiness, but it can be effective at detecting flakiness caused by, for example:</description>
+    </item>
+    
+    <item>
+      <title>General Approach</title>
+      <link>https://hitchdev.com/hitchstory/approach/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/</guid>
+      <description>HitchStory best practices are documented here:
+{% for dirfile in thisdir.is_not_dir() - thisdir.named(&amp;ldquo;index.md&amp;rdquo;) -%} - {{ title(dirfile) }} {% endfor %}</description>
     </item>
     
     <item>
@@ -138,12 +166,11 @@ Using hitchstory story and story list objects you can generate documentation usi
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/using/alpha/given/</guid>
-      <description>Stories optionally start with a set of preconditions.
-Hitchstory lets you define these &amp;lsquo;given&amp;rsquo; preconditions using YAML mapping and access them in the story by using self.given as you would a dict - e.g. self.given[&amp;lsquo;property name&amp;rsquo;].
-The given property names need to first be specified in the engine using GivenDefinition and GivenPropery - optionally with a StrictYAML schema.
-example.story:
-Createfiles:given:thing:content:thingsListofthings:-thingone-thingtwoscalarthing:35steps:-Createfile engine.py:
-from hitchstory import BaseEngine, GivenDefinition, GivenProperty from strictyaml import Str, Map, Seq, Int, MapPattern def output(contents): with open(&amp;#34;output.</description>
+      <description>Stories are comprised of preconditions followed by steps.
+Hitchstory lets you define preconditions using the &amp;lsquo;given&amp;rsquo; keyword in YAML and then use them using self.given[&amp;lsquo;property name&amp;rsquo;].
+The given property names need to first be specified in the engine using GivenDefinition and GivenProperty.
+By default, given properties will parse without a StrictYAML schema, but you can also specify your own StrictYAML schema.
+The following example shows a browser precondition being used to set up a mock selenium object.</description>
     </item>
     
     <item>
@@ -187,33 +214,10 @@ from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_doe
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/</guid>
-      <description>HitchStory is a python 3 library for building and running BDD-style executable specifications.
-Unlike most other BDD tools which use, e.g. Gherkin the specification is written with a StrictYAML dialect.
+      <description>HitchStory is a python 3 library for creating readable &amp;ldquo;specifications by example&amp;rdquo; and executing them. It is an ambitious project intended supplant both traditional BDD tools and unit tests.
+Unlike many other BDD tools the specification is written using StrictYAML which means that stories will be terse, strongly typed and expressive enough to describe business rules and behavior in precise detail.
 Example example.story:
-Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.comcontents:| # long form textHeyguys,IthinkIgothacked!-Click:sendemail-Emailwassent engine.py:
-from hitchstory import BaseEngine, GivenDefinition, GivenProperty from mockemailchecker import email_was_sent from mockselenium import Webdriver from strictyaml import Str class Engine(BaseEngine): given_definition = GivenDefinition( website=GivenProperty(Str()), ) def set_up(self): self.</description>
-    </item>
-    
-    <item>
-      <title>HitchStory Philosophy</title>
-      <link>https://hitchdev.com/hitchstory/why/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/why/</guid>
-      <description>HitchStory is a BDD/ATDD framework for writing executable stories which follows a set of 10 principles.
-These principles both differ slightly from BDD principles and go beyond them.
-Story Principles #1 Stories should follow the &amp;ldquo;screenplay principle&amp;rdquo; - if it is visible to the user, it should be reflected in the story.
-Note that this differs from the principle of BDD that &amp;ldquo;if it is interesting to the business&amp;rdquo; it should be reflected in the story.</description>
-    </item>
-    
-    <item>
-      <title>I am perfectly happy with py.test (or other unit testing framework). Why should I use hitchstory?</title>
-      <link>https://hitchdev.com/hitchstory/why/unit-tests/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/why/unit-tests/</guid>
-      <description>Ultimately it boils down to two programming principles which hitchstory provides &amp;lsquo;rails&amp;rsquo; to guide you:
- The rule of least power Separation of concerns  Hitchstory stories describe a sequence of events which describe either a user or a user-system interacting with your code. This can be used to describe the functioning of any software system. It is not necessary** to use turing complete code to describe a sequence of events, therefore, according to the rule of least power, you shouldn&amp;rsquo;t use turing complete code to do it.</description>
+Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.</description>
     </item>
     
     <item>
@@ -241,29 +245,6 @@ Story inheritance allows you to base stories on other stories.</description>
     </item>
     
     <item>
-      <title>Is HitchStory for writing &#34;human writable&#34; stories?</title>
-      <link>https://hitchdev.com/hitchstory/why/human-writable/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/why/human-writable/</guid>
-      <description>No. Having &amp;ldquo;analysts&amp;rdquo; write stories instead of programmers is an explicit non-goal, unlike that of Cucumber.
-It ought to be possible to write hitch stories with less training than is required to be a programmer since the language is conceptually simpler than turing complete programming languages.
-However, it still would require some training to write and instincts that are generally only honed by programmers - e.g the instinct to DRY the code, the instinct to parameterize and to generalize are often not present among non-programmers.</description>
-    </item>
-    
-    <item>
-      <title>Is hitchstory a BDD language?</title>
-      <link>https://hitchdev.com/hitchstory/why/bdd/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/why/bdd/</guid>
-      <description>Yes and no.
-Primarily, BDD is about customer collaboration on writing stories. It does not have any technical requirements - simply jotting down an expected behavior on the back of a napkin with a customer is technically considered BDD, no matter what tools are used after that.
-However, HitchStory can be used to make BDD easier for a number of reasons:
- The executable stories will be easier for non-programmers subject matter experts to read than turing complete code (e.</description>
-    </item>
-    
-    <item>
       <title>Play multiple stories in sequence</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/play-multiple-stories/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -275,6 +256,17 @@ Example base.story:
 Basestory:given:randomvariable:somevalue example1.story:
 Createfile:basedon:basestorysteps:-CreatefileCreatefileagain:basedon:basestorysteps:-Createfile example2.story:
 Createfiles:basedon:basestorysteps:-Createfilefrom hitchstory import StoryCollection, BaseEngine, GivenDefinition, GivenProperty from pathquery import pathquery from ensure import Ensure class Engine(BaseEngine): given_definition=GivenDefinition( random_variable=GivenProperty() ) def create_file(self, filename=&amp;#34;step1.txt&amp;#34;, content=&amp;#34;example&amp;#34;): with open(filename, &amp;#39;w&amp;#39;) as handle: handle.</description>
+    </item>
+    
+    <item>
+      <title>Recommended Environment</title>
+      <link>https://hitchdev.com/hitchstory/approach/recommended-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/recommended-environment/</guid>
+      <description>HitchStory was designed and built on the presumption that it would always be run in a different environment to the environment used to run the code. This is in stark contrast to how unit testing frameworks are presumed to run - i.e. in python, in the same virtualenv.
+There are two reasons for this:
+ HitchStory dependencies and related tools are unable to conflict with application code if they run in a separate, segrated environment.</description>
     </item>
     
     <item>
@@ -292,14 +284,28 @@ RUNNING Create files in /path/to/example.story ... splines reticulated SUCCESS i
     
     <item>
       <title>Screenplay Principle</title>
-      <link>https://hitchdev.com/hitchstory/why/screenplay-principle/</link>
+      <link>https://hitchdev.com/hitchstory/approach/screenplay-principle/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/hitchstory/why/screenplay-principle/</guid>
+      <guid>https://hitchdev.com/hitchstory/approach/screenplay-principle/</guid>
       <description>You don&amp;rsquo;t tell your audience your story, you show them. You must learn to write a screenplay visually. Write what they will see and what they will hear.
  - http://www.screenwriting.info  An iron rule of screenplay writing is that you do not write what a character thinks. You must demonstrate via their actions and words what they think.
 This parallels a similar problem with software specification:
- Overspecification - where a specification defines how a problem is to be achieved, rather than what problem is to be achieved.</description>
+ Overspecification - where a spec defines how a problem is to be achieved, rather than what problem is to be achieved.</description>
+    </item>
+    
+    <item>
+      <title>Set up with HitchKey</title>
+      <link>https://hitchdev.com/hitchstory/setup-with-hitchkey/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/setup-with-hitchkey/</guid>
+      <description>You can quickstart hitchstory with hitchkey by installing the hitchkey bootstrapper with pipsi:
+pipsi install hitchkey Or, if you prefer to not use pipsi, this is also safe and won&amp;rsquo;t mess with any system dependencies:
+sudo pip install hitchkey In your project, create a &amp;ldquo;hitch&amp;rdquo; directory and drop the following files in it:
+mystory.story, containing:
+Myfirststory:steps:-Dosomething engine.py, containing:
+from hitchstory import BaseEngine class Engine(BaseEngine): def __init__(self, paths): self.path = paths def set_up(self): pass def do_something(self): pass  key.</description>
     </item>
     
     <item>
@@ -366,27 +372,24 @@ The &amp;lsquo;mini-schemas&amp;rsquo; you feed these objects should be standard
     </item>
     
     <item>
-      <title>The BDD movement&#39;s mistakes - what counts as interesting to &#34;the business&#34;?</title>
-      <link>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</guid>
-      <description>When Cucumber first gained some popularity, there was something of a backlash from the original developers that the users &amp;ldquo;weren&amp;rsquo;t using it correctly&amp;rdquo;:
-The specific complaint was that it was being used as an integration testing framework rather than a tool for &amp;ldquo;communicating with the business&amp;rdquo;.
-There are several things wrong with this:
-#1 There isn&amp;rsquo;t really a clearly defined &amp;ldquo;the business&amp;rdquo;, there are just stakeholders - lots of different people are interested in the behavior of the software.</description>
-    </item>
-    
-    <item>
       <title>Triality</title>
-      <link>https://hitchdev.com/hitchstory/why/triality/</link>
+      <link>https://hitchdev.com/hitchstory/approach/triality/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/hitchstory/why/triality/</guid>
+      <guid>https://hitchdev.com/hitchstory/approach/triality/</guid>
       <description>All great software needs three things:
  Specification Tests Documentation  Each of these things is intimately tied. Every new feature must be specified, tested and documented.
 If each of these things are done separately, it violates another core principle of software: DRY.
 However, if each of these things are intrinsically the same - the specification IS the test which IS the documentation, then there is no need to duplicate effort, code and writing.</description>
+    </item>
+    
+    <item>
+      <title>Two Unit Tests, Zero Integration Tests</title>
+      <link>https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/</guid>
+      <description>Hitchstory was inspired by the realization that integration tests are almost always more effective than unit tests.</description>
     </item>
     
     <item>
@@ -402,26 +405,11 @@ Createfiles:given:content:doghierarchicalcontent:x:1y:-42steps:-Dothingwithpreco
     </item>
     
     <item>
-      <title>What Cucumber/Gherkin got right</title>
-      <link>https://hitchdev.com/hitchstory/why/cucumbers-mistakes/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/why/cucumbers-mistakes/</guid>
-      <description>Emphasis on readability of the specs TODO
-The idea that specifications should be executable and double as tests TODO
-The deliberate use of a simplified configuration language for specifications TODO
-Deliberate separation of concerns between specification and story execution TODO
-Parameterization TODO
-The idea that the notion of specifications, tests and documentation are all intrinsically linked TODO
-What Cucumber/Gherkin got wrong Syntax Design English is vague. English is verbose. English is messy.</description>
-    </item>
-    
-    <item>
       <title>What is the difference betweeen a test and a story?</title>
-      <link>https://hitchdev.com/hitchstory/why/test-or-story/</link>
+      <link>https://hitchdev.com/hitchstory/approach/test-or-story/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/hitchstory/why/test-or-story/</guid>
+      <guid>https://hitchdev.com/hitchstory/approach/test-or-story/</guid>
       <description>While a test is turing complete code that tests behavior, a story is turing-incomplete code which defines behavior.
 A test is simply code that is executed and either raises an exception indicating a failure or passes.
 A story must be played using an execution engine.
@@ -429,25 +417,38 @@ A story can be translated into readable documentation, often with the aid of art
     </item>
     
     <item>
-      <title>Why did you not use standard YAML for hitch?</title>
-      <link>https://hitchdev.com/hitchstory/why/standard-yaml/</link>
+      <title>Why does HitchStory use StrictYAML?</title>
+      <link>https://hitchdev.com/hitchstory/why/strictyaml/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/hitchstory/why/standard-yaml/</guid>
-      <description>hitchtest (the precursor to hitchstory) actually did use standard YAML and the more I used it the more convinced I was that it contained serious flaws.
-I wrote StrictYAML, which is a restricted subset of standard YAML, in response to those flaws. It replaces implicit typing with strong typing and deactivates rarely used and confusing YAML features.</description>
+      <guid>https://hitchdev.com/hitchstory/why/strictyaml/</guid>
+      <description>HitchStory stories are written using YAML because it:
+ Has a clear and obvious layout and relationships driven by its indentation structure. Has minimal syntactic noise. Displays complex hierarchical data cleanly. Displays multiline strings cleanly.  These features make it a particularly good fit for writing declarative stories with, since they often require a lot of hierarchical data and multiline strings to display clearly.
+Its relative existing popularity also means that it is somewhat familiar to a lot of people and there is a lot of existing tooling which can be used (e.</description>
     </item>
     
     <item>
-      <title>Why not use Cucumber or other Gherkin-derived languages?</title>
-      <link>https://hitchdev.com/hitchstory/why/cucumber/</link>
+      <title>Why does hitchstory not have an opinion on what counts as interesting to &#34;the business&#34;?</title>
+      <link>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/hitchstory/why/cucumber/</guid>
-      <description>Python equivalents: lettuce, behave Java equivalent: JBehave
-Cucumber was the original &amp;lsquo;BDD&amp;rsquo; frameworks and probably the most popular. It is essentially a parser for the Gherkin language, which is a high level &amp;ldquo;English-like&amp;rdquo; declarative language that can be used to specify user stories which can be executed.
-This approach has the following advantages:
- Stories are descriptive and declarative. Turing complete languages (python, Java, Ruby, C, etc.) are more powerful than necessary to describe user stories.</description>
+      <guid>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</guid>
+      <description>When Cucumber first gained some popularity, there was something of a backlash from the original developers that the users &amp;ldquo;weren&amp;rsquo;t using it correctly&amp;rdquo;:
+The specific complaint was that it was being used as an integration testing framework rather than a tool for &amp;ldquo;communicating with the business&amp;rdquo; and that everything except the high level &amp;ldquo;business requirements&amp;rdquo; should be abstracted away.
+Hitchstory takes a different approach and recommends the screenplay principle instead, for the following reasons:</description>
+    </item>
+    
+    <item>
+      <title>Why not use Behave, Lettuce or Cucumber (Gherkin)?</title>
+      <link>https://hitchdev.com/hitchstory/why-not/gherkin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why-not/gherkin/</guid>
+      <description>HitchStory and Gherkin are both DSLs for writing user stories that can double as acceptance tests, but they have different philosophies and approach.
+Gherkin scenarios emphasize the following values:
+ The use of English to facilitate customer collaboration. Showing information that is &amp;ldquo;interesting to the business&amp;rdquo;.  Here are some examples.
+From the Cucumber website:
+Scenario: Buy last coffee Given there are 1 coffees left in the machine And I have deposited 1$ When I press the coffee button Then I should be served a coffee Hitch scenarios, by contrast, emphasizes the following values:</description>
     </item>
     
     <item>
@@ -462,15 +463,15 @@ I eventually dumped it and used python&amp;rsquo;s built in unit testing framewo
     </item>
     
     <item>
-      <title>Why unit testing needs to die</title>
-      <link>https://hitchdev.com/hitchstory/why/why-not-unit-test/</link>
+      <title>Why use hitchstory instead of a unit testing framework?</title>
+      <link>https://hitchdev.com/hitchstory/why-not/unit-test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/hitchstory/why/why-not-unit-test/</guid>
-      <description>This is a controversial argument but, one that needs to be made:
-The world needs to move on from unit testing.
-It ought to be noted that this is not an argument against any of the following, which are often conflated with unit testing:
- Testing in general Property based testing (e.g. hypothesis). Test driven development The testing pyramid Mocking  All of those things are great. Please do not mistake this as an argument against any of them in principle.</description>
+      <guid>https://hitchdev.com/hitchstory/why-not/unit-test/</guid>
+      <description>This is not an argument against the following:
+ Testing in general Test driven development Low level testing (of classes and methods or otherwise) Property based testing (e.g. hypothesis). Mocking Doctests  All have their place.
+This simply about the use of unit testing frameworks - py.test, nose, unittest2, jUnit, etc. for low level testing, integration testing and end to end testing.
+There are, broadly speaking, two types of code - algorithmic code and integration code.</description>
     </item>
     
   </channel>

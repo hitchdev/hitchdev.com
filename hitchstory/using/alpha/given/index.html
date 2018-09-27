@@ -269,63 +269,90 @@
 		<div class="wrapper">
 			<h1>Given preconditions </h1>
 
-			<p>Stories optionally start with a set of preconditions.</p>
+			<p>Stories are comprised of preconditions followed by steps.</p>
 
-<p>Hitchstory lets you define these &lsquo;given&rsquo; preconditions using YAML
-mapping and access them in the story by using self.given as you
-would a dict - e.g. self.given[&lsquo;property name&rsquo;].</p>
+<p>Hitchstory lets you define preconditions using the &lsquo;given&rsquo; keyword
+in YAML and then use them using self.given[&lsquo;property name&rsquo;].</p>
 
 <p>The given property names need to first be specified in the engine
-using GivenDefinition and GivenPropery - optionally
-with a <a href="https://hitchdev.com/strictyaml">StrictYAML schema</a>.</p>
+using GivenDefinition and GivenProperty.</p>
+
+<p>By default, given properties will parse
+<a href="https://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/">without a StrictYAML schema</a>,
+but you can also specify your own <a href="https://hitchdev.com/strictyaml">StrictYAML schema</a>.</p>
+
+<p>The following example shows a browser precondition being used to set up
+a mock selenium object.</p>
 
 <p>example.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Create<span class="w"> </span>files<span class="p">:</span><span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Load<span class="w"> </span>with<span class="w"> </span>chrome<span class="p">:</span><span class="w">
 </span><span class="w">  </span>given<span class="p">:</span><span class="w">
-</span><span class="w">    </span>thing<span class="p">:</span><span class="w">
-</span><span class="w">      </span>content<span class="p">:</span><span class="w"> </span>things<span class="w">
-</span><span class="w">    </span>List<span class="w"> </span>of<span class="w"> </span>things<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>thing<span class="w"> </span>one<span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>thing<span class="w"> </span>two<span class="w">
-</span><span class="w">    </span>scalar<span class="w"> </span>thing<span class="p">:</span><span class="w"> </span><span class="m">35</span><span class="w">
+</span><span class="w">    </span>browser<span class="w"> </span>configuration<span class="p">:</span><span class="w">
+</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span>chrome<span class="w">
+</span><span class="w">      </span>version<span class="p">:</span><span class="w"> </span><span class="m">22.0</span><span class="w">
+</span><span class="w">      </span>platform<span class="p">:</span><span class="w"> </span>linux<span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>file</code></pre></div>
+</span><span class="w">  </span>-<span class="w"> </span>Load<span class="w"> </span>website<span class="w">
+</span><span class="w">
+</span><span class="w"></span>Load<span class="w"> </span>with<span class="w"> </span>small<span class="w"> </span>firefox<span class="w"> </span>window<span class="p">:</span><span class="w">
+</span><span class="w">  </span>given<span class="p">:</span><span class="w">
+</span><span class="w">    </span>browser<span class="w"> </span>configuration<span class="p">:</span><span class="w">
+</span><span class="w">      </span>name<span class="p">:</span><span class="w"> </span>firefox<span class="w">
+</span><span class="w">      </span>platform<span class="p">:</span><span class="w"> </span>linux<span class="w">
+</span><span class="w">      </span>dimensions<span class="p">:</span><span class="w">
+</span><span class="w">        </span>height<span class="p">:</span><span class="w"> </span><span class="m">200</span><span class="w">
+</span><span class="w">        </span>width<span class="p">:</span><span class="w"> </span><span class="m">200</span><span class="w">
+</span><span class="w">  </span>steps<span class="p">:</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>Load<span class="w"> </span>website</code></pre></div>
 <p>engine.py:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span>
-<span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">MapPattern</span>
-
-<span class="k">def</span> <span class="nf">output</span><span class="p">(</span><span class="n">contents</span><span class="p">):</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;output.txt&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
-        <span class="n">handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;{0}</span><span class="se">\n</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">contents</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">MapPattern</span>
+<span class="kn">from</span> <span class="nn">mockselenium</span> <span class="kn">import</span> <span class="n">Webdriver</span>
 
 <span class="k">class</span> <span class="nc">Engine</span><span class="p">(</span><span class="n">BaseEngine</span><span class="p">):</span>
     <span class="n">given_definition</span><span class="o">=</span><span class="n">GivenDefinition</span><span class="p">(</span>
-        <span class="n">thing</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Str</span><span class="p">())),</span>
-        <span class="n">list_of_things</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())),</span>
-        <span class="n">scalar_thing</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span><span class="n">Int</span><span class="p">())</span>
+        <span class="n">browser_configuration</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span>
+            <span class="n">schema</span><span class="o">=</span><span class="n">Map</span><span class="p">({</span>
+                <span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
+                <span class="sa"></span><span class="s2">&#34;platform&#34;</span><span class="p">:</span> <span class="n">Enum</span><span class="p">([</span><span class="sa"></span><span class="s2">&#34;linux&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;osx&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;windows&#34;</span><span class="p">]),</span>
+                <span class="n">Optional</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;version&#34;</span><span class="p">):</span> <span class="n">Str</span><span class="p">(),</span>
+                <span class="n">Optional</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;dimensions&#34;</span><span class="p">):</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;height&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;width&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}),</span>
+            <span class="p">})</span>
+        <span class="p">),</span>
     <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;thing&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;content&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="sa"></span><span class="s1">&#39;thing&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">given</span> <span class="k">else</span> <span class="bp">None</span><span class="p">)</span>
-        <span class="n">output</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;, &#34;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;List of things&#39;</span><span class="p">,</span> <span class="p">[])))</span>
-        <span class="n">output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;scalar thing&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="sa"></span><span class="s1">&#39;scalar thing&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">given</span> <span class="k">else</span> <span class="bp">None</span><span class="p">)</span>
-        <span class="n">output</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;scalar thing&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;default&#39;</span><span class="p">))</span>
-        <span class="n">output</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
-        <span class="n">output</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="o">.</span><span class="n">items</span><span class="p">()))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
+    <span class="k">def</span> <span class="nf">set_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">browser</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;browser configuration&#34;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">Webdriver</span><span class="p">(</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">browser</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+            <span class="n">platform</span><span class="o">=</span><span class="n">browser</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;platform&#39;</span><span class="p">],</span>
+            <span class="n">version</span><span class="o">=</span><span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;version&#39;</span><span class="p">),</span>
+            <span class="n">dimensions</span><span class="o">=</span><span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;dimensions&#39;</span><span class="p">,</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;height&#34;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;width&#34;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">}),</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">load_website</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;http://www.google.com&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 <span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span></code></pre></div>
 <p>Specified:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">one</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
-<pre><code>RUNNING Create files in /path/to/example.story ... SUCCESS in 0.1 seconds.
-</code></pre>
+<pre><code>RUNNING Load with chrome in /path/to/example.story ...
+Browser name: chrome
+Platform: linux
+Version: 22.0
+Dimensions: 1000 x 1000
 
-<p>Defaulting to empty list, None or empty dict:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">one</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
-<p>Will output:</p>
+Visiting http://www.google.com
+SUCCESS in 0.1 seconds.
+RUNNING Load with small firefox window in /path/to/example.story ...
+Browser name: firefox
+Platform: linux
+Dimensions: 200 x 200
 
-<pre><code>RUNNING Create files in /path/to/example.story ... SUCCESS in 0.1 seconds.
+Visiting http://www.google.com
+SUCCESS in 0.1 seconds.
 </code></pre>
 
 <div class="admonition note">

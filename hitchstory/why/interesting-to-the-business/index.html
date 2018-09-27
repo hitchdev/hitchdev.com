@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>The BDD movement&#39;s mistakes - what counts as interesting to &#34;the business&#34;? - HitchDev</title>
+    <title>Why does hitchstory not have an opinion on what counts as interesting to &#34;the business&#34;? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -261,30 +261,36 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>The BDD movement&#39;s mistakes - what counts as interesting to &#34;the business&#34;? </h1>
+			<h1>Why does hitchstory not have an opinion on what counts as interesting to &#34;the business&#34;? </h1>
 
 			<p>When Cucumber first gained some popularity, there was something of a backlash
 from the original developers that the users &ldquo;weren&rsquo;t using it correctly&rdquo;:</p>
 
 <p>The specific complaint was that it was being used as an integration testing
-framework rather than a tool for &ldquo;communicating with the business&rdquo;.</p>
+framework rather than a tool for &ldquo;communicating with the business&rdquo; and that everything
+except the high level &ldquo;business requirements&rdquo; should be abstracted away.</p>
 
-<p>There are several things wrong with this:</p>
+<p>Hitchstory takes a different approach and recommends the <a href="../../approach/screenplay-principle">screenplay principle</a>
+instead, for the following reasons:</p>
 
-<p>#1 There isn&rsquo;t really a clearly defined &ldquo;the business&rdquo;, there are just stakeholders - lots of different people are interested in the behavior of the software.</p>
+<ol>
+<li><p>&ldquo;The business&rdquo;, from a BDD perspective, is a hypothetical entity which does not really exist. There are just stakeholders - lots of different people who are interested in your software with who you need to communicate <em>about</em> the software.</p></li>
 
-<p>#2 Stakeholders rarely have an interest in the implementation details, but they are always concerned with the behavior of software - nonetheless, the level of detail in the behavior of the software which they are interested in will vary widely.</p>
+<li><p>Stakeholders rarely have any interest in the implementation details, but they are interested in the behavior of the software.</p></li>
 
-<p>#3 Even individual interest in behavioral details can vary over time - sometimes they will want only vague details, other times they will be interested in obscure business logic, and other times they will be interested in specific user UI actions.</p>
+<li><p>Stakeholder interest in the details of your software&rsquo;s behavior will vary wildly. Sometimes they will want only vague details, other times they will be interested in obscure business logic, and other times they will be interested in specific user UI actions.</p></li>
 
-<p>#4 There is no &ldquo;one true language&rdquo; which can be used to communicate on a level that both stakeholders and developers can agree on.</p>
+<li><p>Interest varies from stakeholder to stakeholder - UX designers, UI designers, translators, product managers and the CEO will all have varying levels of interest in the specifics of the behavior of your software.</p></li>
 
-<p>#5 The language that is most appropriate for specifying code is not going to be the representation that is easiest for stakeholders to understand.</p>
+<li><p>The language that is most appropriate for specifying code is not necessarily going to be English or English-like.</p></li>
+</ol>
 
-<p>#6 A representation that suits one stakeholder will not necessarily suit another.</p>
-
-<p>Nonetheless, despite this, the Cucumber people were on to something - there is a close relationship
+<p>Nonetheless, despite all of this, the Cucumber people were on to something - there is a close relationship
 between documentation and specification.</p>
+
+<p>HitchStory takes the view that all behavior should be specified by a user story, along with any appropriate metadata. It takes the
+approach that documentation that is fit for stakeholders should be <em>generated</em> and the specifics and the levels of detail in that
+documentation should be up to the developer.</p>
 
 
 			<aside class="copyright" role="note">
@@ -303,7 +309,7 @@ between documentation and specification.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/seleniumdirector/using/alpha/subelements/" title="Sub-elements">
+      <a href="https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/" title="Why does StrictYAML only parse from strings and not files?">
         <span class="direction">
           Previous
         </span>
@@ -313,7 +319,7 @@ between documentation and specification.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Sub-elements
+              Why does StrictYAML only parse from strings and not files?
             </div>
           </div>
         </div>
@@ -323,14 +329,14 @@ between documentation and specification.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/why/triality/" title="Triality">
+      <a href="https://hitchdev.com/strictyaml/why/speed-not-a-priority/" title="Why is parsing speed not a high priority for StrictYAML?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Triality
+              Why is parsing speed not a high priority for StrictYAML?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

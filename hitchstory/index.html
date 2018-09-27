@@ -256,13 +256,17 @@
 
 			
 
+<p><img src="sliced-cucumber.jpg" alt="You know why" /></p>
+
 <p><iframe src="https://ghbtns.com/github-btn.html?user=hitchdev&repo=hitchstory&type=star&count=true" frameborder="0" scrolling="0" width="300px" height="40px"></iframe></p>
 
 
-<p>HitchStory is a python 3 library for building and running BDD-style executable specifications.</p>
+<p>HitchStory is a python 3 library for creating readable &ldquo;specifications by example&rdquo; and executing
+them. It is an ambitious project intended supplant both traditional BDD tools and unit tests.</p>
 
-<p>Unlike most other BDD tools which use, e.g. Gherkin the specification is written
-with a <a href="https://hitchdev.com/strictyaml">StrictYAML</a> dialect.</p>
+<p>Unlike many other BDD tools the specification is <a href="why/strictyaml">written using StrictYAML</a> which
+means that stories will be terse, strongly typed and expressive enough to describe business
+rules and behavior in precise detail.</p>
 
 <h2 id="example">Example</h2>
 
@@ -342,13 +346,11 @@ SUCCESS in 0.1 seconds.
 
 <h2 id="install">Install</h2>
 
-<p>It&rsquo;s recommended to install and <a href="setup-with-hitchkey">set up hitchstory with hitchkey</a>, which can take care of auto-setting
-up a python 3 virtualenv, installing other packages and providing an isolated directory which can be used to build code
-and artefacts in.</p>
+<p>It&rsquo;s recommended to install and <a href="setup-with-hitchkey">set up hitchstory with hitchkey</a>, which can take care of automatically
+setting up a up the <a href="approach/recommended-environment">recommended hitchstory environment</a>.</p>
 
-<p>Nonetheless, it is also possible to set up and use your own python 3 virtualenv and simply pip install hitchstory
-from pypi.</p>
-
+<p>You can also install it traditionally through pypi:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install hitchstory</code></pre></div>
 <h2 id="using-hitchstory">Using HitchStory</h2>
 
 <ul>
@@ -375,12 +377,12 @@ from pypi.</p>
 
 <h2 id="tell-me-more">Tell me more</h2>
 
-<p>HitchStory is a YAML based DSL for writing story &lsquo;specificatoins&rsquo;, designed to be simple to write, easy to read, to integrate seamlessly with the
+<p>HitchStory is a YAML based DSL for writing story &lsquo;specifications&rsquo;, designed to be simple to write, easy to read, to integrate seamlessly with the
 code that executes them.</p>
 
 <p>This library was dogfooded for years to TDD / BDD, test and autodocument a variety
 of different kinds of software - web apps, python libraries, command line apps,
-replacing other forms of unit, integration and end to end tests.</p>
+replacing all other forms of unit, integration and end to end tests.</p>
 
 <p>Unlike traditional &ldquo;BDD&rdquo; frameworks like Cucumber, hitchstory is not primarily designed for
 &ldquo;<a href="https://www.martinfowler.com/bliki/BusinessReadableDSL.html">business readability</a>&rdquo;,
@@ -392,10 +394,10 @@ but rather for simplicity ease of maintenance by developers.</p>
 <li>Stories can <em>and should</em> inherit from one another, because <em>specifications ought to be DRY too</em>.</li>
 <li>Stories are defined and validated using strongly typed StrictYAML. Step arguments and precondition (&lsquo;given&rsquo;) schemas can be strictly defined by the programmer.</li>
 <li>The execution engine can be programmed to rewrite the executing story based upon certain kinds of behavior changes (e.g. output strings, screen output changes, messages in a web app).</li>
-<li>Running stories is done via a python API rather than a so you can easily program customized test workflows.</li>
-<li>Built in story parameterization for property based testing.</li>
+<li>Running stories is done via a python API rather than the command line so you can easily program customized test workflows.</li>
+<li>There is built  in story parameterization so you can do property based testing.</li>
 <li>Stories can be easily tested for flakiness.</li>
-<li>While the stories themselves are not designed primarily for readability, they are designed to be easily used to build readable documentation.</li>
+<li>The stories are designed to be easily used to build readable documentation.</li>
 </ul>
 
 <h2 id="recommended-complementary-tools">Recommended Complementary Tools</h2>
@@ -430,7 +432,6 @@ kinds of software.</p>
 <p>TODO : Needs fleshing out.</p>
 
 <ul>
-<li>Why YAML</li>
 <li>Why inheritance</li>
 </ul>
 
@@ -439,8 +440,9 @@ kinds of software.</p>
 <p>TODO : Section needs fleshing out more.</p>
 
 <ul>
+<li><a href="why-not/gherkin">Why not use Behave, Lettuce or Cucumber (Gherkin)?</a></li>
+<li><a href="why-not/unit-test">Why use hitchstory instead of a unit testing framework?</a></li>
 <li><a href="why-not/robot">Why not use the Robot Framework?</a></li>
-<li><a href="why-not/gherkin">Differences to Gherkin</a></li>
 </ul>
 
 
@@ -480,14 +482,14 @@ kinds of software.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/why/" title="HitchStory Philosophy">
+      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/" title="How to...">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              HitchStory Philosophy
+              How to...
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

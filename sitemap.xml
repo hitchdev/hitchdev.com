@@ -27,6 +27,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/approach/bdd/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/categories/</loc>
     <priority>0</priority>
   </url>
@@ -60,11 +64,11 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/strictyaml/why/</loc>
+    <loc>https://hitchdev.com/hitchstory/why/</loc>
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why-not/gherkin/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/</loc>
   </url>
   
   <url>
@@ -77,6 +81,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/why/inheritance/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/human-writable/</loc>
   </url>
   
   <url>
@@ -112,7 +120,7 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/flaky-tests/</loc>
+    <loc>https://hitchdev.com/hitchstory/approach/flaky-tests/</loc>
   </url>
   
   <url>
@@ -121,6 +129,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/float/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/</loc>
   </url>
   
   <url>
@@ -161,20 +173,12 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/</loc>
-  </url>
-  
-  <url>
     <loc>https://hitchdev.com/hitchstory/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/howto/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/hitchstory/why/unit-tests/</loc>
   </url>
   
   <url>
@@ -187,14 +191,6 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/integer/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/hitchstory/why/human-writable/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/hitchstory/why/bdd/</loc>
   </url>
   
   <url>
@@ -251,6 +247,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/approach/recommended-environment/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/</loc>
   </url>
   
@@ -267,7 +267,7 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/screenplay-principle/</loc>
+    <loc>https://hitchdev.com/hitchstory/approach/screenplay-principle/</loc>
   </url>
   
   <url>
@@ -301,6 +301,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/compound/sequences-of-unique-items/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/setup-with-hitchkey/</loc>
   </url>
   
   <url>
@@ -346,11 +350,11 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</loc>
+    <loc>https://hitchdev.com/hitchstory/approach/triality/</loc>
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/triality/</loc>
+    <loc>https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/</loc>
   </url>
   
   <url>
@@ -382,10 +386,6 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/cucumbers-mistakes/</loc>
-  </url>
-  
-  <url>
     <loc>https://hitchdev.com/strictyaml/features-removed/</loc>
   </url>
   
@@ -394,7 +394,7 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/test-or-story/</loc>
+    <loc>https://hitchdev.com/hitchstory/approach/test-or-story/</loc>
   </url>
   
   <url>
@@ -426,7 +426,7 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/standard-yaml/</loc>
+    <loc>https://hitchdev.com/hitchstory/why/strictyaml/</loc>
   </url>
   
   <url>
@@ -439,6 +439,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</loc>
   </url>
   
   <url>
@@ -466,11 +470,11 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/</loc>
+    <loc>https://hitchdev.com/hitchstory/why-not/gherkin/</loc>
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/cucumber/</loc>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/</loc>
   </url>
   
   <url>
@@ -522,7 +526,7 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/why-not-unit-test/</loc>
+    <loc>https://hitchdev.com/hitchstory/why-not/unit-test/</loc>
   </url>
   
   <url>
