@@ -40,14 +40,20 @@ All of the principles here are important but they ought to be applied on a cost/
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/principles/commits/</guid>
-      <description>Each commit message takes the form TYPE : Message.
-These messages are, in a sense, alpha. They take effect on March 1st, 2018:
-TOOLING Changes to the tooling code. No changes to actual code of the project.
-Changes to project code : no
-DOCS Changes to documentation page or documentation template.
-Changes to project code : no
-STORY Refactoring of an existing story, its metadata, names, etc.
-Changes to project code : no</description>
+      <description>Each commit message in hitchdev projects takes the form TYPE : Message.
+BUGFIX Bugfix on implemented feature that does not intentionally impact pre-existing defined behavior. Should typically come with a story or change to a story that invokes the behavior that failed before the bug was fixed.
+FEATURE Newly implemented feature that does not intentionally impact pre-existing defined behavior. Should come accompanied with a story or change to a story that invokes and describes the behavior.</description>
+    </item>
+    
+    <item>
+      <title>Extreme dogfooding</title>
+      <link>https://hitchdev.com/principles/extreme-dogfooding/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/principles/extreme-dogfooding/</guid>
+      <description>All of the libraries on this website are the result of extreme dogfooding.
+The idea behind this principle is that not only are the libraries used in anger in real life production code, but that also:
+ The libraries&amp;rsquo; design (and even the idea itself) emerged from heavy refactoring rather than out of the blue. The libraries are built and trialed in real life situations to eliminate most of the bugs.</description>
     </item>
     
     <item>

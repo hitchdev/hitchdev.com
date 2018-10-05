@@ -15,6 +15,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/add-directory-to-path/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/steps-and-step-arguments/</loc>
   </url>
   
@@ -31,12 +35,29 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/capture-output/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/environment-variables/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/principles/code-quality/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -92,6 +113,14 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/command-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/use-current-python-environment/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/howto/either-or-validation/</loc>
   </url>
   
@@ -113,6 +142,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/metadata/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/principles/extreme-dogfooding/</loc>
   </url>
   
   <url>
@@ -230,6 +263,14 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/pipe-data-in/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/pipe-data-out/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/play-multiple-stories/</loc>
   </url>
   
@@ -264,6 +305,14 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/howto/revalidation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/ignore-nonzero-exit-codes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/run-interactively/</loc>
   </url>
   
   <url>
@@ -363,6 +412,14 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/</loc>
   </url>
   
   <url>
