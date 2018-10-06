@@ -274,9 +274,6 @@
 
 			
 
-<p><iframe src="https://ghbtns.com/github-btn.html?user=crdoconnor&repo=commandlib&type=star&count=true" frameborder="0" scrolling="0" width="300px" height="40px"></iframe></p>
-
-
 <p>Commandlib is a dependencyless library for calling external UNIX commands
 (e.g. in build scripts) in a clean, readable way.</p>
 
@@ -329,12 +326,12 @@ or <a href="https://pexpect.readthedocs.io/en/stable/">pexpect</a>.</p>
 get using the subprocess library directly (Popen, call, check_output(), .communicate(), etc.)
 and the <a href="https://stackoverflow.com/questions/89228/calling-an-external-command-in-python">confusion that results</a>.</p>
 
-<p>It&rsquo;s a <a href="https://hitchdev.com/principles/extreme-dogfooding">heavily dogfooded</a> library.</p>
+<p>It&rsquo;s a <a href="https://hitchdev.com/principles/extreme-dogfooding">heavily dogfooded</a> library. For humans. Because who else?</p>
 
-<h2 id="why-not-use-delegator-https-github-com-kennethreitz-delegator-py-instead-kenneth-reitz-s-subprocesses-for-humans">Why not use <a href="https://github.com/kennethreitz/delegator.py">Delegator</a> instead (Kenneth Reitz&rsquo;s &lsquo;subprocesses for humans&rsquo;)?</h2>
+<h2 id="why-not-use-delegator-instead-kenneth-reitz-s-subprocesses-for-humans">Why not use Delegator instead (Kenneth Reitz&rsquo;s &lsquo;subprocesses for humans&rsquo;)?</h2>
 
 <p>Kenneth Reitz (author of requests &ldquo;urllib2/3 for humans&rdquo;), wrote a similarly inspired &ldquo;subprocess for humans&rdquo;
-called envoy. That is now deprecated and there is now a replacement called delegator, which is a very thin
+called <a href="https://github.com/kennethreitz/envoy">envoy</a>. That is now deprecated and there is now a replacement called <a href="https://github.com/kennethreitz/delegator.py">delegator</a>, which is a very thin
 wrapper around subprocess.</p>
 
 <p>Features delegator has which commandlib does not:</p>
