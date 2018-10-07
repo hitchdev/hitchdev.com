@@ -298,8 +298,6 @@ browsers.</p>
 <p>Parameters can be used in preconditions and in steps
 by surrounding the parameter name with (( brackets )).</p>
 
-<p>Example base.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>example.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Click<span class="w"> </span>magic<span class="w"> </span>button<span class="p">:</span><span class="w">
 </span><span class="w">  </span>with<span class="p">:</span><span class="w">
@@ -319,12 +317,6 @@ by surrounding the parameter name with (( brackets )).</p>
 </span><span class="w">        </span>browser<span class="p">:</span><span class="w">
 </span><span class="w">          </span>name<span class="p">:</span><span class="w"> </span>chrome<span class="w">
 </span><span class="w">          </span>version<span class="p">:</span><span class="w"> </span><span class="m">153</span></code></pre></div>
-<p>example1.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
-<p>example2.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
-<p>example3.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>engine.py:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span><span class="p">,</span> <span class="n">validate</span>
 <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Optional</span>

@@ -296,10 +296,6 @@ the story title. The case is ignored, as are special characters.</p>
 <p>If you specify key words that match no stories or more than one
 story, an error is raised.</p>
 
-<p>Example base.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
-<p>example.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>example1.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Create<span class="w"> </span>file<span class="p">:</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
@@ -310,11 +306,7 @@ story, an error is raised.</p>
 <p>example2.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Create<span class="w"> </span>files<span class="p">:</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>file</code></pre></div>
-<p>example3.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
-<p>engine.py:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span><span class="p">,</span> <span class="n">BaseEngine</span>
+</span><span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>file</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span><span class="p">,</span> <span class="n">BaseEngine</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 

@@ -298,8 +298,6 @@ failure. This behavior can be changed though.</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Base<span class="w"> </span>story<span class="p">:</span><span class="w">
 </span><span class="w">  </span>given<span class="p">:</span><span class="w">
 </span><span class="w">    </span>random<span class="w"> </span>variable<span class="p">:</span><span class="w"> </span>some<span class="w"> </span>value</code></pre></div>
-<p>example.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>example1.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Create<span class="w"> </span>file<span class="p">:</span><span class="w">
 </span><span class="w">  </span>based<span class="w"> </span>on<span class="p">:</span><span class="w"> </span>base<span class="w"> </span>story<span class="w">
@@ -313,11 +311,7 @@ failure. This behavior can be changed though.</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Create<span class="w"> </span>files<span class="p">:</span><span class="w">
 </span><span class="w">  </span>based<span class="w"> </span>on<span class="p">:</span><span class="w"> </span>base<span class="w"> </span>story<span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>file</code></pre></div>
-<p>example3.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
-<p>engine.py:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span><span class="p">,</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span>
+</span><span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>file</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span><span class="p">,</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 

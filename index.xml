@@ -64,12 +64,8 @@ docs/why-not/disagree.rst</description>
       <description>When an in-progress story is hit with any of the following termination signals:
  SIGTERM SIGINT SIGQUIT SIGHUP  Then it triggers the tear_down method of the engine.
 In practical terms this means that if you are running a series of stories, Ctrl-C should halt current execution, run tear_down and then not run any more stories.
-Example base.story:
- example.story:
-Createfiles:steps:-PauseforeverShouldneverrun:steps:-Shouldnothappen example1.story:
- example2.story:
- example3.story:
- engine.py:
+example.story:
+Createfiles:steps:-PauseforeverShouldneverrun:steps:-Shouldnothappen engine.py:
 from hitchstory import BaseEngine from code_that_does_things import reticulate_splines import psutil class Engine(BaseEngine): def pause_forever(self): psutil.</description>
     </item>
     
@@ -95,12 +91,7 @@ hello harry  </description>
       
       <guid>https://hitchdev.com/hitchstory/using/alpha/steps-and-step-arguments/</guid>
       <description>Arguments are fed to steps in a way that is largely consistent with how python methods work:
- Named arguments (e.g. &amp;ldquo;How many times&amp;rdquo;) are put in equivalent named variables (e.g. &amp;ldquo;how_many_times&amp;rdquo;). If the method has **kwargs then the key names of kwargs will match the named arguments exactly (i.e. no underscores).  Example base.story:
- example.story:
- example1.story:
- example2.story:
- example3.story:
- engine.py:
+ Named arguments (e.g. &amp;ldquo;How many times&amp;rdquo;) are put in equivalent named variables (e.g. &amp;ldquo;how_many_times&amp;rdquo;). If the method has **kwargs then the key names of kwargs will match the named arguments exactly (i.e. no underscores).  engine.py:
 from code_that_does_things import * from strictyaml import Int, Str, Bool from hitchstory import BaseEngine, validate class Engine(BaseEngine): def fill_form(self, **kwargs): for name, content in kwargs.</description>
     </item>
     
@@ -221,13 +212,10 @@ FEATURE Newly implemented feature that does not intentionally impact pre-existin
       <guid>https://hitchdev.com/hitchstory/using/alpha/continue-on-failure/</guid>
       <description>By default whenever stories are played in sequence, they stop when the first failure is encountered.
 However, if your stories take a long time to run you may wish to continue after the first failure.
-Example base.story:
- example.story:
- example1.story:
+example1.story:
 ACreatefile:steps:-CreatefileBCreatefile:steps:-Fail example2.story:
-CCreatefileathirdtime:steps:-Createfile example3.story:
- engine.py:
-from hitchstory import StoryCollection, BaseEngine from pathquery import pathquery class Engine(BaseEngine): def create_file(self, filename=&amp;#34;step1.txt&amp;#34;, content=&amp;#34;example&amp;#34;): with open(filename, &amp;#39;w&amp;#39;) as handle: handle.write(content) def fail(self): raise Exception(&amp;#34;Error&amp;#34;) Stop on failure is default behavior:</description>
+CCreatefileathirdtime:steps:-Createfilefrom hitchstory import StoryCollection, BaseEngine from pathquery import pathquery class Engine(BaseEngine): def create_file(self, filename=&amp;#34;step1.txt&amp;#34;, content=&amp;#34;example&amp;#34;): with open(filename, &amp;#39;w&amp;#39;) as handle: handle.write(content) def fail(self): raise Exception(&amp;#34;Error&amp;#34;) Stop on failure is default behavior:
+StoryCollection( pathquery(&amp;#34;.</description>
     </item>
     
     <item>
@@ -568,12 +556,8 @@ When your story suite matures and the structure of your story files has solidifi
       
       <guid>https://hitchdev.com/hitchstory/using/alpha/failing-tests/</guid>
       <description>By default, a failing story will show:
- A snippet of the YAML where the story failed with the failing step highlighted. A stack trace from engine.py where the exception was raised.  Example base.story:
- example.story:
-Failingstory:steps:-Passingstep-Failingstep-Notexecutedstep example1.story:
- example2.story:
- example3.story:
- engine.py:
+ A snippet of the YAML where the story failed with the failing step highlighted. A stack trace from engine.py where the exception was raised.  example.story:
+Failingstory:steps:-Passingstep-Failingstep-Notexecutedstep engine.py:
 from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_does_things import raise_example_exception, output, ExampleException class Engine(BaseEngine): def passing_step(self): pass def failing_step(self): raise_example_exception(&amp;#34;Towel not located&amp;#34;) @no_stacktrace_for(ExampleException) def failing_step_without_stacktrace(self): raise_example_exception(&amp;#34;Expected exception&amp;#34;) def raise_special_failure_exception(self): raise Failure(&amp;#34;Special failure exception - no stacktrace printed!</description>
     </item>
     
@@ -584,12 +568,8 @@ from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_doe
       
       <guid>https://hitchdev.com/hitchstory/using/alpha/expected-exceptions/</guid>
       <description>For common expected failures where you do not want to see the whole stacktrace, apply the &amp;ldquo;@no_stacktrace_for&amp;rdquo; decorator.
-Example base.story:
- example.story:
-Failingstory:steps:-Failingstepwithoutstacktrace example1.story:
- example2.story:
- example3.story:
- engine.py:
+example.story:
+Failingstory:steps:-Failingstepwithoutstacktrace engine.py:
 from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_does_things import raise_example_exception, output, ExampleException class Engine(BaseEngine): def passing_step(self): pass def failing_step(self): raise_example_exception(&amp;#34;Towel not located&amp;#34;) @no_stacktrace_for(ExampleException) def failing_step_without_stacktrace(self): raise_example_exception(&amp;#34;Expected exception&amp;#34;) def raise_special_failure_exception(self): raise Failure(&amp;#34;Special failure exception - no stacktrace printed!&amp;#34;) def step_that_will_not_run(self): pass def on_failure(self, result): pass def not_executed_step(self): passfrom hitchstory import StoryCollection from engine import Engine from pathquery import pathquery story_collection = StoryCollection(pathquery(&amp;#34;.</description>
     </item>
     
@@ -612,9 +592,8 @@ Current fully documented projects:
       <guid>https://hitchdev.com/hitchstory/</guid>
       <description>HitchStory is a python 3 library for creating readable &amp;ldquo;specifications by example&amp;rdquo; and executing them. It is an ambitious project intended supplant both traditional BDD tools and unit tests.
 Unlike many other BDD tools the specification is written using StrictYAML which means that stories will be terse, strongly typed and expressive enough to describe business rules and behavior in precise detail.
-Example Example base.story:
- example.story:
-Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.</description>
+Example example.story:
+Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.</description>
     </item>
     
     <item>
@@ -818,12 +797,9 @@ hello tom  </description>
       <description>Running multiple stories in sequence is necessary when you want to do a regression sweep to make sure nothing has broken.
 By default hitchstory will stop when it sees its first failure. This behavior can be changed though.
 Example base.story:
-Basestory:given:randomvariable:somevalue example.story:
- example1.story:
+Basestory:given:randomvariable:somevalue example1.story:
 Createfile:basedon:basestorysteps:-CreatefileCreatefileagain:basedon:basestorysteps:-Createfile example2.story:
-Createfiles:basedon:basestorysteps:-Createfile example3.story:
- engine.py:
-from hitchstory import StoryCollection, BaseEngine, GivenDefinition, GivenProperty from pathquery import pathquery from ensure import Ensure class Engine(BaseEngine): given_definition=GivenDefinition( random_variable=GivenProperty() ) def create_file(self, filename=&amp;#34;step1.</description>
+Createfiles:basedon:basestorysteps:-Createfilefrom hitchstory import StoryCollection, BaseEngine, GivenDefinition, GivenProperty from pathquery import pathquery from ensure import Ensure class Engine(BaseEngine): given_definition=GivenDefinition( random_variable=GivenProperty() ) def create_file(self, filename=&amp;#34;step1.txt&amp;#34;, content=&amp;#34;example&amp;#34;): with open(filename, &amp;#39;w&amp;#39;) as handle: handle.</description>
     </item>
     
     <item>
@@ -931,13 +907,10 @@ Commandlib can call and create an interactive process object for two other libra
       
       <guid>https://hitchdev.com/hitchstory/using/alpha/run-single-named-story/</guid>
       <description>How a story runs when it is successful - i.e. when no exception is raised during its run.
-Example base.story:
- example.story:
-Createfiles:steps:-Createfile-Createfile:step2.txt-Createfile:filename:step3.txtcontent:thirdstep example1.story:
- example2.story:
- example3.story:
- engine.py:
-from hitchstory import BaseEngine class Engine(BaseEngine): def create_file(self, file_name=&amp;#34;step1.txt&amp;#34;, content=&amp;#34;example&amp;#34;): with open(file_name, &amp;#39;w&amp;#39;) as handle: handle.write(content) def on_success(self): print(&amp;#34;splines reticulated&amp;#34;) with open(&amp;#34;ranstory.txt&amp;#34;, &amp;#39;w&amp;#39;) as handle: handle.write(self.story.name)from hitchstory import StoryCollection from pathquery import pathquery from engine import EngineStoryCollection(pathquery(&amp;#34;.&amp;#34;).ext(&amp;#34;story&amp;#34;), Engine()).named(&amp;#34;Create files&amp;#34;).play() Will output:</description>
+example.story:
+Createfiles:steps:-Createfile-Createfile:step2.txt-Createfile:filename:step3.txtcontent:thirdstep engine.py:
+from hitchstory import BaseEngine class Engine(BaseEngine): def create_file(self, file_name=&amp;#34;step1.txt&amp;#34;, content=&amp;#34;example&amp;#34;): with open(file_name, &amp;#39;w&amp;#39;) as handle: handle.write(content) def on_success(self): print(&amp;#34;splines reticulated&amp;#34;) with open(&amp;#34;ranstory.txt&amp;#34;, &amp;#39;w&amp;#39;) as handle: handle.write(self.story.name)from hitchstory import StoryCollection from pathquery import pathquery from engine import EngineStoryCollection(pathquery(&amp;#34;.&amp;#34;).ext(&amp;#34;story&amp;#34;), Engine()).named(&amp;#34;Create files&amp;#34;).play() Will output:
+RUNNING Create files in /path/to/example.story ... splines reticulated SUCCESS in 0.</description>
     </item>
     
     <item>
@@ -1074,9 +1047,9 @@ Myfirststory:steps:-Dosomething engine.py, containing code that executes stories
       <description>Hunting for and specifying particular story to run can be a pain.
 Using the &amp;lsquo;shortcut&amp;rsquo; function you can select a specific story to run just by specifying one or more key words that appear in the story title. The case is ignored, as are special characters.
 If you specify key words that match no stories or more than one story, an error is raised.
-Example base.story:
- example.story:
- example1.story:</description>
+example1.story:
+Createfile:steps:-CreatefileCreatefileagain:steps:-Createfile example2.story:
+Createfiles:steps:-Createfilefrom hitchstory import StoryCollection, BaseEngine from ensure import Ensure from pathquery import pathquery class Engine(BaseEngine): def create_file(self, filename=&amp;#34;step1.</description>
     </item>
     
     <item>
@@ -1102,13 +1075,9 @@ selector.visit(&amp;#34;http://localhost:8000&amp;#34;) selector.</description>
       <guid>https://hitchdev.com/hitchstory/using/alpha/special-failure-exception/</guid>
       <description>If you want to indicate a test failure, raise the &amp;ldquo;Failure&amp;rdquo; exception.
 This is by default an expected exception, so no stack trace will be printed if it is raised.
-Example base.story:
- example.story:
-Failingstory:steps:-Raisespecialfailureexception-Stepthatwillnotrun-Stepthatwillnotrun example1.story:
- example2.story:
- example3.story:
- engine.py:
-from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_does_things import raise_example_exception, output, ExampleException class Engine(BaseEngine): def passing_step(self): pass def failing_step(self): raise_example_exception(&amp;#34;Towel not located&amp;#34;) @no_stacktrace_for(ExampleException) def failing_step_without_stacktrace(self): raise_example_exception(&amp;#34;Expected exception&amp;#34;) def raise_special_failure_exception(self): raise Failure(&amp;#34;Special failure exception - no stacktrace printed!</description>
+example.story:
+Failingstory:steps:-Raisespecialfailureexception-Stepthatwillnotrun-Stepthatwillnotrun engine.py:
+from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_does_things import raise_example_exception, output, ExampleException class Engine(BaseEngine): def passing_step(self): pass def failing_step(self): raise_example_exception(&amp;#34;Towel not located&amp;#34;) @no_stacktrace_for(ExampleException) def failing_step_without_stacktrace(self): raise_example_exception(&amp;#34;Expected exception&amp;#34;) def raise_special_failure_exception(self): raise Failure(&amp;#34;Special failure exception - no stacktrace printed!&amp;#34;) def step_that_will_not_run(self): pass def on_failure(self, result): pass def not_executed_step(self): passfrom hitchstory import StoryCollection from engine import Engine from pathquery import pathquery story_collection = StoryCollection(pathquery(&amp;#34;.</description>
     </item>
     
     <item>
@@ -1131,9 +1100,9 @@ Instead of manually constructing the exact output you are expecting you can simp
       <description>Parameterized stories are used to describe stories which are essentially the same except for one or more variables which can vary.
 A common example is a story for a user to log in with a browser which may be done with a number of different browsers.
 Parameters can be used in preconditions and in steps by surrounding the parameter name with (( brackets )).
-Example base.story:
- example.story:
-Clickmagicbutton:with:browser:name:firefoxversion:37given:browser:((browser))steps:-Clickonbutton-Savescreenshot:forbrowser:((browser))variations:withchrome:with:browser:name:chromeversion:153 example1.story:</description>
+example.story:
+Clickmagicbutton:with:browser:name:firefoxversion:37given:browser:((browser))steps:-Clickonbutton-Savescreenshot:forbrowser:((browser))variations:withchrome:with:browser:name:chromeversion:153 engine.py:
+from hitchstory import BaseEngine, GivenDefinition, GivenProperty, validate from strictyaml import Map, Seq, Int, Str, Optional from code_that_does_things import * class Engine(BaseEngine): given_definition=GivenDefinition( browser=GivenProperty( schema=Map({&amp;#34;name&amp;#34;: Str(), &amp;#34;version&amp;#34;: Int()}), ), ) def set_up(self): print(self.</description>
     </item>
     
     <item>
@@ -1292,13 +1261,8 @@ Page automatically generated from regexp.</description>
       <guid>https://hitchdev.com/hitchstory/using/alpha/variations/</guid>
       <description>Some stories are very similar except for a few changed items. You can create substories within the same story in order to enumerate all of the possible permutations.
 This works in the same way as inheritance.
-Example base.story:
- example.story:
-Createfiles:given:content:doghierarchicalcontent:x:1y:-42steps:-Dothingwithprecondition-Dootherthing:dog-Doyetanotherthing-Doafourththing:animals:pondanimal:frogvariations:cat:given:content:cat example1.story:
- example2.story:
- example3.story:
- engine.py:
-from hitchstory import StoryCollection, BaseEngine, GivenDefinition, GivenProperty, validate from strictyaml import Map, Seq, Int, Str, Optional from pathquery import pathquery from ensure import Ensure class Engine(BaseEngine): given_definition=GivenDefinition( content=GivenProperty(schema=Str()), hierarchical_content=GivenProperty( schema=Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Seq(Str())}) ), ) def do_other_thing(self, parameter): assert type(parameter) is str print(parameter) def do_thing_with_precondition(self): assert type(self.</description>
+example.story:
+Createfiles:given:content:doghierarchicalcontent:x:1y:-42steps:-Dothingwithprecondition-Dootherthing:dog-Doyetanotherthing-Doafourththing:animals:pondanimal:frogvariations:cat:given:content:catfrom hitchstory import StoryCollection, BaseEngine, GivenDefinition, GivenProperty, validate from strictyaml import Map, Seq, Int, Str, Optional from pathquery import pathquery from ensure import Ensure class Engine(BaseEngine): given_definition=GivenDefinition( content=GivenProperty(schema=Str()), hierarchical_content=GivenProperty( schema=Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Seq(Str())}) ), ) def do_other_thing(self, parameter): assert type(parameter) is str print(parameter) def do_thing_with_precondition(self): assert type(self.</description>
     </item>
     
     <item>

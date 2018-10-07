@@ -294,20 +294,12 @@
 <li>A stack trace from engine.py where the exception was raised.</li>
 </ul>
 
-<p>Example base.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>example.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Failing<span class="w"> </span>story<span class="p">:</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
 </span><span class="w">    </span>-<span class="w"> </span>Passing<span class="w"> </span>step<span class="w">
 </span><span class="w">    </span>-<span class="w"> </span>Failing<span class="w"> </span>step<span class="w">
 </span><span class="w">    </span>-<span class="w"> </span>Not<span class="w"> </span>executed<span class="w"> </span>step</code></pre></div>
-<p>example1.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
-<p>example2.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
-<p>example3.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>engine.py:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">no_stacktrace_for</span><span class="p">,</span> <span class="n">Failure</span>
 <span class="kn">from</span> <span class="nn">code_that_does_things</span> <span class="kn">import</span> <span class="n">raise_example_exception</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">ExampleException</span>

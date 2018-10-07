@@ -311,8 +311,6 @@ will always fail when seeing different text. This mode can be used when,
 for example, running all the stories on jenkins or when you are refactoring
 and <em>not</em> expecting textual output changes.</p>
 
-<p>Example base.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>example.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Do<span class="w"> </span>things<span class="p">:</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
@@ -327,12 +325,6 @@ and <em>not</em> expecting textual output changes.</p>
 </span><span class="w">    </span>Do<span class="w"> </span>more<span class="w"> </span>things<span class="p">:</span><span class="w">
 </span><span class="w">      </span>steps<span class="p">:</span><span class="w">
 </span><span class="w">        </span>-<span class="w"> </span>Do<span class="w"> </span>thing<span class="p">:</span><span class="w"> </span>c</code></pre></div>
-<p>example1.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
-<p>example2.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
-<p>example3.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>engine.py:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span>
 
