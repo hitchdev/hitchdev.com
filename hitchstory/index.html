@@ -288,6 +288,8 @@ rules and behavior in precise detail.</p>
 
 <h2 id="example">Example</h2>
 
+<p>Example base.story:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>example.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Log<span class="w"> </span>in<span class="p">:</span><span class="w">
 </span><span class="w">  </span>given<span class="p">:</span><span class="w">
@@ -312,6 +314,12 @@ rules and behavior in precise detail.</p>
 </span><span class="w">          </span>I<span class="w"> </span>think<span class="w"> </span>I<span class="w"> </span>got<span class="w"> </span>hacked!<span class="w">
 </span><span class="w">    </span>-<span class="w"> </span>Click<span class="p">:</span><span class="w"> </span>send<span class="w"> </span>email<span class="w">
 </span><span class="w">    </span>-<span class="w"> </span>Email<span class="w"> </span>was<span class="w"> </span>sent</code></pre></div>
+<p>example1.story:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+<p>example2.story:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+<p>example3.story:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>engine.py:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span>
 <span class="kn">from</span> <span class="nn">mockemailchecker</span> <span class="kn">import</span> <span class="n">email_was_sent</span>
@@ -337,7 +345,7 @@ rules and behavior in precise detail.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">email_was_sent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">email_was_sent</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
+        <span class="n">email_was_sent</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 <span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span>
 

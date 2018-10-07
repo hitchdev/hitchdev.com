@@ -310,6 +310,10 @@ flakiness caused by, for example:</p>
 fails consistently is considered passed, whereas a story that is run 99 times and fails once
 is considered a failure.</p>
 
+<p>Example base.story:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+<p>example.story:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
 <p>example1.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Flaky<span class="w"> </span>story<span class="p">:</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
@@ -317,7 +321,13 @@ is considered a failure.</p>
 </span><span class="w">
 </span><span class="w"></span>Consistent<span class="w"> </span>failure<span class="p">:</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>Step<span class="w"> </span>that<span class="w"> </span>always<span class="w"> </span>fails</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span><span class="p">,</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">Failure</span>
+</span><span class="w">  </span>-<span class="w"> </span>Step<span class="w"> </span>that<span class="w"> </span>always<span class="w"> </span>fails</code></pre></div>
+<p>example2.story:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+<p>example3.story:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"></code></pre></div>
+<p>engine.py:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span><span class="p">,</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">Failure</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 
 <span class="k">class</span> <span class="nc">Engine</span><span class="p">(</span><span class="n">BaseEngine</span><span class="p">):</span>
