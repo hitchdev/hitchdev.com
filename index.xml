@@ -123,6 +123,18 @@ Ensure(yaml.start_line).equals(1) Executable specification</description>
     </item>
     
     <item>
+      <title>CProfile</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/cprofile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/cprofile/</guid>
+      <description>Code snippets run by hitchrunpy can be profiled with cprofile.
+&amp;ldquo;long_string&amp;rdquo; is set to:
+def do_calculation(number): x = i^i for i in range(0, 5000 * 1000): do_calculation(i)  from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_cprofile(&amp;#34;profiledata.dat&amp;#34;).with_code(long_string).run() import pstats data = pstats.Stats(&amp;#34;profiledata.dat&amp;#34;).sort_stats(&amp;#39;cumulative&amp;#39;) data.calc_callees() Ensure(data.stats).has_key((&amp;#39;examplepythoncode.py&amp;#39;, 56, &amp;#39;do_calculation&amp;#39;)) Executable specification
+Page automatically generated from cprofile.</description>
+    </item>
+    
+    <item>
       <title>Can I do BDD with hitchstory? How do I do BDD with hitchstory?</title>
       <link>https://hitchdev.com/hitchstory/approach/bdd/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -422,6 +434,29 @@ a:BEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;B&am
     </item>
     
     <item>
+      <title>Error occurred</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/syntax-errors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/syntax-errors/</guid>
+      <description>from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_code(&amp;#39;&amp;#39;&amp;#39;x =&amp;#39;&amp;#39;&amp;#39;).run()hitchrunpy.exceptions.ErrorRunningCode: Error running code. Output: File &amp;#34;examplepythoncode.py&amp;#34;, line 56 x = ^ SyntaxError: invalid syntax Executable specification
+Page automatically generated from basic.story.
+ </description>
+    </item>
+    
+    <item>
+      <title>Exceptions</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/exceptions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/exceptions/</guid>
+      <description>When python code snippets raise exceptions, those can be expected by the code or unexpected.
+If unexpected they will raise an exception.
+from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, ) Occurs as expected:
+result = pyrunner.with_code(&amp;#34;&amp;#34;&amp;#34; class CustomException(Exception): pass raise CustomException(&amp;#39;This should hâppen&amp;#39;) &amp;#34;&amp;#34;&amp;#34;).expect_exceptions().run() result.exception_was_raised(&amp;#34;__main__.CustomException&amp;#34;) assert result.exception.message == &amp;#34;This should hâppen&amp;#34; assert result.</description>
+    </item>
+    
+    <item>
       <title>Extra story metadata - e.g. adding JIRA ticket numbers to stories</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/metadata/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -441,6 +476,18 @@ What kind of metadata you add to stories is up to you - simply add the names of 
       <description>All of the libraries on this website are the result of extreme dogfooding.
 The idea behind this principle is that not only are the libraries used in anger in real life production code, but that also:
  The libraries&amp;rsquo; design (and even the idea itself) emerged from heavy refactoring rather than out of the blue. The libraries are built and trialed in real life situations to eliminate most of the bugs.</description>
+    </item>
+    
+    <item>
+      <title>Feed string variables to code</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/variables/</guid>
+      <description>This example shows how to feed variables containing strings to your running code.
+from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )long_string = u&amp;#34;â long string&amp;#34; pyrunner.with_code(( &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:&amp;#39; &amp;#39; handle.write(long_string)&amp;#39; )).with_long_strings(long_string=long_string).run() Then the file &amp;ldquo;examplefile&amp;rdquo; in the working dir will contain:
+â long string  Executable specification
+Page automatically generated from variables.</description>
     </item>
     
     <item>
@@ -580,8 +627,22 @@ from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_doe
       
       <guid>https://hitchdev.com/</guid>
       <description>HitchDev is a group of self contained, heavily dogfooded python libraries - mainly used for setting up and running dev and test environments:
-Current fully documented projects:
- StrictYAML &amp;ndash; YAML parser and validator that parses a restricted subset of the YAML spec. HitchStory &amp;ndash; StrictYAML based BDD framework. SeleniumDirector &amp;ndash; declare page (CSS/ID/xpath/etc.) selectors and give them readable names which can be used in readable python code or tests. Commandlib - invoke UNIX commands with an easy to use, pythonic API.</description>
+Fully documented general tools:
+ StrictYAML &amp;ndash; YAML parser and validator that parses a restricted subset of the YAML spec. Commandlib - invoke UNIX commands with an easy to use, pythonic API.  Fully documented testing projects:
+ HitchStory &amp;ndash; StrictYAML based BDD framework. HitchRunPy - tool to invoke and run snippets of python code.</description>
+    </item>
+    
+    <item>
+      <title>HitchRunPy</title>
+      <link>https://hitchdev.com/hitchrunpy/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/</guid>
+      <description>HitchRunPy is a tool to run, test and profile snippets of python code.
+HitchRunPy was developed to run executable specifications using HitchStory that define Python APIs.
+As such it can be used with HitchStory to build effective replacements for unit tests and integration tests where the &amp;lsquo;spec&amp;rsquo; is a python API.
+HitchRunPy is used to run the executable specifications for all libraries on HitchDev.
+Example from hitchrunpy import ExamplePythonCode ExamplePythonCode( &amp;#39;/path/to/bin/python&amp;#39;, &amp;#39;/path/to/working_directory&amp;#39;, ).</description>
     </item>
     
     <item>
@@ -639,6 +700,18 @@ Story inheritance allows you to base stories on other stories.</description>
 This is what that can object can do - in many cases if parsed as a integer, it will behave in the same way.
 Example yaml_snippet:
 a:1b:5from strictyaml import Map, Int, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), &amp;#34;b&amp;#34;: Int()}) parsed = load(yaml_snippet, schema) Parsed correctly:</description>
+    </item>
+    
+    <item>
+      <title>Interact with running code</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/interact-with-running-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/interact-with-running-code/</guid>
+      <description>If you need to test code asynchronously or interact with it in a terminal window, you can use .running_code() to get a RunningCode object.
+From the RunningCode object you can use .iprocess to get an icommandlib iprocess object.
+&amp;ldquo;long_string&amp;rdquo; is set to:
+import sys import time answer = input(&amp;quot;favorite color:&amp;quot;) with open(&amp;quot;color.txt&amp;quot;, &amp;quot;w&amp;quot;) as handle: handle.write(answer) answer = input(&amp;quot;favorite movie:&amp;quot;) with open(&amp;quot;movie.txt&amp;quot;, &amp;quot;w&amp;quot;) as handle: handle.write(answer) time.sleep(0.5) sys.exit(0)  from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.</description>
     </item>
     
     <item>
@@ -901,6 +974,18 @@ Commandlib can call and create an interactive process object for two other libra
     </item>
     
     <item>
+      <title>Run with environment variables</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/environment-vars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/environment-vars/</guid>
+      <description>Environment variables within the running python snippets can be overridden or set by using .with_env.
+from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_env(MYVAR=&amp;#34;myenvironmentvar&amp;#34;).with_code(( &amp;#39;import os\n&amp;#39; &amp;#39;\n&amp;#39; &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:\n&amp;#39; &amp;#39; handle.write(os.environ[&amp;#34;MYVAR&amp;#34;])\n&amp;#39; )).run() Then the file &amp;ldquo;examplefile&amp;rdquo; in the working dir will contain:
+myenvironmentvar  Executable specification
+Page automatically generated from environment-vars.</description>
+    </item>
+    
+    <item>
       <title>Running a single named story successfully</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/run-single-named-story/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1039,6 +1124,18 @@ Myfirststory:steps:-Dosomething engine.py, containing code that executes stories
     </item>
     
     <item>
+      <title>Setup code</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/setup-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/setup-code/</guid>
+      <description>from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_code(( &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:&amp;#39; &amp;#39; handle.write(exampletext)&amp;#39; )).with_setup_code(&amp;#34;exampletext = &amp;#39;exampletext&amp;#39;&amp;#34;)\ .run() Then the file &amp;ldquo;examplefile&amp;rdquo; in the working dir will contain:
+exampletext  Executable specification
+Page automatically generated from basic.story.
+ </description>
+    </item>
+    
+    <item>
       <title>Shortcut lookup for story names</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/shortcut-lookup/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1142,6 +1239,18 @@ index.html:
     </item>
     
     <item>
+      <title>Timeout</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/timeout/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/timeout/</guid>
+      <description>If the python code snippets you are running encounter a very very long loop or infinite, you can get it to time out.
+&amp;ldquo;long_string&amp;rdquo; is set to:
+import time time.sleep(3)  from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_code(long_string).with_timeout(1.0).run()hitchrunpy.exceptions.PythonTimeout: Timed out waiting for exit. Executable specification
+Page automatically generated from timeout.story.</description>
+    </item>
+    
+    <item>
       <title>Triality</title>
       <link>https://hitchdev.com/hitchstory/approach/triality/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1180,6 +1289,24 @@ However, if each of these things are intrinsically the same - the specification 
       <guid>https://hitchdev.com/commandlib/using/</guid>
       <description>How to:
  Run commmands interactively using icommandlib or pexpect Easily invoke commands from one directory (CommandPath) Easily invoke commands from the current virtualenv (python_bin) Add directory to PATH (with_path) Piping data in from string or file (.piped) Capture output (.output()) Piping data out to string or file (.piped) Run command and don&amp;rsquo;t raise exception on nonzero exit code (ignore_errors()) Change your command&amp;rsquo;s environment variables (with_env)  </description>
+    </item>
+    
+    <item>
+      <title>Using HitchRunPy</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/</guid>
+      <description> Error occurred Exceptions Run with environment variables Feed string variables to code CProfile Timeout Interact with running code Setup code  </description>
+    </item>
+    
+    <item>
+      <title>Using HitchRunPy</title>
+      <link>https://hitchdev.com/hitchrunpy/using/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/</guid>
+      <description> Error occurred Exceptions Run with environment variables Feed string variables to code CProfile Timeout Interact with running code Setup code  </description>
     </item>
     
     <item>

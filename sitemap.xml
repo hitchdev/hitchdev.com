@@ -31,6 +31,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/cprofile/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/approach/bdd/</loc>
   </url>
   
@@ -141,11 +145,23 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/syntax-errors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/exceptions/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/metadata/</loc>
   </url>
   
   <url>
     <loc>https://hitchdev.com/principles/extreme-dogfooding/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/variables/</loc>
   </url>
   
   <url>
@@ -202,7 +218,16 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchrunpy/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -224,6 +249,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/integer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/interact-with-running-code/</loc>
   </url>
   
   <url>
@@ -316,6 +345,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/environment-vars/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/run-single-named-story/</loc>
   </url>
   
@@ -365,6 +398,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/setup-code/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/shortcut-lookup/</loc>
   </url>
   
@@ -407,6 +444,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/timeout/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/approach/triality/</loc>
   </url>
   
@@ -420,6 +461,14 @@
   
   <url>
     <loc>https://hitchdev.com/commandlib/using/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/</loc>
   </url>
   
   <url>
