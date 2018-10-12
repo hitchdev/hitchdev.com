@@ -299,29 +299,27 @@
 		<div class="wrapper">
 			<h1>Why not use the page object pattern? </h1>
 
-			<p>The <a href="https://www.martinfowler.com/bliki/PageObject.html">page object pattern</a> is a design pattern for creating a code API abstraction around web pages to simplify their usage in GUI tests.</p>
+			
+
+<p>The <a href="https://www.martinfowler.com/bliki/PageObject.html">page object pattern</a> is a design pattern for creating a code API abstraction around web pages to simplify their usage in GUI tests.</p>
 
 <p>The idea of the page object pattern is is to enact a <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of concerns</a> between the code that interacts directly with HTML and the code which interacts with the web application.</p>
 
-<p>While identifying a real problem and proposing a solution that works to solve that problem, it is not the most elegant solution to that problem. There are two major problems with this approach:</p>
+<p>While identifying a real problem and proposing a solution that works to solve that problem, it is not the most elegant solution to that problem. There are three major problems with this approach:</p>
 
-<ol>
-<li>It separates the wrong concerns
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-</li>
-</ol>
+<h1 id="it-separates-the-wrong-concerns">It separates the wrong concerns</h1>
 
-<p>Every script script that interacts with a web page performs a series of actions on a set of elements. While the the process to locate those elements is often complex, the actions performed on them are, by and large, not - the elements are clicked, they have text entered or one element is dragged on to another.</p>
+<p>Every script script that interacts with a web page performs a series of actions on a set of elements. While the the process to locate those elements is a complex process that benefits from being abstracted, the actions performed on them are, by and large, not. The elements are clicked, they have text entered or one element is dragged on to another, etc.</p>
 
-<p>What is often obvious to the user (e.g. username text box) is often ambiguous to code. This is, in part, because HTML&rsquo;s design did not make this easy. However, HTML is here and we&rsquo;re stuck with it so we need to deal with it and this complexity has to be isolated.</p>
+<p>What is often obvious to the user (e.g. username text box) is often ambiguous to code. This is, in part, because HTML&rsquo;s design did not make this easy. However, HTML is here and we&rsquo;re stuck with it so we need to deal with it and isolating that complexity is a smart approach.</p>
 
-<p>Selenium has a number of different kinds of selectors (ID, class, attribute, xpath) each of which is appropriate to use in multitude of different situations. None of this is remotely interesting to anybody except the person writing the test - users just want to grab elements and perform actions upon them. Whether an element is grabbed by a class selector or an ID selector is of no importance, but precisely what is done with that element <em>is</em> important.</p>
+<p>Selenium has a number of different kinds of selectors (ID, class, attribute, xpath) each of which is appropriate to use in multitude of different situations. None of this is remotely interesting to anybody except the person writing or debugging the test - users just want to grab elements and perform actions upon them.</p>
+
+<p>Whether an element is grabbed by a class selector or an ID selector is of no importance to the end user, but precisely what is done with that element <em>is</em> important.</p>
 
 <p>Separating the concern of &ldquo;how to grab an element&rdquo; from &ldquo;what to do with it&rdquo; thus makes more sense than separating the concern of &ldquo;interacting with HTML&rdquo; from &ldquo;interacting with the web page&rdquo;.</p>
 
-<ol>
-<li>It leads to important details about the test&rsquo;s interaction being concealed by vague abstractions
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</li>
-</ol>
+<h1 id="it-leads-to-important-details-about-the-test-s-interaction-being-concealed-by-vague-abstractions">It leads to important details about the test&rsquo;s interaction being concealed by vague abstractions</h1>
 
 <p>The user might click, enter text, drag and drop, scroll to, etc. Whatever you do with an element <em>that is part of the specification</em>.</p>
 
@@ -331,10 +329,7 @@
 
 <p>Of course, this is still a tendency and it is entirely possible to create page objects that do not do this. Sadly, this is a tendency that is frequently <a href="http://aslakhellesoy.com/post/11055981222/the-training-wheels-came-off">actively encouraged</a> as a &ldquo;best practice&rdquo;.</p>
 
-<ol>
-<li>The page object pattern leads to more code than is necessary
-&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;</li>
-</ol>
+<h1 id="the-page-object-pattern-leads-to-more-code-than-is-necessary">The page object pattern leads to more code than is necessary</h1>
 
 <p>In the page object pattern every page is a class and every action is a method. If you have an application with a lot of pages and a lot of potential actions that can lead to thousands of extra lines of turing complete code to maintain.</p>
 

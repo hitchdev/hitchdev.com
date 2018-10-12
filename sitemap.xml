@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://hitchdev.com/principles/code-quality/naming/</loc>
+    <loc>https://hitchdev.com/code-quality/naming/</loc>
   </url>
   
   <url>
@@ -48,7 +48,12 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/principles/code-quality/</loc>
+    <loc>https://hitchdev.com/code-quality/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -644,11 +649,11 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/principles/code-quality/least-expressive-power/</loc>
+    <loc>https://hitchdev.com/code-quality/least-expressive-power/</loc>
   </url>
   
   <url>
-    <loc>https://hitchdev.com/principles/code-quality/write-least-code/</loc>
+    <loc>https://hitchdev.com/code-quality/least-code/</loc>
   </url>
   
 </urlset>

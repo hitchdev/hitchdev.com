@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Why does StrictYAML not parse direct representations of python objects? - HitchDev</title>
+    <title> - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/">
+    <link rel="canonical" href="https://hitchdev.com/code-quality/naming/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/">
+    <meta property="og:url" content="https://hitchdev.com/code-quality/naming/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,19 +100,13 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/code-quality">code-quality</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/why">why</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects">not-parse-direct-representations-of-python-objects</a>
+            / <a style="display:unset;" href="https://hitchdev.com/code-quality/naming">naming</a>
             
             
         
@@ -297,29 +291,39 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Why does StrictYAML not parse direct representations of python objects? </h1>
+			<h1> </h1>
 
-			<p>Regular YAML allows the direct representation of python objects.</p>
+			
 
-<p>For example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w"> </span><span class="cp">!python/hash:UserObject</span><span class="w">
-</span><span class="w"></span>email<span class="p">:</span><span class="w"> </span>evilhacker@hacker.com<span class="w">
-</span><span class="w"></span>password<span class="p">:</span><span class="w"> </span>passwordtoset<span class="w">
-</span><span class="w"></span>type<span class="p">:</span><span class="w"> </span>admin</code></pre></div>
-<p>If we load this YAML formatted string in, we get a user object. This was
-how YAML was intended to work since it allows the ability to write objects
-to and read them from, say, a database.</p>
+<hr />
 
-<p>By itself, this behavior isn&rsquo;t necessarily capable of enacting a successful
-attack, so not all code that parses untrusted YAML is insecure,
-but it can be used, especially in conjunction with metaprogramming to execute
-arbitrary code on your system.</p>
+<h2 id="title-clear-naming">title: Clear naming</h2>
 
-<p>This shares a lot in common with the pickle module&rsquo;s behavior, which is why
-its use with <a href="https://docs.python.org/3/library/pickle.html">untrusted input is strongly recommended against in the python
-docs</a>.</p>
+<p>Naming is applied in various different contexts that apply to code:</p>
 
-<p>This anti-feature led to Ruby on Rails&rsquo; spectacular <a href="https://codeclimate.com/blog/rails-remote-code-execution-vulnerability-explained/">security fail</a>.</p>
+<ul>
+<li>Variables</li>
+<li>Methods</li>
+<li>Classes</li>
+<li>Module names</li>
+<li>Project names</li>
+</ul>
+
+<p>These principles apply to all of them.</p>
+
+<p>There are typically three problems which lead to unclear naming:</p>
+
+<ul>
+<li>Ambiguous names</li>
+<li>Undefined names</li>
+<li>Misleading metaphors</li>
+</ul>
+
+<p>Example principle conflicts:</p>
+
+<ul>
+<li>Write the least code possible - short names mean writing less code.</li>
+</ul>
 
 
 			<aside class="copyright" role="note">
@@ -338,34 +342,18 @@ docs</a>.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/why/turing-complete-schema/" title="Why does StrictYAML make you define a schema in python - a turing complete language?">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Why does StrictYAML make you define a schema in python - a turing complete language?
-            </div>
-          </div>
-        </div>
-      </a>
-  
   </div>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/" title="Why does StrictYAML only parse from strings and not files?">
+      <a href="https://hitchdev.com/hitchstory/using/alpha/aborting/" title="Abort a story with ctrl-C">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Why does StrictYAML only parse from strings and not files?
+              Abort a story with ctrl-C
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

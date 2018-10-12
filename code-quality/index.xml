@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Code-qualities on HitchDev</title>
+    <link>https://hitchdev.com/code-quality/</link>
+    <description>Recent content in Code-qualities on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (C) 2018</copyright>
+    
+	<atom:link href="https://hitchdev.com/code-quality/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://hitchdev.com/code-quality/naming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/naming/</guid>
+      <description> title: Clear naming Naming is applied in various different contexts that apply to code:
+ Variables Methods Classes Module names Project names  These principles apply to all of them.
+There are typically three problems which lead to unclear naming:
+ Ambiguous names Undefined names Misleading metaphors  Example principle conflicts:
+ Write the least code possible - short names mean writing less code.  </description>
+    </item>
+    
+    <item>
+      <title>Code quality principles</title>
+      <link>https://hitchdev.com/code-quality/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/</guid>
+      <description>Improved code quality is about reduced code maintenance costs. Code quality consideration is not a religious exercise, it is a budgeting exercise.
+All of the principles here are important but they ought to be applied on a cost/benefit basis. They are all trade offs. There is sometimes a right answer (when improving code quality incurs a very small cost, you should always do it). There is sometimes no right answer.</description>
+    </item>
+    
+    <item>
+      <title>Write code with the least expressive power</title>
+      <link>https://hitchdev.com/code-quality/least-expressive-power/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/least-expressive-power/</guid>
+      <description>Write code with the least expressive power necessary is a [tradeoff principle of code quality].
+Examples  YAML vs Python The story of JSON Whither garbage collector Metaprogramming LINQ vs. C# SQL vs. imperative The DSL merry-go-round C++ templating language  Subprinciples These are principles which can be partially or in whole be derived from this principle.
+ Immutability vs. Mutability (side effects) State isolation Lazy evaluation Principle of least privilege in protocol design  Other people talking about the same principle These explanations discuss languages as if their power is uniform and static, whereas this principle also applies to problems and the power of features used to solve them within the same language.</description>
+    </item>
+    
+    <item>
+      <title>Write terse code</title>
+      <link>https://hitchdev.com/code-quality/least-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/least-code/</guid>
+      <description>Axiomatic trade off quality
+This principle is both a trade off and axiomatic.
+ Code (which includes specifications, documentation, comments, tests, configuration and regular code) is both an asset but also a liability.
+Steve McConnell in his book, Code Complete argues that bugs appear in proportion to code, even going so far as to cite statistics from a study:
+(a) Industry Average: &amp;quot;about 15 - 50 errors per 1000 lines of delivered code.</description>
+    </item>
+    
+  </channel>
+</rss>

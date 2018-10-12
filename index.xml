@@ -13,10 +13,10 @@
     
     <item>
       <title></title>
-      <link>https://hitchdev.com/principles/code-quality/naming/</link>
+      <link>https://hitchdev.com/code-quality/naming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/principles/code-quality/naming/</guid>
+      <guid>https://hitchdev.com/code-quality/naming/</guid>
       <description> title: Clear naming Naming is applied in various different contexts that apply to code:
  Variables Methods Classes Module names Project names  These principles apply to all of them.
 There are typically three problems which lead to unclear naming:
@@ -146,10 +146,10 @@ hello  </description>
     
     <item>
       <title>Code quality principles</title>
-      <link>https://hitchdev.com/principles/code-quality/</link>
+      <link>https://hitchdev.com/code-quality/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/principles/code-quality/</guid>
+      <guid>https://hitchdev.com/code-quality/</guid>
       <description>Improved code quality is about reduced code maintenance costs. Code quality consideration is not a religious exercise, it is a budgeting exercise.
 All of the principles here are important but they ought to be applied on a cost/benefit basis. They are all trade offs. There is sometimes a right answer (when improving code quality incurs a very small cost, you should always do it). There is sometimes no right answer.</description>
     </item>
@@ -1512,7 +1512,7 @@ However, schema definition in a non-turing complete language also restricts and 
       <description>Regular YAML allows the direct representation of python objects.
 For example:
 ---!python/hash:UserObjectemail:evilhacker@hacker.compassword:passwordtosettype:admin If we load this YAML formatted string in, we get a user object. This was how YAML was intended to work since it allows the ability to write objects to and read them from, say, a database.
-By itself, this behavior isn&amp;rsquo;t necessarily capable of enacting a successful attack, so not all code that parses untrusted YAML is insecure, but it can be used, especially when metaprogramming is used to execute arbitrary code on your system.</description>
+By itself, this behavior isn&amp;rsquo;t necessarily capable of enacting a successful attack, so not all code that parses untrusted YAML is insecure, but it can be used, especially in conjunction with metaprogramming to execute arbitrary code on your system.</description>
     </item>
     
     <item>
@@ -1780,24 +1780,26 @@ index.html:
     
     <item>
       <title>Write code with the least expressive power</title>
-      <link>https://hitchdev.com/principles/code-quality/least-expressive-power/</link>
+      <link>https://hitchdev.com/code-quality/least-expressive-power/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/principles/code-quality/least-expressive-power/</guid>
+      <guid>https://hitchdev.com/code-quality/least-expressive-power/</guid>
       <description>Write code with the least expressive power necessary is a [tradeoff principle of code quality].
 Examples  YAML vs Python The story of JSON Whither garbage collector Metaprogramming LINQ vs. C# SQL vs. imperative The DSL merry-go-round C++ templating language  Subprinciples These are principles which can be partially or in whole be derived from this principle.
  Immutability vs. Mutability (side effects) State isolation Lazy evaluation Principle of least privilege in protocol design  Other people talking about the same principle These explanations discuss languages as if their power is uniform and static, whereas this principle also applies to problems and the power of features used to solve them within the same language.</description>
     </item>
     
     <item>
-      <title>Write the least code possible</title>
-      <link>https://hitchdev.com/principles/code-quality/write-least-code/</link>
+      <title>Write terse code</title>
+      <link>https://hitchdev.com/code-quality/least-code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/principles/code-quality/write-least-code/</guid>
-      <description> If you don&amp;rsquo;t need it, don&amp;rsquo;t write it.
-If you wrote it twice or thrice, deduplicate it.
-Subprinciples  DRY Don&amp;rsquo;t reinvent the wheel YAGNI  </description>
+      <guid>https://hitchdev.com/code-quality/least-code/</guid>
+      <description>Axiomatic trade off quality
+This principle is both a trade off and axiomatic.
+ Code (which includes specifications, documentation, comments, tests, configuration and regular code) is both an asset but also a liability.
+Steve McConnell in his book, Code Complete argues that bugs appear in proportion to code, even going so far as to cite statistics from a study:
+(a) Industry Average: &amp;quot;about 15 - 50 errors per 1000 lines of delivered code.</description>
     </item>
     
   </channel>

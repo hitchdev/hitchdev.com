@@ -594,7 +594,7 @@ However, schema definition in a non-turing complete language also restricts and 
       <description>Regular YAML allows the direct representation of python objects.
 For example:
 ---!python/hash:UserObjectemail:evilhacker@hacker.compassword:passwordtosettype:admin If we load this YAML formatted string in, we get a user object. This was how YAML was intended to work since it allows the ability to write objects to and read them from, say, a database.
-By itself, this behavior isn&amp;rsquo;t necessarily capable of enacting a successful attack, so not all code that parses untrusted YAML is insecure, but it can be used, especially when metaprogramming is used to execute arbitrary code on your system.</description>
+By itself, this behavior isn&amp;rsquo;t necessarily capable of enacting a successful attack, so not all code that parses untrusted YAML is insecure, but it can be used, especially in conjunction with metaprogramming to execute arbitrary code on your system.</description>
     </item>
     
     <item>

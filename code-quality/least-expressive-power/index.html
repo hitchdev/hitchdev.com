@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Why does StrictYAML not parse direct representations of python objects? - HitchDev</title>
+    <title>Write code with the least expressive power - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/">
+    <link rel="canonical" href="https://hitchdev.com/code-quality/least-expressive-power/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/">
+    <meta property="og:url" content="https://hitchdev.com/code-quality/least-expressive-power/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,19 +100,13 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/code-quality">code-quality</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/why">why</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects">not-parse-direct-representations-of-python-objects</a>
+            / <a style="display:unset;" href="https://hitchdev.com/code-quality/least-expressive-power">least-expressive-power</a>
             
             
         
@@ -297,29 +291,50 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Why does StrictYAML not parse direct representations of python objects? </h1>
+			<h1>Write code with the least expressive power </h1>
 
-			<p>Regular YAML allows the direct representation of python objects.</p>
+			
 
-<p>For example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w"> </span><span class="cp">!python/hash:UserObject</span><span class="w">
-</span><span class="w"></span>email<span class="p">:</span><span class="w"> </span>evilhacker@hacker.com<span class="w">
-</span><span class="w"></span>password<span class="p">:</span><span class="w"> </span>passwordtoset<span class="w">
-</span><span class="w"></span>type<span class="p">:</span><span class="w"> </span>admin</code></pre></div>
-<p>If we load this YAML formatted string in, we get a user object. This was
-how YAML was intended to work since it allows the ability to write objects
-to and read them from, say, a database.</p>
+<p>Write code with the least expressive power necessary is a [tradeoff principle of code quality].</p>
 
-<p>By itself, this behavior isn&rsquo;t necessarily capable of enacting a successful
-attack, so not all code that parses untrusted YAML is insecure,
-but it can be used, especially in conjunction with metaprogramming to execute
-arbitrary code on your system.</p>
+<h2 id="examples">Examples</h2>
 
-<p>This shares a lot in common with the pickle module&rsquo;s behavior, which is why
-its use with <a href="https://docs.python.org/3/library/pickle.html">untrusted input is strongly recommended against in the python
-docs</a>.</p>
+<ul>
+<li>YAML vs Python</li>
+<li>The story of JSON</li>
+<li>Whither garbage collector</li>
+<li>Metaprogramming</li>
+<li>LINQ vs. C#</li>
+<li>SQL vs. imperative</li>
+<li>The DSL merry-go-round</li>
+<li>C++ templating language</li>
+</ul>
 
-<p>This anti-feature led to Ruby on Rails&rsquo; spectacular <a href="https://codeclimate.com/blog/rails-remote-code-execution-vulnerability-explained/">security fail</a>.</p>
+<h2 id="subprinciples">Subprinciples</h2>
+
+<p>These are principles which can be partially or in whole be derived from this principle.</p>
+
+<ul>
+<li>Immutability vs. Mutability (side effects)</li>
+<li>State isolation</li>
+<li>Lazy evaluation</li>
+<li><a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">Principle of least privilege in protocol design</a></li>
+</ul>
+
+<h2 id="other-people-talking-about-the-same-principle">Other people talking about the same principle</h2>
+
+<p>These explanations discuss languages as if their power is uniform and static, whereas this principle
+also applies to problems and the power of features used to solve them within the same language.</p>
+
+<ul>
+<li><p><a href="https://www.w3.org/DesignIssues/Principles.html#PLP">https://www.w3.org/DesignIssues/Principles.html#PLP</a> (treats &lsquo;language power&rsquo; as uniform across a programming language - although it can vary from feature to feature - e.g. functional vs. imperative).</p></li>
+
+<li><p><a href="https://events.ccc.de/congress/2011/Fahrplan/events/4763.en.html">https://events.ccc.de/congress/2011/Fahrplan/events/4763.en.html</a> (applied specifically to security)</p></li>
+
+<li><p><a href="https://www.w3.org/2001/tag/doc/leastPower.html">https://www.w3.org/2001/tag/doc/leastPower.html</a></p></li>
+
+<li><p><a href="https://blog.codinghorror.com/the-principle-of-least-power/">https://blog.codinghorror.com/the-principle-of-least-power/</a> Jeff Atwood</p></li>
+</ul>
 
 
 			<aside class="copyright" role="note">
@@ -338,7 +353,7 @@ docs</a>.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/why/turing-complete-schema/" title="Why does StrictYAML make you define a schema in python - a turing complete language?">
+      <a href="https://hitchdev.com/seleniumdirector/using/alpha/attributes/" title="With HTML attributes">
         <span class="direction">
           Previous
         </span>
@@ -348,7 +363,7 @@ docs</a>.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Why does StrictYAML make you define a schema in python - a turing complete language?
+              With HTML attributes
             </div>
           </div>
         </div>
@@ -358,14 +373,14 @@ docs</a>.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/" title="Why does StrictYAML only parse from strings and not files?">
+      <a href="https://hitchdev.com/code-quality/least-code/" title="Write terse code">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Why does StrictYAML only parse from strings and not files?
+              Write terse code
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
