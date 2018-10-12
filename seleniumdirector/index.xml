@@ -180,8 +180,8 @@ Seleniumdirector is different because separates selector management from actions
       
       <guid>https://hitchdev.com/seleniumdirector/why-not/page-object/</guid>
       <description>The page object pattern is a design pattern for creating a code API abstraction around web pages to simplify their usage in GUI tests.
-The idea of the page object pattern is is to enact a separation of concerns between the code that interacts directly with HTML and the code which interacts with the web application.
-While identifying a real problem and proposing a solution that works to solve that problem, it is not the most elegant solution to that problem.</description>
+SeleniumDirector uses a &amp;ldquo;selector configuration pattern&amp;rdquo; where element selectors (id, css, xpath, etc.) are grabbed from a configuration file while the actual actions on HTML elements are not abstracted at all.
+The idea of the page object pattern is is to enact a separation of concerns between the code that interacts directly with HTML and the code which interacts with the web application.</description>
     </item>
     
     <item>
