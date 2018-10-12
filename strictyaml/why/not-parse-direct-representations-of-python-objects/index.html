@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Abort a story with ctrl-C - HitchDev</title>
+    <title>Why does StrictYAML not parse direct representations of python objects? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/hitchstory/using/alpha/aborting/">
+    <link rel="canonical" href="https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/hitchstory/using/alpha/aborting/">
+    <meta property="og:url" content="https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,25 +100,19 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory">hitchstory</a>
+            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/using">using</a>
+            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/why">why</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/using/alpha">alpha</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/using/alpha/aborting">aborting</a>
+            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects">not-parse-direct-representations-of-python-objects</a>
             
             
         
@@ -303,59 +297,29 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Abort a story with ctrl-C </h1>
+			<h1>Why does StrictYAML not parse direct representations of python objects? </h1>
 
-			<p>When an in-progress story is hit with any of the
-following termination signals:</p>
+			<p>Regular YAML allows the direct representation of python objects.</p>
 
-<ul>
-<li>SIGTERM</li>
-<li>SIGINT</li>
-<li>SIGQUIT</li>
-<li>SIGHUP</li>
-</ul>
+<p>For example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w"> </span><span class="cp">!python/hash:UserObject</span><span class="w">
+</span><span class="w"></span>email<span class="p">:</span><span class="w"> </span>evilhacker@hacker.com<span class="w">
+</span><span class="w"></span>password<span class="p">:</span><span class="w"> </span>passwordtoset<span class="w">
+</span><span class="w"></span>type<span class="p">:</span><span class="w"> </span>admin</code></pre></div>
+<p>If we load this YAML formatted string in, we get a user object. This was
+how YAML was intended to work since it allows the ability to write objects
+to and read them from, say, a database.</p>
 
-<p>Then it triggers the tear_down method of the
-engine.</p>
+<p>By itself, this behavior isn&rsquo;t necessarily capable of enacting a successful
+attack, so not all code that parses untrusted YAML is insecure,
+but it can be used, especially when metaprogramming is used to execute
+arbitrary code on your system.</p>
 
-<p>In practical terms this means that if you are running
-a series of stories, Ctrl-C should halt current execution,
-run tear_down and then not run any more stories.</p>
+<p>This shares a lot in common with the pickle module&rsquo;s behavior, which is why
+its use with <a href="https://docs.python.org/3/library/pickle.html">untrusted input is strongly recommended against in the python
+docs</a>.</p>
 
-<p>example.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Create<span class="w"> </span>files<span class="p">:</span><span class="w">
-</span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Pause<span class="w"> </span>forever<span class="w">
-</span><span class="w">
-</span><span class="w"></span>Should<span class="w"> </span>never<span class="w"> </span>run<span class="p">:</span><span class="w">
-</span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Should<span class="w"> </span>not<span class="w"> </span>happen</code></pre></div>
-<p>engine.py:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span>
-<span class="kn">from</span> <span class="nn">code_that_does_things</span> <span class="kn">import</span> <span class="n">reticulate_splines</span>
-<span class="kn">import</span> <span class="nn">psutil</span>
-
-<span class="k">class</span> <span class="nc">Engine</span><span class="p">(</span><span class="n">BaseEngine</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">pause_forever</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">psutil</span><span class="o">.</span><span class="n">Process</span><span class="p">()</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">should_not_happen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;This exception should never be triggered&#34;</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">tear_down</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Reticulate splines&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
-<span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
-<span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
-<p>Will output:</p>
-
-<pre><code>RUNNING Create files in /path/to/example.story ... Aborted
-Reticulate splines
-</code></pre>
-
-<div class="admonition note">
-<p class="admonition-title">Executable specification</p>
-<p>Page automatically generated from <a href="https://github.com/hitchdev/hitchstory/blob/master/hitch/abort.story">abort.story</a>.</p>
-</div>
+<p>This anti-feature led to Ruby on Rails&rsquo; spectacular <a href="https://codeclimate.com/blog/rails-remote-code-execution-vulnerability-explained/">security fail</a>.</p>
 
 
 			<aside class="copyright" role="note">
@@ -374,7 +338,7 @@ Reticulate splines
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/principles/code-quality/naming/" title="">
+      <a href="https://hitchdev.com/strictyaml/why/turing-complete-schema/" title="Why does StrictYAML make you define a schema in python - a turing complete language?">
         <span class="direction">
           Previous
         </span>
@@ -384,7 +348,7 @@ Reticulate splines
           </div>
           <div class="stretch">
             <div class="title">
-              
+              Why does StrictYAML make you define a schema in python - a turing complete language?
             </div>
           </div>
         </div>
@@ -394,14 +358,14 @@ Reticulate splines
 
   <div class="next">
   
-      <a href="https://hitchdev.com/commandlib/using/alpha/add-directory-to-path/" title="Add directory to PATH (with_path)">
+      <a href="https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/" title="Why does StrictYAML only parse from strings and not files?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Add directory to PATH (with_path)
+              Why does StrictYAML only parse from strings and not files?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

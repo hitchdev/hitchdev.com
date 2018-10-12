@@ -7,10 +7,6 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/strictyaml/new-faq/</loc>
-  </url>
-  
-  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/aborting/</loc>
   </url>
   
@@ -548,7 +544,7 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/strictyaml/why/binary-data-removed/</loc>
+    <loc>https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/</loc>
   </url>
   
   <url>

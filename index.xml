@@ -25,37 +25,6 @@ There are typically three problems which lead to unclear naming:
     </item>
     
     <item>
-      <title></title>
-      <link>https://hitchdev.com/strictyaml/new-faq/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/strictyaml/new-faq/</guid>
-      <description>docs/why/features-removed.rst
-docs/what-is-yaml.rst
-docs/why/care-about-yaml.rst
-docs/when/validators.rst
-docs/why-not/ordinary-yaml.rst
-docs/why-not/syntax-typing.rst
-docs/why/implicit-typing-disallowed.rst
-docs/why/binary-data-disallowed.rst
-docs/why/explicit-tags-disallowed.rst
-docs/why/node-anchors-and-references-disallowed.rst
-docs/why/flow-style-disallowed.rst
-docs/why-not/duplicate-keys-disallowed.rst
-docs/why-not/ini.rst
-docs/why-not/turing-complete-code.rst
-docs/why-not/xml.rst
-docs/why-not/json.rst
-docs/why-not/toml.rst
-docs/why-not/hocon.rst
-docs/why-not/hjson.rst
-docs/why-not/json5.rst
-docs/why-not/sdlang.rst
-docs/why-not/pykwalify.rst
-docs/why-not/disagree.rst</description>
-    </item>
-    
-    <item>
       <title>Abort a story with ctrl-C</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/aborting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -283,7 +252,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/strictyaml/why/</guid>
       <description>StrictYAML is the result of some carefully considered, although controversial design decisions. These are justified here.
- What is wrong with explicit tags? What is wrong with explicit syntax typing in a readable configuration language? What is wrong with implicit typing? What is wrong with flow style YAML? Why does StrictYAML only parse from strings and not files? What is wrong with duplicate keys? Why does StrictYAML not parse direct representations of python objects?</description>
+ What is wrong with explicit tags? What is wrong with explicit syntax typing in a readable configuration language? What is wrong with implicit typing? What is wrong with flow style YAML? Why does StrictYAML only parse from strings and not files? What is wrong with duplicate keys? Why is parsing speed not a high priority for StrictYAML?</description>
     </item>
     
     <item>
@@ -1536,12 +1505,14 @@ However, schema definition in a non-turing complete language also restricts and 
     
     <item>
       <title>Why does StrictYAML not parse direct representations of python objects?</title>
-      <link>https://hitchdev.com/strictyaml/why/binary-data-removed/</link>
+      <link>https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/strictyaml/why/binary-data-removed/</guid>
-      <description>StrictYAML doesn&amp;rsquo;t allow direct representations of python objects. For example:
----!python/hash:UnsafeUserObjectemail:evilhacker@hacker.compassword:passwordtosettype:admin This anti-feature led to Ruby on Rails&amp;rsquo; spectacular security fail.</description>
+      <guid>https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/</guid>
+      <description>Regular YAML allows the direct representation of python objects.
+For example:
+---!python/hash:UserObjectemail:evilhacker@hacker.compassword:passwordtosettype:admin If we load this YAML formatted string in, we get a user object. This was how YAML was intended to work since it allows the ability to write objects to and read them from, say, a database.
+By itself, this behavior isn&amp;rsquo;t necessarily capable of enacting a successful attack, so not all code that parses untrusted YAML is insecure, but it can be used, especially when metaprogramming is used to execute arbitrary code on your system.</description>
     </item>
     
     <item>
