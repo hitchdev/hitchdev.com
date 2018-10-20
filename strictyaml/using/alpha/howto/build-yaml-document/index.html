@@ -311,12 +311,7 @@
 		<div class="wrapper">
 			<h1>Build a YAML document from scratch in code </h1>
 
-			<div class="admonition warning">
-<p class="admonition-title">Experimental</p>
-<p>This feature is in alpha. The API may change on a minor version increment.</p>
-</div>
-
-<p>YAML documents can be built from combinations of dicts,
+			<p>YAML documents can be built from combinations of dicts,
 lists and strings if no schema is used.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">as_document</span>
@@ -333,12 +328,25 @@ lists and strings if no schema is used.</p>
 </span><span class="w"></span>-<span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span><span class="m">2</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span><span class="m">3</span></code></pre></div>
-<p>Start line:</p>
+<p>However, any type that is not a string, dict or list cannot be parsed without a schema:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">class</span> <span class="nc">RandomClass</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa"></span><span class="s1">&#39;some random object&#39;</span>
+
+<span class="n">as_document</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="n">RandomClass</span><span class="p">()})</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLSerializationError</span><span class="p">:</span>
+<span class="sa"></span><span class="s1">&#39;some random object&#39;</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">a</span> <span class="n">string</span></code></pre></div>
+<p>Empty dicts also cannot be serialized without a schema:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">as_document</span><span class="p">({</span><span class="sa"></span><span class="s1">&#39;hello&#39;</span><span class="p">:</span> <span class="p">{}})</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLSerializationError</span><span class="p">:</span>
+<span class="n">Empty</span> <span class="n">dicts</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">serializable</span> <span class="n">to</span> <span class="n">StrictYAML</span> <span class="n">unless</span> <span class="n">schema</span> <span class="ow">is</span> <span class="n">used</span><span class="o">.</span></code></pre></div>
+<p>Neither can lists:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">as_document</span><span class="p">({</span><span class="sa"></span><span class="s1">&#39;hello&#39;</span><span class="p">:</span> <span class="p">[]})</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLSerializationError</span><span class="p">:</span>
+<span class="n">Empty</span> <span class="n">lists</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">serializable</span> <span class="n">to</span> <span class="n">StrictYAML</span> <span class="n">unless</span> <span class="n">schema</span> <span class="ow">is</span> <span class="n">used</span><span class="o">.</span></code></pre></div>
+<p>You can grab line numbers from the object that is serialized:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">yaml</span><span class="o">.</span><span class="n">start_line</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
-<p><div class="admonition note">
+<div class="admonition note">
 <p class="admonition-title">Executable specification</p>
 <p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/build-yaml-document-from-scratch.story">build-yaml-document-from-scratch.story</a>.</p>
-</div></p>
+</div>
 
 
 			<aside class="copyright" role="note">
