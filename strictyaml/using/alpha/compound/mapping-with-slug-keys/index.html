@@ -326,7 +326,7 @@ by the value provided by the validator.</p>
 </span><span class="w"></span>official<span class="w"> </span>languages<span class="p">:</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>English<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>Welsh</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-<span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="n">ScalarValidator</span>
+<span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="n">ScalarValidator</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
 <span class="c1"># This example uses slugify from the &#34;python-slugify&#34; package</span>
@@ -338,7 +338,7 @@ by the value provided by the validator.</p>
 
 <span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span>
     <span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
-    <span class="sa"></span><span class="s2">&#34;country-code&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
+    <span class="n">Optional</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;country-code&#34;</span><span class="p">):</span> <span class="n">Str</span><span class="p">(),</span>
     <span class="sa"></span><span class="s2">&#34;dial-code&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
     <span class="sa"></span><span class="s2">&#34;official-languages&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())</span>
 <span class="p">},</span> <span class="n">key_validator</span><span class="o">=</span><span class="n">Slug</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span>

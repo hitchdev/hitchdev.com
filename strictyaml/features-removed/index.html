@@ -296,18 +296,21 @@
 			
 
 <p>StrictYAML restricts you from parsing a number of things which
-the YAML specification says should be parsed.</p>
+the YAML specification says should be parsed. An issue has
+been <a href="https://github.com/yaml/YAML2/issues/8">raised</a> by
+<a href="https://inkwell.za.net/">David Seaward</a> about this critique
+on the official YAML repository.</p>
 
-<p>This is a demonstration of some of those features:</p>
+<p>This document lists those of those features:</p>
 
-<h2 id="implicit-typing-why-implicit-typing-removed"><a href="../why/implicit-typing-removed">Implicit Typing</a></h2>
+<h2 id="implicit-typing-why-why-implicit-typing-removed">Implicit Typing (<a href="../why/implicit-typing-removed">Why?</a>)</h2>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">x<span class="p">:</span><span class="w"> </span>yes<span class="w">
 </span><span class="w"></span>y<span class="p">:</span><span class="w"> </span><span class="kc">null</span></code></pre></div>
 <p>Example pyyaml/ruamel/poyo:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span> </code></pre></div>
 <p>Example StrictYAML</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;yes&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;null&#34;</span><span class="p">}</span></code></pre></div>
-<h2 id="direct-representations-of-objects-why-binary-data-removed"><a href="../why/binary-data-removed">Direct representations of objects</a></h2>
+<h2 id="direct-representations-of-objects-why-why-binary-data-removed">Direct representations of objects (<a href="../why/binary-data-removed">Why?</a>)</h2>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w"> </span><span class="cp">!python/hash:UnsafeUserObject</span><span class="w">
 </span><span class="w"></span>email<span class="p">:</span><span class="w"> </span>evilhacker@hacker.com<span class="w">
 </span><span class="w"></span>password<span class="p">:</span><span class="w"> </span>passwordtoset<span class="w">
@@ -316,20 +319,20 @@ the YAML specification says should be parsed.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;evil&#39;</span><span class="p">:</span> <span class="sa">b</span><span class="s1">&#39;z</span><span class="se">\xf8\xa5</span><span class="s1">u</span><span class="se">\xab</span><span class="s1">Z&#39;</span><span class="p">}</span></code></pre></div>
 <p>Example StrictYAML</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raises</span> <span class="n">TagTokenDisallowed</span></code></pre></div>
-<h2 id="duplicate-keys-disallowed-why-duplicate-keys-disallowed"><a href="../why/duplicate-keys-disallowed">Duplicate Keys Disallowed</a></h2>
+<h2 id="duplicate-keys-disallowed-why-why-duplicate-keys-disallowed">Duplicate Keys Disallowed (<a href="../why/duplicate-keys-disallowed">Why?</a>)</h2>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">x<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w"></span>x<span class="p">:</span><span class="w"> </span><span class="m">2</span></code></pre></div>
 <p>Example pyyaml/poyo:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span></code></pre></div>
 <p>Example StrictYAML</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raises</span> <span class="n">DuplicateKeysDisallowed</span></code></pre></div>
-<h2 id="explicit-tags-why-explicit-tags-removed"><a href="../why/explicit-tags-removed">Explicit tags</a></h2>
+<h2 id="explicit-tags-why-why-explicit-tags-removed">Explicit tags (<a href="../why/explicit-tags-removed">Why?</a>)</h2>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">x<span class="p">:</span><span class="w"> </span><span class="cp">!!int</span><span class="w"> </span><span class="m">5</span></code></pre></div>
 <p>Example pyyaml/ruamel/poyo:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span> <span class="o">==</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span></code></pre></div>
 <p>Example StrictYAML</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raises</span> <span class="n">TagTokenDisallowed</span></code></pre></div>
-<h2 id="node-anchors-and-refs-node-anchors-and-references-removed"><a href="node-anchors-and-references-removed">Node anchors and refs</a></h2>
+<h2 id="node-anchors-and-refs-why-node-anchors-and-references-removed">Node anchors and refs (<a href="node-anchors-and-references-removed">Why?</a>)</h2>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">x<span class="p">:</span><span class="w"> </span>&amp;id<span class="m">001</span><span class="w">
 </span><span class="w">  </span>a<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w"></span>y<span class="p">:</span><span class="w"> </span>*id<span class="m">001</span></code></pre></div>
@@ -341,17 +344,13 @@ the YAML specification says should be parsed.</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">x<span class="p">:</span><span class="w"> </span><span class="s1">&#39;&amp;id001&#39;</span><span class="w">
 </span><span class="w">  </span>a<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w"></span>y<span class="p">:</span><span class="w"> </span><span class="s1">&#39;*id001&#39;</span></code></pre></div>
-<h2 id="flow-style-why-flow-style-removed"><a href="../why/flow-style-removed">Flow style</a></h2>
+<h2 id="flow-style-why-why-flow-style-removed">Flow style (<a href="../why/flow-style-removed">Why?</a>)</h2>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">x<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w"></span>b<span class="p">:</span><span class="w"> </span>{c<span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span>d<span class="p">:</span><span class="w"> </span><span class="m">4</span>}</code></pre></div>
 <p>Example pyyaml/ruamel/poyo:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">{</span><span class="sa"></span><span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">}}</span></code></pre></div>
 <p>Example StrictYAML</p>
-
-<p>`<code>python
-raises FlowStyleDisallowed
-</code></p>
-
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">raises</span> <span class="n">FlowStyleDisallowed</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
