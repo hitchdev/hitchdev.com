@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>What is YAML? - HitchDev</title>
+    <title>HitchDev Principles - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <link rel="canonical" href="https://hitchdev.com/principles/hitchdev/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <meta property="og:url" content="https://hitchdev.com/principles/hitchdev/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,13 +100,13 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/principles">principles</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/what-is-yaml">what-is-yaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/principles/hitchdev">hitchdev</a>
             
             
         
@@ -291,42 +291,19 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>What is YAML? </h1>
+			<h1>HitchDev Principles </h1>
 
-			<p>YAML is a simple, human readable format for representing associative and hierarchical data.</p>
-
-<p>Example from wikipedia page on YAML:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">receipt<span class="p">:</span><span class="w"> </span>Oz-Ware<span class="w"> </span>Purchase<span class="w"> </span>Invoice<span class="w">
-</span><span class="w"></span>date<span class="p">:</span><span class="w"> </span><span class="ld">2012-08-06</span><span class="w">
-</span><span class="w"></span>customer<span class="p">:</span><span class="w">
-</span><span class="w">  </span>first<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Harry<span class="w">
-</span><span class="w">  </span>family<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Potter<span class="w">
-</span><span class="w"></span>address<span class="p">:</span><span class="w"> </span>|-<span class="w">
-</span><span class="w">  </span><span class="m">4</span><span class="w"> </span>Privet<span class="w"> </span>Drive<span class="p">,</span><span class="w">
-</span><span class="w">  </span>Little<span class="w"> </span>Whinging<span class="p">,</span><span class="w">
-</span><span class="w">  </span>England<span class="w">
-</span><span class="w"></span>items<span class="p">:</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>A<span class="m">4786</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>Water<span class="w"> </span>Bucket<span class="w"> </span>(Filled)<span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">1.47</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w">  </span><span class="m">4</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>E<span class="m">1628</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>High<span class="w"> </span>Heeled<span class="w"> </span><span class="s2">&#34;Ruby&#34;</span><span class="w"> </span>Slippers<span class="w">
-</span><span class="w">  </span>size<span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">133.7</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
-<p>Key features:</p>
+			<p>The HitchDev framework is committed to the following principles:</p>
 
 <ul>
-<li>Things which are associated with other things - delimited by the colon (:).</li>
-<li>Ordered lists of things - delimited by the prepended dash (-).</li>
-<li>Multi-line strings - delimited by the bar (|) if there is another newline at the end of the string, or bar + dash (|-) if not.</li>
-<li>Indentation describing the hierarchy of data.</li>
-<li>Maps directly to data types common to most high level languages - lists, dicts, scalars.</li>
+<li>Automated consistent dev and test environment setup - there should be fewer than 5 steps to get the average dev or test environment set up.</li>
+<li>Executable specifications should define the behavior of projects only - where this becomes cumbersome, it&rsquo;s a sign that the project should be broken into subprojects.</li>
+<li>The specifications should be terse and strongly typed.</li>
+<li>The projects should be tested against a realistic a model of the real world they will face as possible.</li>
+<li>There should be strict separation of concerns between descriptive executable stories and the the execution engine used to actually execute them.</li>
+<li>The execution engine should set up a realistic, isoated environment that runs the code and interacts with it, keeping a clean separation between &ldquo;mock real world&rdquo; and &ldquo;code under test&rdquo;.</li>
+<li>Documentation should be <em>generated</em> from specifications and specifications should explain themselves clearly in order to generate better documentation.</li>
 </ul>
-
-<p>You don&rsquo;t need to know much more than this.</p>
 
 
 			<aside class="copyright" role="note">
@@ -345,7 +322,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/features-removed/" title="What YAML features does StrictYAML remove?">
+      <a href="https://hitchdev.com/" title="HitchDev">
         <span class="direction">
           Previous
         </span>
@@ -355,7 +332,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              What YAML features does StrictYAML remove?
+              HitchDev
             </div>
           </div>
         </div>
@@ -365,14 +342,14 @@
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/" title="What is a testing and living documentation framework?">
+      <a href="https://hitchdev.com/hitchrunpy/" title="HitchRunPy">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              What is a testing and living documentation framework?
+              HitchRunPy
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

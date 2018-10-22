@@ -34,6 +34,16 @@ The idea behind this principle is that not only are the libraries used in anger 
     </item>
     
     <item>
+      <title>HitchDev Principles</title>
+      <link>https://hitchdev.com/principles/hitchdev/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/principles/hitchdev/</guid>
+      <description>The HitchDev framework is committed to the following principles:
+ Automated consistent dev and test environment setup - there should be fewer than 5 steps to get the average dev or test environment set up. Executable specifications should define the behavior of projects only - where this becomes cumbersome, it&amp;rsquo;s a sign that the project should be broken into subprojects. The specifications should be terse and strongly typed. The projects should be tested against a realistic a model of the real world they will face as possible.</description>
+    </item>
+    
+    <item>
       <title>Principles of HitchDev</title>
       <link>https://hitchdev.com/principles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

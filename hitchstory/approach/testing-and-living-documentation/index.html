@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>What is YAML? - HitchDev</title>
+    <title>What is a testing and living documentation framework? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <link rel="canonical" href="https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <meta property="og:url" content="https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,13 +100,19 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory">hitchstory</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/what-is-yaml">what-is-yaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach">approach</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach/testing-and-living-documentation">testing-and-living-documentation</a>
             
             
         
@@ -291,42 +297,68 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>What is YAML? </h1>
+			<h1>What is a testing and living documentation framework? </h1>
 
-			<p>YAML is a simple, human readable format for representing associative and hierarchical data.</p>
+			
 
-<p>Example from wikipedia page on YAML:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">receipt<span class="p">:</span><span class="w"> </span>Oz-Ware<span class="w"> </span>Purchase<span class="w"> </span>Invoice<span class="w">
-</span><span class="w"></span>date<span class="p">:</span><span class="w"> </span><span class="ld">2012-08-06</span><span class="w">
-</span><span class="w"></span>customer<span class="p">:</span><span class="w">
-</span><span class="w">  </span>first<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Harry<span class="w">
-</span><span class="w">  </span>family<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Potter<span class="w">
-</span><span class="w"></span>address<span class="p">:</span><span class="w"> </span>|-<span class="w">
-</span><span class="w">  </span><span class="m">4</span><span class="w"> </span>Privet<span class="w"> </span>Drive<span class="p">,</span><span class="w">
-</span><span class="w">  </span>Little<span class="w"> </span>Whinging<span class="p">,</span><span class="w">
-</span><span class="w">  </span>England<span class="w">
-</span><span class="w"></span>items<span class="p">:</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>A<span class="m">4786</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>Water<span class="w"> </span>Bucket<span class="w"> </span>(Filled)<span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">1.47</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w">  </span><span class="m">4</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>E<span class="m">1628</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>High<span class="w"> </span>Heeled<span class="w"> </span><span class="s2">&#34;Ruby&#34;</span><span class="w"> </span>Slippers<span class="w">
-</span><span class="w">  </span>size<span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">133.7</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
-<p>Key features:</p>
+<p>While traditional testing frameworks are designed <em>just</em> to test code and find bugs,
+hitchstory is designed such that the &ldquo;tests&rdquo; you write can <em>also</em> be used as
+specifications that define how your application is supposed to work.</p>
+
+<p>The three critical features that let you do this are:</p>
 
 <ul>
-<li>Things which are associated with other things - delimited by the colon (:).</li>
-<li>Ordered lists of things - delimited by the prepended dash (-).</li>
-<li>Multi-line strings - delimited by the bar (|) if there is another newline at the end of the string, or bar + dash (|-) if not.</li>
-<li>Indentation describing the hierarchy of data.</li>
-<li>Maps directly to data types common to most high level languages - lists, dicts, scalars.</li>
+<li>A clear separation of concerns between specification and execution code</li>
+<li>A clear segregation barrier between the environment that <em>executes</em> your tests and the environment <em>under</em> test.</li>
+<li>The executable specifications are described using declarative markup instead of turing complete code</li>
 </ul>
 
-<p>You don&rsquo;t need to know much more than this.</p>
+<p>Most tests - <em>especially</em> unit tests - fail on all three counts and the code ends up
+being smush of obscure mocks, combined with unclear scenarios and no explanation why
+any part of it does anything that it does.</p>
+
+<p>Writing tests that double as <a href="../executable-specifications">executable specifications</a>
+makes these tests useful not only as a kind of pseudo-documentation, but also as a
+template that can be used to generate living documentation.</p>
+
+<h2 id="what-is-the-difference-between-an-executable-specification-and-living-documentation">What is the difference between an executable specification and living documentation?</h2>
+
+<p>I dubbed a specification &ldquo;pseudo documentation&rdquo; above, because  executable specifications
+are already a <em>hell</em> of a lot clearer and easier to understand
+than most test code. Moreover, it can be used for effective <a href="../stakeholder-collaboration">stakeholder collaboration</a>,
+especially with highly technical stakeholders.</p>
+
+<p>However, hitchstory takes the approach that documentation and specification
+are two very closely related but highly <em>distinct</em> things and that instead of
+treating them as one and the same, that the best documentation is built from a
+combination of skeleton docs, executable specifications and (sometimes) test
+artefacts.</p>
+
+<h2 id="what-s-a-good-executable-specification-what-is-good-documentation">What&rsquo;s a good executable specification? What is good documentation?</h2>
+
+<p>Good executable specifications are terse, DRY and highly specific and
+follow the <a href="../screenplay-principle">screenplay principle</a> but that doesn&rsquo;t
+make the best documentation.</p>
+
+<p>Good documentation, on the other hand, should <em>not</em> be terse or DRY. Moreover,
+stakeholders are usually interested only in certain aspects of how the application
+behaves. A lot of them will not care about the really obscure edge cases you have
+to program in, for example and feeding them details which do not matter to
+them will not just bore them, it will lead to them skimming and missing
+the really important details that matter to them.</p>
+
+<h2 id="who-is-the-documentation-for">Who is the documentation for?</h2>
+
+<p>A CEO, translator, product manager, customer, designer, UX, third party
+API consumer/producer, etc. are all interested in different details of how
+your software behaves and they will have varying levels of interest in the
+level of detail about your software&rsquo;s behavior.</p>
+
+<p>It may even make sense for some projects to generate more than one kind of
+documentation for different kinds of stakeholders from the same specifications
+albeit varying levels of detail - or, at the very least, documentation which
+can expose high level details of the software on top and detail that can be
+drilled down into.</p>
 
 
 			<aside class="copyright" role="note">
@@ -345,7 +377,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/features-removed/" title="What YAML features does StrictYAML remove?">
+      <a href="https://hitchdev.com/strictyaml/what-is-yaml/" title="What is YAML?">
         <span class="direction">
           Previous
         </span>
@@ -355,7 +387,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              What YAML features does StrictYAML remove?
+              What is YAML?
             </div>
           </div>
         </div>
@@ -365,14 +397,14 @@
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/" title="What is a testing and living documentation framework?">
+      <a href="https://hitchdev.com/hitchstory/approach/test-or-story/" title="What is the difference betweeen a test and a story?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              What is a testing and living documentation framework?
+              What is the difference betweeen a test and a story?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

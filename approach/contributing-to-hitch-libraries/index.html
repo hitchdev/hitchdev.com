@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>What is YAML? - HitchDev</title>
+    <title>Contributing to Hitch Libraries - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <link rel="canonical" href="https://hitchdev.com/approach/contributing-to-hitch-libraries/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <meta property="og:url" content="https://hitchdev.com/approach/contributing-to-hitch-libraries/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,13 +100,13 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/approach">approach</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/what-is-yaml">what-is-yaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/approach/contributing-to-hitch-libraries">contributing-to-hitch-libraries</a>
             
             
         
@@ -291,42 +291,106 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>What is YAML? </h1>
+			<h1>Contributing to Hitch Libraries </h1>
 
-			<p>YAML is a simple, human readable format for representing associative and hierarchical data.</p>
+			
 
-<p>Example from wikipedia page on YAML:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">receipt<span class="p">:</span><span class="w"> </span>Oz-Ware<span class="w"> </span>Purchase<span class="w"> </span>Invoice<span class="w">
-</span><span class="w"></span>date<span class="p">:</span><span class="w"> </span><span class="ld">2012-08-06</span><span class="w">
-</span><span class="w"></span>customer<span class="p">:</span><span class="w">
-</span><span class="w">  </span>first<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Harry<span class="w">
-</span><span class="w">  </span>family<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Potter<span class="w">
-</span><span class="w"></span>address<span class="p">:</span><span class="w"> </span>|-<span class="w">
-</span><span class="w">  </span><span class="m">4</span><span class="w"> </span>Privet<span class="w"> </span>Drive<span class="p">,</span><span class="w">
-</span><span class="w">  </span>Little<span class="w"> </span>Whinging<span class="p">,</span><span class="w">
-</span><span class="w">  </span>England<span class="w">
-</span><span class="w"></span>items<span class="p">:</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>A<span class="m">4786</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>Water<span class="w"> </span>Bucket<span class="w"> </span>(Filled)<span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">1.47</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w">  </span><span class="m">4</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>E<span class="m">1628</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>High<span class="w"> </span>Heeled<span class="w"> </span><span class="s2">&#34;Ruby&#34;</span><span class="w"> </span>Slippers<span class="w">
-</span><span class="w">  </span>size<span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">133.7</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
-<p>Key features:</p>
+<p>Thanks for getting involved!</p>
+
+<p>Hitch libraries are developed and tested with the hitch framework. It
+probably won&rsquo;t be familiar to you, but it should have <a href="../../principles/hitchdev">a number of
+other advantages</a> that other testing/specification frameworks
+don&rsquo;t, including automated dev environment setup.</p>
+
+<p>Below is a step by step guide to get started:</p>
+
+<h2 id="mac-set-up-prerequisites">Mac set up prerequisites</h2>
+
+<p>To run integration tests / environment on a Mac, you need to first ensure that <a href="https://brew.sh/">brew</a> is installed (note that this will require XCode from the Mac App store is installed, and, subsequently, that &ldquo;xcode-select &ndash;install&rdquo; is run).</p>
+
+<p>Once brew is installed, at a minimum you will need to install python and python3:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ brew install python python3</code></pre></div>
+<p>Followed by:</p>
+
+<pre><code>$ sudo pip install --upgrade hitchkey virtualenv
+</code></pre>
+
+<p>Note that hitchkey is a bootstrap script with zero dependencies and will not interfere with other software.</p>
+
+<p>If you are morally opposed to using &ldquo;sudo pip install&rdquo;, try using <a href="https://github.com/mitsuhiko/pipsi">pipsi</a> instead, i.e.:</p>
+
+<pre><code>$ pipsi install hitchkey
+</code></pre>
+
+<p>Git clone the repository somewhere new (e.g. a temporary directory) and switch to the branch you want.</p>
+
+<p>Then, run hk in any folder inside the repo:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hk</code></pre></div>
+<p>It should install some packages and then output something similar to what you see below.</p>
+
+<div class="admonition warning">
+<p class="admonition-title">Please raise a bug if you see any issues</p>
+<p><p>Please, if you experience <em>any</em> issues with the above steps, <a href="https://github.com/hitchdev/hitchstory/issues/new">raise a ticket here</a> and describe what happened.</p>
+
+<p>This is vitally important to the health and future development of the framework.</p>
+</p>
+</div>
+
+<h2 id="linux-set-up-prerequisites">Linux set up prerequisites</h2>
+
+<p>To set up:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt-get install python3 python-pip python-virtualenv
+
+$ sudo pip install --upgrade hitchkey</code></pre></div>
+<p>Note that hitchkey is a bootstrap script with zero dependencies and will not interfere with other software.</p>
+
+<p>If you are morally opposed to doing &ldquo;sudo pip install&rdquo;, try using <a href="https://github.com/mitsuhiko/pipsi">pipsi</a> instead, i.e.:</p>
+
+<pre><code>$ pipsi install hitchkey
+</code></pre>
+
+<div class="admonition warning">
+<p class="admonition-title">Please raise a bug if you see any issues</p>
+<p><p>Please, if you experience <em>any</em> issues with the above steps, <a href="https://github.com/hitchdev/hitchstory/issues/new">raise a ticket here</a> and describe what happened.</p>
+
+<p>This is vitally important to the health and future development of the framework.</p>
+</p>
+</div>
+
+<h2 id="using-hitchkey">Using hitchkey</h2>
+
+<p>You should be presented with a list of available commands similar to this:</p>
+
+<pre><code>Usage: hk command [args]
+
+          bdd - Run story matching keywords.
+       docgen - Build documentation.
+     doctests - Run doctests in utils.py in python 2 and 3.
+         rbdd - Run story matching keywords and rewrite story if code changed.
+    readmegen - Build documentation.
+   regression - Run regression testing - lint and then run all tests.
+         lint - Lint project code and hitch code.
+       deploy - Deploy to pypi as specified version.
+</code></pre>
+
+<p>The only commands you really need to worry about (at least initially) are &ldquo;hk bdd&rdquo; and &ldquo;hk regression&rdquo;.</p>
 
 <ul>
-<li>Things which are associated with other things - delimited by the colon (:).</li>
-<li>Ordered lists of things - delimited by the prepended dash (-).</li>
-<li>Multi-line strings - delimited by the bar (|) if there is another newline at the end of the string, or bar + dash (|-) if not.</li>
-<li>Indentation describing the hierarchy of data.</li>
-<li>Maps directly to data types common to most high level languages - lists, dicts, scalars.</li>
+<li><p>To regression test the application, run &ldquo;hk regression&rdquo;. Please run this as a smoke test before writing any code and <a href="https://github.com/hitchdev/hitchstory/issues/new">raise a ticket</a> if it fails for <em>any</em> reason with details.</p></li>
+
+<li><p>To run an <em>individual</em> test run &ldquo;hk bdd keyword&rdquo; where the keyword or keywords are case insensitive words or <em>parts</em> of words that appear in the names of stories. For example, &ldquo;hk bdd dirty&rdquo; will run <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/dirty-load.story">this story</a> and &ldquo;hk bdd exception&rdquo; will run the exception variation story listed here <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/dirty-load.story">the exception variation story here</a>.</p></li>
 </ul>
 
-<p>You don&rsquo;t need to know much more than this.</p>
+<p>If you have gotten this far, congratulations, you&rsquo;re ready to write and run tests!</p>
+
+<h2 id="further-reading">Further reading</h2>
+
+<p>TODO:</p>
+
+<ul>
+<li>Writing good, DRY, executable specifications</li>
+<li></li>
+</ul>
 
 
 			<aside class="copyright" role="note">
@@ -345,7 +409,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/features-removed/" title="What YAML features does StrictYAML remove?">
+      <a href="https://hitchdev.com/hitchstory/using/alpha/continue-on-failure/" title="Continue on failure when playing multiple stories">
         <span class="direction">
           Previous
         </span>
@@ -355,7 +419,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              What YAML features does StrictYAML remove?
+              Continue on failure when playing multiple stories
             </div>
           </div>
         </div>
@@ -365,14 +429,14 @@
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/" title="What is a testing and living documentation framework?">
+      <a href="https://hitchdev.com/strictyaml/using/alpha/scalar/datetime/" title="Datetimes (Datetime)">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              What is a testing and living documentation framework?
+              Datetimes (Datetime)
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

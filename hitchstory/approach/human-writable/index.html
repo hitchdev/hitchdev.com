@@ -299,18 +299,38 @@
 		<div class="wrapper">
 			<h1>Does hitchstory let your BA or Product Manager write stories while you just write the code? </h1>
 
-			<p>No. Having &ldquo;analysts&rdquo; write stories instead of programmers is an explicit
-non-goal, unlike that of Cucumber. Well maintained stories require the eye
-of a programmer - to ensure they are DRY and to maintain a proper separation
-of concerns between implementation and specification.</p>
+			
 
-<p>It ought to be <em>possible</em> to write hitch stories with less training than is required
-to be a programmer since the language is conceptually simpler than turing complete
-programming languages. Nonetheless, it&rsquo;s better to write it together than to have
-either the programmer or the BA write the story.</p>
+<p>It is possible but I wouldn&rsquo;t necessarily recommend it.</p>
 
-<p>Where your BA/PO/PM is <em>completely</em> uninterested in hitchstory, it should still be
-possible to use it as an effective tool of specification and test just for developers.</p>
+<p>Having &ldquo;analysts&rdquo; write and read stories instead of programmers was an explicit goal
+of several BDD tools like cucumber. However, the reality of these tools is that
+&ldquo;the business&rdquo; is not often interested in reading these stories, let alone writing
+them.</p>
+
+<p>This is an explicit non-goal of hitchstory. The framework is designed to be useful
+even if it is <em>solely</em> used by developers. Indeed, if your product manager/owner/designated
+troll shows no interest at all that&rsquo;s okay.</p>
+
+<h2 id="story-maintenance-and-writing-is-a-bit-like-programming">Story maintenance and writing is a bit like programming</h2>
+
+<p>Well maintained stories will typically be readable and comprehensible by non-programmers
+with a good knowledge of the domain (unlike code), but they will likely not be very
+good at writing or maintaining <a href="../good-stories">high quality stories</a> - at least,
+not without training.</p>
+
+<p>That said, <em>pairing</em> with business analysts while writing and maintaining stories,
+especially on an ad hoc basis can be a supremely effective workflow for doing
+<a href="../stakeholder-collaboration">stakeholder collaboration</a>.</p>
+
+<h2 id="what-about-qa">What about QA?</h2>
+
+<p>While developers need to be involved in writing the stories, the developers
+primarily writing the stories need not necessarily be the developers writing
+the application. The stories do not even have to bet written in the same
+language.</p>
+
+<p>[ TODO : Where to surround the story ]</p>
 
 
 			<aside class="copyright" role="note">
@@ -329,7 +349,7 @@ possible to use it as an effective tool of specification and test just for devel
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/hitchstory/why/inheritance/" title="Discussion of requested feature inheritance in Cucumber">
+      <a href="https://hitchdev.com/strictyaml/using/alpha/restrictions/disallowed-yaml/" title="Disallowed YAML">
         <span class="direction">
           Previous
         </span>
@@ -339,7 +359,7 @@ possible to use it as an effective tool of specification and test just for devel
           </div>
           <div class="stretch">
             <div class="title">
-              Discussion of requested feature inheritance in Cucumber
+              Disallowed YAML
             </div>
           </div>
         </div>

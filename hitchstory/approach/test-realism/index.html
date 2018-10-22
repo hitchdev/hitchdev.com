@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>What is YAML? - HitchDev</title>
+    <title>The importance of test realism - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <link rel="canonical" href="https://hitchdev.com/hitchstory/approach/test-realism/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <meta property="og:url" content="https://hitchdev.com/hitchstory/approach/test-realism/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,13 +100,19 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory">hitchstory</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/what-is-yaml">what-is-yaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach">approach</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach/test-realism">test-realism</a>
             
             
         
@@ -291,42 +297,117 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>What is YAML? </h1>
+			<h1>The importance of test realism </h1>
 
-			<p>YAML is a simple, human readable format for representing associative and hierarchical data.</p>
+			
 
-<p>Example from wikipedia page on YAML:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">receipt<span class="p">:</span><span class="w"> </span>Oz-Ware<span class="w"> </span>Purchase<span class="w"> </span>Invoice<span class="w">
-</span><span class="w"></span>date<span class="p">:</span><span class="w"> </span><span class="ld">2012-08-06</span><span class="w">
-</span><span class="w"></span>customer<span class="p">:</span><span class="w">
-</span><span class="w">  </span>first<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Harry<span class="w">
-</span><span class="w">  </span>family<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Potter<span class="w">
-</span><span class="w"></span>address<span class="p">:</span><span class="w"> </span>|-<span class="w">
-</span><span class="w">  </span><span class="m">4</span><span class="w"> </span>Privet<span class="w"> </span>Drive<span class="p">,</span><span class="w">
-</span><span class="w">  </span>Little<span class="w"> </span>Whinging<span class="p">,</span><span class="w">
-</span><span class="w">  </span>England<span class="w">
-</span><span class="w"></span>items<span class="p">:</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>A<span class="m">4786</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>Water<span class="w"> </span>Bucket<span class="w"> </span>(Filled)<span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">1.47</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w">  </span><span class="m">4</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>E<span class="m">1628</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>High<span class="w"> </span>Heeled<span class="w"> </span><span class="s2">&#34;Ruby&#34;</span><span class="w"> </span>Slippers<span class="w">
-</span><span class="w">  </span>size<span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">133.7</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
-<p>Key features:</p>
+<p>Test realism is the strangely controversial principle that automated tests
+should test code in as realistic a manner as possible.</p>
+
+<p>This means, among other things, <em>where it is realistically feasible</em>, the tester should aim for:</p>
 
 <ul>
-<li>Things which are associated with other things - delimited by the colon (:).</li>
-<li>Ordered lists of things - delimited by the prepended dash (-).</li>
-<li>Multi-line strings - delimited by the bar (|) if there is another newline at the end of the string, or bar + dash (|-) if not.</li>
-<li>Indentation describing the hierarchy of data.</li>
-<li>Maps directly to data types common to most high level languages - lists, dicts, scalars.</li>
+<li>Running the code in environments which match where it will be run for real.</li>
+<li>Testing against real code rather than mock code where possible.</li>
+<li>Where mocks are used, realistic mocks are chosen or built.</li>
+<li>Prioritizing writing test scenarios that mimic the real life usage of the software.</li>
+<li>Where possible, using actual data from the production database to write tests with instead of synthesized data.</li>
 </ul>
 
-<p>You don&rsquo;t need to know much more than this.</p>
+<h2 id="isn-t-this-obvious">Isn&rsquo;t this obvious?</h2>
+
+<p>While &ldquo;test realistically&rdquo; might <em>appear</em> to be very obvious, it does, unfortunately,
+conflict with certain more fashionable principles, chiefly
+&ldquo;<a href="https://pragprog.com/magazines/2012-01/unit-tests-are-first">FIRST</a>&rdquo;.</p>
+
+<p>Taken to extremes this means you get some people saying &ldquo;<a href="http://blog.ploeh.dk/2012/05/24/TDDtestsuitesshouldrunin10secondsorless/">TDD test suites should run in
+10 seconds or less</a>&ldquo;
+which would mean, except for certain very specific kinds of software means you are
+<em>guaranteed</em> to be writing and running <em>very</em> unrealistic tests.</p>
+
+<p>FIRST stands for fast, isolated, repeatable, self validating and timely. It
+was a set of principles developed by Tim Ottinger and Brett Schuchert for describing
+ideal qualities of &ldquo;unit tests&rdquo; - the idea being that these would form the mainstay
+of your automated test suite.</p>
+
+<p>It does <em>not</em> stand for realistic. That quality - the quality which determines
+how many bugs your tests actually catch is isn&rsquo;t even mentioned. I&rsquo;ve no
+doubt they consider it laudible - they apparently just don&rsquo;t consider it
+<em>necessary</em>.</p>
+
+<h2 id="the-inherent-trade-off-between-test-realism-and-test-speed">The inherent trade off between test realism and test speed</h2>
+
+<p>While it&rsquo;s trite to say that a test that is fast and catches no bugs is pointless,
+there&rsquo;s a little more to it than that.</p>
+
+<p>Fast, unrealistic unit tests <em>do</em> usefully catch bugs, which is partly why doing TDD
+with them can be such a powerful approach. An unrealistic, quick test that
+provides feedback on <em>some</em> bugs is still useful.</p>
+
+<p>They just don&rsquo;t catch <em>as many</em> bugs, and they &ldquo;catch&rdquo; <em>far more</em> false positives.</p>
+
+<p>Realistic tests, however, are usually slower than unrealistic tests.
+It is possible (although rare) to make automated tests that are <em>incredibly</em>
+realistic and unmanageably slow that don&rsquo;t actually catch significantly more
+bugs than tests 1/100th of their speed.</p>
+
+<p>There is, therefore, <em>always</em> a trade off to be made between incredibly
+realistic and unmanageably slow and ultraquick but unrealistic.</p>
+
+<p>It isn&rsquo;t necessarily a delicate trade off. There are quite frequently sharp
+diminishing returns on both speed and realism.</p>
+
+<p>If one test takes half a millisecond and another takes 500ms,
+there isn&rsquo;t really <em>any</em> benefit to the quicker test - both are done in the
+blink of an eye as far as the developer is concerned.</p>
+
+<h2 id="where-do-we-draw-the-line">Where do we draw the line?</h2>
+
+<p>Hypothetically speaking, lets say you have two tests testing the same feature -
+one, a test which hits a real database and interacts with the real UI using
+selenium. The other mocks out the UI (often dubbed &ldquo;subcutaneous&rdquo;
+and the database).</p>
+
+<p>One takes 25 seconds, the other takes 25 milliseconds - 1000x faster.</p>
+
+<p>The unrealistic test gives <em>instantaneous</em> feedback if written in a test
+driven style, while the realistic test can take up to 25 seconds to register
+a failure.</p>
+
+<p>However, the realistic test will catch a <em>lot</em> of bugs which the unrealistic
+test will not and be less likely to fail when the feature works. In a relatively
+straightforward web app an enormous proportion (if not most) of the bugs
+you see will be &ldquo;integration bugs&rdquo; - bugs which emerge because of the interaction
+between two modules or pieces of software - for example:</p>
+
+<ul>
+<li>The web page appearing the right way in one browser and the wrong way in another.</li>
+<li>The database returning the wrong result because it was called in the wrong way.</li>
+<li>The database performing an incorrect calculation because of how it was called.</li>
+</ul>
+
+<p><em>None</em> of these bugs will be caught with an unrealistic test that stubs or mocks
+out the database - worse, you will likely also end up <em>embedding</em> bugs in the tests
+which mock or stub the UI and the database and then having to undo them once
+you test the actual app.</p>
+
+<h2 id="does-this-mean-every-test-in-every-project-should-be-an-end-to-end-test">Does this mean every test in every project should be an end to end test?</h2>
+
+<p>No, although for some projects, it&rsquo;s not necessarily a problem if they are.
+Every project in hitchdev is tested that way. Even though they resemble unit tests
+more than end to end tests, they do surround the entire project.</p>
+
+<p>On the one hand, end to end tests that average &lt; 25 seconds are an excellent
+default approach. On the other hand, there are some tests that can be run
+just as realistically and just as <em>easily</em> and be much faster and where that
+is the case, it does indeed make sense to write faster tests at a lower level.</p>
+
+<p>The <em>ideal</em> times to move testing to a lower level are when:</p>
+
+<ul>
+<li>There is a single module that has a clean abstraction and is loosely coupled to the module (or modules) around it.</li>
+<li>A different team is responsible for each module (this is where <a href="../executable-specifications">executable specifications</a> also come in handy).</li>
+</ul>
 
 
 			<aside class="copyright" role="note">
@@ -345,7 +426,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/features-removed/" title="What YAML features does StrictYAML remove?">
+      <a href="https://hitchdev.com/seleniumdirector/using/alpha/subelements/" title="Sub-elements">
         <span class="direction">
           Previous
         </span>
@@ -355,7 +436,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              What YAML features does StrictYAML remove?
+              Sub-elements
             </div>
           </div>
         </div>
@@ -365,14 +446,14 @@
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/" title="What is a testing and living documentation framework?">
+      <a href="https://hitchdev.com/hitchrunpy/using/alpha/timeout/" title="Timeout">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              What is a testing and living documentation framework?
+              Timeout
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -37,17 +37,6 @@ from code_that_does_things import * from strictyaml import Int, Str, Bool from h
     </item>
     
     <item>
-      <title>Can I do BDD with hitchstory? How do I do BDD with hitchstory?</title>
-      <link>https://hitchdev.com/hitchstory/approach/bdd/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/approach/bdd/</guid>
-      <description>Short answer: yes, but you can also do BDD with a pencil and a napkin.
-The time when it was most useful as a &amp;ldquo;BDD tool&amp;rdquo; was when I was working with an extremely technical product manager who was proposing behavior in a command line tool he wanted.
-Initially I received a word document describing the complex logic flows and behavior which he wanted. Gradually I turned those descriptions in to HitchStory specifications that described how the command line tool was supposed to behave.</description>
-    </item>
-    
-    <item>
       <title>Continue on failure when playing multiple stories</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/continue-on-failure/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -80,18 +69,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/hitchstory/why/</guid>
       <description>HitchStory is the result of some carefully considered, although controversial design decisions. These are justified here.
- Principles I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Discussion of requested feature inheritance in Cucumber Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
-    </item>
-    
-    <item>
-      <title>Discussion of requested feature inheritance in Cucumber</title>
-      <link>https://hitchdev.com/hitchstory/why/inheritance/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/why/inheritance/</guid>
-      <description>Inheritance is a feature which was deliberately left out of Cucumber:
-https://stackoverflow.com/questions/41872376/can-a-cucumber-feature-file-inherit-from-a-parent-feature-file
-However, it was deliberately added to hitchstory.</description>
+ Principles I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
     </item>
     
     <item>
@@ -100,8 +78,19 @@ However, it was deliberately added to hitchstory.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/approach/human-writable/</guid>
-      <description>No. Having &amp;ldquo;analysts&amp;rdquo; write stories instead of programmers is an explicit non-goal, unlike that of Cucumber. Well maintained stories require the eye of a programmer - to ensure they are DRY and to maintain a proper separation of concerns between implementation and specification.
-It ought to be possible to write hitch stories with less training than is required to be a programmer since the language is conceptually simpler than turing complete programming languages.</description>
+      <description>It is possible but I wouldn&amp;rsquo;t necessarily recommend it.
+Having &amp;ldquo;analysts&amp;rdquo; write and read stories instead of programmers was an explicit goal of several BDD tools like cucumber. However, the reality of these tools is that &amp;ldquo;the business&amp;rdquo; is not often interested in reading these stories, let alone writing them.
+This is an explicit non-goal of hitchstory. The framework is designed to be useful even if it is solely used by developers.</description>
+    </item>
+    
+    <item>
+      <title>Executable specifications</title>
+      <link>https://hitchdev.com/hitchstory/approach/executable-specifications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/executable-specifications/</guid>
+      <description>An executable specification is an idea taken from agile philosophy:
+ When trying to understand a class or operation most programmers will first look for sample code that already invokes it. Well-written unit/developers tests do exactly this – they provide a working specification of your functional code – and as a result unit tests effectively become a significant portion of your technical documentation. Similarly, acceptance tests can form an important part of your requirements documentation.</description>
     </item>
     
     <item>
@@ -146,7 +135,7 @@ This cannot detect all kinds of flakiness, but it can be effective at detecting 
       
       <guid>https://hitchdev.com/hitchstory/approach/</guid>
       <description>HitchStory best practices are documented here:
- Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? Screenplay Principle Can I do BDD with hitchstory? How do I do BDD with hitchstory? Recommended Environment What is the difference betweeen a test and a story? Triality Flaky Tests  </description>
+ Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? The importance of test realism What is a testing and living documentation framework? Screenplay Principle Executable specifications Recommended Environment What is the difference betweeen a test and a story? How can executable specifications and living documentation be used for stakeholder collaboration? Triality Flaky Tests  </description>
     </item>
     
     <item>
@@ -214,10 +203,20 @@ from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_doe
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/</guid>
-      <description>HitchStory is a python 3 library for creating readable &amp;ldquo;specifications by example&amp;rdquo; and executing them. It is an ambitious project intended supplant both traditional BDD tools and unit tests.
-Unlike many other BDD tools the specification is written using StrictYAML which means that stories will be terse, strongly typed and expressive enough to describe business rules and behavior in precise detail.
-Example example.story:
-Login:given:website:/login# preconditionssteps:-Fillform:username:AzureDiamond# parameterized stepspassword:hunter2-Click:loginSendemail:about:Corefunctionalityofapp.basedon:login# inherits from and continues from test abovesteps:-Click:newemail-Fillform:to:Cthon98@aol.</description>
+      <description>HitchStory is a python 3 testing and living documentation framework for building easily maintained example driven executable specifications (sometimes dubbed acceptance tests).
+It was designed initially to make realistic testing of code less of a goddamn chore so the tests would actually get written and run.
+The executable specifications can be written to specify and test applications at any level and have been used successfully to replace traditional [low level unit tests](), [integration tests]() and [end to end tests]() with easier to maintain tests.</description>
+    </item>
+    
+    <item>
+      <title>How can executable specifications and living documentation be used for stakeholder collaboration?</title>
+      <link>https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/</guid>
+      <description>A while back while I was still trialing this framework I received an enormous JIRA ticket describing the complex logic flows and behavior of a command line application.
+This was bad enough The worst part, though, was that I actually didn&amp;rsquo;t really understand what I was building.
+Collaborating with an executable specification Gradually I turned those descriptions in to an executable specification that described how the command line tool was supposed to behave.</description>
     </item>
     
     <item>
@@ -310,10 +309,8 @@ RUNNING Create files in /path/to/example.story ... splines reticulated SUCCESS i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/approach/screenplay-principle/</guid>
-      <description>You don&amp;rsquo;t tell your audience your story, you show them. You must learn to write a screenplay visually. Write what they will see and what they will hear.
- - http://www.screenwriting.info  An iron rule of screenplay writing is that you do not write what a character thinks. You must demonstrate via their actions and words what they think.
-This parallels a similar problem with software specification:
- Overspecification - where a spec defines how a problem is to be achieved, rather than what problem is to be achieved.</description>
+      <description>All of the writing in a screenplay must create an experience similar to that of watching a film. So, while in a novel you may be able to say:
+ Jessica sits on a bench and thinks of John. She misses him deeply. She thinks about the birthday parties, the Valentine’s Day dinners, the walks on the beach. She cries for the love they shared and the love they’ve lost.</description>
     </item>
     
     <item>
@@ -393,6 +390,17 @@ The &amp;lsquo;mini-schemas&amp;rsquo; you feed these objects should be standard
     </item>
     
     <item>
+      <title>The importance of test realism</title>
+      <link>https://hitchdev.com/hitchstory/approach/test-realism/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/test-realism/</guid>
+      <description>Test realism is the strangely controversial principle that automated tests should test code in as realistic a manner as possible.
+This means, among other things, where it is realistically feasible, the tester should aim for:
+ Running the code in environments which match where it will be run for real. Testing against real code rather than mock code where possible. Where mocks are used, realistic mocks are chosen or built.</description>
+    </item>
+    
+    <item>
       <title>Triality</title>
       <link>https://hitchdev.com/hitchstory/approach/triality/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -426,13 +434,23 @@ Createfiles:given:content:doghierarchicalcontent:x:1y:-42steps:-Dothingwithpreco
     </item>
     
     <item>
+      <title>What is a testing and living documentation framework?</title>
+      <link>https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/</guid>
+      <description>While traditional testing frameworks are designed just to test code and find bugs, hitchstory is designed such that the &amp;ldquo;tests&amp;rdquo; you write can also be used as specifications that define how your application is supposed to work.
+The three critical features that let you do this are:
+ A clear separation of concerns between specification and execution code A clear segregation barrier between the environment that executes your tests and the environment under test.</description>
+    </item>
+    
+    <item>
       <title>What is the difference betweeen a test and a story?</title>
       <link>https://hitchdev.com/hitchstory/approach/test-or-story/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/approach/test-or-story/</guid>
-      <description>While a test is turing complete code that tests behavior, a story is turing-incomplete code which defines behavior.
-A test is simply code that is executed and either raises an exception indicating a failure or passes.
+      <description>While a test is turing complete code that tests behavior, a story is turing-incomplete code which defines behavior. A combination of stories makes up an executable specification
 A story must be played using an execution engine.
 A story can be translated into readable documentation, often with the aid of artefacts created when running the story (e.g. screenshots).</description>
     </item>
@@ -457,6 +475,18 @@ Its relative existing popularity also means that it is somewhat familiar to a lo
       <description>When Cucumber first gained some popularity, there was something of a backlash from the original developers that the users &amp;ldquo;weren&amp;rsquo;t using it correctly&amp;rdquo;:
 The specific complaint was that it was being used as an integration testing framework rather than a tool for &amp;ldquo;communicating with the business&amp;rdquo; and that everything except the high level &amp;ldquo;business requirements&amp;rdquo; should be abstracted away.
 Hitchstory takes a different approach and recommends the screenplay principle instead, for the following reasons:</description>
+    </item>
+    
+    <item>
+      <title>Why is inheritance a feature of hitchstory stories?</title>
+      <link>https://hitchdev.com/hitchstory/why/inheritance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/inheritance/</guid>
+      <description>Hitchstory stories allow inheritance to allow stories that branch from other stories.
+Dissenting views Inheritance is a feature which was deliberately left out of Cucumber:
+https://stackoverflow.com/questions/41872376/can-a-cucumber-feature-file-inherit-from-a-parent-feature-file
+However, it was deliberately added to hitchstory.</description>
     </item>
     
     <item>

@@ -297,39 +297,50 @@
 <p><iframe src="https://ghbtns.com/github-btn.html?user=hitchdev&repo=hitchstory&type=star&count=true" frameborder="0" scrolling="0" width="300px" height="40px"></iframe></p>
 
 
-<p>HitchStory is a python 3 library for creating readable &ldquo;specifications by example&rdquo; and executing
-them. It is an ambitious project intended supplant both traditional BDD tools and unit tests.</p>
+<p>HitchStory is a python 3
+<a href="approach/testing-and-living-documentation">testing and living documentation framework</a> for building easily
+maintained example driven <a href="why/executable-specifications">executable specifications</a> (sometimes dubbed
+acceptance tests).</p>
 
-<p>Unlike many other BDD tools the specification is <a href="why/strictyaml">written using StrictYAML</a> which
-means that stories will be terse, strongly typed and expressive enough to describe business
-rules and behavior in precise detail.</p>
+<p>It was designed initially to make <a href="approach/test-realism">realistic testing</a> of code less
+of a goddamn chore so the tests would actually get written and run.</p>
+
+<p>The executable specifications can be written to specify and test applications at
+any level and have been used successfully to replace traditional
+[low level unit tests](), [integration tests]() and [end to end tests]()
+with easier to maintain tests.</p>
+
+<p>The specifications are <a href="why/strictyaml">written using StrictYAML</a> and the
+code to execute them is written by you, in python.</p>
 
 <h2 id="example">Example</h2>
 
 <p>example.story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Log<span class="w"> </span>in<span class="p">:</span><span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Logged<span class="w"> </span>in<span class="p">:</span><span class="w">
 </span><span class="w">  </span>given<span class="p">:</span><span class="w">
-</span><span class="w">    </span>website<span class="p">:</span><span class="w"> </span>/login<span class="w">                  </span><span class="c"># preconditions</span><span class="w">
+</span><span class="w">    </span>website<span class="p">:</span><span class="w"> </span>/login<span class="w">  </span><span class="c"># preconditions</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Fill<span class="w"> </span>form<span class="p">:</span><span class="w">
-</span><span class="w">        </span>username<span class="p">:</span><span class="w"> </span>AzureDiamond<span class="w">       </span><span class="c"># parameterized steps</span><span class="w">
-</span><span class="w">        </span>password<span class="p">:</span><span class="w"> </span>hunter<span class="m">2</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Click<span class="p">:</span><span class="w"> </span>login<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>Form<span class="w"> </span>filled<span class="p">:</span><span class="w">
+</span><span class="w">      </span>username<span class="p">:</span><span class="w"> </span>AzureDiamond<span class="w">
+</span><span class="w">      </span>password<span class="p">:</span><span class="w"> </span>hunter<span class="m">2</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>Clicked<span class="p">:</span><span class="w"> </span>login<span class="w">
 </span><span class="w">
 </span><span class="w">
-</span><span class="w"></span>Send<span class="w"> </span>email<span class="p">:</span><span class="w">
-</span><span class="w">  </span>about<span class="p">:</span><span class="w"> </span>Core<span class="w"> </span>functionality<span class="w"> </span>of<span class="w"> </span>app.<span class="w">
-</span><span class="w">  </span>based<span class="w"> </span>on<span class="p">:</span><span class="w"> </span>log<span class="w"> </span>in<span class="w">                 </span><span class="c"># inherits from and continues from test above</span><span class="w">
+</span><span class="w"></span>Email<span class="w"> </span>sent<span class="p">:</span><span class="w">
+</span><span class="w">  </span>about<span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">    The most basic email with no subject, cc or bcc
+</span><span class="sd">    set.</span><span class="w">
+</span><span class="w">  </span>based<span class="w"> </span>on<span class="p">:</span><span class="w"> </span>logged<span class="w"> </span>in<span class="w">             </span><span class="c"># inherits from and continues from test above</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Click<span class="p">:</span><span class="w"> </span>new<span class="w"> </span>email<span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Fill<span class="w"> </span>form<span class="p">:</span><span class="w">
-</span><span class="w">        </span>to<span class="p">:</span><span class="w"> </span>Cthon<span class="m">98</span>@aol.com<span class="w">
-</span><span class="w">        </span>contents<span class="p">:</span><span class="w"> </span><span class="sd">|                # long form text</span><span class="w">
-</span><span class="w">          </span>Hey<span class="w"> </span>guys<span class="p">,</span><span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>Clicked<span class="p">:</span><span class="w"> </span>new<span class="w"> </span>email<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>Form<span class="w"> </span>filled<span class="p">:</span><span class="w">
+</span><span class="w">      </span>to<span class="p">:</span><span class="w"> </span>Cthon<span class="m">98</span>@aol.com<span class="w">
+</span><span class="w">      </span>contents<span class="p">:</span><span class="w"> </span><span class="sd">|                # long form text</span><span class="w">
+</span><span class="w">        </span>Hey<span class="w"> </span>guys<span class="p">,</span><span class="w">
 </span><span class="w">
-</span><span class="w">          </span>I<span class="w"> </span>think<span class="w"> </span>I<span class="w"> </span>got<span class="w"> </span>hacked!<span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Click<span class="p">:</span><span class="w"> </span>send<span class="w"> </span>email<span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Email<span class="w"> </span>was<span class="w"> </span>sent</code></pre></div>
+</span><span class="w">        </span>I<span class="w"> </span>think<span class="w"> </span>I<span class="w"> </span>got<span class="w"> </span>hacked!<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>Clicked<span class="p">:</span><span class="w"> </span>send<span class="w"> </span>email<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>Email<span class="w"> </span>was<span class="w"> </span>sent</code></pre></div>
 <p>engine.py:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span>
 <span class="kn">from</span> <span class="nn">mockemailchecker</span> <span class="kn">import</span> <span class="n">email_was_sent</span>
@@ -347,11 +358,11 @@ rules and behavior in precise detail.</p>
             <span class="sa"></span><span class="s2">&#34;http://localhost:5000{0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;website&#39;</span><span class="p">])</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">fill_form</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">textboxes</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">form_filled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">textboxes</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">contents</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">textboxes</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">fill_form</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">contents</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">clicked</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">email_was_sent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -359,10 +370,10 @@ rules and behavior in precise detail.</p>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 <span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span>
 
-<span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Send email&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Email sent&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
-<pre><code>RUNNING Send email in /path/to/example.story ...
+<pre><code>RUNNING Email sent in /path/to/example.story ...
 Visiting http://localhost:5000/login
 Entering text hunter2 in password
 Entering text AzureDiamond in username
@@ -418,10 +429,13 @@ setting up a up the <a href="approach/recommended-environment">recommended hitch
 <ul>
 <li><a href="approach/complementary-tools">Recommended complementary tools</a></li>
 <li><a href="approach/human-writable">Does hitchstory let your BA or Product Manager write stories while you just write the code?</a></li>
+<li><a href="approach/test-realism">The importance of test realism</a></li>
+<li><a href="approach/testing-and-living-documentation">What is a testing and living documentation framework?</a></li>
 <li><a href="approach/screenplay-principle">Screenplay Principle</a></li>
-<li><a href="approach/bdd">Can I do BDD with hitchstory? How do I do BDD with hitchstory?</a></li>
+<li><a href="approach/executable-specifications">Executable specifications</a></li>
 <li><a href="approach/recommended-environment">Recommended Environment</a></li>
 <li><a href="approach/test-or-story">What is the difference betweeen a test and a story?</a></li>
+<li><a href="approach/stakeholder-collaboration">How can executable specifications and living documentation be used for stakeholder collaboration?</a></li>
 <li><a href="approach/triality">Triality</a></li>
 <li><a href="approach/flaky-tests">Flaky Tests</a></li>
 </ul>
@@ -435,7 +449,7 @@ setting up a up the <a href="approach/recommended-environment">recommended hitch
 <li><a href="why/given-when-then">I see given but where is when and then?</a></li>
 <li><a href="why/strictyaml">Why does HitchStory use StrictYAML?</a></li>
 <li><a href="why/interesting-to-the-business">Why does hitchstory not have an opinion on what counts as interesting to &ldquo;the business&rdquo;?</a></li>
-<li><a href="why/inheritance">Discussion of requested feature inheritance in Cucumber</a></li>
+<li><a href="why/inheritance">Why is inheritance a feature of hitchstory stories?</a></li>
 <li><a href="why/declarative">Declarative User Stories</a></li>
 <li><a href="why/2-unit-tests-0-integration-tests">Two Unit Tests, Zero Integration Tests</a></li>
 </ul>
@@ -487,14 +501,14 @@ setting up a up the <a href="approach/recommended-environment">recommended hitch
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/" title="How can executable specifications and living documentation be used for stakeholder collaboration?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How to...
+              How can executable specifications and living documentation be used for stakeholder collaboration?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

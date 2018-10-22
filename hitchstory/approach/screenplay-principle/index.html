@@ -299,24 +299,64 @@
 		<div class="wrapper">
 			<h1>Screenplay Principle </h1>
 
-			<p>You don&rsquo;t tell your audience your story, you show them. You must learn to write a screenplay visually. Write what they will see and what they will hear.</p>
+			
 
-<pre><code>  - http://www.screenwriting.info
-</code></pre>
+<blockquote>
+<p>All of the writing in a screenplay must create an experience similar to that of watching a film. So, while in a novel you may be able to say:</p>
 
-<p>An iron rule of screenplay writing is that you do not write what a character thinks. You must demonstrate via their actions and words what they think.</p>
+<blockquote>
+<p>Jessica sits on a bench and thinks of John. She misses him deeply. She thinks about the birthday parties, the Valentine’s Day dinners, the walks on the beach. She cries for the love they shared and the love they’ve lost.</p>
+</blockquote>
 
-<p>This parallels a similar problem with software specification:</p>
+<p>In a screenplay, if you imagine the scene visually, all you’re really experiencing is:</p>
+
+<blockquote>
+<p>Jessica sits on a bench, staring down at her feet. After a moment she begins to cry.</p>
+</blockquote>
+
+<p>&ndash; <a href="https://www.lightsfilmschool.com/blog/what-visual-storytelling-looks-like-in-a-screenplay-aes">Lauren McGrail, Lights Film School</a></p>
+</blockquote>
+
+<p>The screenplay principle in software mirrors the #1 rule of visual writing - describe and test behavior,
+<em>not</em> implementation.</p>
+
+<p>Before declaring how the screenplay principle <em>should</em> be followed, I will first describe a few
+common anti-patterns where it isn&rsquo;t:</p>
+
+<h2 id="describing-implementation-details">Describing implementation details</h2>
+
+<p>The most common and egregious way this principle is violated is with low level unit tests exhibiting a high level of mocking. Unit tests can only describe the behavior of classes and methods - something that is generally only of interest when your users are other developers (i.e. you&rsquo;re writing a library).</p>
+
+<h2 id="describing-in-too-little-detail-how-a-program-behaves">Describing in too little detail how a program behaves</h2>
+
+<p>Another common violation of this principle is to write tests or specs that are
+too vague. This is argued as a good practice in the blog post
+<a href="http://aslakhellesoy.com/post/11055981222/the-training-wheels-came-off">the training wheels come off</a>
+by Aslak Hellesøy, the creator of Cucumber, wherein he declares &ldquo;screenplay scenarios&rdquo;
+like the following to be brittle:</p>
+<div class="highlight"><pre class="chroma"><code class="language-gherkin" data-lang="gherkin">Scenario: Successful login
+  Given a user &#34;Aslak&#34; with password &#34;xyz&#34;
+  And I am on the login page
+  And I fill in &#34;User name&#34; with &#34;Aslak&#34;
+  And I fill in &#34;Password&#34; with &#34;xyz&#34;
+  When I press &#34;Log in&#34;
+  Then I should see &#34;Welcome, Aslak&#34;</code></pre></div>
+<blockquote>
+<p>The idea with Cucumber (and BDD in general) is that stakeholders assist in writing scenarios - or executable specifications. This solves the where do we start problem with TDD. The scenarios express what a user should be able to do, and not how. When a scenario is defined, programmers implement the required functionality.</p>
+
+<p>This kind of workflow is much harder to follow when scenarios are written in a low-level, imperative style. Very few stakeholders or business analysts are going to agree to defining functionality in terms of mouse clicks and key presses. They think and talk at a higher abstraction level, and scenarios should capture that.</p>
+</blockquote>
+
+<p>This isn&rsquo;t completely wrong. It <em>is</em> typical that stakeholders and business analysts will
+define functionality in terms of mouse clicks and key presses. However:</p>
 
 <ul>
-<li><p>Overspecification - where a spec defines <em>how</em> a problem is to be achieved, rather than what problem is to be achieved.</p></li>
-
-<li><p>Underspecification - where a spec does not nail down a specification, leaving the desired behavior vague.</p></li>
+<li>Just because a business analyst won&rsquo;t typically be the one defining functionality and behavior in terms of mouse clicks and key presses it doesn&rsquo;t mean that they never care about that level of detail.</li>
+<li>A business analyst won&rsquo;t define in that level of detail, but a UX/UI analyst working in concert with them may well define in this level of detail.</li>
+<li>&ldquo;What a business analyst defines&rdquo; is generally <em>not</em> a good basis for an executable specification, although it might make a good basis for a user story title.</li>
 </ul>
 
-<p>HitchStory is built on the presumption that its job is to expose virtually all behavioral details of a program or module
-in a precise and meaningful way and that, as a side effect, this should make it easy to execute them as a test or
-turn them in to documentation.</p>
+<p>Cucumber stories still aren&rsquo;t a good vehicle for the screenplay pattern since they do not allow inheritance, <a href="../../why/inheritance">unlike hitchstory</a>.</p>
 
 
 			<aside class="copyright" role="note">

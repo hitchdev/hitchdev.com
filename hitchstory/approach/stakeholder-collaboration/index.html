@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>What is YAML? - HitchDev</title>
+    <title>How can executable specifications and living documentation be used for stakeholder collaboration? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <link rel="canonical" href="https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/strictyaml/what-is-yaml/">
+    <meta property="og:url" content="https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,13 +100,19 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory">hitchstory</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/what-is-yaml">what-is-yaml</a>
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach">approach</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach/stakeholder-collaboration">stakeholder-collaboration</a>
             
             
         
@@ -291,42 +297,100 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>What is YAML? </h1>
+			<h1>How can executable specifications and living documentation be used for stakeholder collaboration? </h1>
 
-			<p>YAML is a simple, human readable format for representing associative and hierarchical data.</p>
+			
 
-<p>Example from wikipedia page on YAML:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">receipt<span class="p">:</span><span class="w"> </span>Oz-Ware<span class="w"> </span>Purchase<span class="w"> </span>Invoice<span class="w">
-</span><span class="w"></span>date<span class="p">:</span><span class="w"> </span><span class="ld">2012-08-06</span><span class="w">
-</span><span class="w"></span>customer<span class="p">:</span><span class="w">
-</span><span class="w">  </span>first<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Harry<span class="w">
-</span><span class="w">  </span>family<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Potter<span class="w">
-</span><span class="w"></span>address<span class="p">:</span><span class="w"> </span>|-<span class="w">
-</span><span class="w">  </span><span class="m">4</span><span class="w"> </span>Privet<span class="w"> </span>Drive<span class="p">,</span><span class="w">
-</span><span class="w">  </span>Little<span class="w"> </span>Whinging<span class="p">,</span><span class="w">
-</span><span class="w">  </span>England<span class="w">
-</span><span class="w"></span>items<span class="p">:</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>A<span class="m">4786</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>Water<span class="w"> </span>Bucket<span class="w"> </span>(Filled)<span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">1.47</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w">  </span><span class="m">4</span><span class="w">
-</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>part_no<span class="p">:</span><span class="w"> </span>E<span class="m">1628</span><span class="w">
-</span><span class="w">  </span>description<span class="p">:</span><span class="w"> </span>High<span class="w"> </span>Heeled<span class="w"> </span><span class="s2">&#34;Ruby&#34;</span><span class="w"> </span>Slippers<span class="w">
-</span><span class="w">  </span>size<span class="p">:</span><span class="w"> </span><span class="m">8</span><span class="w">
-</span><span class="w">  </span>price<span class="p">:</span><span class="w"> </span><span class="m">133.7</span><span class="w">
-</span><span class="w">  </span>quantity<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
-<p>Key features:</p>
+<p>A while back while I was still trialing this framework I received an enormous JIRA ticket
+describing the complex logic flows and behavior of a command line application.</p>
+
+<p>This was bad enough The worst part, though, was that I actually didn&rsquo;t <em>really</em>
+understand what I was building.</p>
+
+<h2 id="collaborating-with-an-executable-specification">Collaborating with an executable specification</h2>
+
+<p>Gradually I turned those descriptions in to an executable specification that described how
+the command line tool was supposed to behave. That meant writing a series of YAML stories
+that said &ldquo;if the app was run with abc parameters then it should do xyz, etc.&rdquo;</p>
+
+<p>I built executable hitchstory specs that I thought described about
+90% what the product manager wanted - there were still critical pieces missing.</p>
+
+<p>The translation process was not easy because the Jira ticket was often vague
+because the descriptions were sometimes vague, always complicated and
+occasionally missing key nuggets of information.</p>
+
+<p>The &ldquo;magic&rdquo; happened when I showed the YAML specifications to him. He was instantly able
+to identify the behavior I had inferred from his JIRA ticket and not only
+the correct the mistakes that I&rsquo;d made interpreting him, but also mistakes <em>he&rsquo;d</em> made
+<em>writing</em> the ticket - just by looking over my shoulder.</p>
+
+<p>At the same time as correcting my mistakes I tried noting down metadata
+<a href="../../using/alpha/metadata">alongside the stories</a> - about <em>why</em> the behavior
+was as it was although due to time pressures I never really did figure it out
+and document it.</p>
+
+<h2 id="writing-the-code">Writing the code</h2>
+
+<p>As I wrote the specifications and implemented the code new scenarios that weren&rsquo;t
+obvious before suddenly became obvious. Each time either asked him what the behavior
+should be and wrote it up or just wrote it up (if it seemed fairly obvious).</p>
+
+<p>Whether it was obvious or not, however, I still circled round and double checked
+the desired behavior with executable stories precisely because what I thought was
+obvious could have been wrong and what I heard verbally or via chat I might not have
+interpreted accurately.</p>
+
+<p>Indeed, this was exactly the case - I did misinterpret him and I did make faulty
+assumptions.</p>
+
+<p>In all cases, having a highly specific spec following the <a href="../screenplay-principle">screenplay principle</a>
+to refer to gave us both the confidence that I was building the right thing.</p>
+
+<h2 id="wherein-the-code-rewrites-the-story">Wherein the code rewrites the story</h2>
+
+<p>Since it was a command line application I was building, the nature of the
+stories followed a basic pattern:</p>
 
 <ul>
-<li>Things which are associated with other things - delimited by the colon (:).</li>
-<li>Ordered lists of things - delimited by the prepended dash (-).</li>
-<li>Multi-line strings - delimited by the bar (|) if there is another newline at the end of the string, or bar + dash (|-) if not.</li>
-<li>Indentation describing the hierarchy of data.</li>
-<li>Maps directly to data types common to most high level languages - lists, dicts, scalars.</li>
+<li>Run command with parameters a, b, c</li>
+<li>The command calls a mock database (and the call needs to be verified).</li>
+<li>The command outputs on to the screen.</li>
 </ul>
 
-<p>You don&rsquo;t need to know much more than this.</p>
+<p>Now, I could have done the strictest form of TDD where I wrote the test/spec
+first <em>always</em> and then wrote the code that made it pass.</p>
+
+<p>Instead, I opted for a looser approach. I wrote the basic outline of the
+test first, <em>then</em> I wrote the code and <em>then</em> I ran the test in <a href="../using/alpha/rewrite-story">rewrite
+mode</a> so that whatever the command line output
+was, that was written directly in to the story automatically if the rest of
+the scenario didn&rsquo;t fail.</p>
+
+<p>Then I reloaded the story in the text editor and eyeballed it to see that it
+looked correct.</p>
+
+<p><em>Then</em> I circled back to the product owner and verified that the whole story
+looked correct together.</p>
+
+<p>This had all of the benefit of test driven development except it cut the
+amount of time required to write the story in half.</p>
+
+<h2 id="aftermath">Aftermath</h2>
+
+<p>QA picked up bugs afterwards when integration testing, but surprisingly,
+they were all either mistakes the product manager had made himself or
+environment issues. The logic of the program wasn&rsquo;t extremely complicated
+so this wasn&rsquo;t a gratitously monumental achievment but it was still cool.</p>
+
+<p>The <em>shocking</em> part was that by using hitchstory and following the process of
+iterating jointly with the product manager I managed to build an entire software
+system with the <em>barest</em> domain knowledge and no real understanding of why it did
+what it did.</p>
+
+<p>And it worked.</p>
+
+<p>And I still don&rsquo;t really understand why it did what it did.</p>
 
 
 			<aside class="copyright" role="note">
@@ -345,7 +409,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/features-removed/" title="What YAML features does StrictYAML remove?">
+      <a href="https://hitchdev.com/hitchstory/" title="HitchStory">
         <span class="direction">
           Previous
         </span>
@@ -355,7 +419,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              What YAML features does StrictYAML remove?
+              HitchStory
             </div>
           </div>
         </div>
@@ -365,14 +429,14 @@
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/" title="What is a testing and living documentation framework?">
+      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/" title="How to...">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              What is a testing and living documentation framework?
+              How to...
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

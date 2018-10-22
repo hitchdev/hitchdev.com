@@ -15,6 +15,11 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/approach/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/steps-and-step-arguments/</loc>
   </url>
   
@@ -28,10 +33,6 @@
   
   <url>
     <loc>https://hitchdev.com/hitchrunpy/using/alpha/cprofile/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/hitchstory/approach/bdd/</loc>
   </url>
   
   <url>
@@ -78,6 +79,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/approach/contributing-to-hitch-libraries/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/datetime/</loc>
   </url>
   
@@ -103,10 +108,6 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/disallowed-yaml/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/hitchstory/why/inheritance/</loc>
   </url>
   
   <url>
@@ -151,6 +152,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchrunpy/using/alpha/exceptions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/executable-specifications/</loc>
   </url>
   
   <url>
@@ -219,6 +224,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/principles/hitchdev/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchrunpy/</loc>
   </url>
   
@@ -234,6 +243,10 @@
   <url>
     <loc>https://hitchdev.com/hitchstory/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/</loc>
   </url>
   
   <url>
@@ -445,6 +458,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/approach/test-realism/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchrunpy/using/alpha/timeout/</loc>
   </url>
   
@@ -509,6 +526,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/approach/test-or-story/</loc>
   </url>
   
@@ -558,6 +579,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/inheritance/</loc>
   </url>
   
   <url>
