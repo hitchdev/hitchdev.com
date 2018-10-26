@@ -135,7 +135,7 @@ This cannot detect all kinds of flakiness, but it can be effective at detecting 
       
       <guid>https://hitchdev.com/hitchstory/approach/</guid>
       <description>HitchStory best practices are documented here:
- Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? The importance of test realism What is a testing and living documentation framework? Screenplay Principle Executable specifications Recommended Environment What is the difference betweeen a test and a story? How can executable specifications and living documentation be used for stakeholder collaboration? Triality Flaky Tests  </description>
+ Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? The importance of test realism Testing non-deterministic code What is a testing and living documentation framework? Screenplay Principle Test investment Executable specifications Recommended Environment What is the difference betweeen a test and a story? How can executable specifications and living documentation be used for stakeholder collaboration?</description>
     </item>
     
     <item>
@@ -387,6 +387,25 @@ from hitchstory import BaseEngine, GivenDefinition, GivenProperty, validate from
       <description>By default all specified given properties and step arguments accept any kind of YAML which will always be parsed to a string or a nested combination of lists, dicts and strings.
 In order to restrict what kind of YAML is allowed and/or to parse strings as something else (e.g. integers), you can use the validator decorator on step methods or the schema parameter on the GivenProperty object.
 The &amp;lsquo;mini-schemas&amp;rsquo; you feed these objects should be standard StrictYAML validator objects.</description>
+    </item>
+    
+    <item>
+      <title>Test investment</title>
+      <link>https://hitchdev.com/hitchstory/approach/test-investment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/test-investment/</guid>
+      <description>[ TODO ]</description>
+    </item>
+    
+    <item>
+      <title>Testing non-deterministic code</title>
+      <link>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</guid>
+      <description>Non-deterministic code is an inevitable fact of life, but it&amp;rsquo;s a monumental pain to test.
+Non-deterministic code is code which can produce different outputs even when it is given the same inputs. For example: a program that is asked to output the three most popular fruits might list &amp;ldquo;apple, banana and orange&amp;rdquo; but it could give any arbitrary order for those fruits - for example &amp;ldquo;orange, banana and apple&amp;rdquo;.</description>
     </item>
     
     <item>

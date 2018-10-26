@@ -25,6 +25,15 @@ There are typically three problems which lead to unclear naming:
     </item>
     
     <item>
+      <title></title>
+      <link>https://hitchdev.com/strictyaml/changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/changelog/</guid>
+      <description>Changelog 0.14.0  BUGFIX : Include README.md. BUGFIX : Include README.md.  0.13.0  BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Fixed the way serialization of empty lists, dicts, None and datetimes is handled. BUGFIX : Fixed the way serialization of empty lists, dicts, None and datetimes is handled. BUGFIX : Float - fixed transformation in to YAML. BUGFIX : Float - fixed transformation in to YAML.</description>
+    </item>
+    
+    <item>
       <title>Abort a story with ctrl-C</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/aborting/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -512,7 +521,7 @@ a:1.00000000000000000001b:5.4135from strictyaml import Map, Float, load, as_docu
       
       <guid>https://hitchdev.com/hitchstory/approach/</guid>
       <description>HitchStory best practices are documented here:
- Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? The importance of test realism What is a testing and living documentation framework? Screenplay Principle Executable specifications Recommended Environment What is the difference betweeen a test and a story? How can executable specifications and living documentation be used for stakeholder collaboration? Triality Flaky Tests  </description>
+ Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? The importance of test realism Testing non-deterministic code What is a testing and living documentation framework? Screenplay Principle Test investment Executable specifications Recommended Environment What is the difference betweeen a test and a story? How can executable specifications and living documentation be used for stakeholder collaboration?</description>
     </item>
     
     <item>
@@ -1221,6 +1230,25 @@ index.html:
     </item>
     
     <item>
+      <title>Test investment</title>
+      <link>https://hitchdev.com/hitchstory/approach/test-investment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/test-investment/</guid>
+      <description>[ TODO ]</description>
+    </item>
+    
+    <item>
+      <title>Testing non-deterministic code</title>
+      <link>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</guid>
+      <description>Non-deterministic code is an inevitable fact of life, but it&amp;rsquo;s a monumental pain to test.
+Non-deterministic code is code which can produce different outputs even when it is given the same inputs. For example: a program that is asked to output the three most popular fruits might list &amp;ldquo;apple, banana and orange&amp;rdquo; but it could give any arbitrary order for those fruits - for example &amp;ldquo;orange, banana and apple&amp;rdquo;.</description>
+    </item>
+    
+    <item>
       <title>The importance of test realism</title>
       <link>https://hitchdev.com/hitchstory/approach/test-realism/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1393,8 +1421,9 @@ Createfiles:given:content:doghierarchicalcontent:x:1y:-42steps:-Dothingwithpreco
       <description>StrictYAML restricts you from parsing a number of things which the YAML specification says should be parsed. An issue has been raised by David Seaward about this critique on the official YAML repository.
 This document lists those of those features:
 Implicit Typing (Why?) x:yesy:null Example pyyaml/ruamel/poyo:
-load(yaml) == {&amp;#34;x&amp;#34;: True, &amp;#34;y&amp;#34;: None}  Example StrictYAML
-load(yaml) == {&amp;#34;x&amp;#34;: &amp;#34;yes&amp;#34;, &amp;#34;y&amp;#34;: &amp;#34;null&amp;#34;} Direct representations of objects (Why?) ---!python/hash:UnsafeUserObjectemail:evilhacker@hacker.compassword:passwordtosettype:admin Example pyyaml/ruamel:</description>
+load(yaml) == {&amp;#34;x&amp;#34;: True, &amp;#34;y&amp;#34;: None}  Example StrictYAML without schema:
+load(yaml) == {&amp;#34;x&amp;#34;: &amp;#34;yes&amp;#34;, &amp;#34;y&amp;#34;: &amp;#34;null&amp;#34;} Example StrictYAML with schema:
+load(yaml, Map({&amp;#34;x&amp;#34;: Bool(), &amp;#34;y&amp;#34;: Str()})) == {&amp;#34;x&amp;#34;: True, &amp;#34;y&amp;#34;: &amp;#34;null&amp;#34;} Direct representations of objects (Why?</description>
     </item>
     
     <item>

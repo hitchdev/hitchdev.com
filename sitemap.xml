@@ -7,6 +7,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/strictyaml/changelog/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/aborting/</loc>
   </url>
   
@@ -455,6 +459,14 @@
   <url>
     <loc>https://hitchdev.com/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/test-investment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</loc>
   </url>
   
   <url>

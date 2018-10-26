@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Testing non-deterministic code - HitchDev</title>
+    <meta name="generator" content="Hugo 0.31.1" />
+
+    
+    <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
+    
+    <link rel="canonical" href="https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/">
+    
+    <meta name="author" content="Colm O&#39;Connor">
+    
+
+    <meta property="og:url" content="https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/">
+    <meta property="og:title" content="HitchDev">
+    <meta property="og:image" content="https://hitchdev.com/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="HitchDev">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://hitchdev.com/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://hitchdev.com/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://hitchdev.com/fonts/icon.eot');
+        src: url('https://hitchdev.com/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://hitchdev.com/fonts/icon.woff')
+               format('woff'),
+             url('https://hitchdev.com/fonts/icon.ttf')
+               format('truetype'),
+             url('https://hitchdev.com/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/application.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://hitchdev.com/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-green palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+      
+      
+        <a style="display:unset;" href="https://hitchdev.com/">hitchdev</a>
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory">hitchstory</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach">approach</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code">testing-nondeterministic-code</a>
+            
+            
+        
+          
+            
+        
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/hitchdev" title="@hitchdev on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://hitchdev.com/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://hitchdev.com/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>HitchDev </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="CommandLib" href="https://hitchdev.com/commandlib/">
+	
+	CommandLib
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
+	
+	HitchRunPy
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="HitchStory" href="https://hitchdev.com/hitchstory/">
+	
+	HitchStory
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="SeleniumDirector" href="https://hitchdev.com/seleniumdirector/">
+	
+	SeleniumDirector
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="StrictYAML" href="https://hitchdev.com/strictyaml/">
+	
+	StrictYAML
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/hitchdev" target="_blank" title="@hitchdev on GitHub">
+              @hitchdev on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Testing non-deterministic code </h1>
+
+			
+
+<p>Non-deterministic code is an inevitable fact of life, but it&rsquo;s a monumental pain
+to test.</p>
+
+<p>Non-deterministic code is code which can produce different outputs even
+when it is given the same inputs. For example: a program that is asked to output
+the three most popular fruits might list <em>&ldquo;apple, banana and orange&rdquo;</em> but it could
+give <em>any</em> arbitrary order for those fruits - for example <em>&ldquo;orange, banana and apple&rdquo;</em>.</p>
+
+<p>Often the end user or customer won&rsquo;t actually care about non-determinism - the ordering
+of the fruit might not matter.</p>
+
+<p>However, your automated tests <em>will</em> care - if you write a test that expects
+&ldquo;apple, banana and orange&rdquo; then you will get a <a href="../flaky-tests">flaky test</a> that
+will pass and fail arbitrarily.</p>
+
+<p>There are five approaches I usually take to dealing with testing non-deterministic
+code with <a href="https://github.com/hitchdev/hitchstory">hitchstory</a> which I listed
+here in preference order.</p>
+
+<p>If you&rsquo;re currently facing a non-determinism problem, you can treat this as a kind
+of guideline or tutorial when facing a non-determinism issue:</p>
+
+<h2 id="1-make-the-code-deterministic">1. Make the code deterministic</h2>
+
+<p>With the sole exception of code where randomness is a desired property, more deterministic
+code is <em>better</em> code. It&rsquo;s a code quality like DRY or loose coupling, which is a
+laudable goal.</p>
+
+<p>More deterministic does not just mean easier to test, it means a restricted execution
+space. In practical terms, a restricted execution space means fewer potential avenues
+for surprise bugs to crop up - the kind of bugs which yield a 4am phone call from a
+customer and when you try it yourself on your laptop <em>you don&rsquo;t get the bug</em>.</p>
+
+<p>While a small amount of determinism isn&rsquo;t necessarily a problem for the customers,
+it can quickly spiral out of control when non-deterministic behavior is compounded
+with other non-deterministic behavior. If non-deterministic behavior is <em>multiplied</em>
+and when that happens the number of potential edge cases where bugs can be harbored
+can spiral out of control.</p>
+
+<p>However, indeterminism crops up in all sorts of places naturally in code,
+which are not that hard to eliminate. Here are two common ones, which I would
+usually treat as bugs <em>even if</em> the customer has told you they don&rsquo;t care:</p>
+
+<h3 id="sql-select-statements-without-an-order-by">SQL SELECT statements without an ORDER BY</h3>
+
+<p>Select statements without an order by usually output in the same order each time but
+they won&rsquo;t always. You could write a perfectly good functioning test on your laptop
+that expects a certain order from the select statement (e.g. it checks the first
+product on the page) and then that test can fail randomly the next day or on the
+continuous integration machine because it has moved.</p>
+
+<p>This one has happened to me <em>a lot</em>. It&rsquo;s happened so many times that if I see
+a pull request with a SELECT (or ORM equivalent) without an order by I will
+always treat it as an issue that needs to be fixed even if it is unlikely to
+cause an issue.</p>
+
+<p>Where not having an order by is the cause of a flaky test, this is generally the
+best fix.</p>
+
+<h3 id="non-ordered-dictionaries-hashmaps">Non-ordered dictionaries / hashmaps</h3>
+
+<p>In python one of the most common data structures used is the &lsquo;dictionary&rsquo; - this
+is an association of &ldquo;keys&rdquo; to &ldquo;values&rdquo; - e.g.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">my_dictionary</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="sa"></span><span class="s2">&#34;fruit&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;apple&#34;</span><span class="p">,</span>
+    <span class="sa"></span><span class="s2">&#34;car&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;ford&#34;</span><span class="p">,</span>
+    <span class="sa"></span><span class="s2">&#34;coffee&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;arabica&#34;</span><span class="p">,</span>
+<span class="p">}</span></code></pre></div>
+<p>If all the code does is look up one from the other then there will never be a problem.
+However, if the code tries to <em>cycle</em> through all of these things <em>then</em> there is a
+problem. For example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">kind_of_thing</span><span class="p">,</span> <span class="n">thing</span> <span class="ow">in</span> <span class="n">my_dictionary</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">kind_of_thing</span><span class="p">)</span></code></pre></div>
+<p>The problem here is that there is often no guaranteed order to the things in the dict.
+It&rsquo;s given as &ldquo;fruit&rdquo;, &ldquo;car&rdquo;, &ldquo;coffee&rdquo; but you might get &ldquo;coffee&rdquo;, &ldquo;car&rdquo;, &ldquo;fruit&rdquo; -
+and you probably <em>will</em>, eventually.</p>
+
+<p>You can guarantee the ordering in python by using &ldquo;OrderedDict&rdquo; (which will always
+remember the ordering) or by using any version of python above 3.6.</p>
+
+<p>While this is a notable problem in python, many other languages suffer from the same
+issue. It can (and frequently) does crop up in <em>libraries</em> that you rely upon.</p>
+
+<h3 id="sometimes-you-can-t-fix-this-though">Sometimes you can&rsquo;t fix this though</h3>
+
+<p>While these fixes are likely quick and easy for some code, especially if you work
+with helpful developers (or you <em>are</em> the developer), it&rsquo;s not always so easy to fix.
+For example:</p>
+
+<ul>
+<li>You might be using a library that is non-deterministic and fixing it simply isn&rsquo;t feasible.</li>
+<li>The developers you work with might be intransigent and unwilling to expend time to help.</li>
+<li>You might be working with some kind of inherently non-deterministic code (e.g machine learning code).</li>
+<li>It might be possible to fix but simply an <em>enormous</em> amount of work that you don&rsquo;t have time for.</li>
+<li>Random numbers might be a critical feature of the application.</li>
+</ul>
+
+<p>If the indeterminism is unfixable, then move on to&hellip;</p>
+
+<h2 id="2-isolate-the-non-determinism-and-test-the-code-that-relies-upon-it-separately">2. Isolate the non-determinism and test the code that relies upon it separately</h2>
+
+<p>Let&rsquo;s say that you&rsquo;re testing some kind of strategy game that uses a virtual dice roll.
+It is virtually impossible to end to end test this game normally by using deterministic
+means because the outcome each time will be different.</p>
+
+<p>You can, instead, write the code such that the &ldquo;dice roll&rdquo; is always gotten from the
+same function. You can then make that function usable in &ldquo;test&rdquo; mode and &ldquo;real&rdquo;
+mode and in test mode, it can get the numbers deterministically from a file which your
+test can prepopulate.</p>
+
+<p>Voila, you have now isolated the non-determinism and you now have an easily testable
+game where you can verify consistently what happens when different dice rolls are thrown.</p>
+
+<p>Sometimes, of course, <em>you can&rsquo;t easily do this</em> - maybe the code change would be difficult
+(e.g. random numbers are called in a different way all over the code base) or, once again,
+you&rsquo;re dealing with an intransigent developer. Where this isn&rsquo;t possible, another possible
+approach is output transformation:</p>
+
+<h2 id="3-output-transformation">3. Output transformation</h2>
+
+<p>Let&rsquo;s say that instead of a strategy game that uses a virtual dice roll you are simply
+testing virtual six sided dice - nothing fancy, just a command line application that
+outputs:</p>
+
+<pre><code>You rolled a 6!
+</code></pre>
+
+<p>The output here is always going to be of the form &ldquo;You rolled an n!&rdquo;. Since this
+structure is guaranteed, you can write test code that takes the output
+and transforms &ldquo;You rolled a 1!&rdquo; <em>or</em> &ldquo;You rolled a 2!&rdquo; and turns it into
+&ldquo;You rolled an n!&rdquo;.</p>
+
+<p>You can do this transformation with  a regex or a templex and then the
+specification can check the transformed version is &ldquo;You rolled an n!&rdquo;.</p>
+
+<p>The downside to this approach is that it requires test code that is often rather
+complicated and can have bugs <em>itself</em>. The upside is, of course, that it works
+even if you don&rsquo;t have access to the application code and cannot change it easily.</p>
+
+<h2 id="4-list-multiple-valid-outputs-in-your-test">4. List multiple valid outputs in your test</h2>
+
+<p>I once worked on an application where there was a web page that listed two
+products on a web page - the cheaper version and the expensive version. I
+was attempting screenshot testing and I realized that sometimes the cheaper
+version would appear on the left and sometimes it would appear on the right.</p>
+
+<p>I got two completely different screenshots. I notified the stakeholders and they
+were indifferent. The code itself could have been changed to stop doing this
+but, for various reasons, it would have been hard and risky to do this.</p>
+
+<p>Instead of doing that, I simply created two screenshots for each version and
+verified that <em>at least one</em> of them was displayed. It wasn&rsquo;t necessarily the
+nicest solution, but it was cheap and it worked.</p>
+
+<h2 id="5-test-a-property-of-the-output-rather-than-the-output-itself">5. Test a property of the output rather than the output itself</h2>
+
+<p>Some of the more eagle eyed of you might have realized that the test that
+tested the die roll above missed a very critical detail: if the die rolled
+a seven or worse, a zero the test would still have passed but it would have
+passed in the presence of a bug.</p>
+
+<p>This isn&rsquo;t necessarily the worst thing ever - writing an automated test
+for every last thing is an expensive <a href="../test-investment">test investment and sometimes
+test investments don&rsquo;t pay off</a>.</p>
+
+<p>However, if you are committed to doing this, the test above can be extended
+not just to transform the output from &ldquo;You rolled a 6!&rdquo; to &ldquo;You rolled an n!&rdquo;,
+it can be transformed and the number can be extracted. This number can then
+be <em>property tested</em>. There are various things you could do to property test
+it and it may pay to do them in more or less detail. In this case, for example,
+you could test any of the following:</p>
+
+<ul>
+<li>The number is negative.</li>
+<li>The number is an integer.</li>
+<li>The number is above 0 but below 7.</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Use whichever method makes the most sense, but show a bias towards changing
+the <em>code</em> to be deterministic rather than the tests.</p>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2018 Copyright (C) 2018 &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://hitchdev.com/hitchstory/approach/test-investment/" title="Test investment">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              Test investment
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://hitchdev.com/hitchstory/approach/test-realism/" title="The importance of test realism">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              The importance of test realism
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://hitchdev.com/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="https://hitchdev.com/javascripts/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+
