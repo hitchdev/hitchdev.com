@@ -302,50 +302,86 @@
 			
 
 <p>HitchStory and Gherkin are both DSLs for writing user stories that can double as
-acceptance tests, but they have different philosophies and approach.</p>
+acceptance tests, but they have slightly different philosophies and approach.</p>
 
-<p>Gherkin scenarios emphasize the following values:</p>
+<p>Gherkin&rsquo;s philosophy emphasize the following values:</p>
 
 <ul>
 <li>The use of English to facilitate customer collaboration.</li>
 <li>Showing information that is &ldquo;interesting to the business&rdquo;.</li>
 </ul>
 
-<p>Here are some examples.</p>
-
-<p>From the Cucumber website:</p>
-<div class="highlight"><pre class="chroma"><code class="language-gherkin" data-lang="gherkin">Scenario: Buy last coffee
-  Given there are 1 coffees left in the machine
-  And I have deposited 1$
-  When I press the coffee button
-  Then I should be served a coffee</code></pre></div>
-<p>Hitch scenarios, by contrast, emphasizes the following values:</p>
+<p>Whereas hitchstory&rsquo;s philosophy emphasizes very <em>similar</em> values, with some important differences:</p>
 
 <ul>
-<li>Ease of use and maintenance by developers first.</li>
-<li>The screenplay principle.</li>
-<li>Terse, DRY code.</li>
-<li>The generation of documentation for customer collaboration and stakeholders input from specifications.</li>
+<li><p>The use of <a href="../../why/strictyaml">typed YAML</a> to define specs for readability, precision, clarity, terseness and ease of maintenance.</p></li>
+
+<li><p>Specifying all behavior precisely as per the <a href="../../approach/screenplay-principle">screenplay principle</a>.</p></li>
+
+<li><p>Templated documentation generation from specs and/or code artefacts to communicate information that is interesting to stakeholders.</p></li>
 </ul>
 
-<p>Equivalent scenarios:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Buy<span class="w"> </span>last<span class="w"> </span>coffee<span class="p">:</span><span class="w">
-</span><span class="w">  </span>given<span class="p">:</span><span class="w">
-</span><span class="w">    </span>machine<span class="w"> </span>contains<span class="p">:</span><span class="w">
-</span><span class="w">      </span>coffees<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+<h2 id="what-gherkin-got-right">What Gherkin got right</h2>
+
+<p>Cucumber and their related tools became popular for good reasons, even though they made
+many mistakes. They also got a lot of non-obvious stuff right:</p>
+
+<ul>
+<li><p>Emphasis on readability of the specs - something that unit tests typically fail at.</p></li>
+
+<li><p>The idea that specifications should double as tests.</p></li>
+
+<li><p>The deliberate use of a simpler non-turing complete language for specifications.</p></li>
+
+<li><p>The separation of concerns between specification and story execution.</p></li>
+
+<li><p>Built in parameterization.</p></li>
+
+<li><p>The idea that the notion of specifications, tests and documentation are all intrinsically linked.</p></li>
+</ul>
+
+<h2 id="example-gherkin-code-vs-hitchstory">Example gherkin code vs hitchstory</h2>
+
+<p>From <a href="http://aslakhellesoy.com/post/11055981222/the-training-wheels-came-off">the training wheels come off</a>,
+Aslak Hellesøy described how Cucumber was used to write tests (in his view, poorly):</p>
+<div class="highlight"><pre class="chroma"><code class="language-gherkin" data-lang="gherkin">Scenario: Successful login
+  Given a user &#34;Aslak&#34; with password &#34;xyz&#34;
+  And I am on the login page
+  And I fill in &#34;User name&#34; with &#34;Aslak&#34;
+  And I fill in &#34;Password&#34; with &#34;xyz&#34;
+  When I press &#34;Log in&#34;
+  Then I should see &#34;Welcome, Aslak&#34;</code></pre></div>
+<p>And how he thinks it should be used:</p>
+<div class="highlight"><pre class="chroma"><code class="language-gherkin" data-lang="gherkin">Scenario: User is greeted upon login
+  Given the user &#34;Aslak&#34; has an account
+  When he logs in
+  Then he should see &#34;Welcome, Aslak&#34;</code></pre></div>
+<p>Equivalent scenario in hitchstory:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Aslak<span class="w"> </span>sees<span class="w"> </span>welcome<span class="w"> </span>message<span class="w"> </span>on<span class="w"> </span>login<span class="p">:</span><span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>Deposit<span class="p">:</span><span class="w"> </span>$<span class="m">1</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>Press<span class="w"> </span>button<span class="p">:</span><span class="w"> </span>coffee<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>Served<span class="w"> </span>up<span class="p">:</span><span class="w"> </span>coffee</code></pre></div>
+</span><span class="w">  </span>-<span class="w"> </span>visit<span class="p">:</span><span class="w"> </span>/login<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>fill<span class="w"> </span>form<span class="p">:</span><span class="w">
+</span><span class="w">      </span>username<span class="p">:</span><span class="w"> </span>Aslak<span class="w">
+</span><span class="w">      </span>password<span class="p">:</span><span class="w"> </span>xyz<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>click<span class="p">:</span><span class="w"> </span>log<span class="w"> </span>in<span class="w"> </span>button<span class="w">
+</span><span class="w">  </span>-<span class="w"> </span>should<span class="w"> </span>contain<span class="p">:</span><span class="w">
+</span><span class="w">      </span>item<span class="p">:</span><span class="w"> </span>welcome<span class="w"> </span>banner<span class="w">
+</span><span class="w">      </span>message<span class="p">:</span><span class="w"> </span>Welcome<span class="p">,</span><span class="w"> </span>Aslak</code></pre></div>
 <h1 id="what-cucumber-gherkin-got-wrong">What Cucumber/Gherkin got wrong</h1>
 
 <h2 id="being-an-english-like-language">Being an English-like language</h2>
 
 <p>English is vague. English is verbose. English is messy. English is imprecise. These are ideal qualities for some purposes but they are not ideal for writing specifications.</p>
 
-<p>Like actual code, to be effective, specifications must be exact, precise and DRY - whether executable or not.</p>
+<p>Like actual code, to be effective, specifications are exact, precise and DRY. Even non-executable specifications
+benefit from these qualities.</p>
 
-<p>The imprecision of English is drawn out in Gherkin specifications - they usually lack precision and critical details and end up serving as a sort of high level description of what the program it&rsquo;s describing does.</p>
+<p>The imprecision of English is drawn out in Gherkin specifications partly due to its lack of inheritance. This
+encourages vague</p>
+
+<ul>
+<li>they usually lack precision and critical details and end up serving as a sort of high level description of what the program it&rsquo;s describing does.</li>
+</ul>
 
 <h2 id="parser-hell">Parser hell</h2>
 
@@ -438,25 +474,6 @@ other forms of configuration.</p>
 
 <p>If programmers don&rsquo;t like using a tool or technology that interfaces to their code,
 forget about getting the business to use it.</p>
-
-<h2 id="what-gherkin-got-right">What Gherkin got right</h2>
-
-<p>Cucumber and their related tools became popular for good reasons, even though they made
-many mistakes. They also got a lot of (non-obvious) stuff right:</p>
-
-<ul>
-<li><p>Emphasis on readability of the specs</p></li>
-
-<li><p>The idea that specifications should be executable and double as tests</p></li>
-
-<li><p>The deliberate use of a simplified configuration language for specifications</p></li>
-
-<li><p>Deliberate separation of concerns between specification and story execution</p></li>
-
-<li><p>Built in Parameterization</p></li>
-
-<li><p>The idea that the notion of specifications, tests and documentation are all intrinsically linked</p></li>
-</ul>
 
 
 			<aside class="copyright" role="note">

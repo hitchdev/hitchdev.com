@@ -294,6 +294,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/</loc>
   </url>
   
@@ -462,11 +466,11 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/approach/test-investment/</loc>
+    <loc>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</loc>
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</loc>
+    <loc>https://hitchdev.com/hitchstory/approach/test-investment/</loc>
   </url>
   
   <url>
@@ -587,6 +591,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/no-cli/</loc>
   </url>
   
   <url>

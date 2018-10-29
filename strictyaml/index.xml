@@ -17,7 +17,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
-      <description>Changelog 0.14.0  BUGFIX : Include README.md. BUGFIX : Include README.md.  0.13.0  BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Fixed the way serialization of empty lists, dicts, None and datetimes is handled. BUGFIX : Fixed the way serialization of empty lists, dicts, None and datetimes is handled. BUGFIX : Float - fixed transformation in to YAML. BUGFIX : Float - fixed transformation in to YAML.</description>
+      <description>Changelog 0.15.0 No relevant code changes.
+0.14.0  FEATURE : Raise exception when invalid default data is used is used in Optionals. FEATURE : Do not output defaults from Optional() to YAML and ignore parsed defaults where the parsed data is equal to the default specified in Optional(). BUGFIX : Include README.md. BUGFIX : Include README.md.  0.13.0  BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Made comma separated serializer serialize correctly.</description>
     </item>
     
     <item>
@@ -50,7 +51,7 @@ print(yaml.as_yaml())â:yesb:hâlloc:-1-2-3 However, any type that is not a stri
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/using/alpha/compound/</guid>
-      <description> Using a YAML object of a parsed mapping Sequence/list validator (Seq) Sequences of unique items (UniqueSeq) Mapping with defined keys and a custom key validator (Map) Fixed length sequences (FixedSeq) Mappings with arbitrary key names (MapPattern) Mappings with defined keys (Map) Validating optional keys in mappings (Map)  </description>
+      <description> Using a YAML object of a parsed mapping Sequence/list validator (Seq) Sequences of unique items (UniqueSeq) Mapping with defined keys and a custom key validator (Map) Fixed length sequences (FixedSeq) Mappings with arbitrary key names (MapPattern) Optional keys with defaults (Map/Optional) Mappings with defined keys (Map) Validating optional keys in mappings (Map)  </description>
     </item>
     
     <item>
@@ -295,6 +296,20 @@ Page automatically generated from merge-documents.story.
     </item>
     
     <item>
+      <title>Optional keys with defaults (Map/Optional)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults/</guid>
+      <description>Experimental
+This feature is in alpha. The API may change on a minor version increment.
+ Example yaml_snippet:
+a:1from strictyaml import Map, Int, Str, Bool, Optional, load, as_document from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), Optional(&amp;#34;b&amp;#34;, default=False): Bool(), }) When parsed the result will include the optional value:
+Ensure(load(yaml_snippet, schema).data).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;b&amp;#34;: False}) If parsed and then output to YAML again the default data won&amp;rsquo;t be there:
+print(load(yaml_snippet, schema).as_yaml())a:1 When default data is output to YAML it is removed:</description>
+    </item>
+    
+    <item>
       <title>Parsing YAML without a schema</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -420,7 +435,7 @@ Priorities:
       <guid>https://hitchdev.com/strictyaml/using/</guid>
       <description>How to:
  Get line numbers of YAML elements Revalidate an already validated document Build a YAML document from scratch in code Reading in YAML, editing it and writing it back out Labeling exceptions Merge YAML documents Either/or schema validation of two equally valid different kinds of YAML Parsing YAML without a schema  Compound validators:
- Using a YAML object of a parsed mapping Sequence/list validator (Seq) Sequences of unique items (UniqueSeq) Mapping with defined keys and a custom key validator (Map) Fixed length sequences (FixedSeq) Mappings with arbitrary key names (MapPattern) Mappings with defined keys (Map) Validating optional keys in mappings (Map)  Scalar validators:</description>
+ Using a YAML object of a parsed mapping Sequence/list validator (Seq) Sequences of unique items (UniqueSeq) Mapping with defined keys and a custom key validator (Map) Fixed length sequences (FixedSeq) Mappings with arbitrary key names (MapPattern) Optional keys with defaults (Map/Optional) Mappings with defined keys (Map) Validating optional keys in mappings (Map)  Scalar validators:</description>
     </item>
     
     <item>

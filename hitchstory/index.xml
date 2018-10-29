@@ -69,7 +69,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/hitchstory/why/</guid>
       <description>HitchStory is the result of some carefully considered, although controversial design decisions. These are justified here.
- Principles I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
+ Why does hitchstory not have a command line interface? Principles I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
     </item>
     
     <item>
@@ -135,7 +135,7 @@ This cannot detect all kinds of flakiness, but it can be effective at detecting 
       
       <guid>https://hitchdev.com/hitchstory/approach/</guid>
       <description>HitchStory best practices are documented here:
- Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? The importance of test realism Testing non-deterministic code What is a testing and living documentation framework? Screenplay Principle Test investment Executable specifications Recommended Environment What is the difference betweeen a test and a story? How can executable specifications and living documentation be used for stakeholder collaboration?</description>
+ Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? The importance of test realism Testing non-deterministic code What is a testing and living documentation framework? Screenplay Principle Tests are an investment Executable specifications Recommended Environment What is the difference betweeen a test and a story? How can executable specifications and living documentation be used for stakeholder collaboration?</description>
     </item>
     
     <item>
@@ -390,15 +390,6 @@ The &amp;lsquo;mini-schemas&amp;rsquo; you feed these objects should be standard
     </item>
     
     <item>
-      <title>Test investment</title>
-      <link>https://hitchdev.com/hitchstory/approach/test-investment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/approach/test-investment/</guid>
-      <description>[ TODO ]</description>
-    </item>
-    
-    <item>
       <title>Testing non-deterministic code</title>
       <link>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -409,14 +400,24 @@ Non-deterministic code is code which can produce different outputs even when it 
     </item>
     
     <item>
+      <title>Tests are an investment</title>
+      <link>https://hitchdev.com/hitchstory/approach/test-investment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/test-investment/</guid>
+      <description>You are NOT ALLOWED to write any production code unless it is to make a failing unit test pass.  Now, most programmers when they first hear about this technique think &amp;ldquo;This is stupid!&amp;rdquo; &amp;ldquo;It&amp;rsquo;s going to slow me down, it&amp;rsquo;s a waste of effort, it will keep me from thinking, it will keep me from designing, it will just break my flow&amp;rdquo;.
+ Uncle Bob, The Three Laws of TDD   I remember the first time I followed this rule to the letter - the tests were good, the code was clean and I ended up throwing it all away.</description>
+    </item>
+    
+    <item>
       <title>The importance of test realism</title>
       <link>https://hitchdev.com/hitchstory/approach/test-realism/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/approach/test-realism/</guid>
-      <description>Test realism is the strangely controversial principle that automated tests should test code in as realistic a manner as possible.
-This means, among other things, where it is realistically feasible, the tester should aim for:
- Running the code in environments which match where it will be run for real. Testing against real code rather than mock code where possible. Where mocks are used, realistic mocks are chosen or built.</description>
+      <description>Test realism is the strangely controversial principle that automated tests should test realistically.
+This means, among other things, where it is feasible, automated test builders should aim for:
+ Running the code in environments which closely mimic where it will be run for real. Testing against real code rather than mock code. Where mocks are used, realistic mocks are chosen or built. Prioritizing writing test scenarios that mimic the real life usage of the software.</description>
     </item>
     
     <item>
@@ -486,6 +487,17 @@ Its relative existing popularity also means that it is somewhat familiar to a lo
     </item>
     
     <item>
+      <title>Why does hitchstory not have a command line interface?</title>
+      <link>https://hitchdev.com/hitchstory/why/no-cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/no-cli/</guid>
+      <description>One of the main irritations I found with other testing frameworks was the lack of flexibility regarding which tests were run, how they are run and in which order and how they are run.
+Moreover, I have almost always ended up creating quite elaborate code that calls the tests and runs them in the manner and order I wanted.
+HitchStory pre-empts that step and requires you to write code in order to run your tests.</description>
+    </item>
+    
+    <item>
       <title>Why does hitchstory not have an opinion on what counts as interesting to &#34;the business&#34;?</title>
       <link>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -514,11 +526,10 @@ However, it was deliberately added to hitchstory.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/why-not/gherkin/</guid>
-      <description>HitchStory and Gherkin are both DSLs for writing user stories that can double as acceptance tests, but they have different philosophies and approach.
-Gherkin scenarios emphasize the following values:
- The use of English to facilitate customer collaboration. Showing information that is &amp;ldquo;interesting to the business&amp;rdquo;.  Here are some examples.
-From the Cucumber website:
-Scenario: Buy last coffee Given there are 1 coffees left in the machine And I have deposited 1$ When I press the coffee button Then I should be served a coffee Hitch scenarios, by contrast, emphasizes the following values:</description>
+      <description>HitchStory and Gherkin are both DSLs for writing user stories that can double as acceptance tests, but they have slightly different philosophies and approach.
+Gherkin&amp;rsquo;s philosophy emphasize the following values:
+ The use of English to facilitate customer collaboration. Showing information that is &amp;ldquo;interesting to the business&amp;rdquo;.  Whereas hitchstory&amp;rsquo;s philosophy emphasizes very similar values, with some important differences:
+ The use of typed YAML to define specs for readability, precision, clarity, terseness and ease of maintenance.</description>
     </item>
     
     <item>

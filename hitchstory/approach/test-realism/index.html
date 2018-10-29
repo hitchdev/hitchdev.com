@@ -302,13 +302,13 @@
 			
 
 <p>Test realism is the strangely controversial principle that automated tests
-should test code in as realistic a manner as possible.</p>
+should test realistically.</p>
 
-<p>This means, among other things, <em>where it is realistically feasible</em>, the tester should aim for:</p>
+<p>This means, among other things, <em>where it is feasible</em>, automated test builders should aim for:</p>
 
 <ul>
-<li>Running the code in environments which match where it will be run for real.</li>
-<li>Testing against real code rather than mock code where possible.</li>
+<li>Running the code in environments which closely mimic where it will be run for real.</li>
+<li>Testing against real code rather than mock code.</li>
 <li>Where mocks are used, realistic mocks are chosen or built.</li>
 <li>Prioritizing writing test scenarios that mimic the real life usage of the software.</li>
 <li>Where possible, using actual data from the production database to write tests with instead of synthesized data.</li>
@@ -323,16 +323,17 @@ conflict with certain more fashionable principles, chiefly
 <p>Taken to extremes this means you get some people saying &ldquo;<a href="http://blog.ploeh.dk/2012/05/24/TDDtestsuitesshouldrunin10secondsorless/">TDD test suites should run in
 10 seconds or less</a>&ldquo;
 which would mean, except for certain very specific kinds of software means you are
-<em>guaranteed</em> to be writing and running <em>very</em> unrealistic tests.</p>
+guaranteed to be writing and running <em>very</em> unrealistic tests.</p>
 
 <p>FIRST stands for fast, isolated, repeatable, self validating and timely. It
 was a set of principles developed by Tim Ottinger and Brett Schuchert for describing
 ideal qualities of &ldquo;unit tests&rdquo; - the idea being that these would form the mainstay
-of your automated test suite.</p>
+of your automated test suite. These are all good qualities tests, but they are
+usually of secondary importance to realism.</p>
 
 <p>It does <em>not</em> stand for realistic. That quality - the quality which determines
 how many bugs your tests actually catch is isn&rsquo;t even mentioned. I&rsquo;ve no
-doubt they consider it laudible - they apparently just don&rsquo;t consider it
+doubt they consider it laudable - they apparently just don&rsquo;t consider it
 <em>necessary</em>.</p>
 
 <h2 id="the-inherent-trade-off-between-test-realism-and-test-speed">The inherent trade off between test realism and test speed</h2>
@@ -409,6 +410,11 @@ is the case, it does indeed make sense to write faster tests at a lower level.</
 <li>A different team is responsible for each module (this is where <a href="../executable-specifications">executable specifications</a> also come in handy).</li>
 </ul>
 
+<h2 id="how-do-i-know-if-my-tests-are-realistic-enough">How do I know if my tests are realistic enough?</h2>
+
+<p>Absolute realism is, of course, impossible and the law of diminishing returns
+applies to test realism just as it applies to speed.</p>
+
 
 			<aside class="copyright" role="note">
 				
@@ -426,7 +432,7 @@ is the case, it does indeed make sense to write faster tests at a lower level.</
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/" title="Testing non-deterministic code">
+      <a href="https://hitchdev.com/hitchstory/approach/test-investment/" title="Tests are an investment">
         <span class="direction">
           Previous
         </span>
@@ -436,7 +442,7 @@ is the case, it does indeed make sense to write faster tests at a lower level.</
           </div>
           <div class="stretch">
             <div class="title">
-              Testing non-deterministic code
+              Tests are an investment
             </div>
           </div>
         </div>

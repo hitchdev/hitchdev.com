@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Overlay - should_be_on_top - HitchDev</title>
+    <title>Optional keys with defaults (Map/Optional) - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/">
+    <link rel="canonical" href="https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/">
+    <meta property="og:url" content="https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,25 +100,31 @@
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/seleniumdirector">seleniumdirector</a>
+            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/seleniumdirector/using">using</a>
+            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/using">using</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/seleniumdirector/using/alpha">alpha</a>
+            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/using/alpha">alpha</a>
             
             
         
           
             
-            / <a style="display:unset;" href="https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top">element-should-be-on-top</a>
+            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/using/alpha/compound">compound</a>
+            
+            
+        
+          
+            
+            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults">optional-keys-with-defaults</a>
             
             
         
@@ -303,59 +309,28 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Overlay - should_be_on_top </h1>
+			<h1>Optional keys with defaults (Map/Optional) </h1>
 
-			<p>This example demonstrates .should_be_on_top() which waits not
-only for an element to be present on the page (without display:none set),
-it will wait until no other element covers it.</p>
-
-<p>should_be_on_top checks the dead center of the element to see
-if it is covered. If the middle is covered and the corners are not then
-it will still think that the element is covered.</p>
-
-<p>HTML:</p>
-
-<p>index.html:</p>
-<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;form-login&#34;</span><span class="p"></span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">h4</span><span class="p"></span><span class="p">&gt;</span>Dashboard<span class="p">&lt;</span><span class="p">/</span><span class="nt">h4</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;id_dashboard_message&#34;</span><span class="p"></span><span class="p">&gt;</span>hello!<span class="p">&lt;</span><span class="p">/</span><span class="nt">a</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="p">/</span><span class="nt">div</span><span class="p">&gt;</span></code></pre></div>
-<p>Javascript embedded in above HTML:</p>
-<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"></code></pre></div>
-<p>selectors.yml:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">dashboard<span class="p">:</span><span class="w">
-</span><span class="w">  </span>appears<span class="w"> </span>when<span class="p">:</span><span class="w"> </span>message<span class="w">
-</span><span class="w">  </span>elements<span class="p">:</span><span class="w">
-</span><span class="w">    </span>message<span class="p">:</span><span class="w"> </span>id=id_dashboard_message</code></pre></div>
-<p>set up:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">from<span class="w"> </span>selenium<span class="w"> </span>import<span class="w"> </span>webdriver<span class="w">
-</span><span class="w"></span>from<span class="w"> </span>datetime<span class="w"> </span>import<span class="w"> </span>datetime<span class="w">
-</span><span class="w"></span>import<span class="w"> </span>seleniumdirector<span class="w">
-</span><span class="w">
-</span><span class="w"></span>driver<span class="w"> </span>=<span class="w"> </span>webdriver.Chrome()<span class="w">
-</span><span class="w">
-</span><span class="w"></span>director<span class="w"> </span>=<span class="w"> </span>seleniumdirector.WebDirector(<span class="w">
-</span><span class="w">    </span>driver<span class="p">,</span><span class="w">
-</span><span class="w">    </span><span class="s2">&#34;selectors.yml&#34;</span><span class="p">,</span><span class="w">
-</span><span class="w">    </span>fake_time=datetime(<span class="m">2015</span><span class="p">,</span><span class="w"> </span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="m">21</span><span class="p">,</span><span class="w"> </span><span class="m">7</span><span class="p">,</span><span class="w"> </span><span class="m">28</span><span class="p">,</span><span class="w"> </span><span class="m">0</span>)<span class="p">,</span><span class="w">
-</span><span class="w"></span>)</code></pre></div>
-<p>Success:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">director</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;http://localhost:8000&#34;</span><span class="p">)</span>
-<span class="n">director</span><span class="o">.</span><span class="n">wait_for_page</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;dashboard&#34;</span><span class="p">)</span>
-<span class="n">director</span><span class="o">.</span><span class="n">the</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;message&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">should_be_on_top</span><span class="p">()</span>
-<span class="n">director</span><span class="o">.</span><span class="n">the</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;message&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span></code></pre></div>
-<p>Failure:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">director</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;http://localhost:8000&#34;</span><span class="p">)</span>
-<span class="n">director</span><span class="o">.</span><span class="n">wait_for_page</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;dashboard&#34;</span><span class="p">)</span>
-<span class="n">director</span><span class="o">.</span><span class="n">the</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;message&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">should_be_on_top</span><span class="p">(</span><span class="n">after</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">director</span><span class="o">.</span><span class="n">the</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;message&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span></code></pre></div>
-<p>Raises:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">seleniumdirector</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ElementCoveredByAnotherElement</span><span class="p">:</span>
-<span class="n">Another</span> <span class="n">element</span><span class="p">,</span> <span class="n">a</span> <span class="sa"></span><span class="s1">&#39;p&#39;</span> <span class="k">with</span> <span class="nb">id</span> <span class="sa"></span><span class="s1">&#39;id_dashboard_message&#39;</span> <span class="ow">and</span> <span class="k">class</span> <span class="err">&#39;&#39; </span><span class="nc">is</span> <span class="n">covering</span> <span class="n">yours</span> <span class="sa"></span><span class="s1">&#39;//*[@id=&#39;</span><span class="n">id_dashboard_message</span><span class="sa"></span><span class="s1">&#39;]&#39;</span><span class="o">.</span></code></pre></div>
-<div class="admonition note">
-<p class="admonition-title">Executable specification</p>
-<p>Page automatically generated from <a href="https://github.com/hitchdev/hitchstory/blob/master/hitch/overlay.story">overlay.story</a>.</p>
+			<div class="admonition warning">
+<p class="admonition-title">Experimental</p>
+<p>This feature is in alpha. The API may change on a minor version increment.</p>
 </div>
+
+<p>Example yaml_snippet:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="n">as_document</span>
+<span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
+
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="n">Optional</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span> <span class="n">Bool</span><span class="p">(),</span> <span class="p">})</span></code></pre></div>
+<p>When parsed the result will include the optional value:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span></code></pre></div>
+<p>If parsed and then output to YAML again the default data won&rsquo;t be there:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
+<p>When default data is output to YAML it is removed:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">as_document</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">},</span> <span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
+<p><div class="admonition note">
+<p class="admonition-title">Executable specification</p>
+<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/optional-with-defaults.story">optional-with-defaults.story</a>.</p>
+</div></p>
 
 
 			<aside class="copyright" role="note">
@@ -374,7 +349,7 @@ it will still think that the element is covered.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults/" title="Optional keys with defaults (Map/Optional)">
+      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/merge-yaml-documents/" title="Merge YAML documents">
         <span class="direction">
           Previous
         </span>
@@ -384,7 +359,7 @@ it will still think that the element is covered.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Optional keys with defaults (Map/Optional)
+              Merge YAML documents
             </div>
           </div>
         </div>
@@ -394,14 +369,14 @@ it will still think that the element is covered.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/" title="Parsing YAML without a schema">
+      <a href="https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/" title="Overlay - should_be_on_top">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Parsing YAML without a schema
+              Overlay - should_be_on_top
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

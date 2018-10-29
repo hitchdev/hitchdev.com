@@ -30,7 +30,8 @@ There are typically three problems which lead to unclear naming:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
-      <description>Changelog 0.14.0  BUGFIX : Include README.md. BUGFIX : Include README.md.  0.13.0  BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Fixed the way serialization of empty lists, dicts, None and datetimes is handled. BUGFIX : Fixed the way serialization of empty lists, dicts, None and datetimes is handled. BUGFIX : Float - fixed transformation in to YAML. BUGFIX : Float - fixed transformation in to YAML.</description>
+      <description>Changelog 0.15.0 No relevant code changes.
+0.14.0  FEATURE : Raise exception when invalid default data is used is used in Optionals. FEATURE : Do not output defaults from Optional() to YAML and ignore parsed defaults where the parsed data is equal to the default specified in Optional(). BUGFIX : Include README.md. BUGFIX : Include README.md.  0.13.0  BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Made comma separated serializer serialize correctly.</description>
     </item>
     
     <item>
@@ -177,7 +178,7 @@ FEATURE Newly implemented feature that does not intentionally impact pre-existin
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/using/alpha/compound/</guid>
-      <description> Using a YAML object of a parsed mapping Sequence/list validator (Seq) Sequences of unique items (UniqueSeq) Mapping with defined keys and a custom key validator (Map) Fixed length sequences (FixedSeq) Mappings with arbitrary key names (MapPattern) Mappings with defined keys (Map) Validating optional keys in mappings (Map)  </description>
+      <description> Using a YAML object of a parsed mapping Sequence/list validator (Seq) Sequences of unique items (UniqueSeq) Mapping with defined keys and a custom key validator (Map) Fixed length sequences (FixedSeq) Mappings with arbitrary key names (MapPattern) Optional keys with defaults (Map/Optional) Mappings with defined keys (Map) Validating optional keys in mappings (Map)  </description>
     </item>
     
     <item>
@@ -248,7 +249,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/hitchstory/why/</guid>
       <description>HitchStory is the result of some carefully considered, although controversial design decisions. These are justified here.
- Principles I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
+ Why does hitchstory not have a command line interface? Principles I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
     </item>
     
     <item>
@@ -521,7 +522,7 @@ a:1.00000000000000000001b:5.4135from strictyaml import Map, Float, load, as_docu
       
       <guid>https://hitchdev.com/hitchstory/approach/</guid>
       <description>HitchStory best practices are documented here:
- Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? The importance of test realism Testing non-deterministic code What is a testing and living documentation framework? Screenplay Principle Test investment Executable specifications Recommended Environment What is the difference betweeen a test and a story? How can executable specifications and living documentation be used for stakeholder collaboration?</description>
+ Recommended complementary tools Does hitchstory let your BA or Product Manager write stories while you just write the code? The importance of test realism Testing non-deterministic code What is a testing and living documentation framework? Screenplay Principle Tests are an investment Executable specifications Recommended Environment What is the difference betweeen a test and a story? How can executable specifications and living documentation be used for stakeholder collaboration?</description>
     </item>
     
     <item>
@@ -770,6 +771,20 @@ Example yaml_snippet:
 from strictyaml import Map, MapPattern, Str, Seq, Int, load schema_1 = Map({ &amp;#34;a&amp;#34;: Str(), &amp;#34;b&amp;#34;: Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Int()}), &amp;#34;c&amp;#34;: Seq(MapPattern(Str(), Str())), }) schema_2 = Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Int()}) yaml_1 = load(yaml_snippet_1, schema_1) yaml_2 = load(yaml_snippet_2, schema_2) yaml_1[&amp;#39;b&amp;#39;] = yaml_2print(yaml_1.as_yaml())# Some commenta:â# value comment# Another commentb:x:8# y is now 9y:9c:-a:1-b:2 Executable specification
 Page automatically generated from merge-documents.story.
  </description>
+    </item>
+    
+    <item>
+      <title>Optional keys with defaults (Map/Optional)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults/</guid>
+      <description>Experimental
+This feature is in alpha. The API may change on a minor version increment.
+ Example yaml_snippet:
+a:1from strictyaml import Map, Int, Str, Bool, Optional, load, as_document from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), Optional(&amp;#34;b&amp;#34;, default=False): Bool(), }) When parsed the result will include the optional value:
+Ensure(load(yaml_snippet, schema).data).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;b&amp;#34;: False}) If parsed and then output to YAML again the default data won&amp;rsquo;t be there:
+print(load(yaml_snippet, schema).as_yaml())a:1 When default data is output to YAML it is removed:</description>
     </item>
     
     <item>
@@ -1230,15 +1245,6 @@ index.html:
     </item>
     
     <item>
-      <title>Test investment</title>
-      <link>https://hitchdev.com/hitchstory/approach/test-investment/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/approach/test-investment/</guid>
-      <description>[ TODO ]</description>
-    </item>
-    
-    <item>
       <title>Testing non-deterministic code</title>
       <link>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1249,14 +1255,24 @@ Non-deterministic code is code which can produce different outputs even when it 
     </item>
     
     <item>
+      <title>Tests are an investment</title>
+      <link>https://hitchdev.com/hitchstory/approach/test-investment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/test-investment/</guid>
+      <description>You are NOT ALLOWED to write any production code unless it is to make a failing unit test pass.  Now, most programmers when they first hear about this technique think &amp;ldquo;This is stupid!&amp;rdquo; &amp;ldquo;It&amp;rsquo;s going to slow me down, it&amp;rsquo;s a waste of effort, it will keep me from thinking, it will keep me from designing, it will just break my flow&amp;rdquo;.
+ Uncle Bob, The Three Laws of TDD   I remember the first time I followed this rule to the letter - the tests were good, the code was clean and I ended up throwing it all away.</description>
+    </item>
+    
+    <item>
       <title>The importance of test realism</title>
       <link>https://hitchdev.com/hitchstory/approach/test-realism/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/approach/test-realism/</guid>
-      <description>Test realism is the strangely controversial principle that automated tests should test code in as realistic a manner as possible.
-This means, among other things, where it is realistically feasible, the tester should aim for:
- Running the code in environments which match where it will be run for real. Testing against real code rather than mock code where possible. Where mocks are used, realistic mocks are chosen or built.</description>
+      <description>Test realism is the strangely controversial principle that automated tests should test realistically.
+This means, among other things, where it is feasible, automated test builders should aim for:
+ Running the code in environments which closely mimic where it will be run for real. Testing against real code rather than mock code. Where mocks are used, realistic mocks are chosen or built. Prioritizing writing test scenarios that mimic the real life usage of the software.</description>
     </item>
     
     <item>
@@ -1338,7 +1354,7 @@ However, if each of these things are intrinsically the same - the specification 
       <guid>https://hitchdev.com/strictyaml/using/</guid>
       <description>How to:
  Get line numbers of YAML elements Revalidate an already validated document Build a YAML document from scratch in code Reading in YAML, editing it and writing it back out Labeling exceptions Merge YAML documents Either/or schema validation of two equally valid different kinds of YAML Parsing YAML without a schema  Compound validators:
- Using a YAML object of a parsed mapping Sequence/list validator (Seq) Sequences of unique items (UniqueSeq) Mapping with defined keys and a custom key validator (Map) Fixed length sequences (FixedSeq) Mappings with arbitrary key names (MapPattern) Mappings with defined keys (Map) Validating optional keys in mappings (Map)  Scalar validators:</description>
+ Using a YAML object of a parsed mapping Sequence/list validator (Seq) Sequences of unique items (UniqueSeq) Mapping with defined keys and a custom key validator (Map) Fixed length sequences (FixedSeq) Mappings with arbitrary key names (MapPattern) Optional keys with defaults (Map/Optional) Mappings with defined keys (Map) Validating optional keys in mappings (Map)  Scalar validators:</description>
     </item>
     
     <item>
@@ -1584,6 +1600,17 @@ This is done deliberately to reduce the module&amp;rsquo;s remit, with the inten
     </item>
     
     <item>
+      <title>Why does hitchstory not have a command line interface?</title>
+      <link>https://hitchdev.com/hitchstory/why/no-cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/no-cli/</guid>
+      <description>One of the main irritations I found with other testing frameworks was the lack of flexibility regarding which tests were run, how they are run and in which order and how they are run.
+Moreover, I have almost always ended up creating quite elaborate code that calls the tests and runs them in the manner and order I wanted.
+HitchStory pre-empts that step and requires you to write code in order to run your tests.</description>
+    </item>
+    
+    <item>
       <title>Why does hitchstory not have an opinion on what counts as interesting to &#34;the business&#34;?</title>
       <link>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1676,11 +1703,10 @@ This is, I belive, mistaken. It is better if a language is not subtly different 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/why-not/gherkin/</guid>
-      <description>HitchStory and Gherkin are both DSLs for writing user stories that can double as acceptance tests, but they have different philosophies and approach.
-Gherkin scenarios emphasize the following values:
- The use of English to facilitate customer collaboration. Showing information that is &amp;ldquo;interesting to the business&amp;rdquo;.  Here are some examples.
-From the Cucumber website:
-Scenario: Buy last coffee Given there are 1 coffees left in the machine And I have deposited 1$ When I press the coffee button Then I should be served a coffee Hitch scenarios, by contrast, emphasizes the following values:</description>
+      <description>HitchStory and Gherkin are both DSLs for writing user stories that can double as acceptance tests, but they have slightly different philosophies and approach.
+Gherkin&amp;rsquo;s philosophy emphasize the following values:
+ The use of English to facilitate customer collaboration. Showing information that is &amp;ldquo;interesting to the business&amp;rdquo;.  Whereas hitchstory&amp;rsquo;s philosophy emphasizes very similar values, with some important differences:
+ The use of typed YAML to define specs for readability, precision, clarity, terseness and ease of maintenance.</description>
     </item>
     
     <item>
