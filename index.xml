@@ -13,25 +13,12 @@
     
     <item>
       <title></title>
-      <link>https://hitchdev.com/code-quality/naming/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/code-quality/naming/</guid>
-      <description> title: Clear naming Naming is applied in various different contexts that apply to code:
- Variables Methods Classes Module names Project names  These principles apply to all of them.
-There are typically three problems which lead to unclear naming:
- Ambiguous names Undefined names Misleading metaphors  Example principle conflicts:
- Write the least code possible - short names mean writing less code.  </description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>https://hitchdev.com/strictyaml/changelog/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
-      <description>Changelog 0.15.0 No relevant code changes.
-0.14.0  FEATURE : Raise exception when invalid default data is used is used in Optionals. FEATURE : Do not output defaults from Optional() to YAML and ignore parsed defaults where the parsed data is equal to the default specified in Optional(). BUGFIX : Include README.md. BUGFIX : Include README.md.  0.13.0  BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Made comma separated serializer serialize correctly.</description>
+      <description>Changelog Latest No relevant code changes.
+0.15.1  BUGFIX : Make optional values parsed using Optional appear at the end of the ordered dict. BUGFIX : Prevent YAML objects from appearing in .data. BUGFIX : Fix for bug caused by revalidation with Optional default values.  0.15.0  FEATURE : Raise exception when invalid default data is used is used in Optionals. FEATURE : Do not output defaults from Optional() to YAML and ignore parsed defaults where the parsed data is equal to the default specified in Optional().</description>
     </item>
     
     <item>
@@ -61,6 +48,15 @@ bin_directory/ls:
 #!/bin/bash ls $1from commandlib import Command runls = Command(&amp;#34;./runls&amp;#34;) Add bin_directory to PATH for runls:
 runls(&amp;#34;harry&amp;#34;).with_path(&amp;#34;bin_directory&amp;#34;).run() File &amp;lsquo;output&amp;rsquo; will contain:
 hello harry  </description>
+    </item>
+    
+    <item>
+      <title>Appropriate tooling</title>
+      <link>https://hitchdev.com/code-quality/tooling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/tooling/</guid>
+      <description> Debugging tools Code that executes specifications (tests) Development and test environment set up One step deployment One step devtest set up  </description>
     </item>
     
     <item>
@@ -141,13 +137,44 @@ hello  </description>
     </item>
     
     <item>
+      <title>Clear naming</title>
+      <link>https://hitchdev.com/code-quality/naming/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/naming/</guid>
+      <description>Naming is applied in various different contexts that apply to code:
+ Variables Methods Classes Module names Project names  These principles apply to all of them.
+There are typically three problems which lead to unclear naming:
+ Ambiguous names Undefined names Misleading metaphors  Example principle conflicts:
+ Write the least code possible - short names mean writing less code.  </description>
+    </item>
+    
+    <item>
+      <title>Code consistency</title>
+      <link>https://hitchdev.com/code-quality/consistency/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/consistency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Code determinism</title>
+      <link>https://hitchdev.com/code-quality/determinism/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/determinism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Code quality principles</title>
       <link>https://hitchdev.com/code-quality/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/code-quality/</guid>
       <description>Improved code quality is about reduced code maintenance costs. Code quality consideration is not a religious exercise, it is a budgeting exercise.
-All of the principles here are important but they ought to be applied on a cost/benefit basis. They are all trade offs. There is sometimes a right answer (when improving code quality incurs a very small cost, you should always do it). There is sometimes no right answer.</description>
+Code that does what the user wants is typically the highest priority. These principles are not about that. These principles are about code qualities that are not about what the user wants. &amp;ldquo;Fast&amp;rdquo; and &amp;ldquo;bug free&amp;rdquo; are thus not listed, even though most of the time, it&amp;rsquo;s easier to get faster and bug free code if your code is clean.</description>
     </item>
     
     <item>
@@ -249,7 +276,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/hitchstory/why/</guid>
       <description>HitchStory is the result of some carefully considered, although controversial design decisions. These are justified here.
- Why does hitchstory not have a command line interface? Principles I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
+ Why does hitchstory not have a command line interface? Principles Why does hitchstory mandate the use of given but not when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
     </item>
     
     <item>
@@ -259,7 +286,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/strictyaml/why/</guid>
       <description>StrictYAML is the result of some carefully considered, although controversial design decisions. These are justified here.
- What is wrong with explicit tags? What is wrong with explicit syntax typing in a readable configuration language? What is wrong with implicit typing? What is wrong with flow style YAML? Why does StrictYAML only parse from strings and not files? What is wrong with duplicate keys? Why is parsing speed not a high priority for StrictYAML?</description>
+ What is wrong with explicit tags? What is wrong with explicit syntax typing in a readable configuration language? The Norway Problem - why StrictYAML won&amp;rsquo;t do implicit typing What is wrong with flow style YAML? Why does StrictYAML only parse from strings and not files? What is wrong with duplicate keys? Why is parsing speed not a high priority for StrictYAML?</description>
     </item>
     
     <item>
@@ -452,6 +479,16 @@ What kind of metadata you add to stories is up to you - simply add the names of 
       <description>All of the libraries on this website are the result of extreme dogfooding.
 The idea behind this principle is that not only are the libraries used in anger in real life production code, but that also:
  The libraries&amp;rsquo; design (and even the idea itself) emerged from heavy refactoring rather than out of the blue. The libraries are built and trialed in real life situations to eliminate most of the bugs.</description>
+    </item>
+    
+    <item>
+      <title>Fail fast; fail clearly</title>
+      <link>https://hitchdev.com/code-quality/fail-fast-fail-clearly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/fail-fast-fail-clearly/</guid>
+      <description> Fail fast and fail clearly is a principle of good code design.
+Subprinciples  Static typing Avoiding implicit typing  </description>
     </item>
     
     <item>
@@ -662,18 +699,6 @@ Collaborating with an executable specification Gradually I turned those descript
     </item>
     
     <item>
-      <title>I see given but where is when and then?</title>
-      <link>https://hitchdev.com/hitchstory/why/given-when-then/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/why/given-when-then/</guid>
-      <description>You can certainly write user stories using when and then like so:
-Given:Ihave:redboxSteps:-WhenIclick:theredbutton-Thenitgoeskaboom However, hitchstory does not require this, and it is not generally encouraged because, as with code, terseness and ease of editing is of primary importance and this languge is designed for use primarily by programmers.
-Writing the story like this is terser and no less clear:
-given:box:redsteps:-click:redbutton-goeskaboom Where stakeholders wish to read documentation that is longer form and more flowing, the latter can still be used to generate it.</description>
-    </item>
-    
-    <item>
       <title>Inherit one story from another</title>
       <link>https://hitchdev.com/hitchstory/using/alpha/inheritance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -707,6 +732,16 @@ a:1b:5from strictyaml import Map, Int, load from ensure import Ensure schema = M
 From the RunningCode object you can use .iprocess to get an icommandlib iprocess object.
 &amp;ldquo;long_string&amp;rdquo; is set to:
 import sys import time answer = input(&amp;quot;favorite color:&amp;quot;) with open(&amp;quot;color.txt&amp;quot;, &amp;quot;w&amp;quot;) as handle: handle.write(answer) answer = input(&amp;quot;favorite movie:&amp;quot;) with open(&amp;quot;movie.txt&amp;quot;, &amp;quot;w&amp;quot;) as handle: handle.write(answer) time.sleep(0.5) sys.exit(0)  from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.</description>
+    </item>
+    
+    <item>
+      <title>Isolation</title>
+      <link>https://hitchdev.com/code-quality/isolation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/isolation/</guid>
+      <description> Isolation is principle by which interacting code is kept apart from other interacting code.
+Subprinciples  Encapsulation Avoiding &amp;lsquo;leaky&amp;rsquo; abstractions Separation of concerns Loose coupling Global variables are bad &amp;ldquo;Functional is better&amp;rdquo; SOLID Unit testing is bad Low coupling High code cohesion  </description>
     </item>
     
     <item>
@@ -782,9 +817,8 @@ Page automatically generated from merge-documents.story.
       <description>Experimental
 This feature is in alpha. The API may change on a minor version increment.
  Example yaml_snippet:
-a:1from strictyaml import Map, Int, Str, Bool, Optional, load, as_document from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), Optional(&amp;#34;b&amp;#34;, default=False): Bool(), }) When parsed the result will include the optional value:
-Ensure(load(yaml_snippet, schema).data).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;b&amp;#34;: False}) If parsed and then output to YAML again the default data won&amp;rsquo;t be there:
-print(load(yaml_snippet, schema).as_yaml())a:1 When default data is output to YAML it is removed:</description>
+a:1from strictyaml import Map, Int, Str, Bool, Optional, load, as_document from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), Optional(&amp;#34;b&amp;#34;, default=False): Bool(), }) When parsed the result will include the optional value:
+Ensure(load(yaml_snippet, schema).data).equals(OrderedDict([(&amp;#34;a&amp;#34;, 1), (&amp;#34;b&amp;#34;, False)])) If parsed and then output to YAML again the default data won&amp;rsquo;t be there:</description>
     </item>
     
     <item>
@@ -1265,6 +1299,30 @@ Non-deterministic code is code which can produce different outputs even when it 
     </item>
     
     <item>
+      <title>The Norway Problem - why StrictYAML won&#39;t do implicit typing</title>
+      <link>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</guid>
+      <description>A while back I met an old coworker for a beer and he started telling me about this interesting internationalization bug he faced.
+&amp;ldquo;So, we started internationalizing the website and I added a few more countries - France, Germany, etc. to the configuration file&amp;rdquo;
+countries:-GB-IE-FR-DE &amp;ldquo;This was fine for a while. Then eventually we got around to adding Norway&amp;hellip;&amp;rdquo;
+countries:-GB-IE-FR-DE-NO &amp;ldquo;and then, suddenly, everything broke&amp;hellip;&amp;rdquo;
+The problem here is &amp;ldquo;implicit typing&amp;rdquo; - the YAML specification states that the parser should be &amp;lsquo;smart&amp;rsquo; about the strings that are entered in to it and attempt to convert them into the relevant types for you.</description>
+    </item>
+    
+    <item>
+      <title>The Unit Test Paradox</title>
+      <link>https://hitchdev.com/tropes/unit-test-paradox/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/tropes/unit-test-paradox/</guid>
+      <description>The unit test paradox is the paradox that low level unit testing &amp;ldquo;drives&amp;rdquo; good design by itself being a form of bad design.
+Low level unit tests tightly couple to code All tests couple to something - end to end tests couple to the body of the architecture as a whole. Lower level integration tests couple to lower level implementation details.
+The lower the level of the testing, the tighter it couples to the implementation.</description>
+    </item>
+    
+    <item>
       <title>The importance of test realism</title>
       <link>https://hitchdev.com/hitchstory/approach/test-realism/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1273,6 +1331,19 @@ Non-deterministic code is code which can produce different outputs even when it 
       <description>Test realism is the strangely controversial principle that automated tests should test realistically.
 This means, among other things, where it is feasible, automated test builders should aim for:
  Running the code in environments which closely mimic where it will be run for real. Testing against real code rather than mock code. Where mocks are used, realistic mocks are chosen or built. Prioritizing writing test scenarios that mimic the real life usage of the software.</description>
+    </item>
+    
+    <item>
+      <title>The least code principle</title>
+      <link>https://hitchdev.com/code-quality/least-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/least-code/</guid>
+      <description>Axiomatic trade off quality
+This principle is both a trade off and axiomatic.
+ Code (which includes specifications, documentation, comments, tests, configuration and regular code) is both an asset but also a liability.
+Steve McConnell in his book, Code Complete argues that bugs appear in proportion to code, even going so far as to cite statistics from a study:
+(a) Industry Average: &amp;quot;about 15 - 50 errors per 1000 lines of delivered code.</description>
     </item>
     
     <item>
@@ -1520,19 +1591,6 @@ a:1b:{c:3,d:4} This use of JSONesque { and } is also ugly and hampers readabilit
     </item>
     
     <item>
-      <title>What is wrong with implicit typing?</title>
-      <link>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</guid>
-      <description>Imagine you are parsing a DSL to represent movie scripts:
--DonCorleone:Doyouhavefaithinmyjudgment?-Clemenza:Yes-DonCorleone:DoIhaveyourloyalty? Parse output of pyyaml, ruamel.yaml and Poyo:
-&amp;gt;&amp;gt;&amp;gt; from ruamel.yaml import load &amp;gt;&amp;gt;&amp;gt; load(the_godfather) [{&amp;#39;Don Corleone&amp;#39;: &amp;#39;Do you have faith in my judgement?&amp;#39;}, {&amp;#39;Clemenza&amp;#39;: True}, {&amp;#39;Don Corleone&amp;#39;: &amp;#39;Do I have your loyalty?&amp;#39;},] Wait, Clemenza said what??
-Parse output of StrictYAML without validators:
-&amp;gt;&amp;gt;&amp;gt; from strictyaml import load, List, MapPattern, Str &amp;gt;&amp;gt;&amp;gt; load(the_godfather) [{&amp;#39;Don Corleone&amp;#39;: &amp;#39;Do you have faith in my judgement?</description>
-    </item>
-    
-    <item>
       <title>What is wrong with node anchors and references?</title>
       <link>https://hitchdev.com/strictyaml/why/node-anchors-and-references-removed/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1597,6 +1655,17 @@ By itself, this behavior isn&amp;rsquo;t necessarily capable of enacting a succe
       <guid>https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/</guid>
       <description>While other parsers will take strings, file handles and file names, StrictYAML will only parse YAML strings.
 This is done deliberately to reduce the module&amp;rsquo;s remit, with the intention of reducing both the potential bug surface and the number of exceptions that StrictYAML has to deal with - things like nonexistent files, file system errors, bad reads, unknown file extensions, etc. become the problem of some other module - ideally one more focused on handling those kinds of issues.</description>
+    </item>
+    
+    <item>
+      <title>Why does hitchstory mandate the use of given but not when and then?</title>
+      <link>https://hitchdev.com/hitchstory/why/given-when-then/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/given-when-then/</guid>
+      <description>Given-When-Then is a structured way of writing test cases or executable specs. It was invented by Dan North as part of behavior driven development.
+Hoare logic This pattern is a structure that essentially all test cases should be written, separating the preconditions from the actions from the observable outcome. It follows from Hoare logic - a means of reasoning rigorously about the correctness of a computer program.
+Many BDD frameworks have explicit keywords for given, when and then.</description>
     </item>
     
     <item>
@@ -1857,8 +1926,7 @@ While this may not intrinsically seem like a good thing (more power seems better
       <guid>https://hitchdev.com/hitchstory/why-not/unit-test/</guid>
       <description>NOTE: This argument is a work in progress and there are still several things that need amending / adding.
 This is not an argument against the following:
- Testing in general Test driven development Low level testing (of classes and methods or otherwise) Property based testing (e.g. hypothesis). Mocking Doctests  All have their place.
-This simply about the use of unit testing frameworks - py.test, nose, unittest2, jUnit, etc.</description>
+ Testing in general Test driven development Low level testing (of classes and methods or otherwise) Property based testing (e.g. hypothesis). Mocking Doctests  These are all good things in the right context. This is purely about the xUnit framework approach to testing - py.</description>
     </item>
     
     <item>
@@ -1883,19 +1951,6 @@ index.html:
       <description>Write code with the least expressive power necessary is a [tradeoff principle of code quality].
 Examples  YAML vs Python The story of JSON Whither garbage collector Metaprogramming LINQ vs. C# SQL vs. imperative The DSL merry-go-round C++ templating language  Subprinciples These are principles which can be partially or in whole be derived from this principle.
  Immutability vs. Mutability (side effects) State isolation Lazy evaluation Principle of least privilege in protocol design  Other people talking about the same principle These explanations discuss languages as if their power is uniform and static, whereas this principle also applies to problems and the power of features used to solve them within the same language.</description>
-    </item>
-    
-    <item>
-      <title>Write terse code</title>
-      <link>https://hitchdev.com/code-quality/least-code/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/code-quality/least-code/</guid>
-      <description>Axiomatic trade off quality
-This principle is both a trade off and axiomatic.
- Code (which includes specifications, documentation, comments, tests, configuration and regular code) is both an asset but also a liability.
-Steve McConnell in his book, Code Complete argues that bugs appear in proportion to code, even going so far as to cite statistics from a study:
-(a) Industry Average: &amp;quot;about 15 - 50 errors per 1000 lines of delivered code.</description>
     </item>
     
   </channel>

@@ -17,8 +17,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
-      <description>Changelog 0.15.0 No relevant code changes.
-0.14.0  FEATURE : Raise exception when invalid default data is used is used in Optionals. FEATURE : Do not output defaults from Optional() to YAML and ignore parsed defaults where the parsed data is equal to the default specified in Optional(). BUGFIX : Include README.md. BUGFIX : Include README.md.  0.13.0  BUGFIX : Made comma separated serializer serialize correctly. BUGFIX : Made comma separated serializer serialize correctly.</description>
+      <description>Changelog Latest No relevant code changes.
+0.15.1  BUGFIX : Make optional values parsed using Optional appear at the end of the ordered dict. BUGFIX : Prevent YAML objects from appearing in .data. BUGFIX : Fix for bug caused by revalidation with Optional default values.  0.15.0  FEATURE : Raise exception when invalid default data is used is used in Optionals. FEATURE : Do not output defaults from Optional() to YAML and ignore parsed defaults where the parsed data is equal to the default specified in Optional().</description>
     </item>
     
     <item>
@@ -84,7 +84,7 @@ Parsing and validating as a Decimal is best for values which require precision, 
       
       <guid>https://hitchdev.com/strictyaml/why/</guid>
       <description>StrictYAML is the result of some carefully considered, although controversial design decisions. These are justified here.
- What is wrong with explicit tags? What is wrong with explicit syntax typing in a readable configuration language? What is wrong with implicit typing? What is wrong with flow style YAML? Why does StrictYAML only parse from strings and not files? What is wrong with duplicate keys? Why is parsing speed not a high priority for StrictYAML?</description>
+ What is wrong with explicit tags? What is wrong with explicit syntax typing in a readable configuration language? The Norway Problem - why StrictYAML won&amp;rsquo;t do implicit typing What is wrong with flow style YAML? Why does StrictYAML only parse from strings and not files? What is wrong with duplicate keys? Why is parsing speed not a high priority for StrictYAML?</description>
     </item>
     
     <item>
@@ -304,9 +304,8 @@ Page automatically generated from merge-documents.story.
       <description>Experimental
 This feature is in alpha. The API may change on a minor version increment.
  Example yaml_snippet:
-a:1from strictyaml import Map, Int, Str, Bool, Optional, load, as_document from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), Optional(&amp;#34;b&amp;#34;, default=False): Bool(), }) When parsed the result will include the optional value:
-Ensure(load(yaml_snippet, schema).data).equals({&amp;#34;a&amp;#34;: 1, &amp;#34;b&amp;#34;: False}) If parsed and then output to YAML again the default data won&amp;rsquo;t be there:
-print(load(yaml_snippet, schema).as_yaml())a:1 When default data is output to YAML it is removed:</description>
+a:1from strictyaml import Map, Int, Str, Bool, Optional, load, as_document from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), Optional(&amp;#34;b&amp;#34;, default=False): Bool(), }) When parsed the result will include the optional value:
+Ensure(load(yaml_snippet, schema).data).equals(OrderedDict([(&amp;#34;a&amp;#34;, 1), (&amp;#34;b&amp;#34;, False)])) If parsed and then output to YAML again the default data won&amp;rsquo;t be there:</description>
     </item>
     
     <item>
@@ -425,6 +424,19 @@ Ensure(load(yaml_snippet, schema)).equals([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#
       <description>StrictYAML is a type-safe YAML parser that parses and validates a restricted subset of the YAML specification.
 Priorities:
  Beautiful API Refusing to parse the ugly, hard to read and insecure features of YAML. Strict validation of markup and straightforward type casting. Clear, readable exceptions with code snippets and line numbers. Acting as a near-drop in replacement for pyyaml, ruamel.yaml or poyo. Ability to read in YAML, make changes and write it out again with comments preserved.</description>
+    </item>
+    
+    <item>
+      <title>The Norway Problem - why StrictYAML won&#39;t do implicit typing</title>
+      <link>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</guid>
+      <description>A while back I met an old coworker for a beer and he started telling me about this interesting internationalization bug he faced.
+&amp;ldquo;So, we started internationalizing the website and I added a few more countries - France, Germany, etc. to the configuration file&amp;rdquo;
+countries:-GB-IE-FR-DE &amp;ldquo;This was fine for a while. Then eventually we got around to adding Norway&amp;hellip;&amp;rdquo;
+countries:-GB-IE-FR-DE-NO &amp;ldquo;and then, suddenly, everything broke&amp;hellip;&amp;rdquo;
+The problem here is &amp;ldquo;implicit typing&amp;rdquo; - the YAML specification states that the parser should be &amp;lsquo;smart&amp;rsquo; about the strings that are entered in to it and attempt to convert them into the relevant types for you.</description>
     </item>
     
     <item>
@@ -550,19 +562,6 @@ For example, if it were to be applied to &amp;ldquo;fix&amp;rdquo; the Godfather
       <description>Flow style is essentially JSON embedded in YAML - making use of curly { } and square brackets to denote lists and mappings.
 Example:
 a:1b:{c:3,d:4} This use of JSONesque { and } is also ugly and hampers readability - especially when { and } are used for other purposes (e.g. templating) and the human reader/writer of YAML has to give themselves a headache figuring out what kind of curly bracket it is.</description>
-    </item>
-    
-    <item>
-      <title>What is wrong with implicit typing?</title>
-      <link>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</guid>
-      <description>Imagine you are parsing a DSL to represent movie scripts:
--DonCorleone:Doyouhavefaithinmyjudgment?-Clemenza:Yes-DonCorleone:DoIhaveyourloyalty? Parse output of pyyaml, ruamel.yaml and Poyo:
-&amp;gt;&amp;gt;&amp;gt; from ruamel.yaml import load &amp;gt;&amp;gt;&amp;gt; load(the_godfather) [{&amp;#39;Don Corleone&amp;#39;: &amp;#39;Do you have faith in my judgement?&amp;#39;}, {&amp;#39;Clemenza&amp;#39;: True}, {&amp;#39;Don Corleone&amp;#39;: &amp;#39;Do I have your loyalty?&amp;#39;},] Wait, Clemenza said what??
-Parse output of StrictYAML without validators:
-&amp;gt;&amp;gt;&amp;gt; from strictyaml import load, List, MapPattern, Str &amp;gt;&amp;gt;&amp;gt; load(the_godfather) [{&amp;#39;Don Corleone&amp;#39;: &amp;#39;Do you have faith in my judgement?</description>
     </item>
     
     <item>

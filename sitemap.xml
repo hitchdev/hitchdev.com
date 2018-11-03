@@ -3,10 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://hitchdev.com/code-quality/naming/</loc>
-  </url>
-  
-  <url>
     <loc>https://hitchdev.com/strictyaml/changelog/</loc>
   </url>
   
@@ -21,6 +17,10 @@
   <url>
     <loc>https://hitchdev.com/approach/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/tooling/</loc>
   </url>
   
   <url>
@@ -50,6 +50,18 @@
   
   <url>
     <loc>https://hitchdev.com/commandlib/using/alpha/environment-variables/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/naming/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/consistency/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/determinism/</loc>
   </url>
   
   <url>
@@ -171,6 +183,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/code-quality/fail-fast-fail-clearly/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchrunpy/using/alpha/variables/</loc>
   </url>
   
@@ -258,10 +274,6 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/hitchstory/why/given-when-then/</loc>
-  </url>
-  
-  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/inheritance/</loc>
   </url>
   
@@ -271,6 +283,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchrunpy/using/alpha/interact-with-running-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/isolation/</loc>
   </url>
   
   <url>
@@ -474,7 +490,19 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/tropes/unit-test-paradox/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/approach/test-realism/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/least-code/</loc>
   </url>
   
   <url>
@@ -483,6 +511,11 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/approach/triality/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/tropes/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -566,10 +599,6 @@
   </url>
   
   <url>
-    <loc>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</loc>
-  </url>
-  
-  <url>
     <loc>https://hitchdev.com/strictyaml/why/node-anchors-and-references-removed/</loc>
   </url>
   
@@ -591,6 +620,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/given-when-then/</loc>
   </url>
   
   <url>
@@ -695,10 +728,6 @@
   
   <url>
     <loc>https://hitchdev.com/code-quality/least-expressive-power/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/code-quality/least-code/</loc>
   </url>
   
 </urlset>

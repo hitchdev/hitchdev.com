@@ -94,19 +94,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-      
-      
-        <a style="display:unset;" href="https://hitchdev.com/">hitchdev</a>
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/code-quality">code-quality</a>
-            
-            
-        
-          
-            
-        
+        Code quality principles
       </div>
     </div>
 
@@ -134,7 +122,6 @@
     </div>
   </div>
 </nav>
-
 </header>
 
 <main class="main">
@@ -289,24 +276,25 @@
 
 			<p>Improved code quality is about reduced code maintenance costs. Code quality consideration is <em>not</em> a religious exercise, it is a budgeting exercise.</p>
 
+<p>Code that does what the user wants is typically the highest priority. These principles are not about that. These principles are about code qualities that are <em>not about</em> what the user wants. &ldquo;Fast&rdquo; and &ldquo;bug free&rdquo; are thus not listed, even though most of the time, it&rsquo;s easier to get faster and bug free code if your code is clean.</p>
+
 <p>All of the principles here are important but they ought to be applied on a cost/benefit basis. They are all trade offs. There is <em>sometimes</em> a right answer (when improving code quality incurs a very small cost, you should always do it). There is sometimes no right answer.</p>
 
 <p>Therefore:</p>
 
 <ul>
-<li>If maintenance costs of your system are not important, these principles may not be either.</li>
+<li>If maintenance costs of your system are not important, <em>these principles may not be either</em>.</li>
 <li>Building the wrong thing in the right way slowly is <em>far</em> worse than building the wrong thing in the wrong way quickly.</li>
-<li>Functional requirements (features, bugs, speed) may sometimes take precedence over maintenance cost.</li>
-<li>Code quality principles should <em>not</em> be applied religiously - everything here is a trade off.</li>
+<li>Functional requirements (features, bugs, speed) usually take precedence over maintenance cost.</li>
+<li>Everything here is a trade off - you cannot be religious about any aspect of code quality. Perfectionism with respect to code quality is a curse.</li>
 <li>They will conflict (e.g. some code might have higher cohesion but not be as DRY) and in such cases the costs and benefit of following each principle should be acknowledged before deciding which one to prioritize.</li>
-<li>Perfectionism is a curse.</li>
 </ul>
 
 <p>Principles:</p>
 
 <ol>
 <li><a href="write-least-code">Write the least code</a> possible</li>
-<li><a href="loose-coupling">Loosely couple</a> all interacting code</li>
+<li><a href="isolate">Isolation</a> code as much as possible.</li>
 <li>Use language that uses the <a href="least-expressive-power">least expressive power</a> necessary</li>
 <li><a href="fail-fast-and-fail-clearly">Fail fast and fail clearly</a></li>
 <li><a href="automation">Automate</a> repetitive development tasks</li>
@@ -333,7 +321,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/commandlib/using/alpha/environment-variables/" title="Change your command&#39;s environment variables (with_env)">
+      <a href="https://hitchdev.com/code-quality/determinism/" title="Code determinism">
         <span class="direction">
           Previous
         </span>
@@ -343,7 +331,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              Change your command&#39;s environment variables (with_env)
+              Code determinism
             </div>
           </div>
         </div>
@@ -440,7 +428,7 @@
 
     
 
-    <script src="https://hitchdev.com/javascripts/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

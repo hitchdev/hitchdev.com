@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>What is wrong with implicit typing? - HitchDev</title>
+    <title>The Norway Problem - why StrictYAML won&#39;t do implicit typing - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -94,31 +94,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-      
-      
-        <a style="display:unset;" href="https://hitchdev.com/">hitchdev</a>
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml">strictyaml</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/why">why</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/strictyaml/why/implicit-typing-removed">implicit-typing-removed</a>
-            
-            
-        
-          
-            
-        
+        The Norway Problem - why StrictYAML won&#39;t do implicit typing
       </div>
     </div>
 
@@ -146,7 +122,6 @@
     </div>
   </div>
 </nav>
-
 </header>
 
 <main class="main">
@@ -297,38 +272,79 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>What is wrong with implicit typing? </h1>
+			<h1>The Norway Problem - why StrictYAML won&#39;t do implicit typing </h1>
 
-			<p>Imagine you are parsing a DSL to represent movie scripts:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">-<span class="w"> </span>Don<span class="w"> </span>Corleone<span class="p">:</span><span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>faith<span class="w"> </span>in<span class="w"> </span>my<span class="w"> </span>judgment<span class="p">?</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>Clemenza<span class="p">:</span><span class="w"> </span>Yes<span class="w">
-</span><span class="w"></span>-<span class="w"> </span>Don<span class="w"> </span>Corleone<span class="p">:</span><span class="w"> </span>Do<span class="w"> </span>I<span class="w"> </span>have<span class="w"> </span>your<span class="w"> </span>loyalty<span class="p">?</span></code></pre></div>
-<p>Parse output of <a href="http://pyyaml.org and ruamel.yaml">pyyaml</a>, <a href="https://bitbucket.org/ruamel/yaml">ruamel.yaml</a> and <a href="https://github.com/hackebrot/poyo">Poyo</a>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">ruamel.yaml</span> <span class="kn">import</span> <span class="n">load</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_godfather</span><span class="p">)</span>
-<span class="p">[{</span><span class="sa"></span><span class="s1">&#39;Don Corleone&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Do you have faith in my judgement?&#39;</span><span class="p">},</span>
-  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Clemenza&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
-  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Don Corleone&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Do I have your loyalty?&#39;</span><span class="p">},]</span></code></pre></div>
-<p>Wait, Clemenza said what??</p>
+			
 
-<p>Parse output of StrictYAML without validators:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">,</span> <span class="n">Str</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_godfather</span><span class="p">)</span>
-<span class="p">[{</span><span class="sa"></span><span class="s1">&#39;Don Corleone&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Do you have faith in my judgement?&#39;</span><span class="p">},</span>
-  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Clemenza&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Yes&#39;</span><span class="p">},</span>
-  <span class="p">{</span><span class="sa"></span><span class="s1">&#39;Don Corleone&#39;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;Do I have your loyalty?&#39;</span><span class="p">},]</span></code></pre></div>
-<p>Let&rsquo;s try the Matrix instead:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">-<span class="w"> </span>Morpheus<span class="p">:</span><span class="w"> </span>Do<span class="w"> </span>you<span class="w"> </span>believe<span class="w"> </span>in<span class="w"> </span>fate<span class="p">,</span><span class="w"> </span>Neo<span class="p">?</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>Neo<span class="p">:</span><span class="w"> </span>No</code></pre></div>
-<p>Parse output from pyyaml, ruamel.yaml and poyo:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_matrix</span><span class="p">)</span> <span class="o">==</span> <span class="p">[{</span><span class="sa"></span><span class="s2">&#34;Morpheus&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;Do you belive in fate, Neo?&#34;</span><span class="p">},</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;Neo&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">}]</span></code></pre></div>
-<p>It isn&rsquo;t just a problem in movie scripts:</p>
+<p>A while back I met an old coworker for a beer and he started
+telling me about this interesting internationalization bug he
+faced.</p>
+
+<p>&ldquo;So, we started internationalizing the website and I added a few
+more countries - France, Germany, etc. to the configuration file&rdquo;</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">countries<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>GB<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>IE<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>FR<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>DE</code></pre></div>
+<p>&ldquo;This was fine for a while. Then eventually we got around to adding
+Norway&hellip;&rdquo;</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">countries<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>GB<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>IE<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>FR<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>DE<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>NO</code></pre></div>
+<p>&ldquo;and then, suddenly, everything broke&hellip;&rdquo;</p>
+
+<p>The problem here is &ldquo;implicit typing&rdquo; - the YAML specification states that
+the parser should be &lsquo;smart&rsquo; about the strings that are entered in to it and
+attempt to convert them into the relevant types for you.</p>
+
+<p>If you feed any of these in, for example, <a href="http://pyyaml.org">pyyaml</a> or <a href="https://github.com/hackebrot/poyo">Poyo</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pyyaml</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_configuration</span><span class="p">)</span>
+<span class="p">{</span><span class="sa"></span><span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;GB&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;IE&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">]}</span></code></pre></div>
+<p>Needless to say, feeding the boolean &ldquo;False&rdquo; to just about any other part
+of the program where &ldquo;NO&rdquo; was expected will break it, possibly catastrophically.</p>
+
+<p>It can be &ldquo;quick fixed&rdquo; by using quotes:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">countries<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>GB<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>IE<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>FR<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>DE<span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="s1">&#39;NO&#39;</span></code></pre></div>
+<p>StrictYAML sidesteps this problem by only <em>ever</em> parsing to a string or a data
+type explicitly defined by the schema:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_configuration</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+<span class="p">{</span><span class="sa"></span><span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;GB&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;IE&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;NO&#39;</span><span class="p">]}</span></code></pre></div>
+<h2 id="string-or-float">String or float?</h2>
+
+<p>This isn&rsquo;t just a problem with countries. This problem hit me a while back when
+trying to maintain a configuration file of various software versions. I had
+a config file like this, which wasn&rsquo;t a problem:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">python<span class="p">:</span><span class="w"> </span><span class="m">3.5</span>.<span class="m">3</span><span class="w">
-</span><span class="w"></span>postgres<span class="p">:</span><span class="w"> </span><span class="m">9.3</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span> <span class="o">==</span> <span class="p">[{</span><span class="sa"></span><span class="s2">&#34;python&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.5.3&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;postgres&#34;</span><span class="p">:</span> <span class="mf">9.3</span><span class="p">}]</span>    <span class="c1"># oops those *both* should have been strings</span></code></pre></div>
-<p>It&rsquo;s also makes <a href="http://www.wired.com/2015/11/null">Christopher Null</a> unhappy:</p>
+</span><span class="w"></span>postgres<span class="p">:</span><span class="w"> </span><span class="m">9.3</span>.<span class="m">0</span></code></pre></div>
+<p>And then, as soon as I changed it <em>very</em> slightly:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">python<span class="p">:</span><span class="w"> </span><span class="m">3.5</span>.<span class="m">3</span><span class="w">
+</span><span class="w"></span>postgres<span class="p">:</span><span class="w"> </span><span class="m">9.3</span></code></pre></div>
+<p>I started getting type errors:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">ruamel.yaml</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span> <span class="o">==</span> <span class="p">[{</span><span class="sa"></span><span class="s2">&#34;python&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.5.3&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;postgres&#34;</span><span class="p">:</span> <span class="mf">9.3</span><span class="p">}]</span>    <span class="c1"># oops those *both* should have been strings</span></code></pre></div>
+<p>Again, it can be &lsquo;quick fixed&rsquo; with quotes, but again, the real fix
+is simply not to interpret types at all.</p>
+
+<h2 id="the-world-s-most-buggy-name">The world&rsquo;s most buggy name</h2>
+
+<p><a href="http://www.wired.com/2015/11/null">Christopher Null</a> has a name that is notorious for breaking
+software code - airlines, banks, everything. YAML, sadly, is no exception:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">first<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Christopher<span class="w">
 </span><span class="w"></span>surname<span class="p">:</span><span class="w"> </span>Null</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Is it okay if we just call you Christopher None instead?</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;first name&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;Christopher&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;surname&#34;</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span></code></pre></div>
+<h2 id="theory-of-astonishment">Theory of astonishment</h2>
+
 <p>In the above cases, implicit typing represents a major violation of <a href="https://en.wikipedia.org/wiki/Principle_of_least_astonishment">the principle of least astonishment</a>.</p>
 
 
@@ -348,7 +364,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/why/flow-style-removed/" title="What is wrong with flow style YAML?">
+      <a href="https://hitchdev.com/hitchstory/approach/test-investment/" title="Tests are an investment">
         <span class="direction">
           Previous
         </span>
@@ -358,7 +374,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              What is wrong with flow style YAML?
+              Tests are an investment
             </div>
           </div>
         </div>
@@ -368,14 +384,14 @@
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/why/node-anchors-and-references-removed/" title="What is wrong with node anchors and references?">
+      <a href="https://hitchdev.com/tropes/unit-test-paradox/" title="The Unit Test Paradox">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              What is wrong with node anchors and references?
+              The Unit Test Paradox
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
@@ -455,7 +471,7 @@
 
     
 
-    <script src="https://hitchdev.com/javascripts/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>I see given but where is when and then? - HitchDev</title>
+    <title>Why does hitchstory mandate the use of given but not when and then? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -94,31 +94,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-      
-      
-        <a style="display:unset;" href="https://hitchdev.com/">hitchdev</a>
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory">hitchstory</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/why">why</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/why/given-when-then">given-when-then</a>
-            
-            
-        
-          
-            
-        
+        Why does hitchstory mandate the use of given but not when and then?
       </div>
     </div>
 
@@ -146,7 +122,6 @@
     </div>
   </div>
 </nav>
-
 </header>
 
 <main class="main">
@@ -297,27 +272,62 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>I see given but where is when and then? </h1>
+			<h1>Why does hitchstory mandate the use of given but not when and then? </h1>
 
-			<p>You can certainly write user stories using when and then like so:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Given<span class="p">:</span><span class="w">
-</span><span class="w">  </span>I<span class="w"> </span>have<span class="p">:</span><span class="w"> </span>red<span class="w"> </span>box<span class="w">
-</span><span class="w"></span>Steps<span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>When<span class="w"> </span>I<span class="w"> </span>click<span class="p">:</span><span class="w"> </span>the<span class="w"> </span>red<span class="w"> </span>button<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>Then<span class="w"> </span>it<span class="w"> </span>goes<span class="w"> </span>kaboom</code></pre></div>
-<p>However, hitchstory does not require this, and it is not generally encouraged
-because, as with code, terseness and ease of editing is of primary importance
-and this languge is designed for use primarily by programmers.</p>
+			
 
-<p>Writing the story like this is terser and no less clear:</p>
+<p><a href="https://en.wikipedia.org/wiki/Given-When-Then">Given-When-Then</a> is a structured
+way of writing test cases or executable specs. It was invented by Dan North as
+part of behavior driven development.</p>
+
+<h2 id="hoare-logic">Hoare logic</h2>
+
+<p>This pattern is a structure that essentially all test cases should be written,
+separating the preconditions from the actions from the observable outcome. It
+follows from <a href="https://en.wikipedia.org/wiki/Given-When-Then">Hoare logic</a>
+- a means of reasoning rigorously about the correctness of a computer program.</p>
+
+<p>Many BDD frameworks have <em>explicit</em> keywords for given, when and then. These
+keywords are intended to describe the structure of the story in a &lsquo;readable&rsquo;
+way.</p>
+
+<h2 id="but-what-does-given-when-and-then-actually-do">But what does given, when and then actually do?</h2>
+
+<p>Crucially, though, keywords <em>don&rsquo;t actually do anything</em>. In Cucumber, for example,
+there is no meaningful difference to putting &ldquo;when&rdquo; and &ldquo;then&rdquo; - they are
+essentially null operators.</p>
+
+<p>I view them as something akin to test case writing &ldquo;training wheels&rdquo; - they are
+useful for beginner testers to keep the tester/specifier on track, ensuring
+that the test cases created are meaningful and actually test.</p>
+
+<p>However, while training wheels are useful for beginners, they become cumbersome
+and get in the way once you no longer need them.</p>
+
+<h2 id="terseness-and-clarity">Terseness and clarity</h2>
+
+<p>Hitchstory recognizes that the pattern describes the structure of how <em>should</em> be
+written but, other than given, it neither requires nor encourages that the
+actual keywords be used.</p>
+
+<p>Terseness is a key principle of hitchstory - the idea that stories should be
+as short and non-repetitive as possible, provided it doesn&rsquo;t inhibit readability.</p>
+
+<p>As an example, in this case, &ldquo;click&rdquo; is the &ldquo;when&rdquo; step and &ldquo;goes kaboom&rdquo; is the
+then step. The story is still clear without them:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">given<span class="p">:</span><span class="w">
 </span><span class="w">  </span>box<span class="p">:</span><span class="w"> </span>red<span class="w">
 </span><span class="w"></span>steps<span class="p">:</span><span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>click<span class="p">:</span><span class="w"> </span>red<span class="w"> </span>button<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>goes<span class="w"> </span>kaboom</code></pre></div>
-<p>Where stakeholders wish to read documentation that is longer form and more
-flowing, the latter can still be used to generate it.</p>
+</span><span class="w"></span>-<span class="w"> </span>click<span class="p">:</span><span class="w"> </span>red<span class="w"> </span>button<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>goes<span class="w"> </span>kaboom</code></pre></div>
+<h2 id="still-optional">Still optional</h2>
 
+<p>Nonetheless, if you choose, you can create steps that start with when and then:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Given<span class="p">:</span><span class="w">
+</span><span class="w">  </span>I<span class="w"> </span>have<span class="p">:</span><span class="w"> </span>red<span class="w"> </span>box<span class="w">
+</span><span class="w"></span>Steps<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>When<span class="w"> </span>I<span class="w"> </span>click<span class="p">:</span><span class="w"> </span>the<span class="w"> </span>red<span class="w"> </span>button<span class="w">
+</span><span class="w"></span>-<span class="w"> </span>Then<span class="w"> </span>it<span class="w"> </span>goes<span class="w"> </span>kaboom</code></pre></div>
 
 			<aside class="copyright" role="note">
 				
@@ -335,7 +345,7 @@ flowing, the latter can still be used to generate it.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/" title="Why does StrictYAML only parse from strings and not files?">
         <span class="direction">
           Previous
         </span>
@@ -345,7 +355,7 @@ flowing, the latter can still be used to generate it.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              How to...
+              Why does StrictYAML only parse from strings and not files?
             </div>
           </div>
         </div>
@@ -355,14 +365,14 @@ flowing, the latter can still be used to generate it.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/using/alpha/inheritance/" title="Inherit one story from another">
+      <a href="https://hitchdev.com/hitchstory/why/no-cli/" title="Why does hitchstory not have a command line interface?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Inherit one story from another
+              Why does hitchstory not have a command line interface?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
@@ -442,7 +452,7 @@ flowing, the latter can still be used to generate it.</p>
 
     
 
-    <script src="https://hitchdev.com/javascripts/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

@@ -69,7 +69,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/hitchstory/why/</guid>
       <description>HitchStory is the result of some carefully considered, although controversial design decisions. These are justified here.
- Why does hitchstory not have a command line interface? Principles I see given but where is when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
+ Why does hitchstory not have a command line interface? Principles Why does hitchstory mandate the use of given but not when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
     </item>
     
     <item>
@@ -217,18 +217,6 @@ The executable specifications can be written to specify and test applications at
       <description>A while back while I was still trialing this framework I received an enormous JIRA ticket describing the complex logic flows and behavior of a command line application.
 This was bad enough The worst part, though, was that I actually didn&amp;rsquo;t really understand what I was building.
 Collaborating with an executable specification Gradually I turned those descriptions in to an executable specification that described how the command line tool was supposed to behave.</description>
-    </item>
-    
-    <item>
-      <title>I see given but where is when and then?</title>
-      <link>https://hitchdev.com/hitchstory/why/given-when-then/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/why/given-when-then/</guid>
-      <description>You can certainly write user stories using when and then like so:
-Given:Ihave:redboxSteps:-WhenIclick:theredbutton-Thenitgoeskaboom However, hitchstory does not require this, and it is not generally encouraged because, as with code, terseness and ease of editing is of primary importance and this languge is designed for use primarily by programmers.
-Writing the story like this is terser and no less clear:
-given:box:redsteps:-click:redbutton-goeskaboom Where stakeholders wish to read documentation that is longer form and more flowing, the latter can still be used to generate it.</description>
     </item>
     
     <item>
@@ -487,6 +475,17 @@ Its relative existing popularity also means that it is somewhat familiar to a lo
     </item>
     
     <item>
+      <title>Why does hitchstory mandate the use of given but not when and then?</title>
+      <link>https://hitchdev.com/hitchstory/why/given-when-then/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/given-when-then/</guid>
+      <description>Given-When-Then is a structured way of writing test cases or executable specs. It was invented by Dan North as part of behavior driven development.
+Hoare logic This pattern is a structure that essentially all test cases should be written, separating the preconditions from the actions from the observable outcome. It follows from Hoare logic - a means of reasoning rigorously about the correctness of a computer program.
+Many BDD frameworks have explicit keywords for given, when and then.</description>
+    </item>
+    
+    <item>
       <title>Why does hitchstory not have a command line interface?</title>
       <link>https://hitchdev.com/hitchstory/why/no-cli/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -551,8 +550,7 @@ The last straw was trying to debug a robot test failure and discovering that the
       <guid>https://hitchdev.com/hitchstory/why-not/unit-test/</guid>
       <description>NOTE: This argument is a work in progress and there are still several things that need amending / adding.
 This is not an argument against the following:
- Testing in general Test driven development Low level testing (of classes and methods or otherwise) Property based testing (e.g. hypothesis). Mocking Doctests  All have their place.
-This simply about the use of unit testing frameworks - py.test, nose, unittest2, jUnit, etc.</description>
+ Testing in general Test driven development Low level testing (of classes and methods or otherwise) Property based testing (e.g. hypothesis). Mocking Doctests  These are all good things in the right context. This is purely about the xUnit framework approach to testing - py.</description>
     </item>
     
   </channel>

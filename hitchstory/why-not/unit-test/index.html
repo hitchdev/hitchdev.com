@@ -94,31 +94,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-      
-      
-        <a style="display:unset;" href="https://hitchdev.com/">hitchdev</a>
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory">hitchstory</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/why-not">why-not</a>
-            
-            
-        
-          
-            
-            / <a style="display:unset;" href="https://hitchdev.com/hitchstory/why-not/unit-test">unit-test</a>
-            
-            
-        
-          
-            
-        
+        Why use hitchstory instead of a unit testing framework?
       </div>
     </div>
 
@@ -146,7 +122,6 @@
     </div>
   </div>
 </nav>
-
 </header>
 
 <main class="main">
@@ -314,10 +289,9 @@
 <li>Doctests</li>
 </ul>
 
-<p>All have their place.</p>
-
-<p>This simply about the use of unit testing frameworks - py.test, nose, unittest2, jUnit, etc.
-for low level testing, integration testing <em>and</em> end to end testing.</p>
+<p>These are all good things in the right context. This is purely about the xUnit framework
+approach to testing - py.test, nose, unittest2, jUnit, etc. whether they are used to
+write traditional &ldquo;unit tests&rdquo;, integration tests or end to end tests.</p>
 
 <p>There are, broadly speaking, two types of code - algorithmic code and integration
 code. Here are several examples of the former:</p>
@@ -336,16 +310,23 @@ code. Here are several examples of the former:</p>
 <li>A simple javascript widget</li>
 </ul>
 
-<h2 id="low-level-testing-of-algorithmic-code">Low level testing of algorithmic code</h2>
+<h2 id="the-unsuitability-of-low-level-testing-of-algorithmic-code">The unsuitability of low level testing of algorithmic code</h2>
 
-<p>Low level testing of algorithmic code looks a little like this example testing an &lsquo;incrementor&rsquo; from the py.test home page:</p>
+<p>Low level testing of algorithmic code looks a little like this example testing
+an &lsquo;incrementor&rsquo; from the py.test home page:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">test_answer</span><span class="p">():</span>
     <span class="k">assert</span> <span class="n">inc</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span></code></pre></div>
 <p>This is actually a good example of a clear test. The intent is obvious, the
 label is descriptive.</p>
 
 <p>This works because the code is, despite being turing complete,
-declarative and simple.</p>
+declarative and simple. The problems grow, however,</p>
+
+<p>There is no issue with separation of concerns and
+despite using a turing complete language, the code is not &ldquo;too powerful&rdquo;
+to inhibit understanding.</p>
+
+<p>However,</p>
 
 <h2 id="high-level-testing-of-integration-code">High level testing of integration code</h2>
 
@@ -375,7 +356,7 @@ separated by a divide from more powerful &lsquo;controller&rsquo; (or, in Django
 
 <p>Other features which are not (and cannot) be duplicated in unit testing frameworks:</p>
 
-<h2 id="automated-story-modification">Automated story modification</h2>
+<h2 id="what-does-hitchstory-do-that-unit-tests-can-t">What does hitchstory do that unit tests can&rsquo;t?</h2>
 
 <p>The hitchdev framework does come with a lot of useful testing tools which could just as
 easily be used with py.test if you so wish.</p>
@@ -504,7 +485,7 @@ easily be used with py.test if you so wish.</p>
 
     
 
-    <script src="https://hitchdev.com/javascripts/highlight.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

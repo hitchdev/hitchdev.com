@@ -12,16 +12,43 @@
     
     
     <item>
-      <title></title>
+      <title>Appropriate tooling</title>
+      <link>https://hitchdev.com/code-quality/tooling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/tooling/</guid>
+      <description> Debugging tools Code that executes specifications (tests) Development and test environment set up One step deployment One step devtest set up  </description>
+    </item>
+    
+    <item>
+      <title>Clear naming</title>
       <link>https://hitchdev.com/code-quality/naming/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/code-quality/naming/</guid>
-      <description> title: Clear naming Naming is applied in various different contexts that apply to code:
+      <description>Naming is applied in various different contexts that apply to code:
  Variables Methods Classes Module names Project names  These principles apply to all of them.
 There are typically three problems which lead to unclear naming:
  Ambiguous names Undefined names Misleading metaphors  Example principle conflicts:
  Write the least code possible - short names mean writing less code.  </description>
+    </item>
+    
+    <item>
+      <title>Code consistency</title>
+      <link>https://hitchdev.com/code-quality/consistency/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/consistency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Code determinism</title>
+      <link>https://hitchdev.com/code-quality/determinism/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/determinism/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -31,7 +58,40 @@ There are typically three problems which lead to unclear naming:
       
       <guid>https://hitchdev.com/code-quality/</guid>
       <description>Improved code quality is about reduced code maintenance costs. Code quality consideration is not a religious exercise, it is a budgeting exercise.
-All of the principles here are important but they ought to be applied on a cost/benefit basis. They are all trade offs. There is sometimes a right answer (when improving code quality incurs a very small cost, you should always do it). There is sometimes no right answer.</description>
+Code that does what the user wants is typically the highest priority. These principles are not about that. These principles are about code qualities that are not about what the user wants. &amp;ldquo;Fast&amp;rdquo; and &amp;ldquo;bug free&amp;rdquo; are thus not listed, even though most of the time, it&amp;rsquo;s easier to get faster and bug free code if your code is clean.</description>
+    </item>
+    
+    <item>
+      <title>Fail fast; fail clearly</title>
+      <link>https://hitchdev.com/code-quality/fail-fast-fail-clearly/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/fail-fast-fail-clearly/</guid>
+      <description> Fail fast and fail clearly is a principle of good code design.
+Subprinciples  Static typing Avoiding implicit typing  </description>
+    </item>
+    
+    <item>
+      <title>Isolation</title>
+      <link>https://hitchdev.com/code-quality/isolation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/isolation/</guid>
+      <description> Isolation is principle by which interacting code is kept apart from other interacting code.
+Subprinciples  Encapsulation Avoiding &amp;lsquo;leaky&amp;rsquo; abstractions Separation of concerns Loose coupling Global variables are bad &amp;ldquo;Functional is better&amp;rdquo; SOLID Unit testing is bad Low coupling High code cohesion  </description>
+    </item>
+    
+    <item>
+      <title>The least code principle</title>
+      <link>https://hitchdev.com/code-quality/least-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/code-quality/least-code/</guid>
+      <description>Axiomatic trade off quality
+This principle is both a trade off and axiomatic.
+ Code (which includes specifications, documentation, comments, tests, configuration and regular code) is both an asset but also a liability.
+Steve McConnell in his book, Code Complete argues that bugs appear in proportion to code, even going so far as to cite statistics from a study:
+(a) Industry Average: &amp;quot;about 15 - 50 errors per 1000 lines of delivered code.</description>
     </item>
     
     <item>
@@ -43,19 +103,6 @@ All of the principles here are important but they ought to be applied on a cost/
       <description>Write code with the least expressive power necessary is a [tradeoff principle of code quality].
 Examples  YAML vs Python The story of JSON Whither garbage collector Metaprogramming LINQ vs. C# SQL vs. imperative The DSL merry-go-round C++ templating language  Subprinciples These are principles which can be partially or in whole be derived from this principle.
  Immutability vs. Mutability (side effects) State isolation Lazy evaluation Principle of least privilege in protocol design  Other people talking about the same principle These explanations discuss languages as if their power is uniform and static, whereas this principle also applies to problems and the power of features used to solve them within the same language.</description>
-    </item>
-    
-    <item>
-      <title>Write terse code</title>
-      <link>https://hitchdev.com/code-quality/least-code/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/code-quality/least-code/</guid>
-      <description>Axiomatic trade off quality
-This principle is both a trade off and axiomatic.
- Code (which includes specifications, documentation, comments, tests, configuration and regular code) is both an asset but also a liability.
-Steve McConnell in his book, Code Complete argues that bugs appear in proportion to code, even going so far as to cite statistics from a study:
-(a) Industry Average: &amp;quot;about 15 - 50 errors per 1000 lines of delivered code.</description>
     </item>
     
   </channel>
