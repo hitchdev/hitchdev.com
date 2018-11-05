@@ -23,5 +23,14 @@ Below is a step by step guide to get started:
 Mac set up prerequisites To run integration tests / environment on a Mac, you need to first ensure that brew is installed (note that this will require XCode from the Mac App store is installed, and, subsequently, that &amp;ldquo;xcode-select &amp;ndash;install&amp;rdquo; is run).</description>
     </item>
     
+    <item>
+      <title>HitchDev Approach Documentation</title>
+      <link>https://hitchdev.com/approach/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/approach/</guid>
+      <description> Contributing to HitchDev Libraries  </description>
+    </item>
+    
   </channel>
 </rss>

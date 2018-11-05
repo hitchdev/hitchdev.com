@@ -69,7 +69,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/hitchstory/why/</guid>
       <description>HitchStory is the result of some carefully considered, although controversial design decisions. These are justified here.
- Why does hitchstory not have a command line interface? Principles Why does hitchstory mandate the use of given but not when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
+ Why programatically rewrite stories? Why does hitchstory not have a command line interface? Principles Why does hitchstory mandate the use of given but not when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories?</description>
     </item>
     
     <item>
@@ -540,6 +540,15 @@ Gherkin&amp;rsquo;s philosophy emphasize the following values:
       <description>NOTE: This argument is a work in progress and there are still several things that need amending / adding.
 HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.
 The last straw was trying to debug a robot test failure and discovering that the step that the test failed on was not displayed to the end user.</description>
+    </item>
+    
+    <item>
+      <title>Why programatically rewrite stories?</title>
+      <link>https://hitchdev.com/hitchstory/why/rewrite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/rewrite/</guid>
+      <description>TODO</description>
     </item>
     
     <item>

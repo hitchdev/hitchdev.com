@@ -18,7 +18,7 @@
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
       <description>Changelog Latest No relevant code changes.
-0.15.1  BUGFIX : Make optional values parsed using Optional appear at the end of the ordered dict. BUGFIX : Prevent YAML objects from appearing in .data. BUGFIX : Fix for bug caused by revalidation with Optional default values.  0.15.0  FEATURE : Raise exception when invalid default data is used is used in Optionals. FEATURE : Do not output defaults from Optional() to YAML and ignore parsed defaults where the parsed data is equal to the default specified in Optional().</description>
+0.15.2  BUGFIX : Modifying YAML via getitem where the YAML was validated using an OR operator failed - or validators didn&amp;rsquo;t have a key_validator.  0.15.1  BUGFIX : Make optional values parsed using Optional appear at the end of the ordered dict. BUGFIX : Prevent YAML objects from appearing in .data. BUGFIX : Fix for bug caused by revalidation with Optional default values.</description>
     </item>
     
     <item>
@@ -142,11 +142,11 @@ hello  </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/code-quality/naming/</guid>
-      <description>Naming is applied in various different contexts that apply to code:
- Variables Methods Classes Module names Project names  These principles apply to all of them.
-There are typically three problems which lead to unclear naming:
- Ambiguous names Undefined names Misleading metaphors  Example principle conflicts:
- Write the least code possible - short names mean writing less code.  </description>
+      <description>Axiomatic trade off quality
+This principle is both a trade off and axiomatic.
+ Names, whether used in variables, method, classes, module titles, project titles or documentation, should be clear.
+Ambiguous names The number one
+Undefined names Misleading metaphors Multiple names for the same concept  Ambiguous names &amp;ndash; for example, &amp;lsquo;i&amp;rsquo;. Undefined names &amp;ndash; for example, &amp;ldquo;nse_idle&amp;rdquo; Misleading metaphors &amp;ndash; for example The same concept with different names  Naming is about the terms and names used in all of the following contexts:</description>
     </item>
     
     <item>
@@ -276,7 +276,7 @@ Using a less powerful language to write tests in sounds counter-intuitive. Surel
       
       <guid>https://hitchdev.com/hitchstory/why/</guid>
       <description>HitchStory is the result of some carefully considered, although controversial design decisions. These are justified here.
- Why does hitchstory not have a command line interface? Principles Why does hitchstory mandate the use of given but not when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories? Declarative User Stories Two Unit Tests, Zero Integration Tests  Rebuttals and critiques, especially from users and designers of competing tools are welcome.</description>
+ Why programatically rewrite stories? Why does hitchstory not have a command line interface? Principles Why does hitchstory mandate the use of given but not when and then? Why does HitchStory use StrictYAML? Why does hitchstory not have an opinion on what counts as interesting to &amp;ldquo;the business&amp;rdquo;? Why is inheritance a feature of hitchstory stories?</description>
     </item>
     
     <item>
@@ -360,16 +360,15 @@ python_bin.python(&amp;#34;outputtext.py&amp;#34;).run() File &amp;lsquo;output&
     </item>
     
     <item>
-      <title>Either/or schema validation of two equally valid different kinds of YAML</title>
+      <title>Either/or schema validation of different, equally valid different kinds of YAML</title>
       <link>https://hitchdev.com/strictyaml/using/alpha/howto/either-or-validation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/using/alpha/howto/either-or-validation/</guid>
       <description>StrictYAML can be directed to parse two different elements or blocks of YAML.
 If the first thing does not parse correctly, it attempts to parse the second. If the second does not parse correctly, it raises an exception.
-from strictyaml import Map, Bool, Int, YAMLValidationError, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Bool() | Int()}) Boolean first choice true:
-a:yesEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: True}) Boolean first choice false:
-a:noEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: False}) Int second choice:</description>
+from strictyaml import Map, Bool, Int, Str, YAMLValidationError, load from ensure import Ensure schema = Str() | Map({&amp;#34;a&amp;#34;: Bool() | Int()}) Boolean first choice true:
+a:yesEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: True}) Boolean first choice false:</description>
     </item>
     
     <item>
@@ -645,6 +644,15 @@ Fully documented general tools:
     </item>
     
     <item>
+      <title>HitchDev Approach Documentation</title>
+      <link>https://hitchdev.com/approach/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/approach/</guid>
+      <description> Contributing to HitchDev Libraries  </description>
+    </item>
+    
+    <item>
       <title>HitchDev Principles</title>
       <link>https://hitchdev.com/principles/hitchdev/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -695,7 +703,7 @@ Collaborating with an executable specification Gradually I turned those descript
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/using/alpha/howto/</guid>
-      <description> Get line numbers of YAML elements Revalidate an already validated document Build a YAML document from scratch in code Reading in YAML, editing it and writing it back out Labeling exceptions Merge YAML documents Either/or schema validation of two equally valid different kinds of YAML Parsing YAML without a schema  </description>
+      <description> Get line numbers of YAML elements Revalidate an already validated document Build a YAML document from scratch in code Reading in YAML, editing it and writing it back out Labeling exceptions Merge YAML documents Either/or schema validation of different, equally valid different kinds of YAML Parsing YAML without a schema  </description>
     </item>
     
     <item>
@@ -1424,7 +1432,7 @@ However, if each of these things are intrinsically the same - the specification 
       
       <guid>https://hitchdev.com/strictyaml/using/</guid>
       <description>How to:
- Get line numbers of YAML elements Revalidate an already validated document Build a YAML document from scratch in code Reading in YAML, editing it and writing it back out Labeling exceptions Merge YAML documents Either/or schema validation of two equally valid different kinds of YAML Parsing YAML without a schema  Compound validators:
+ Get line numbers of YAML elements Revalidate an already validated document Build a YAML document from scratch in code Reading in YAML, editing it and writing it back out Labeling exceptions Merge YAML documents Either/or schema validation of different, equally valid different kinds of YAML Parsing YAML without a schema  Compound validators:
  Using a YAML object of a parsed mapping Sequence/list validator (Seq) Sequences of unique items (UniqueSeq) Mapping with defined keys and a custom key validator (Map) Fixed length sequences (FixedSeq) Mappings with arbitrary key names (MapPattern) Optional keys with defaults (Map/Optional) Mappings with defined keys (Map) Validating optional keys in mappings (Map)  Scalar validators:</description>
     </item>
     
@@ -1904,6 +1912,15 @@ The last straw was trying to debug a robot test failure and discovering that the
       <description>The page object pattern is a design pattern for creating a code API abstraction around web pages to simplify their usage in GUI tests.
 SeleniumDirector uses a &amp;ldquo;selector configuration pattern&amp;rdquo; where element selectors (id, css, xpath, etc.) are grabbed from a configuration file while the actual actions on HTML elements are not abstracted at all.
 The idea of the page object pattern is is to enact a separation of concerns between the code that interacts directly with HTML and the code which interacts with the web application.</description>
+    </item>
+    
+    <item>
+      <title>Why programatically rewrite stories?</title>
+      <link>https://hitchdev.com/hitchstory/why/rewrite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/rewrite/</guid>
+      <description>TODO</description>
     </item>
     
     <item>

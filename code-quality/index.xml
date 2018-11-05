@@ -26,11 +26,11 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/code-quality/naming/</guid>
-      <description>Naming is applied in various different contexts that apply to code:
- Variables Methods Classes Module names Project names  These principles apply to all of them.
-There are typically three problems which lead to unclear naming:
- Ambiguous names Undefined names Misleading metaphors  Example principle conflicts:
- Write the least code possible - short names mean writing less code.  </description>
+      <description>Axiomatic trade off quality
+This principle is both a trade off and axiomatic.
+ Names, whether used in variables, method, classes, module titles, project titles or documentation, should be clear.
+Ambiguous names The number one
+Undefined names Misleading metaphors Multiple names for the same concept  Ambiguous names &amp;ndash; for example, &amp;lsquo;i&amp;rsquo;. Undefined names &amp;ndash; for example, &amp;ldquo;nse_idle&amp;rdquo; Misleading metaphors &amp;ndash; for example The same concept with different names  Naming is about the terms and names used in all of the following contexts:</description>
     </item>
     
     <item>

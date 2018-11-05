@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Mapping with defined keys and a custom key validator (Map) - HitchDev</title>
+    <title>HitchDev Approach Documentation - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/strictyaml/using/alpha/compound/mapping-with-slug-keys/">
+    <link rel="canonical" href="https://hitchdev.com/approach/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/strictyaml/using/alpha/compound/mapping-with-slug-keys/">
+    <meta property="og:url" content="https://hitchdev.com/approach/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,31 +100,7 @@
         
           
             
-            / <a style="display:inline;" href='https://hitchdev.com/strictyaml'>strictyaml</a>
-            
-            
-        
-          
-            
-            / <a style="display:inline;" href='https://hitchdev.com/strictyaml/using'>using</a>
-            
-            
-        
-          
-            
-            / <a style="display:inline;" href='https://hitchdev.com/strictyaml/using/alpha'>alpha</a>
-            
-            
-        
-          
-            
-            / <a style="display:inline;" href='https://hitchdev.com/strictyaml/using/alpha/compound'>compound</a>
-            
-            
-        
-          
-            
-            / <a style="display:inline;" href='https://hitchdev.com/strictyaml/using/alpha/compound/mapping-with-slug-keys'>mapping-with-slug-keys</a>
+            / <a style="display:inline;" href='https://hitchdev.com/approach'>approach</a>
             
             
         
@@ -309,50 +285,11 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Mapping with defined keys and a custom key validator (Map) </h1>
+			<h1>HitchDev Approach Documentation </h1>
 
-			<div class="admonition warning">
-<p class="admonition-title">Experimental</p>
-<p>This feature is in alpha. The API may change on a minor version increment.</p>
-</div>
-
-<p>A typical mapping except that the key values are determined
-by the value provided by the validator.</p>
-
-<p>Example yaml_snippet:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Name<span class="p">:</span><span class="w"> </span>United<span class="w"> </span>Kingdom<span class="w">
-</span><span class="w"></span>country-code<span class="p">:</span><span class="w"> </span>GB<span class="w">
-</span><span class="w"></span>DIAL<span class="w"> </span>CODE<span class="p">:</span><span class="w"> </span>+<span class="m">44</span><span class="w">
-</span><span class="w"></span>official<span class="w"> </span>languages<span class="p">:</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>English<span class="w">
-</span><span class="w"></span>-<span class="w"> </span>Welsh</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-<span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="n">ScalarValidator</span>
-<span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
-
-<span class="c1"># This example uses slugify from the &#34;python-slugify&#34; package</span>
-<span class="kn">from</span> <span class="nn">slugify</span> <span class="kn">import</span> <span class="n">slugify</span>
-
-<span class="k">class</span> <span class="nc">Slug</span><span class="p">(</span><span class="n">ScalarValidator</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">validate_scalar</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">chunk</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">slugify</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">contents</span><span class="p">))</span>
-
-<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span>
-    <span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
-    <span class="n">Optional</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;country-code&#34;</span><span class="p">):</span> <span class="n">Str</span><span class="p">(),</span>
-    <span class="sa"></span><span class="s2">&#34;dial-code&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
-    <span class="sa"></span><span class="s2">&#34;official-languages&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())</span>
-<span class="p">},</span> <span class="n">key_validator</span><span class="o">=</span><span class="n">Slug</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span>
-    <span class="p">{</span>
-        <span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;United Kingdom&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;country-code&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;GB&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;dial-code&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;+44&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;official-languages&#34;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s2">&#34;English&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;Welsh&#34;</span><span class="p">],</span>
-    <span class="p">}</span>
-<span class="p">)</span></code></pre></div>
-<p><div class="admonition note">
-<p class="admonition-title">Executable specification</p>
-<p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/map-with-key-validator.story">map-with-key-validator.story</a>.</p>
-</div></p>
+			<ul>
+<li><a href="contributing-to-hitch-libraries">Contributing to HitchDev Libraries</a></li>
+</ul>
 
 
 			<aside class="copyright" role="note">
@@ -371,7 +308,7 @@ by the value provided by the validator.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/label-exceptions/" title="Labeling exceptions">
+      <a href="https://hitchdev.com/" title="HitchDev">
         <span class="direction">
           Previous
         </span>
@@ -381,7 +318,7 @@ by the value provided by the validator.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Labeling exceptions
+              HitchDev
             </div>
           </div>
         </div>
@@ -391,14 +328,14 @@ by the value provided by the validator.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/compound/map-pattern/" title="Mappings with arbitrary key names (MapPattern)">
+      <a href="https://hitchdev.com/principles/hitchdev/" title="HitchDev Principles">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Mappings with arbitrary key names (MapPattern)
+              HitchDev Principles
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

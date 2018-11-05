@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Either/or schema validation of two equally valid different kinds of YAML - HitchDev</title>
+    <title>Either/or schema validation of different, equally valid different kinds of YAML - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -94,7 +94,43 @@
     </div>
     <div class="stretch">
       <div class="title">
-        Either/or schema validation of two equally valid different kinds of YAML
+        
+        
+        <a style="display:inline;" href="https://hitchdev.com/">hitchdev</a>
+        
+          
+            
+            / <a style="display:inline;" href='https://hitchdev.com/strictyaml'>strictyaml</a>
+            
+            
+        
+          
+            
+            / <a style="display:inline;" href='https://hitchdev.com/strictyaml/using'>using</a>
+            
+            
+        
+          
+            
+            / <a style="display:inline;" href='https://hitchdev.com/strictyaml/using/alpha'>alpha</a>
+            
+            
+        
+          
+            
+            / <a style="display:inline;" href='https://hitchdev.com/strictyaml/using/alpha/howto'>howto</a>
+            
+            
+        
+          
+            
+            / <a style="display:inline;" href='https://hitchdev.com/strictyaml/using/alpha/howto/either-or-validation'>either-or-validation</a>
+            
+            
+        
+          
+            
+        
       </div>
     </div>
 
@@ -122,6 +158,7 @@
     </div>
   </div>
 </nav>
+
 </header>
 
 <main class="main">
@@ -272,7 +309,7 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Either/or schema validation of two equally valid different kinds of YAML </h1>
+			<h1>Either/or schema validation of different, equally valid different kinds of YAML </h1>
 
 			<p>StrictYAML can be directed to parse two different elements or
 blocks of YAML.</p>
@@ -280,10 +317,10 @@ blocks of YAML.</p>
 <p>If the first thing does not parse correctly, it attempts to
 parse the second. If the second does not parse correctly,
 it raises an exception.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">YAMLValidationError</span><span class="p">,</span> <span class="n">load</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">YAMLValidationError</span><span class="p">,</span> <span class="n">load</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
-<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Bool</span><span class="p">()</span> <span class="o">|</span> <span class="n">Int</span><span class="p">()})</span></code></pre></div>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Str</span><span class="p">()</span> <span class="o">|</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Bool</span><span class="p">()</span> <span class="o">|</span> <span class="n">Int</span><span class="p">()})</span></code></pre></div>
 <p>Boolean first choice true:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>yes</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span></code></pre></div>
 <p>Boolean first choice false:</p>
