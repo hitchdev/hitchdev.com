@@ -311,14 +311,15 @@
 		<div class="wrapper">
 			<h1>Revalidate an already validated document </h1>
 
-			<p>When parsing a YAML document you may wish to validate part of the
-document and then later on validate other sections within it.</p>
+			<p>When parsing a YAML document you may wish to do more than one validation
+pass over a document.</p>
 
-<p>This may be required because:</p>
+<p>This is needed when:</p>
 
 <ul>
-<li>One part of the document validation depends upon another (example here).</li>
-<li>It simplifies the code to apply different kinds of validation at different steps.</li>
+<li>It simplifies your code to apply validation in stages.</li>
+<li>You want to validate recursively.</li>
+<li>One part of the document validation depends upon another (this is the example given below).</li>
 </ul>
 
 <p>Example yaml_snippet:</p>

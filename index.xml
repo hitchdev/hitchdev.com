@@ -18,7 +18,7 @@
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
       <description>Changelog Latest No relevant code changes.
-0.15.2  BUGFIX : Modifying YAML via getitem where the YAML was validated using an OR operator failed - or validators didn&amp;rsquo;t have a key_validator.  0.15.1  BUGFIX : Make optional values parsed using Optional appear at the end of the ordered dict. BUGFIX : Prevent YAML objects from appearing in .data. BUGFIX : Fix for bug caused by revalidation with Optional default values.</description>
+0.15.4  BUGFIX : If revalidating a subschema with an Or validator and then changing the contents of the parsed data, a cryptic error was raised.  0.15.3  BUGFIX : Fix for #46 - prevent Enum parsed values from becoming YAML objects.  0.15.2  BUGFIX : Modifying YAML via getitem where the YAML was validated using an OR operator failed - or validators didn&amp;rsquo;t have a key_validator.</description>
     </item>
     
     <item>
@@ -420,9 +420,9 @@ Ensure(load(yaml_snippet, Map({&amp;#34;a&amp;#34;: EmptyNone() | Enum([&amp;#34
       <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/enum/</guid>
       <description>StrictYAML allows you to ensure that a scalar value can only be one of a set number of items.
 It will throw an exception if any strings not in the list are found.
-from strictyaml import Map, Enum, MapPattern, YAMLValidationError, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Enum([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;, &amp;#34;C&amp;#34;])}) Valid because it contains &amp;lsquo;A&amp;rsquo;:
-a:AEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;A&amp;#34;}) Valid because it contains &amp;lsquo;B&amp;rsquo;:
-a:BEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;B&amp;#34;}) Valid because it contains &amp;lsquo;C&amp;rsquo;:</description>
+from strictyaml import Map, Enum, MapPattern, YAMLValidationError, load from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Enum([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;, &amp;#34;C&amp;#34;])}) Valid because it contains &amp;lsquo;A&amp;rsquo;:
+a:AEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;A&amp;#34;}) Get .data from enum:
+a:Aassert isinstance(load(yaml_snippet, schema)[&amp;#39;a&amp;#39;].data, str) Valid because it contains &amp;lsquo;B&amp;rsquo;:</description>
     </item>
     
     <item>
@@ -996,9 +996,9 @@ There are two reasons for this:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/using/alpha/howto/revalidation/</guid>
-      <description>When parsing a YAML document you may wish to validate part of the document and then later on validate other sections within it.
-This may be required because:
- One part of the document validation depends upon another (example here). It simplifies the code to apply different kinds of validation at different steps.  Example yaml_snippet:
+      <description>When parsing a YAML document you may wish to do more than one validation pass over a document.
+This is needed when:
+ It simplifies your code to apply validation in stages. You want to validate recursively. One part of the document validation depends upon another (this is the example given below).  Example yaml_snippet:
 capitals:UK:1Germany:2countries:-Germany-UKfrom strictyaml import Str, Int, Map, Seq, Any, load from ensure import Ensure overall_schema = Map({&amp;#34;capitals&amp;#34;: Any(), &amp;#34;countries&amp;#34;: Seq(Str())}) parsed = load(yaml_snippet, overall_schema) Reparse mapping:</description>
     </item>
     
@@ -1617,6 +1617,17 @@ a:1b:{c:3,d:4} This use of JSONesque { and } is also ugly and hampers readabilit
       <description>When starting out on greenfield projects it&amp;rsquo;s much quicker not to create a validator. In such cases it&amp;rsquo;s often more prudent to just parse the YAML and convert the strings explicitly on the fly (e.g. int(yaml[&amp;lsquo;key&amp;rsquo;])).
 If the YAML is also going to be largely under the control of the developer it also might not make sense to write a validator either.
 If you have written software that is going to parse YAML from a source you do not control - especially by somebody who might make a mistake - then it probably does make sense to write a validator.</description>
+    </item>
+    
+    <item>
+      <title>Why avoid using environment variables as configuration?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/environment-variables-as-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/environment-variables-as-config/</guid>
+      <description>The use of &amp;ldquo;environment variables as configuration&amp;rdquo; is recommended by &amp;ldquo;12 factor&amp;rdquo;. While this is a common practice and often leads to few or no problems, calling it a best practice is a bit much.
+The reason cited by the 12 factor website for using them is:
+ The twelve-factor app stores config in environment variables (often shortened to env vars or env). Env vars are easy to change between deploys without changing any code; unlike config files, there is little chance of them being checked into the code repo accidentally; and unlike custom config files, or other config mechanisms such as Java System Properties, they are a language- and OS-agnostic standard.</description>
     </item>
     
     <item>
