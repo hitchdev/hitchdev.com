@@ -1159,19 +1159,6 @@ Ensure(load(yaml_snippet, schema)).equals([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#
     </item>
     
     <item>
-      <title>Set up with HitchKey</title>
-      <link>https://hitchdev.com/hitchstory/setup-with-hitchkey/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchstory/setup-with-hitchkey/</guid>
-      <description>You can quickstart hitchstory with hitchkey by installing the hitchkey bootstrapper with pipsi:
-pipsi install hitchkey Or, if you don&amp;rsquo;t want to install pipsi, this is also safe and won&amp;rsquo;t affect any system dependencies:
-sudo pip install hitchkey In your project, create a &amp;ldquo;hitch&amp;rdquo; directory and drop the following files in it:
-mystory.story, containing a story with one step:
-Myfirststory:steps:-Dosomething engine.py, containing code that executes stories but doesn&amp;rsquo;t do anything:</description>
-    </item>
-    
-    <item>
       <title>Setup code</title>
       <link>https://hitchdev.com/hitchrunpy/using/alpha/setup-code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

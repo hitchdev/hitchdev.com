@@ -392,13 +392,22 @@ Email was sent
 SUCCESS in 0.1 seconds.
 </code></pre>
 
-<h2 id="installing">Installing</h2>
+<h2 id="installation-and-set-up">Installation and set up</h2>
 
-<p>It&rsquo;s recommended to install and <a href="setup-with-hitchkey">set up hitchstory with hitchkey</a>, which can take care of automatically
-setting up a up the <a href="approach/recommended-environment">recommended hitchstory environment</a>.</p>
-
-<p>You can also install it traditionally through pypi:</p>
+<p>You <em>can</em> install hitchstory through pypi in any python 3 virtualenv:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install hitchstory</code></pre></div>
+<p>However, it&rsquo;s recommended to install and set up hitchstory with <a href="https://github.com/hitchdev/hitchkey">hitchkey</a>,
+which will take care of automatically setting up a up the <a href="approach/recommended-environment">recommended hitchstory environment</a>.</p>
+
+<p>Either install hitchkey with <a href="https://github.com/mitsuhiko/pipsi">pipsi</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pipsi install hitchkey</code></pre></div>
+<p>Or, if you&rsquo;d prefer, you can safely install with &ldquo;sudo pip&rdquo;:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pip install hitchkey</code></pre></div>
+<p>Once hitchkey is installed:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /your/project/directory
+hk --quickstart hitchstory</code></pre></div>
+<p>This will create a directory called &ldquo;hitch&rdquo; and put three files in it, including one story, which you can play by running:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hk bdd my first</code></pre></div>
 <h2 id="using-hitchstory">Using HitchStory</h2>
 
 <ul>
