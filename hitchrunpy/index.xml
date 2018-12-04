@@ -47,18 +47,6 @@ result = pyrunner.with_code(&amp;#34;&amp;#34;&amp;#34; class CustomException(Ex
     </item>
     
     <item>
-      <title>Feed string variables to code</title>
-      <link>https://hitchdev.com/hitchrunpy/using/alpha/variables/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/hitchrunpy/using/alpha/variables/</guid>
-      <description>This example shows how to feed variables containing strings to your running code.
-from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )long_string = u&amp;#34;â long string&amp;#34; pyrunner.with_code(( &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:&amp;#39; &amp;#39; handle.write(long_string)&amp;#39; )).with_long_strings(long_string=long_string).run() Then the file &amp;ldquo;examplefile&amp;rdquo; in the working dir will contain:
-â long string  Executable specification
-Page automatically generated from variables.</description>
-    </item>
-    
-    <item>
       <title>HitchRunPy</title>
       <link>https://hitchdev.com/hitchrunpy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -90,7 +78,7 @@ import sys import time answer = input(&amp;quot;favorite color:&amp;quot;) with 
       
       <guid>https://hitchdev.com/hitchrunpy/using/alpha/environment-vars/</guid>
       <description>Environment variables within the running python snippets can be overridden or set by using .with_env.
-from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_env(MYVAR=&amp;#34;myenvironmentvar&amp;#34;).with_code(( &amp;#39;import os\n&amp;#39; &amp;#39;\n&amp;#39; &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:\n&amp;#39; &amp;#39; handle.write(os.environ[&amp;#34;MYVAR&amp;#34;])\n&amp;#39; )).run() Then the file &amp;ldquo;examplefile&amp;rdquo; in the working dir will contain:
+from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_env(MYVAR=&amp;#34;myenvironmentvar&amp;#34;).with_code(( &amp;#39;import os\n&amp;#39; &amp;#39;\n&amp;#39; &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:\n&amp;#39; &amp;#39; handle.write(os.environ[&amp;#34;MYVAR&amp;#34;])\n&amp;#39; )).run() Then the file &amp;ldquo;working/examplefile&amp;rdquo; in the working dir will contain:
 myenvironmentvar  Executable specification
 Page automatically generated from environment-vars.</description>
     </item>
@@ -101,7 +89,7 @@ Page automatically generated from environment-vars.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchrunpy/using/alpha/setup-code/</guid>
-      <description>from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_code(( &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:&amp;#39; &amp;#39; handle.write(exampletext)&amp;#39; )).with_setup_code(&amp;#34;exampletext = &amp;#39;exampletext&amp;#39;&amp;#34;)\ .run() Then the file &amp;ldquo;examplefile&amp;rdquo; in the working dir will contain:
+      <description>from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_code(( &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:&amp;#39; &amp;#39; handle.write(exampletext)&amp;#39; )).with_setup_code(&amp;#34;exampletext = &amp;#39;exampletext&amp;#39;&amp;#34;)\ .run() Then the file &amp;ldquo;working/examplefile&amp;rdquo; in the working dir will contain:
 exampletext  Executable specification
 Page automatically generated from basic.story.
  </description>
@@ -120,12 +108,23 @@ Page automatically generated from timeout.story.</description>
     </item>
     
     <item>
+      <title>Use modules</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/variables/</guid>
+      <description>This example shows how to feed variables containing strings to your running code.
+from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )some_string = u&amp;#34;â string of some kind&amp;#34; pyrunner.with_code(( &amp;#34;from write_to_file import write_text\n&amp;#34; &amp;#34;write_text()&amp;#34; )).with_modules(&amp;#34;write_to_file.py&amp;#34;).run() Then the file &amp;ldquo;working/examplefile&amp;rdquo; in the working dir will contain:
+â string of some kind  Executable specification</description>
+    </item>
+    
+    <item>
       <title>Using HitchRunPy</title>
       <link>https://hitchdev.com/hitchrunpy/using/alpha/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchrunpy/using/alpha/</guid>
-      <description> Error occurred Exceptions Run with environment variables Feed string variables to code CProfile Timeout Interact with running code Setup code  </description>
+      <description> Error occurred Exceptions Run with environment variables Use modules CProfile Timeout Interact with running code Setup code  </description>
     </item>
     
     <item>
@@ -134,7 +133,7 @@ Page automatically generated from timeout.story.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchrunpy/using/</guid>
-      <description> Error occurred Exceptions Run with environment variables Feed string variables to code CProfile Timeout Interact with running code Setup code  </description>
+      <description> Error occurred Exceptions Run with environment variables Use modules CProfile Timeout Interact with running code Setup code  </description>
     </item>
     
   </channel>

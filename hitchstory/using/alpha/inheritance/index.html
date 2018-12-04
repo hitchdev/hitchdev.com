@@ -317,17 +317,14 @@ story for every possible branch, this would result in a
 story suite that is WET instead of DRY and that creates
 a maintenance headache.</p>
 
-<p>Story inheritance allows you to base stories on other stories.
-The base story preconditions will all be used while the
-child story preconditions (if it has any) will override
+<p>Story inheritance allows you to base stories on other stories.</p>
+
+<p>The base story given preconditions and parameters will be
+used while the child story given preconditions will override
 them.</p>
 
-<p>The same is so for story parameters.</p>
-
-<p>The base story scenario will always be executed before
-continuing with the child story scenario, however,
-if you do not want that you do not have to give the base
-story any steps to execute.</p>
+<p>The steps of the parent stories, if they have any steps,
+will be executed before the child story steps.</p>
 
 <p>example.story:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Login<span class="p">:</span><span class="w">
@@ -357,23 +354,29 @@ story any steps to execute.</p>
 </span><span class="w">    </span>username<span class="p">:</span><span class="w"> </span>DonaldTrump<span class="w">
 </span><span class="w">    </span>password<span class="p">:</span><span class="w"> </span>iamsosmrt</code></pre></div>
 <p>engine.py:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span><span class="p">,</span> <span class="n">about</span>
 <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Optional</span>
 
 
 <span class="k">class</span> <span class="nc">Engine</span><span class="p">(</span><span class="n">BaseEngine</span><span class="p">):</span>
     <span class="n">given_definition</span> <span class="o">=</span> <span class="n">GivenDefinition</span><span class="p">(</span>
-        <span class="n">url</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">Str</span><span class="p">()),</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">Str</span><span class="p">(),</span> <span class="n">document</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;Load: {{ url }}&#34;</span><span class="p">),</span>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">set_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;visit {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;url&#39;</span><span class="p">]))</span>
 
+    <span class="nd">@about</span><span class="p">((</span>
+        <span class="sa"></span><span class="s2">&#34;{</span><span class="si">% f</span><span class="s2">or name, value in textboxes.items() %}</span><span class="se">\n</span><span class="s2">&#34;</span>
+        <span class="sa"></span><span class="s2">&#34;- Enter text &#39;{{ value }}&#39; in {{ name }}.</span><span class="se">\n</span><span class="s2">&#34;</span>
+        <span class="sa"></span><span class="s2">&#34;{</span><span class="si">%- e</span><span class="s2">ndfor %}</span><span class="se">\n</span><span class="s2">&#34;</span>
+    <span class="p">))</span>
     <span class="k">def</span> <span class="nf">fill_form</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">textboxes</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">textboxes</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
             <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;with {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
             <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;enter {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
 
+    <span class="nd">@about</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;* Click on {{ item }}&#34;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
         <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;clicked on {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="p">))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span>
 <span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>

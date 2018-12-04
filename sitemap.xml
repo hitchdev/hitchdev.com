@@ -3,6 +3,10 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hitchdev.com/approach/semantic-versioning/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/changelog/</loc>
   </url>
   
@@ -184,10 +188,6 @@
   
   <url>
     <loc>https://hitchdev.com/code-quality/fail-fast-fail-clearly/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/hitchrunpy/using/alpha/variables/</loc>
   </url>
   
   <url>
@@ -520,6 +520,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/variables/</loc>
   </url>
   
   <url>

@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Why not use python&#39;s schema library for validation? - HitchDev</title>
+    <title>Why not use python&#39;s schema library (or similar) for validation? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -297,21 +297,41 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Why not use python&#39;s schema library for validation? </h1>
+			<h1>Why not use python&#39;s schema library (or similar) for validation? </h1>
 
-			<p>Python&rsquo;s &lsquo;schema&rsquo; (as well as similar libraries) can also be used to validate
-the structure of objects. Validating YAML is even cited as a reason on their
-README.</p>
+			
 
-<p>Problems:</p>
+<p>Python&rsquo;s &lsquo;schema&rsquo; (as well as similar libraries) can also be used to validate
+the structure of objects. Validating YAML is even <a href="https://github.com/keleshev/schema">cited as a reason on their
+README</a>.</p>
 
-<ul>
-<li>Line numbers and code snippets not reported on errors.</li>
-<li>YAML&rsquo;s implicit typing will still ruin validation.</li>
-<li>Roundtripping is much less straightforward.</li>
-</ul>
+<p>Using a schema for validation requires running the YAML through a parser
+first which and then taking the output (usually a data structure like a dict)
+and passing it through the schema.</p>
 
-<p>[ TODO flesh out ]</p>
+<p>Unfortunately there are a number of problems with this approach:</p>
+
+<h2 id="you-still-have-the-norway-problem-why-implicit-typing-removed">You still have <a href="../why/implicit-typing-removed">the Norway Problem</a></h2>
+
+<p>If the standard YAML parser parses &lsquo;NO&rsquo; as false or <a href="https://github.com/Grokzen/pykwalify/issues/77">empty string as
+None</a> then it doesn&rsquo;t
+really matter if the schema says an empty string or the text &lsquo;NO&rsquo; is
+okay, it will be seeing a &lsquo;None&rsquo; or a &lsquo;False&rsquo; which will cause a failure.</p>
+
+<h2 id="you-can-t-get-line-numbers-and-snippets-for-the-validation-errors">You can&rsquo;t get line numbers and snippets for the validation errors</h2>
+
+<p>Assuming you&rsquo;ve successfully circumvented the Norway problem, parsing
+and feeding the output to schema is still problematic. If you pass a
+parsed dict to schema, schema can&rsquo;t tell which line number the failure
+happened on and can&rsquo;t give you a code snippet highlighting where it
+happened.</p>
+
+<h2 id="roundtripping-becomes-very-very-difficult-if-not-impossible">Roundtripping becomes very very difficult if not impossible</h2>
+
+<p>Due to the loss of metadata about parsed YAML being lost when it
+is fed into a generic schema validator, it also becomes impossible to
+to <em>change</em> the data and serialize it without losing critical
+details (i.e. mapping ordering, comments or validation structures).</p>
 
 
 			<aside class="copyright" role="note">

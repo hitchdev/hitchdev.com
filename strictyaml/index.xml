@@ -18,6 +18,7 @@
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
       <description>Changelog Latest No relevant code changes.
+1.0.0 No relevant code changes.
 0.15.4  BUGFIX : If revalidating a subschema with an Or validator and then changing the contents of the parsed data, a cryptic error was raised.  0.15.3  BUGFIX : Fix for #46 - prevent Enum parsed values from becoming YAML objects.  0.15.2  BUGFIX : Modifying YAML via getitem where the YAML was validated using an OR operator failed - or validators didn&amp;rsquo;t have a key_validator.</description>
     </item>
     
@@ -422,7 +423,7 @@ Ensure(load(yaml_snippet, schema)).equals([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#
       <guid>https://hitchdev.com/strictyaml/</guid>
       <description>StrictYAML is a type-safe YAML parser that parses and validates a restricted subset of the YAML specification.
 Priorities:
- Beautiful API Refusing to parse the ugly, hard to read and insecure features of YAML. Strict validation of markup and straightforward type casting. Clear, readable exceptions with code snippets and line numbers. Acting as a near-drop in replacement for pyyaml, ruamel.yaml or poyo. Ability to read in YAML, make changes and write it out again with comments preserved.</description>
+ Beautiful API Refusing to parse the ugly, hard to read and insecure features of YAML like the Norway problem. Strict validation of markup and straightforward type casting. Clear, readable exceptions with code snippets and line numbers. Acting as a near-drop in replacement for pyyaml, ruamel.yaml or poyo. Ability to read in YAML, make changes and write it out again with comments preserved.</description>
     </item>
     
     <item>
@@ -682,7 +683,7 @@ This is, I belive, mistaken. It is better if a language is not subtly different 
       
       <guid>https://hitchdev.com/strictyaml/why-not/</guid>
       <description>There are a number of formats and approaches that can achieve more or less the same purpose as StrictYAML. Below is a series of comparisons with some of the more famous ones:
- Why not JSON for simple configuration files? Why not use TOML? Why not use the YAML 2.0 standard? - we don&amp;rsquo;t need a new standard! Why not use kwalify with standard YAML to validate my YAML? Why not use python&amp;rsquo;s schema library for validation?</description>
+ Why not JSON for simple configuration files? Why not use TOML? Why not use the YAML 2.0 standard? - we don&amp;rsquo;t need a new standard! Why not use kwalify with standard YAML to validate my YAML? Why not use python&amp;rsquo;s schema library (or similar) for validation?</description>
     </item>
     
     <item>
@@ -750,14 +751,14 @@ Kwalify compiles to the strictyaml equivalent but is able to do less. You cannot
     </item>
     
     <item>
-      <title>Why not use python&#39;s schema library for validation?</title>
+      <title>Why not use python&#39;s schema library (or similar) for validation?</title>
       <link>https://hitchdev.com/strictyaml/why-not/python-schema/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/why-not/python-schema/</guid>
       <description>Python&amp;rsquo;s &amp;lsquo;schema&amp;rsquo; (as well as similar libraries) can also be used to validate the structure of objects. Validating YAML is even cited as a reason on their README.
-Problems:
- Line numbers and code snippets not reported on errors. YAML&amp;rsquo;s implicit typing will still ruin validation. Roundtripping is much less straightforward.  [ TODO flesh out ]</description>
+Using a schema for validation requires running the YAML through a parser first which and then taking the output (usually a data structure like a dict) and passing it through the schema.
+Unfortunately there are a number of problems with this approach:</description>
     </item>
     
     <item>

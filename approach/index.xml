@@ -12,6 +12,20 @@
     
     
     <item>
+      <title></title>
+      <link>https://hitchdev.com/approach/semantic-versioning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/approach/semantic-versioning/</guid>
+      <description>ALPHA CHANGES (e.g. 0.1.0 -&amp;gt; 0.1.1)
+This program will probably have everything about it changed.
+BETA CHANGES (e.g. 0.1.0 -&amp;gt; 0.2.0)
+The program is in BETA and is in a state where it is ready for dogfooding.
+The chances are, if you ask for support on a beta program I will give a lot of it, and freely. In return, you let me know what issues you found.
+0.1.5 -&amp;gt; 0.</description>
+    </item>
+    
+    <item>
       <title>Contributing to Hitch Libraries</title>
       <link>https://hitchdev.com/approach/contributing-to-hitch-libraries/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

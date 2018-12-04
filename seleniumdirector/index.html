@@ -383,6 +383,18 @@ specified using &lsquo;which: [ number ]&rsquo; or which: last.</p>
 <span class="n">More</span> <span class="n">than</span> <span class="n">one</span> <span class="n">element</span> <span class="n">matches</span> <span class="n">your</span> <span class="n">query</span> <span class="sa"></span><span class="s1">&#39;//*[@id=&#39;</span><span class="n">id_dashboard_message</span><span class="sa"></span><span class="s1">&#39;]&#39;</span><span class="o">.</span></code></pre></div>
 <h2 id="install">Install</h2>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install seleniumdirector</code></pre></div>
+<p>You can also use hitchkey to generate a skeleton project structure along
+with <a href="https://hitchdev.com/hitchstory/">hitchstory</a>.</p>
+
+<p>Either install hitchkey with <a href="https://github.com/mitsuhiko/pipsi">pipsi</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pipsi install hitchkey</code></pre></div>
+<p>Or, if you&rsquo;d prefer, you can safely install with &ldquo;sudo pip&rdquo; (deactivate any virtualenvs you&rsquo;re in):</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pip install hitchkey</code></pre></div>
+<p>Once hitchkey is installed:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /your/project/directory
+hk --quickstart seleniumdirector</code></pre></div>
+<p>This will create a directory called &ldquo;hitch&rdquo; and put three files in it, including one story, which you can play by running:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hk bdd logged in</code></pre></div>
 <h2 id="using-seleniumdirector">Using SeleniumDirector</h2>
 
 <ul>

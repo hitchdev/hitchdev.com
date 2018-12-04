@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Feed string variables to code - HitchDev</title>
+    <title>Use modules - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -303,7 +303,7 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Feed string variables to code </h1>
+			<h1>Use modules </h1>
 
 			<p>This example shows how to feed variables containing
 strings to your running code.</p>
@@ -324,20 +324,20 @@ strings to your running code.</p>
 <span class="n">pyrunner</span> <span class="o">=</span> <span class="n">ExamplePythonCode</span><span class="p">(</span>
     <span class="n">virtualenv</span><span class="o">.</span><span class="nb">bin</span><span class="o">.</span><span class="n">python</span><span class="p">,</span>
     <span class="sa"></span><span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
-<span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">long_string</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&#34;â long string&#34;</span>
+<span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">some_string</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&#34;â string of some kind&#34;</span>
 
 <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">((</span>
-    <span class="sa"></span><span class="s1">&#39;with open(&#34;examplefile&#34;, &#34;w&#34;) as handle:&#39;</span>
-    <span class="sa"></span><span class="s1">&#39;     handle.write(long_string)&#39;</span>
-<span class="p">))</span><span class="o">.</span><span class="n">with_long_strings</span><span class="p">(</span><span class="n">long_string</span><span class="o">=</span><span class="n">long_string</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
-<p>Then the file &ldquo;examplefile&rdquo; in the working dir will contain:</p>
+    <span class="sa"></span><span class="s2">&#34;from write_to_file import write_text</span><span class="se">\n</span><span class="s2">&#34;</span>
+    <span class="sa"></span><span class="s2">&#34;write_text()&#34;</span>
+<span class="p">))</span><span class="o">.</span><span class="n">with_modules</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;write_to_file.py&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<p>Then the file &ldquo;working/examplefile&rdquo; in the working dir will contain:</p>
 
-<pre><code>â long string
+<pre><code>â string of some kind
 </code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Executable specification</p>
-<p>Page automatically generated from <a href="https://github.com/hitchdev/hitchstory/blob/master/hitch/variables.story">variables.story</a>.</p>
+<p>Page automatically generated from <a href="https://github.com/hitchdev/hitchstory/blob/master/hitch/with-modules.story">with-modules.story</a>.</p>
 </div>
 
 
@@ -357,7 +357,7 @@ strings to your running code.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/code-quality/fail-fast-fail-clearly/" title="Fail fast; fail clearly">
+      <a href="https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/" title="Two Unit Tests, Zero Integration Tests">
         <span class="direction">
           Previous
         </span>
@@ -367,7 +367,7 @@ strings to your running code.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Fail fast; fail clearly
+              Two Unit Tests, Zero Integration Tests
             </div>
           </div>
         </div>
@@ -377,14 +377,14 @@ strings to your running code.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/compound/fixed-length-sequences/" title="Fixed length sequences (FixedSeq)">
+      <a href="https://hitchdev.com/commandlib/using/alpha/" title="Using Commandlib">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Fixed length sequences (FixedSeq)
+              Using Commandlib
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
