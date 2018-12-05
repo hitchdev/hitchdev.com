@@ -587,6 +587,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/toml/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/</loc>
   </url>
   
@@ -692,10 +696,6 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/why-not/sdlang/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/strictyaml/why-not/toml/</loc>
   </url>
   
   <url>

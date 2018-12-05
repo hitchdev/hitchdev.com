@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Why not use TOML? - HitchDev</title>
+    <title>What is wrong with TOML? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -297,49 +297,34 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Why not use TOML? </h1>
+			<h1>What is wrong with TOML? </h1>
 
 			
 
-<p><a href="https://github.com/toml-lang/toml">TOML</a> is a redesigned configuration language that&rsquo;s essentially an extended version of INI which
-allows the expression of both hierarchical and typed data.</p>
+<p><a href="https://github.com/toml-lang/toml">TOML</a> is an improved version of INI -
+analogous to how <a href="https://github.com/crdoconnor/strictyaml">StrictYAML</a> is a
+improved version of YAML.</p>
 
-<p>TOML&rsquo;s main criticism of <em>YAML</em> is spot on:</p>
+<p>As Martin Vejnár, author of PyTOML <a href="https://github.com/avakar/pytoml/issues/15#issuecomment-217739462">argues</a>,
+while TOML works acceptably well for representing simple data structures and shallow hierarchies,
+it becomes more unwieldy the larger and more complex the hierarchy:</p>
 
-<pre><code>TOML aims for simplicity, a goal which is not apparent in the YAML specification.
-</code></pre>
+<blockquote>
+<p>TOML is a bad file format. <strong>It looks good at first glance</strong>, and for really really
+trivial things it is probably good. But once I started using it and the
+configuration schema became more complex, I found the syntax ugly and hard to read.</p>
+</blockquote>
 
-<p>Yet StrictYAML&rsquo;s cut down version of the YAML specification - with implicit typing, node anchors/references and flow style cut out,
-is simpler than both standard YAML and TOML.</p>
+<p>What specifically goes wrong? Read on:</p>
 
-<p>While TOML works well enough for simple data - perhaps as a drop in replacement for the INI files which inspired it -
-things start to get a little hairier when you have more complex nested tables/arrays.</p>
+<h2 id="1-toml-s-hierarchy-is-difficult-to-infer-from-syntax-alone">1. TOML&rsquo;s hierarchy is difficult to infer from syntax alone</h2>
 
-<h2 id="1-nesting">1. Nesting</h2>
+<p>Mapping hierarchy in TOML is determined by dots. This is simple enough for
+parsers to read and understand but unfortunately humans find it difficult to infer.</p>
 
-<p>For example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="c"># not clear that this is an array</span>
-<span class="p">[[</span><span class="nx">tables</span><span class="p">]]</span>
-<span class="nx">foo</span> <span class="p">=</span> <span class="s2">&#34;foo&#34;</span></code></pre></div>
-<p>Similarly, all arrays have the type <code>array</code>. So even though arrays are homogenous in TOML, you can oddly do:</p>
-<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">array</span> <span class="p">=</span> <span class="p">[[</span><span class="s2">&#34;foo&#34;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
-
-<span class="c"># but not</span>
-<span class="nx">array</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;foo&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span></code></pre></div>
-<p>TOML&rsquo;s overall structure is also less intuitive. So, for example, this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[[</span><span class="nx">fruit</span><span class="p">]]</span>
-<span class="nx">name</span> <span class="p">=</span> <span class="s2">&#34;apple&#34;</span>
-
-<span class="p">[</span><span class="nx">fruit</span><span class="p">.</span><span class="nx">physical</span><span class="p">]</span>
-<span class="nx">color</span> <span class="p">=</span> <span class="s2">&#34;red&#34;</span>
-<span class="nx">shape</span> <span class="p">=</span> <span class="s2">&#34;round&#34;</span></code></pre></div>
-<p>Is not as clear as this:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">fruit<span class="p">:</span><span class="w">
-</span><span class="w">  </span>name<span class="p">:</span><span class="w"> </span>apple<span class="w">
-</span><span class="w">  </span>physical<span class="p">:</span><span class="w">
-</span><span class="w">    </span>color<span class="p">:</span><span class="w"> </span>red<span class="w">
-</span><span class="w">    </span>shape<span class="p">:</span><span class="w"> </span>round</code></pre></div>
-<p>In order to partially circumvent this issue, complicated TOML is often presented with indentation. For example:</p>
+<p>The solution to this problem has been for creators of TOML documents to
+<em>introduce</em> non-meaningful indentation to make it easier for <em>humans</em> to read
+what parsers already understand:</p>
 
 <ul>
 <li><a href="https://github.com/gazreese/gazreese.com/blob/c4c3fa7d576a4c316f11f0f7a652ca11ab23586d/Hugo/config.toml">https://github.com/gazreese/gazreese.com/blob/c4c3fa7d576a4c316f11f0f7a652ca11ab23586d/Hugo/config.toml</a></li>
@@ -347,27 +332,77 @@ things start to get a little hairier when you have more complex nested tables/ar
 <li><a href="https://github.com/CzarSimon/simonlindgren.info/blob/a391a6345b16f2d8093f6d4c5f422399b4b901eb/simon-cv/config.toml">https://github.com/CzarSimon/simonlindgren.info/blob/a391a6345b16f2d8093f6d4c5f422399b4b901eb/simon-cv/config.toml</a></li>
 </ul>
 
-<h2 id="2-syntax-typing">2. Syntax Typing</h2>
+<p>This parallels the way indentation is added in languages with syntactic markers - e.g.
+JSON, Javascript or Java to make it easier for humans to understand.</p>
 
-<p>Like most other markup languages TOML has <a href="../../why/syntax-typing-bad">syntax typing</a>.</p>
+<p>Python is a notable exception to this trend - syntactic markers are not necessary and neither
+is auto-indentation for readability because the indentation <em>is</em> the marker.</p>
+
+<p>The argument over the merits of meaningful indentation has been going on for longer than
+StrictYAML&rsquo;s existence, but the various points are argued pretty well in this <a href="https://softwareengineering.stackexchange.com/questions/313034/why-should-a-language-prefer-indentation-over-explicit-markers-for-blocks">stack exchange question about python</a>. In summary:</p>
+
+<ol>
+<li><p>Python inherited the significant indentation from the (now obsolete) predecessor language ABC. ABC is one of the very few programming languages which have used usability testing to direct the design. So while discussions about syntax usually comes down to subjective opinions and personal preferences, the choice of significant indentation actually have a sounder foundation.</p></li>
+
+<li><p>Guido van Rossum came across subtle bugs where the indentation disagreed with the syntactic grouping. Meaningful indentation fixed this class of bug. Since there are no begin/end brackets there cannot be a disagreement between grouping perceived by the parser and the human reader.</p></li>
+
+<li><p>Having symbols delimiting blocks and indentation violates the DRY principle.</p></li>
+
+<li><p>It does away with the typical C debate of &ldquo;where to put the curly braces&rdquo;.</p></li>
+</ol>
+
+<h2 id="2-it-overcomplicates-itself-just-like-yaml-did">2. It overcomplicates itself just like YAML did</h2>
+
+<p>Somewhat ironically, TOML&rsquo;s creator quite rightly criticizes YAML for not aiming for simplicity
+and then unfortunately falls into the same trap itself. One way it does this is by
+trying to include date and time parsing which imports <em>all</em> of the inherent complications associated
+with <a href="https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time">dates and times</a>.</p>
+
+<p>StrictYAML separates parsing (which is part of the restricted spec) and type coercion (which isn&rsquo;t).</p>
+
+<p><strong>The only three types StrictYAML parser cares about are mappings, sequences and strings</strong>.</p>
+
+<p>StrictYAML takes JSON&rsquo;s (arguably successful) approach - that is, that in order to maintain parser spec
+simplicity, except for the <em>simplest</em> of data types, parsing and serialization of strings is a problem that
+is complicated enough that is should be delegated to something else.</p>
+
+<p>This avoids complicating the spec and isolates the <strong>vastly</strong> underestimated
+complication of parsing strings into dates (or other things) and serializing them back to something
+that specializes in this.</p>
+
+<p>This is an example of the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">UNIX philosophy</a> -
+simple, short, clear, modular, and extensible.</p>
+
+<div class="admonition note">
+<p class="admonition-title">Executable specification</p>
+<p><p>StrictYAML <em>has</em> a validator that uses python&rsquo;s <a href="https://dateutil.readthedocs.io/en/stable/">most popular date/time parsing library</a> as to <em>validate</em> and type-coerce dates but the deliberately
+simplified StrictYAML <em>parser</em> spec assumes everything is a string.</p>
+
+<p>Developers to create or use their own date parser/serializer if it suits their needs better.</p>
+</p>
+</div>
+
+<h2 id="3-it-implements-syntax-typing">3. It implements syntax typing</h2>
+
+<p>Like most other markup languages TOML has <a href="../../why/syntax-typing-bad">syntax typing</a> -
+the <em>writer</em> of the markup decides if, for example, something should be parsed as a number
+or a string:</p>
 <div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">flt2</span> <span class="p">=</span> <span class="mf">3.1415</span>
 <span class="nx">string</span> <span class="p">=</span> <span class="s2">&#34;hello&#34;</span></code></pre></div>
-<p>StrictYAML (except for a few very niche edge cases) simply does not require quotes around any value to
-infer a data type. So, for instance:</p>
+<p>StrictYAML does not require quotes around any value to infer a data type. So, for instance:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">flt<span class="m">2</span><span class="p">:</span><span class="w"> </span><span class="m">3.1415</span><span class="w">
 </span><span class="w"></span>string<span class="p">:</span><span class="w"> </span>hello</code></pre></div>
-<p>Will simply parse as string:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
-<span class="p">{</span><span class="sa"></span><span class="s2">&#34;flt2&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.1415&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">}</span></code></pre></div>
-<p>&hellip;unless directed to parse as something else by the schema:</p>
+<p>Will parse as a float if directed by the parser:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">,</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;flt2&#34;</span><span class="p">:</span> <span class="n">Float</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()}))</span><span class="o">.</span><span class="n">data</span>
 <span class="p">{</span><span class="sa"></span><span class="s2">&#34;flt&#34;</span><span class="p">:</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">}</span></code></pre></div>
-<p>The schema based approach not only eliminates the need for syntax typing, making the markup terser,
-it is more type-safe at the same time.</p>
+<p>And will reject <em>non</em> floats with an error.</p>
 
-<h2 id="3-duplicate-keys">3. Duplicate keys</h2>
-
-<p>TOML, like standard YAML, allows <a href="../../why/duplicate-keys-disallowed">duplicate keys</a> which can lead to ambiguity and bugs.</p>
+<p>Or, it will default to string if no schema is given, avoiding all ambiguity:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
+<span class="p">{</span><span class="sa"></span><span class="s2">&#34;flt2&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.1415&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">}</span></code></pre></div>
+<p>Avoiding syntax typing and delegating type information to a schema
+is another way that YAML documents that convey equivalent information can be
+kept terser and thus easier to read.</p>
 
 
 			<aside class="copyright" role="note">
@@ -386,7 +421,7 @@ it is more type-safe at the same time.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/why-not/sdlang/" title="Why not use SDLang?">
+      <a href="https://hitchdev.com/hitchstory/approach/test-or-story/" title="What is the difference betweeen a test and a story?">
         <span class="direction">
           Previous
         </span>
@@ -396,7 +431,7 @@ it is more type-safe at the same time.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Why not use SDLang?
+              What is the difference betweeen a test and a story?
             </div>
           </div>
         </div>
@@ -406,14 +441,14 @@ it is more type-safe at the same time.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/why-not/xml/" title="Why not use XML for configuration or DSLs?">
+      <a href="https://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/" title="What is wrong with duplicate keys?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Why not use XML for configuration or DSLs?
+              What is wrong with duplicate keys?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
