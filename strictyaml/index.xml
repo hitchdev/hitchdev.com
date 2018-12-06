@@ -529,7 +529,7 @@ receipt:Oz-WarePurchaseInvoicedate:2012-08-06customer:firstname:Harryfamilyname:
       <guid>https://hitchdev.com/strictyaml/why-not/toml/</guid>
       <description>TOML is an improved version of INI - analogous to this project - StrictYAML is a improved version of YAML. They are both one of at least 13 potential, often confusing choices for parsing and serializing configuration files.
 TOML isn&amp;rsquo;t the worst choice for configuration files if you use it infrequently on small, simple files but as you scale up its usage, real problems start to appear.
-Martin Vejnár, the author of PyTOML argued exactly this initially built a TOML parser out of enthusiasm for this new format but later abandoned it.</description>
+Martin Vejnár, the author of PyTOML argued exactly this.</description>
     </item>
     
     <item>
