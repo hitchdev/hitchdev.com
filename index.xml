@@ -1564,8 +1564,9 @@ A story can be translated into readable documentation, often with the aid of art
       
       <guid>https://hitchdev.com/strictyaml/why-not/toml/</guid>
       <description>TOML is an improved version of INI - analogous to how StrictYAML is a improved version of YAML.
-As Martin Vejnár, author of PyTOML argues, while TOML works acceptably well for representing simple data structures and shallow hierarchies, it becomes more unwieldy the larger and more complex the hierarchy:
- TOML is a bad file format. It looks good at first glance, and for really really trivial things it is probably good.</description>
+While StrictYAML removed features from YAML, TOML added features to INI.
+TOML does work ok if you use it infrequently, for relatively small and non-complex configuration files, but the warts appear relatively quickly as you scale up its use.
+Martin Vejnár, the author of PyTOML argued exactly this when asked whether he would like to see his library used as a dependency for pip as part of PEP-518:</description>
     </item>
     
     <item>
@@ -1827,8 +1828,9 @@ Seleniumdirector is different because separates selector management from actions
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/why-not/ini/</guid>
-      <description>INI is a very old and quite readable configuration format. Unfortunately it suffers from two major problems:
- Different parsers will operate in subtly different ways that can lead to often obscure bugs regarding the way whitespace is used, case sensitivity, comments and escape characters. It doesn&amp;rsquo;t let you represent hierarchical data.  In a way, TOML</description>
+      <description>INI is a very old and quite readable configuration format for small configuration files. It is still used by many programs today and it has some advantages due to this - e.g. python has inbuilt parser for it.
+Unfortunately it suffers from two major problems:
+ Different parsers will operate in subtly different ways that can lead to often obscure edge case bugs regarding the way whitespace is used, case sensitivity, comments and escape characters.</description>
     </item>
     
     <item>

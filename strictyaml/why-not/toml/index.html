@@ -301,13 +301,21 @@
 
 			
 
-<p><a href="https://github.com/toml-lang/toml">TOML</a> is an improved version of INI -
+<p><a href="https://github.com/toml-lang/toml">TOML</a> is an improved version of <a href="../ini">INI</a> -
 analogous to how <a href="https://github.com/crdoconnor/strictyaml">StrictYAML</a> is a
 improved version of YAML.</p>
 
-<p>As Martin Vejnár, author of PyTOML <a href="https://github.com/avakar/pytoml/issues/15#issuecomment-217739462">argues</a>,
-while TOML works acceptably well for representing simple data structures and shallow hierarchies,
-it becomes more unwieldy the larger and more complex the hierarchy:</p>
+<p>While StrictYAML <a href="../../features-removed">removed features</a> from YAML,
+TOML added features to INI.</p>
+
+<p>TOML does work ok if you use it infrequently, for relatively small and non-complex
+configuration files, but the warts appear relatively quickly as you scale up its
+use.</p>
+
+<p>Martin Vejnár, the author of PyTOML
+<a href="https://github.com/avakar/pytoml/issues/15#issuecomment-217739462">argued exactly this</a>
+when asked whether he would like to see his library used as a dependency for pip as
+part of <a href="https://www.python.org/dev/peps/pep-0518/">PEP-518</a>:</p>
 
 <blockquote>
 <p>TOML is a bad file format. <strong>It looks good at first glance</strong>, and for really really
@@ -315,31 +323,38 @@ trivial things it is probably good. But once I started using it and the
 configuration schema became more complex, I found the syntax ugly and hard to read.</p>
 </blockquote>
 
-<p>What specifically goes wrong? Read on:</p>
+<p>Ultimately, despite this PyPA still used TOML for PEP-518 with a different parser.
+I don&rsquo;t believe this to be an awful decision since pyproject.toml is fairly trivial
+in its complexity and there&rsquo;s only one per project.</p>
 
-<h2 id="1-toml-s-hierarchy-is-difficult-to-infer-from-syntax-alone">1. TOML&rsquo;s hierarchy is difficult to infer from syntax alone</h2>
+<p>StrictYAML, by contrast, was designed to be a language to write
+<a href="../../hitchstory">readable tests with</a> - a use case for which there is likely
+to be a lot more nested hierarchies and a lot more than just one file.</p>
+
+<p>So what specifically is wrong with TOML when you scale it up?</p>
+
+<h2 id="1-human-readability-toml-s-hierarchy-is-difficult-to-infer-from-syntax-alone">1. Human readability: TOML&rsquo;s hierarchy is difficult to infer from syntax alone</h2>
 
 <p>Mapping hierarchy in TOML is determined by dots. This is simple enough for
-parsers to read and understand but unfortunately humans find it difficult to infer.</p>
+parsers to read and understand but this alone makes it difficult to perceive
+the relationships between data.</p>
 
-<p>The solution to this problem has been for creators of TOML documents to
-<em>introduce</em> non-meaningful indentation to make it easier for <em>humans</em> to read
-what parsers already understand:</p>
+<p>This has been recognized by many TOML users who have adopted a method that
+will be quite familiar to a lot of programmers:</p>
 
-<ul>
-<li><a href="https://github.com/gazreese/gazreese.com/blob/c4c3fa7d576a4c316f11f0f7a652ca11ab23586d/Hugo/config.toml">https://github.com/gazreese/gazreese.com/blob/c4c3fa7d576a4c316f11f0f7a652ca11ab23586d/Hugo/config.toml</a></li>
-<li><a href="https://github.com/leereilly/csi/blob/567e5b55f766847c9dcc7de482c0fd241fa7377a/lib/data/master.toml">https://github.com/leereilly/csi/blob/567e5b55f766847c9dcc7de482c0fd241fa7377a/lib/data/master.toml</a></li>
-<li><a href="https://github.com/CzarSimon/simonlindgren.info/blob/a391a6345b16f2d8093f6d4c5f422399b4b901eb/simon-cv/config.toml">https://github.com/CzarSimon/simonlindgren.info/blob/a391a6345b16f2d8093f6d4c5f422399b4b901eb/simon-cv/config.toml</a></li>
-</ul>
+<p><a href="https://github.com/gazreese/gazreese.com/blob/c4c3fa7d576a4c316f11f0f7a652ca11ab23586d/Hugo/config.toml"><img src="../toml-indentation-1.png" alt="Non-meaningful indentation" /></a></p>
+
+<p>Indentation that is meaningful to humans but not parsers (
+<a href="https://github.com/leereilly/csi/blob/567e5b55f766847c9dcc7de482c0fd241fa7377a/lib/data/master.toml">Other</a>
+<a href="https://github.com/CzarSimon/simonlindgren.info/blob/a391a6345b16f2d8093f6d4c5f422399b4b901eb/simon-cv/config.toml">examples</a>).</p>
 
 <p>This parallels the way indentation is added in <em>lots</em> of programming languages with syntactic markers
-- e.g.  JSON, Javascript or Java are all commonly rendered with non-meaningful indentation to make it
+- e.g.  JSON, Javascript or Java are all commonly rendered with non-parsed indentation to make it
 easier for humans to understand.</p>
 
-<p>Not python though.</p>
+<p>But not python.</p>
 
-<p>Python, which is slowly becoming <a href="https://www.economist.com/graphic-detail/2018/07/26/python-is-becoming-the-worlds-most-popular-coding-language">the world&rsquo;s most popular programming language</a>
-has long been a stand out exception in how it was designed -
+<p>Python, has long been a stand out exception in how it was designed -
 syntactic markers are <em>not</em> necessary to infer program structure because indentation <em>is</em> the marker
 that determines program structure.</p>
 
@@ -355,38 +370,28 @@ that determines program structure.</p>
 <li><p>It does away with the typical religious C debate of &ldquo;where to put the curly braces&rdquo;.</p></li>
 </ol>
 
-<h2 id="2-it-overcomplicates-itself-just-like-yaml-did-by-trying-to-do-too-much">2. It overcomplicates itself just like YAML did by trying to do too much</h2>
+<h2 id="2-overcomplication-like-yaml-it-has-too-many-features">2. Overcomplication: Like YAML it has too many features</h2>
 
 <p>Somewhat ironically, TOML&rsquo;s creator quite rightly criticizes YAML for not aiming for simplicity
-and then unfortunately falls into the same trap itself. One way it does this is by
-trying to include date and time parsing which imports <em>all</em> of the inherent complications associated
-with <a href="https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time">dates and times</a>.</p>
+and then unfortunately falls into the same trap itself - albeit not quite as deeply.</p>
 
-<p>StrictYAML separates parsing (which is part of the cut down YAML spec) and type coercion (which isn&rsquo;t).</p>
+<p>One way it does this is by trying to include date and time parsing which imports
+<em>all</em> of the inherent complications associated with dates and times. Dates and times,
+as many more experienced programmers are probably aware is an unexpectedly deep rabbit hole
+of <a href="https://infiniteundo.com/post/25326999628/falsehoods-programmers-believe-about-time">complications and quirky, unexpected, bug inducing edge cases</a>.</p>
 
-<p><strong>The only three types StrictYAML parser cares about are mappings, sequences and strings</strong>.</p>
+<p>The best way to deal with complications like these is to decouple, isolate the complexity and <em>delegate</em> it to a
+<a href="https://en.wikipedia.org/wiki/Unix_philosophy">specialist tool that is good at handling that specific problem</a>.</p>
 
-<p>StrictYAML takes JSON&rsquo;s (arguably successful) approach - that is, that in order to maintain parser spec
-simplicity, except for the <em>simplest</em> of data types, parsing and serialization of strings is a problem that
-is complicated enough that is should be delegated to something else.</p>
+<p>StrictYAML takes JSON&rsquo;s (arguably successful) KISS approach - that is, for complex data types parsed from and
+serialized to strings, parsing and serialization of strings should be delegated to another tool.</p>
 
-<p>This avoids complicating the spec and isolates the <strong>vastly</strong> underestimated
-complication of parsing strings into dates (or other things) and serializing them back to something
-that specializes in this.</p>
+<p>StrictYAML the library (as opposed to the format) has a validator that uses
+<a href="https://dateutil.readthedocs.io/en/stable/">python&rsquo;s most popular date/time parsing library</a> although
+developers are encouraged to carefully consider their own need create their own
+date parser/serializer using different tools if it doesn&rsquo;t fit their needs.</p>
 
-<p>This is an example of the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">UNIX philosophy</a> -
-simple, short, clear, modular, and extensible.</p>
-
-<div class="admonition note">
-<p class="admonition-title">Executable specification</p>
-<p><p>StrictYAML <em>has</em> a validator that uses python&rsquo;s <a href="https://dateutil.readthedocs.io/en/stable/">most popular date/time parsing library</a> as to <em>validate</em> and type-coerce dates but the deliberately
-simplified StrictYAML <em>parser</em> spec assumes everything is a string.</p>
-
-<p>Developers to create or use their own date parser/serializer if it suits their needs better.</p>
-</p>
-</div>
-
-<h2 id="3-it-implements-syntax-typing">3. It implements syntax typing</h2>
+<h2 id="3-human-readability-toml-has-noisy-syntax">3. Human readability: TOML has noisy syntax</h2>
 
 <p>Like most other markup languages TOML has <a href="../../why/syntax-typing-bad">syntax typing</a> -
 the <em>writer</em> of the markup decides if, for example, something should be parsed as a number
@@ -394,18 +399,29 @@ or a string:</p>
 <div class="highlight"><pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">flt2</span> <span class="p">=</span> <span class="mf">3.1415</span>
 <span class="nx">string</span> <span class="p">=</span> <span class="s2">&#34;hello&#34;</span></code></pre></div>
 <p>StrictYAML does not require quotes around any value to infer a data type because the
-schema is assumed to be the single source of truth for type information. In larger
-documents this removes an enormous amount of syntactic noise.</p>
-
-<p>So, this, for instance:</p>
+schema is assumed to be the single source of truth for type information:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">flt<span class="m">2</span><span class="p">:</span><span class="w"> </span><span class="m">3.1415</span><span class="w">
 </span><span class="w"></span>string<span class="p">:</span><span class="w"> </span>hello</code></pre></div>
-<p>Will parse as a float if directed by the schema to do so (and reject non-floats):</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">,</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;flt2&#34;</span><span class="p">:</span> <span class="n">Float</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()}))</span><span class="o">.</span><span class="n">data</span>
-<span class="p">{</span><span class="sa"></span><span class="s2">&#34;flt&#34;</span><span class="p">:</span> <span class="mf">3.1415</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">}</span></code></pre></div>
-<p>If no schema is given, the parser will sensibly <em>unambigously</em> default to parsing only to string:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
-<span class="p">{</span><span class="sa"></span><span class="s2">&#34;flt2&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.1415&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;string&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;hello&#34;</span><span class="p">}</span></code></pre></div>
+<p>In the above example it just removes two characters, but in larger documents with more
+complex data, pushing type parsing decision to the schema (or assuming strings)
+emoves an enormous amount of syntactic noise.</p>
+
+<p>The lack of syntax typing combined with the use of indentation instead of square brackets
+to denote hierarchies makes equivalent StrictYAML documents 10-20% shorter, cleaner
+and ultimately more readable.</p>
+
+<h2 id="advantages-of-toml-still-has-over-strictyaml">Advantages of TOML still has over StrictYAML</h2>
+
+<p>There are currently still a few:</p>
+
+<ul>
+<li><p>StrictYAML does not currently have an &ldquo;official spec&rdquo;. The spec is currently just &ldquo;YAML 2.0 with <a href="../../features-removed">features removed</a>&rdquo;. This has some advantages (e.g. YAML syntax highlighting in editors works just fine) but also some disadvantages (some documents will render differently).</p></li>
+
+<li><p>StrictYAML does not yet have parsers in languages other than python. If you&rsquo;d like to write one for your language (if you don&rsquo;t also do validation it actually wouldn&rsquo;t be very complicated), contact me, I&rsquo;d love to help you in any way I can - including doing a test suite and documentation.</p></li>
+
+<li><p>Popularity.</p></li>
+</ul>
+
 
 			<aside class="copyright" role="note">
 				
