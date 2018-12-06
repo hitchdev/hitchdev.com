@@ -302,13 +302,15 @@
 			
 
 <p><a href="https://github.com/toml-lang/toml">TOML</a> is a configuration file format which was
-designed as an improved version of <a href="../ini">INI</a>. In many ways it&rsquo;s analogous to this
-project - <a href="https://github.com/crdoconnor/strictyaml">StrictYAML</a> an attempt to improve
-YAML. They are both one of at least <a href="../">13 potential, often confusing choices</a> for
+designed as a way to fix <a href="../ini">INI</a>. It&rsquo;s analogous to this project -
+<a href="https://github.com/crdoconnor/strictyaml">StrictYAML</a>, an attempt
+to <a href="../../features-removed">fix YAML</a>.</p>
+
+<p>They are both one of at least <a href="../">13 potential, often confusing choices</a> for
 parsing and serializing configuration files.</p>
 
 <p>TOML isn&rsquo;t the worst choice for configuration files if you use it infrequently
-on small and simple files but as you scale up its usage, its warts start to appear.</p>
+on small and simple files but as you scale up its usage, its many warts start to appear.</p>
 
 <p>Martin Vejnár, the author of PyTOML
 <a href="https://github.com/avakar/pytoml/issues/15#issuecomment-217739462">argued exactly this</a>.
@@ -339,17 +341,18 @@ when you are just specifying project dependencies.</p>
 
 <p>In <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/map.story">this example of a StrictYAML story</a>
 and <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/map.toml">its equivalent serialized TOML</a>
-the latter ends up <a href="https://www.goodreads.com/quotes/775257-my-point-today-is-that-if-we-wish-to-count">spending <strong>50% more</strong></a> in character terms to represent the exact same data.</p>
+the latter ends up <a href="https://www.goodreads.com/quotes/775257-my-point-today-is-that-if-we-wish-to-count">spending</a>
+<strong>50% more</strong> characters to represent the exact same data.</p>
 
-<p>This is largely due to the decision to have the full name of every key being associated
-with every value, but is also partly due to the large numbers of syntactic cruft -
+<p>This is largely due to the design decision to have the full name of every key being
+associated with every value, but is also partly due to the large numbers of syntactic cruft -
 quotation marks and square brackets dominate whereas in the YAML example they are
-absent.</p>
+unnecessary.</p>
 
-<p>Shortening program length, all other things being equal,
+<p>Shortening program lengths, all other things being equal,
 <a href="https://blog.codinghorror.com/diseconomies-of-scale-and-lines-of-code/">reduces the number of bugs significantly</a>
 because maintenance becomes easier and deriving intent from the code becomes clearer.
-What goes for turing complete code also applies to &ldquo;configuration&rdquo; code.</p>
+What goes for turing complete code also applies to configuration code.</p>
 
 <h2 id="1-toml-s-hierarchies-are-difficult-to-infer-from-syntax-alone">1. TOML&rsquo;s hierarchies are difficult to infer from syntax alone</h2>
 
@@ -382,7 +385,7 @@ considered a good idea - usually for <a href="https://softwareengineering.stacke
 
 <li><p>Having symbols delimiting blocks and indentation violates the DRY principle.</p></li>
 
-<li><p>It does away with the typical religious C debate of &ldquo;where to put the curly braces&rdquo; (TOML is not yet popular enough to inspire religious wars over indentation yet).</p></li>
+<li><p>It does away with the typical religious C debate of &ldquo;where to put the curly braces&rdquo; (although TOML is not yet popular enough to inspire such religious wars over indentation&hellip; yet).</p></li>
 </ol>
 
 <h2 id="2-overcomplication-like-yaml-toml-has-too-many-features">2. Overcomplication: Like YAML, TOML has too many features</h2>
