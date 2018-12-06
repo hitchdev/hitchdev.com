@@ -527,9 +527,8 @@ receipt:Oz-WarePurchaseInvoicedate:2012-08-06customer:firstname:Harryfamilyname:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/why-not/toml/</guid>
-      <description>TOML is a configuration file format which was designed as a way to fix INI. It&amp;rsquo;s analogous to this project - StrictYAML, an attempt to fix YAML.
-They are both one of at least 13 potential, often confusing choices for parsing and serializing configuration files.
-TOML isn&amp;rsquo;t the worst choice for configuration files if you use it infrequently on small and simple files but as you scale up its usage, its many warts start to appear.</description>
+      <description># This is a TOML document.title=&amp;#34;TOML Example&amp;#34;[owner]name=&amp;#34;Tom Preston-Werner&amp;#34;dob=1979-05-27T07:32:00-08:00# First class dates TOML is a configuration designed as a sort of &amp;ldquo;improved&amp;rdquo; INI file. It&amp;rsquo;s analogous to this project - StrictYAML, a similar attempt to fix YAML&amp;rsquo;s flaws:
+# All about the charactername:FordPrefectage:42possessions:-Towel I&amp;rsquo;m not going to argue here that TOML is the worst file format out there - if you use it infrequently on small and simple files it does its job fine.</description>
     </item>
     
     <item>

@@ -301,23 +301,33 @@
 
 			
 
-<p><a href="https://github.com/toml-lang/toml">TOML</a> is a configuration file format which was
-designed as a way to fix <a href="../ini">INI</a>. It&rsquo;s analogous to this project -
-<a href="https://github.com/crdoconnor/strictyaml">StrictYAML</a>, an attempt
-to <a href="../../features-removed">fix YAML</a>.</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># This is a TOML document.</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span>title<span class="w"> </span>=<span class="w"> </span><span class="s2">&#34;TOML Example&#34;</span><span class="w">
+</span><span class="w">
+</span><span class="w"></span><span class="p">[</span>owner<span class="p">]</span><span class="w">
+</span><span class="w"></span>name<span class="w"> </span>=<span class="w"> </span><span class="s2">&#34;Tom Preston-Werner&#34;</span><span class="w">
+</span><span class="w"></span>dob<span class="w"> </span>=<span class="w"> </span><span class="ld">1979-05-27T07:32:00</span>-<span class="m">08</span><span class="p">:</span><span class="m">00</span><span class="w"> </span><span class="c"># First class dates</span></code></pre></div>
+<p><a href="https://github.com/toml-lang/toml">TOML</a> is a configuration designed as a sort
+of &ldquo;improved&rdquo; <a href="../ini">INI file</a>. It&rsquo;s analogous to this project -
+<a href="https://github.com/crdoconnor/strictyaml">StrictYAML</a>, a similar attempt
+to <a href="../../features-removed">fix YAML&rsquo;s flaws</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># All about the character</span><span class="w">
+</span><span class="w"></span>name<span class="p">:</span><span class="w"> </span>Ford<span class="w"> </span>Prefect<span class="w">
+</span><span class="w"></span>age<span class="p">:</span><span class="w"> </span><span class="m">42</span><span class="w">
+</span><span class="w"></span>possessions<span class="p">:</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>Towel</code></pre></div>
+<p>I&rsquo;m not going to argue here that TOML is the <em>worst</em> file format out there -
+if you use it infrequently on small and simple files it does its job fine.</p>
 
-<p>They are both one of at least <a href="../">13 potential, often confusing choices</a> for
-parsing and serializing configuration files.</p>
-
-<p>TOML isn&rsquo;t the worst choice for configuration files if you use it infrequently
-on small and simple files but as you scale up its usage, its many warts start to appear.</p>
+<p>It&rsquo;s a warning though: as you scale up its usage, many bad warts start to appear.</p>
 
 <p>Martin Vejnár, the author of PyTOML
 <a href="https://github.com/avakar/pytoml/issues/15#issuecomment-217739462">argued exactly this</a>.
 He initially built a TOML parser out of enthusiasm for this new format but later abandoned
 it. When asked if he would like to see his library used as a dependency for pip as
-part of <a href="https://www.python.org/dev/peps/pep-0518/">PEP-518</a>, he explained why he abandoned
-the project:</p>
+part of <a href="https://www.python.org/dev/peps/pep-0518/">PEP-518</a>, he said no - and
+explained why he abandoned the project:</p>
 
 <blockquote>
 <p>TOML is a bad file format. <strong>It looks good at first glance</strong>, and for really really
@@ -326,18 +336,17 @@ configuration schema became more complex, I found the syntax ugly and hard to re
 </blockquote>
 
 <p>Despite this, PyPA still went ahead and used TOML for PEP-518. Fortunately
-pyproject.toml <em>is</em> fairly trivial and appears once per project
-so its issues aren&rsquo;t such a problem.</p>
+pyproject.toml <em>is</em> fairly trivial and appears just once per project
+so the problems he alludes to aren&rsquo;t that pronounced.</p>
 
 <p>StrictYAML, by contrast, was designed to be a language to write
-<a href="../../../hitchstory">readable &lsquo;story&rsquo; tests</a>. These require the same basic
-data types (mapping, list and strings) but at a higher scale - you need more
-files and more complex hierarchies within those files than you do
-when you are just specifying project dependencies.</p>
+<a href="../../../hitchstory">readable &lsquo;story&rsquo; tests</a> where there will be <em>many</em> files
+per project with more complex hierarchies, a use case where TOML starts
+to really suck.</p>
 
 <p>So what specifically <em>is</em> wrong with TOML when you scale it up?</p>
 
-<h2 id="1-it-s-very-verbose-and-very-syntactically-noisy">1. It&rsquo;s very verbose and very syntactically noisy</h2>
+<h2 id="1-it-s-very-verbose-it-s-not-dry-it-s-syntactically-noisy">1. It&rsquo;s very verbose. It&rsquo;s not DRY. It&rsquo;s syntactically noisy.</h2>
 
 <p>In <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/map.story">this example of a StrictYAML story</a>
 and <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/map.toml">its equivalent serialized TOML</a>
@@ -345,11 +354,13 @@ the latter ends up <a href="https://www.goodreads.com/quotes/775257-my-point-tod
 <strong>50% more</strong> characters to represent the exact same data.</p>
 
 <p>This is largely due to the design decision to have the full name of every key being
-associated with every value, but is also partly due to the large numbers of syntactic cruft -
-quotation marks and square brackets dominate whereas in the YAML example they are
-unnecessary.</p>
+associated with every value which is <strong>not</strong> <a href="../../../code-quality/least-code">DRY</a>.</p>
 
-<p>Shortening program lengths, all other things being equal,
+<p>It is also partly due to the large numbers of syntactic cruft - quotation marks
+and square brackets dominate TOML documents whereas in the StrictYAML example they are
+absent.</p>
+
+<p>Shortening program lengths (and DRYing code), all other things being equal,
 <a href="https://blog.codinghorror.com/diseconomies-of-scale-and-lines-of-code/">reduces the number of bugs significantly</a>
 because maintenance becomes easier and deriving intent from the code becomes clearer.
 What goes for turing complete code also applies to configuration code.</p>
