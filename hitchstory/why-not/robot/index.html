@@ -301,35 +301,73 @@
 
 			
 
-<p>NOTE: This argument is a work in progress and there are still several things that need amending / adding.</p>
+<p><a href="https://github.com/hitchdev/hitchstory">HitchDev</a>&rsquo;s creation was, in a sense,
+inspired by the <a href="https://en.wikipedia.org/wiki/Robot_Framework">robot framework</a>.</p>
 
-<p>HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.</p>
+<p>I used it back in 2014 where it was deployed on a project I joined
+and became <em>incredibly</em> frustrated using when debugging test failures.</p>
 
-<p>The last straw was trying to debug a robot test failure and discovering that the step that the test failed on was not displayed to the end user. It turned out that the maintainers had reasons for doing this, but they were bad reasons.</p>
+<p>Below I list the reasons that made me dislike this framework:</p>
 
-<p>I eventually dumped it and used python&rsquo;s built in unit testing framework, which is unsuitable for many <a href="unit-testing-framework">other reasons</a>.</p>
+<h1 id="1-the-debugging-tooling-is-terrible">1. The debugging tooling is terrible</h1>
 
-<p>Robot did, I think, get one thing right - a feature it shares in common with cucumber and hitchstory - it enforced a clear separation of concerns between execution code and story definitions - a different kind of language to the one that executes the test.</p>
+<p>The last straw in 2014 was when I was trying to debug a test failure and
+discovered that the step that the line number and step the test failed on was not
+displayed to me.</p>
 
-<p>However, it also made several mistakes:</p>
+<p>Yep, that&rsquo;s right, robot&rsquo;s reaction to a failing test wasn&rsquo;t &ldquo;hey, there&rsquo;s a problem here&rdquo;
+it was &ldquo;hey, something screwed up, why don&rsquo;t YOU figure out what?&rdquo;.</p>
 
-<h1 id="1-the-language-is-too-complicated">1 The language is too complicated</h1>
+<p>It turned out that the maintainers had <a href="https://github.com/robotframework/robotframework/issues/549">reasons</a>
+for doing this, but they were terrible.</p>
 
-<p>The robot language was supposed to be a readable equivalent to python. Unfortunately, like many other languages that get on the DSL treadmill there were features added until it became Turing complete.</p>
+<p>I subsequently dumped it and used python&rsquo;s built in unit testing framework, which worked better
+because it actually <em>told</em> me where it failed. It&rsquo;s still not a great framework
+for many <a href="unit-testing-framework">other reasons</a> but at least in that respect it was a breath
+of fresh air compared to robot.</p>
 
-<p>The language has conditionals, loops and variables - it essentially is a programming language, except not a very good one.</p>
+<p>Hitchstory, of course, tells you exactly which line the code failed on and even gives
+a stacktrace of the failed python code. I was very careful not to screw that up.</p>
 
-<h1 id="2-the-debugging-tooling-is-poor-and-the-framework-is-not-really-designed-to-be-ergonomic-when-debugging">2 The debugging tooling is poor and the framework is not really designed to be ergonomic when debugging</h1>
+<h2 id="the-dsl-is-turing-complete">The DSL is turing complete</h2>
 
-<p>TODO</p>
+<p>There is a common pattern among DSLs that I call the &ldquo;DSL treadmill&rdquo;. Somebody identifies a problem
+and thinks &ldquo;I know, I&rsquo;ll create a DSL to solve this problem!&rdquo;. That DSL works fine until the creator
+sees some use cases which they think it would be good to accomodate. Then they add some features.
+Then they see some other use cases. Then they add some more features.</p>
 
-<h1 id="3-robotselenium-is-tightly-coupled-to-robot">3 RobotSelenium is tightly coupled to Robot</h1>
+<p>And at some point <em>whoops</em> they&rsquo;ve created a turing complete programming language&hellip; by <em>accident</em>.
+This has happened to, among other DSLs <a href="http://beza1e1.tuxen.de/articles/accidentally_turing_complete.html">C++ templates, server side includes, mediawiki templates and
+sendmail configuration files</a>.</p>
+
+<p>While more features sounds like a good thing at first glance, with turing completeness being a
+quirky side effect of interest only to the academically inclined, it&rsquo;s actually a horrible, <em>horrible</em>
+trap to accidentally create a programming language.</p>
+
+<p>Turing complete code is, by its nature, difficult to understand. It requires years of practice to
+read and get what is going on. Even <em>after</em> those years of practice, correctly ascertaining behavior
+from a turing complete program is often infeasibly difficult which is&hellip; well, why we need to test
+software.</p>
+
+<p>The features robot added which tipped it over the edge were conditionals, loops and variables.</p>
+
+<p>At that point, what was even the point of <em>having</em> a DSL? Python is a <em>much</em> better programming
+language. If you&rsquo;re going to write turing complete tests, you should at least write it in that.</p>
+
+<p>Moreover, high level tests shouldn&rsquo;t describe behavior with conditionals and loops, they should
+describe <em>behavior</em> as a declarative sequence of actions.</p>
+
+<h2 id="3-robotselenium-is-tightly-coupled-to-robot">3 RobotSelenium is tightly coupled to Robot</h2>
 
 <p>I made this mistake too initially when designing hitchstory. The temptation to have prewritten steps that could be plugged in (e.g. click) was pretty strong. It wasn&rsquo;t a good approach however - flexibility is too valuable.</p>
 
 <p>In the end I figured that a better approach was to leave the contents of the step methods entirely up to the discretion of the developer and provide libraries that are framework agnostic. seleniumdirector may have been designed to work well with hitchstory and can be used to write some &ldquo;one liner steps&rdquo; like click but the API has no intrinsic connection to it and vice versa. It could work <em>just</em> as easily with py.test or unittest or be used to scrape websites.</p>
 
 <p>Similarly all the libraries that form the hitch framework are designed to have a single, tightly scoped purpose (UNIX philosophy) and to be completely agnostic about what the programmer chooses to do with them.</p>
+
+<h2 id="what-did-robot-get-right">What did Robot get right?</h2>
+
+<p>Robot did, I think, get one thing right - a feature it shares in common with <a href="../gherkin">gherkin/cucumber</a> and <a href="../../">hitchstory</a> - it enforced a clear separation of concerns between execution code and story definitions - a different kind of language to the one that executes the test. It was this core of a good idea that inspired me to write my own framework.</p>
 
 
 			<aside class="copyright" role="note">

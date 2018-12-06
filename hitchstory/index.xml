@@ -525,9 +525,10 @@ Gherkin&amp;rsquo;s philosophy emphasize the following values:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/hitchstory/why-not/robot/</guid>
-      <description>NOTE: This argument is a work in progress and there are still several things that need amending / adding.
-HitchDev was, in a sense, inspired by the robot framework. I used it many years ago and became incredibly frustrated using it for debugging.
-The last straw was trying to debug a robot test failure and discovering that the step that the test failed on was not displayed to the end user.</description>
+      <description>HitchDev&amp;rsquo;s creation was, in a sense, inspired by the robot framework.
+I used it back in 2014 where it was deployed on a project I joined and became incredibly frustrated using when debugging test failures.
+Below I list the reasons that made me dislike this framework:
+1. The debugging tooling is terrible The last straw in 2014 was when I was trying to debug a test failure and discovered that the step that the line number and step the test failed on was not displayed to me.</description>
     </item>
     
     <item>
