@@ -301,20 +301,21 @@
 
 			
 
-<p><a href="https://github.com/toml-lang/toml">TOML</a> is an improved version of <a href="../ini">INI</a> -
-analogous to this project - <a href="https://github.com/crdoconnor/strictyaml">StrictYAML</a> is a
-improved version of YAML. They are both one of at least
-<a href="../">13 potential, often confusing choices</a> for parsing and serializing
-configuration files.</p>
+<p><a href="https://github.com/toml-lang/toml">TOML</a> is a configuration file format which was
+designed as an improved version of <a href="../ini">INI</a>. In many ways it&rsquo;s analogous to this
+project - <a href="https://github.com/crdoconnor/strictyaml">StrictYAML</a> an attempt to improve
+YAML. They are both one of at least <a href="../">13 potential, often confusing choices</a> for
+parsing and serializing configuration files.</p>
 
 <p>TOML isn&rsquo;t the worst choice for configuration files if you use it infrequently
-on small, simple files but as you scale up its usage, real problems start to appear.</p>
+on small and simple files but as you scale up its usage, its warts start to appear.</p>
 
 <p>Martin Vejnár, the author of PyTOML
 <a href="https://github.com/avakar/pytoml/issues/15#issuecomment-217739462">argued exactly this</a>.
 He initially built a TOML parser out of enthusiasm for this new format but later abandoned
 it. When asked if he would like to see his library used as a dependency for pip as
-part of <a href="https://www.python.org/dev/peps/pep-0518/">PEP-518</a>, he explained why:</p>
+part of <a href="https://www.python.org/dev/peps/pep-0518/">PEP-518</a>, he explained why he abandoned
+the project:</p>
 
 <blockquote>
 <p>TOML is a bad file format. <strong>It looks good at first glance</strong>, and for really really
@@ -322,18 +323,15 @@ trivial things it is probably good. But once I started using it and the
 configuration schema became more complex, I found the syntax ugly and hard to read.</p>
 </blockquote>
 
-<p>Despite this, PyPA still went ahead and used TOML for PEP-518, albeit
-with a different parser.</p>
-
-<p>I don&rsquo;t believe this to be an awful decision since pyproject.toml <em>is</em> fairly trivial,
-there&rsquo;s only one per project and they had some other relatively unique requirements
-unrelated to the quality of the language itself.</p>
+<p>Despite this, PyPA still went ahead and used TOML for PEP-518. Fortunately
+pyproject.toml <em>is</em> fairly trivial and appears once per project
+so its issues aren&rsquo;t such a problem.</p>
 
 <p>StrictYAML, by contrast, was designed to be a language to write
 <a href="../../../hitchstory">readable &lsquo;story&rsquo; tests</a>. These require the same basic
-data types (mapping, list and strings) but you need more files and more
-complex hierarchies within those files than you do when you are just
-specifying project dependencies.</p>
+data types (mapping, list and strings) but at a higher scale - you need more
+files and more complex hierarchies within those files than you do
+when you are just specifying project dependencies.</p>
 
 <p>So what specifically <em>is</em> wrong with TOML when you scale it up?</p>
 
@@ -341,12 +339,17 @@ specifying project dependencies.</p>
 
 <p>In <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/map.story">this example of a StrictYAML story</a>
 and <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/map.toml">its equivalent serialized TOML</a>
-the latter ends up being 50% longer by character count.</p>
+the latter ends up <a href="https://www.goodreads.com/quotes/775257-my-point-today-is-that-if-we-wish-to-count">spending <strong>50% more</strong></a> in character terms to represent the exact same data.</p>
 
 <p>This is largely due to the decision to have the full name of every key being associated
 with every value, but is also partly due to the large numbers of syntactic cruft -
 quotation marks and square brackets dominate whereas in the YAML example they are
 absent.</p>
+
+<p>Shortening program length, all other things being equal,
+<a href="https://blog.codinghorror.com/diseconomies-of-scale-and-lines-of-code/">reduces the number of bugs significantly</a>
+because maintenance becomes easier and deriving intent from the code becomes clearer.
+What goes for turing complete code also applies to &ldquo;configuration&rdquo; code.</p>
 
 <h2 id="1-toml-s-hierarchies-are-difficult-to-infer-from-syntax-alone">1. TOML&rsquo;s hierarchies are difficult to infer from syntax alone</h2>
 
