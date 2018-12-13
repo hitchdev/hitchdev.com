@@ -583,6 +583,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/approach/test-or-story/</loc>
   </url>
   
@@ -592,10 +596,6 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</loc>
   </url>
   
   <url>

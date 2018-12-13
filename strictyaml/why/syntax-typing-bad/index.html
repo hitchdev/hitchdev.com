@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>What is wrong with explicit syntax typing in a readable configuration language? - HitchDev</title>
+    <title>What is syntax typing? - HitchDev</title>
     <meta name="generator" content="Hugo 0.31.1" />
 
     
@@ -297,10 +297,40 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>What is wrong with explicit syntax typing in a readable configuration language? </h1>
+			<h1>What is syntax typing? </h1>
 
-			<p>Explicit syntax typing is the process of using syntax to define types in markup. So, for instance in JSON, quotation marks are used to define name as a string and age as a number:</p>
-<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;Arthur Dent&#34;</span><span class="p">,</span> <span class="nt">&#34;age&#34;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span></code></pre></div>
+			
+
+<p>Explicit syntax typing is the use of syntax to designate the type of some data.
+It is a feature of the design of most programming languages.</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;11&#34;</span> <span class="c1"># this is a string</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">11</span>   <span class="c1"># this isn&#39;t</span></code></pre></div>
+<p>It it isn&rsquo;t limited to programming languages though. It&rsquo;s a common feature of
+serialization formats like JSON:</p>
+<div class="highlight"><pre class="chroma"><code class="language-json" data-lang="json"><span class="p">{</span><span class="nt">&#34;x&#34;</span><span class="p">:</span> <span class="s2">&#34;11&#34;</span><span class="p">,</span> <span class="nt">&#34;y&#34;</span><span class="p">:</span> <span class="mi">42</span><span class="p">}</span></code></pre></div>
+<p>But not others, like INI:</p>
+<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">server</span><span class="o">=</span><span class="s">192.0.2.62</span>
+<span class="na">port</span><span class="o">=</span><span class="s">143</span></code></pre></div>
+<p>Or CSV:</p>
+<div class="highlight"><pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">server,port</span>
+<span class="na">192.0.2.62,143</span></code></pre></div>
+<p>Or StrictYAML:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">server<span class="p">:</span><span class="w"> </span><span class="m">192.0</span>.<span class="m">2.62</span><span class="w">
+</span><span class="w"></span>port<span class="p">:</span><span class="w"> </span><span class="m">143</span></code></pre></div>
+<p>In those cases, it&rsquo;s up to the program - in another file - to decide what part
+of that data is and what part is an integer.</p>
+
+<h2 id="what-does-it-mean-to-attach-syntax-typing-to-data">What does it mean to attach syntax typing to data?</h2>
+
+<p>Syntax typing the explicit prioritization of cohesion over terseness. It
+puts type information right next to the data, but in the process this
+means that if the data appears a <em>lot</em></p>
+
+<h2 id="when-would-you-sacrifice-terseness">When would you sacrifice terseness?</h2>
+
+<p>Let&rsquo;s return to python for a second and imagine that</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">x</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;11&#34;</span> <span class="c1"># this is a string</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">11</span>   <span class="c1"># this isn&#39;t</span></code></pre></div>
 <p>This helps distinguish the types for the parser, which is useful for JSON, but it also comes with two disadvantages:</p>
 
 <ul>
@@ -353,7 +383,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/" title="What is wrong with duplicate keys?">
+      <a href="https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/" title="What is a testing and living documentation framework?">
         <span class="direction">
           Previous
         </span>
@@ -363,7 +393,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              What is wrong with duplicate keys?
+              What is a testing and living documentation framework?
             </div>
           </div>
         </div>
@@ -373,14 +403,14 @@
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/why/explicit-tags-removed/" title="What is wrong with explicit tags?">
+      <a href="https://hitchdev.com/hitchstory/approach/test-or-story/" title="What is the difference betweeen a test and a story?">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              What is wrong with explicit tags?
+              What is the difference betweeen a test and a story?
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

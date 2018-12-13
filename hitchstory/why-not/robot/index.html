@@ -309,7 +309,7 @@ and became <em>incredibly</em> frustrated using when debugging test failures.</p
 
 <p>Below I list the reasons that made me dislike this framework:</p>
 
-<h1 id="1-the-debugging-tooling-is-terrible">1. The debugging tooling is terrible</h1>
+<h2 id="1-the-debugging-tooling-is-terrible">1. The debugging tooling is terrible</h2>
 
 <p>The last straw in 2014 was when I was trying to debug a test failure and
 discovered that the step that the line number and step the test failed on was not
@@ -329,16 +329,27 @@ of fresh air compared to robot.</p>
 <p>Hitchstory, of course, tells you exactly which line the code failed on and even gives
 a stacktrace of the failed python code. I was very careful not to screw that up.</p>
 
-<h2 id="the-dsl-is-turing-complete">The DSL is turing complete</h2>
+<h2 id="2-it-doesn-t-fail-fast">2. It doesn&rsquo;t fail fast</h2>
+
+<p><a href="../../../code-quality/fail-fast-fail-clearly">Fail fast</a> is a general principle of software development
+whereby a system immediately reports at its interface any condition that is likely to indicate a failure.</p>
+
+<p>Robot does not adhere to this principle.</p>
+
+<p>One example of how it breaks this principle is what happens if you put in an unknown keyword. It will
+run the</p>
+
+<h2 id="2-the-dsl-is-turing-complete">2. The DSL is turing complete</h2>
 
 <p>There is a common pattern among DSLs that I call the &ldquo;DSL treadmill&rdquo;. Somebody identifies a problem
-and thinks &ldquo;I know, I&rsquo;ll create a DSL to solve this problem!&rdquo;. That DSL works fine until the creator
-sees some use cases which they think it would be good to accomodate. Then they add some features.
+and thinks &ldquo;I know, I&rsquo;ll create a DSL to solve this problem&rdquo;. That DSL works for a while and the creator
+soon some use cases which they think it would be good to accomodate. Then they add some features.
 Then they see some other use cases. Then they add some more features.</p>
 
-<p>And at some point <em>whoops</em> they&rsquo;ve created a turing complete programming language&hellip; by <em>accident</em>.
+<p>Then, at some point, <em>whoops</em> they&rsquo;ve created a turing complete programming language&hellip; by <em>accident</em>.
 This has happened to, among other DSLs <a href="http://beza1e1.tuxen.de/articles/accidentally_turing_complete.html">C++ templates, server side includes, mediawiki templates and
-sendmail configuration files</a>.</p>
+sendmail configuration files</a> all
+of which are notoriously hellish to use.</p>
 
 <p>While more features sounds like a good thing at first glance, with turing completeness being a
 quirky side effect of interest only to the academically inclined, it&rsquo;s actually a horrible, <em>horrible</em>

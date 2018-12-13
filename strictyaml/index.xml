@@ -85,7 +85,7 @@ Parsing and validating as a Decimal is best for values which require precision, 
       
       <guid>https://hitchdev.com/strictyaml/why/</guid>
       <description>StrictYAML is the result of some carefully considered, although controversial design decisions. These are justified here.
- What is wrong with explicit tags? What is wrong with explicit syntax typing in a readable configuration language? The Norway Problem - why StrictYAML won&amp;rsquo;t do implicit typing What is wrong with flow style YAML? Why does StrictYAML only parse from strings and not files? What is wrong with duplicate keys? Why is parsing speed not a high priority for StrictYAML?</description>
+ What is wrong with explicit tags? What is syntax typing? The Norway Problem - why StrictYAML won&amp;rsquo;t do implicit typing What is wrong with flow style YAML? Why does StrictYAML only parse from strings and not files? What is wrong with duplicate keys? Why is parsing speed not a high priority for StrictYAML? Why does StrictYAML not parse direct representations of python objects?</description>
     </item>
     
     <item>
@@ -522,6 +522,18 @@ receipt:Oz-WarePurchaseInvoicedate:2012-08-06customer:firstname:Harryfamilyname:
     </item>
     
     <item>
+      <title>What is syntax typing?</title>
+      <link>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</guid>
+      <description>Explicit syntax typing is the use of syntax to designate the type of some data. It is a feature of the design of most programming languages.
+x = &amp;#34;11&amp;#34; # this is a string y = 11 # this isn&amp;#39;t It it isn&amp;rsquo;t limited to programming languages though. It&amp;rsquo;s a common feature of serialization formats like JSON:
+{&amp;#34;x&amp;#34;: &amp;#34;11&amp;#34;, &amp;#34;y&amp;#34;: 42} But not others, like INI:
+server=192.0.2.62 port=143 Or CSV:</description>
+    </item>
+    
+    <item>
       <title>What is wrong with TOML?</title>
       <link>https://hitchdev.com/strictyaml/why-not/toml/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -539,17 +551,6 @@ receipt:Oz-WarePurchaseInvoicedate:2012-08-06customer:firstname:Harryfamilyname:
       <guid>https://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/</guid>
       <description>Duplicate keys are allowed in regular YAML - as parsed by pyyaml, ruamel.yaml and poyo:
 x:cowy:dogx:bull Not only is it unclear whether x should be &amp;ldquo;cow&amp;rdquo; or &amp;ldquo;bull&amp;rdquo; (the parser will decide &amp;lsquo;bull&amp;rsquo;, but did you know that?), if there are 200 lines between x: cow and x: bull, a user might very likely change the first x and erroneously believe that the resulting value of x has been changed - when it hasn&amp;rsquo;t.</description>
-    </item>
-    
-    <item>
-      <title>What is wrong with explicit syntax typing in a readable configuration language?</title>
-      <link>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</guid>
-      <description>Explicit syntax typing is the process of using syntax to define types in markup. So, for instance in JSON, quotation marks are used to define name as a string and age as a number:
-{&amp;#34;name&amp;#34;: &amp;#34;Arthur Dent&amp;#34;, &amp;#34;age&amp;#34;: 42} This helps distinguish the types for the parser, which is useful for JSON, but it also comes with two disadvantages:
- The distinction is subtle and not particularly clear to non-programmers, who will not necessarily understand that a directive needs to be given to the parser to avoid it being misinterpreted.</description>
     </item>
     
     <item>
