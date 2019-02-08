@@ -1303,11 +1303,10 @@ Non-deterministic code is code which can produce different outputs even when it 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</guid>
-      <description>A while back I met an old coworker for a beer and he started telling me about this interesting internationalization bug he faced.
-&amp;ldquo;So, we started internationalizing the website and I added a few more countries - France, Germany, etc. to the configuration file&amp;rdquo;
-countries:-GB-IE-FR-DE &amp;ldquo;This was fine for a while. Then eventually we got around to adding Norway&amp;hellip;&amp;rdquo;
-countries:-GB-IE-FR-DE-NO &amp;ldquo;and then, suddenly, everything broke&amp;hellip;&amp;rdquo;
-The problem here is &amp;ldquo;implicit typing&amp;rdquo; - the YAML specification states that the parser should be &amp;lsquo;smart&amp;rsquo; about the strings that are entered in to it and attempt to convert them into the relevant types for you.</description>
+      <description>A while back I met an old coworker and he started telling me about this interesting bug he faced:
+&amp;ldquo;So, we started internationalizing the website by creating a config file. We added the UK, Ireland, France and Germany at first.&amp;rdquo;
+countries:-GB-IE-FR-DE &amp;ldquo;This was fine for a while. However, when we got around to adding Norway all hell broke loose&amp;hellip;&amp;rdquo;
+countries:-GB-IE-FR-DE-NO The problem here is &amp;ldquo;implicit typing&amp;rdquo; - the YAML specification states that the parser should be clever about the strings that are entered in to it and attempt to interpret them and convert them into the relevant types for you.</description>
     </item>
     
     <item>

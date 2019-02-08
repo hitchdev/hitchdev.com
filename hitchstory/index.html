@@ -396,18 +396,23 @@ SUCCESS in 0.1 seconds.
 
 <p>You <em>can</em> install hitchstory through pypi in any python 3 virtualenv:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install hitchstory</code></pre></div>
-<p>However, it&rsquo;s recommended to install and set up hitchstory with <a href="https://github.com/hitchdev/hitchkey">hitchkey</a>,
-which will take care of automatically setting up a up the <a href="approach/recommended-environment">recommended hitchstory environment</a>.</p>
+<p>However, it&rsquo;s recommended to use hitchstory with <a href="https://github.com/hitchdev/hitchkey">hitchkey</a>,
+which will take care of automatically setting up the <a href="approach/recommended-environment">recommended hitchstory environment</a>.</p>
 
-<p>Either install hitchkey with <a href="https://github.com/mitsuhiko/pipsi">pipsi</a>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pipsi install hitchkey</code></pre></div>
-<p>Or, if you&rsquo;d prefer, you can safely install with &ldquo;sudo pip&rdquo;:</p>
+<p>Install the bootstrapper in your system python:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pip install hitchkey</code></pre></div>
+<p>NOTE 1: If you</p>
+
+<p>NOTE 2: if you&rsquo;re morally against sudo pip install, please follow alternate rather than starting a flame war.</p>
+
 <p>Once hitchkey is installed:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> /your/project/directory
-hk --tutorial hitchstory</code></pre></div>
-<p>This will create a directory called &ldquo;hitch&rdquo; and put three files in it, including one story, which you can play by running:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">hk bdd my first</code></pre></div>
+
+<p>Go to a temporary directory and show basics:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> temp
+hk --demo hitchstory <span class="p">;</span> hk bdd email</code></pre></div>
+<p>Example python API test demo (uses game of life):</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> temp
+hk --demo pythonapi <span class="p">;</span> <span class="nb">cd</span> pythonapi <span class="p">;</span> hk bdd</code></pre></div>
 <h2 id="using-hitchstory">Using HitchStory</h2>
 
 <ul>
@@ -481,7 +486,7 @@ hk --tutorial hitchstory</code></pre></div>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2018 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2018 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

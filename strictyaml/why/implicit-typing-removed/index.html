@@ -301,47 +301,48 @@
 
 			
 
-<p>A while back I met an old coworker for a beer and he started
-telling me about this interesting internationalization bug he
-faced.</p>
+<p>A while back I met an old coworker and he started telling me about this
+interesting bug he faced:</p>
 
-<p>&ldquo;So, we started internationalizing the website and I added a few
-more countries - France, Germany, etc. to the configuration file&rdquo;</p>
+<p>&ldquo;So, we started internationalizing the website by creating a config
+file. We added the UK, Ireland, France and Germany at first.&rdquo;</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">countries<span class="p">:</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>GB<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>IE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>FR<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>DE</code></pre></div>
-<p>&ldquo;This was fine for a while. Then eventually we got around to adding
-Norway&hellip;&rdquo;</p>
+<p>&ldquo;This was fine for a while. However, when we got around to adding
+Norway all hell broke loose&hellip;&rdquo;</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">countries<span class="p">:</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>GB<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>IE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>FR<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>DE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>NO</code></pre></div>
-<p>&ldquo;and then, suddenly, everything broke&hellip;&rdquo;</p>
-
 <p>The problem here is &ldquo;implicit typing&rdquo; - the YAML specification states that
-the parser should be &lsquo;smart&rsquo; about the strings that are entered in to it and
-attempt to convert them into the relevant types for you.</p>
+the parser should be clever about the strings that are entered in to it and
+attempt to interpret them and convert them into the relevant types for you.</p>
 
-<p>If you feed any of these in, for example, <a href="http://pyyaml.org">pyyaml</a> or <a href="https://github.com/hackebrot/poyo">Poyo</a>:</p>
+<p>If you feed this configuration file into <a href="http://pyyaml.org">pyyaml</a> or <a href="https://github.com/hackebrot/poyo">Poyo</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pyyaml</span> <span class="kn">import</span> <span class="n">load</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_configuration</span><span class="p">)</span>
 <span class="p">{</span><span class="sa"></span><span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;GB&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;IE&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">]}</span></code></pre></div>
-<p>Needless to say, feeding the boolean &ldquo;False&rdquo; to just about any other part
-of the program where &ldquo;NO&rdquo; was expected will break it, possibly catastrophically.</p>
+<p>Did you know it snows a <em>lot</em> in &ldquo;False&rdquo;?</p>
 
-<p>It can be &ldquo;quick fixed&rdquo; by using quotes:</p>
+<p>Feeding the boolean &ldquo;False&rdquo; to just about any other part
+of the program where the string &ldquo;NO&rdquo; of course would break it,
+catastrophically, and at the least convenient moment.</p>
+
+<p>It was &ldquo;quick fixed&rdquo; by using quotes - but it&rsquo;s kind of a hack:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">countries<span class="p">:</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>GB<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>IE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>FR<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>DE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span><span class="s1">&#39;NO&#39;</span></code></pre></div>
-<p>StrictYAML sidesteps this problem by only <em>ever</em> parsing to a string or a data
-type explicitly defined by the schema:</p>
+<p>StrictYAML sidesteps this problem by optimizing for &ldquo;zero surprises&rdquo; -
+only <em>ever</em> parsing to a string or a data type <em>explicitly</em> defined
+by the schema:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_configuration</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
 <span class="p">{</span><span class="sa"></span><span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;GB&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;IE&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;NO&#39;</span><span class="p">]}</span></code></pre></div>
@@ -375,7 +376,7 @@ software code - airlines, banks, everything. YAML, sadly, is no exception:</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2018 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2018 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
