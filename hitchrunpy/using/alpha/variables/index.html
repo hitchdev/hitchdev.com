@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Use modules - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -313,23 +331,23 @@ strings to your running code.</p>
 <span class="kn">import</span> <span class="nn">hitchbuild</span>
 
 <span class="n">virtualenv</span> <span class="o">=</span> <span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">VirtualenvBuild</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
-    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
-        <span class="sa"></span><span class="s1">&#39;/path/to/share_dir/&#39;</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
+    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
+        <span class="s1">&#39;/path/to/share_dir/&#39;</span>
     <span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
 
 <span class="n">virtualenv</span><span class="o">.</span><span class="n">ensure_built</span><span class="p">()</span>
 
 <span class="n">pyrunner</span> <span class="o">=</span> <span class="n">ExamplePythonCode</span><span class="p">(</span>
     <span class="n">virtualenv</span><span class="o">.</span><span class="nb">bin</span><span class="o">.</span><span class="n">python</span><span class="p">,</span>
-    <span class="sa"></span><span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
 <span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">some_string</span> <span class="o">=</span> <span class="sa">u</span><span class="s2">&#34;â string of some kind&#34;</span>
 
 <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">((</span>
-    <span class="sa"></span><span class="s2">&#34;from write_to_file import write_text</span><span class="se">\n</span><span class="s2">&#34;</span>
-    <span class="sa"></span><span class="s2">&#34;write_text()&#34;</span>
-<span class="p">))</span><span class="o">.</span><span class="n">with_modules</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;write_to_file.py&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+    <span class="s2">&#34;from write_to_file import write_text</span><span class="se">\n</span><span class="s2">&#34;</span>
+    <span class="s2">&#34;write_text()&#34;</span>
+<span class="p">))</span><span class="o">.</span><span class="n">with_modules</span><span class="p">(</span><span class="s2">&#34;write_to_file.py&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>Then the file &ldquo;working/examplefile&rdquo; in the working dir will contain:</p>
 
 <pre><code>â string of some kind
@@ -343,7 +361,7 @@ strings to your running code.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -357,7 +375,7 @@ strings to your running code.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/" title="Two Unit Tests, Zero Integration Tests">
+      <a href="https://hitchdev.com/strictyaml/using/alpha/compound/update/" title="Updating document with a schema">
         <span class="direction">
           Previous
         </span>
@@ -367,7 +385,7 @@ strings to your running code.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Two Unit Tests, Zero Integration Tests
+              Updating document with a schema
             </div>
           </div>
         </div>
@@ -377,14 +395,14 @@ strings to your running code.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/commandlib/using/alpha/" title="Using Commandlib">
+      <a href="https://hitchdev.com/strictyaml/using/alpha/compound/mapping-yaml-object/" title="Using a YAML object of a parsed mapping">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Using Commandlib
+              Using a YAML object of a parsed mapping
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

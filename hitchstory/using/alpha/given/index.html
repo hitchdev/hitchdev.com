@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Given preconditions - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -349,29 +367,29 @@ a mock selenium object.</p>
     <span class="n">given_definition</span><span class="o">=</span><span class="n">GivenDefinition</span><span class="p">(</span>
         <span class="n">browser_configuration</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span>
             <span class="n">schema</span><span class="o">=</span><span class="n">Map</span><span class="p">({</span>
-                <span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
-                <span class="sa"></span><span class="s2">&#34;platform&#34;</span><span class="p">:</span> <span class="n">Enum</span><span class="p">([</span><span class="sa"></span><span class="s2">&#34;linux&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;osx&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;windows&#34;</span><span class="p">]),</span>
-                <span class="n">Optional</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;version&#34;</span><span class="p">):</span> <span class="n">Str</span><span class="p">(),</span>
-                <span class="n">Optional</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;dimensions&#34;</span><span class="p">):</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;height&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;width&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}),</span>
+                <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
+                <span class="s2">&#34;platform&#34;</span><span class="p">:</span> <span class="n">Enum</span><span class="p">([</span><span class="s2">&#34;linux&#34;</span><span class="p">,</span> <span class="s2">&#34;osx&#34;</span><span class="p">,</span> <span class="s2">&#34;windows&#34;</span><span class="p">]),</span>
+                <span class="n">Optional</span><span class="p">(</span><span class="s2">&#34;version&#34;</span><span class="p">):</span> <span class="n">Str</span><span class="p">(),</span>
+                <span class="n">Optional</span><span class="p">(</span><span class="s2">&#34;dimensions&#34;</span><span class="p">):</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;height&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;width&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}),</span>
             <span class="p">})</span>
         <span class="p">),</span>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">set_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">browser</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;browser configuration&#34;</span><span class="p">]</span>
+        <span class="n">browser</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="s2">&#34;browser configuration&#34;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">Webdriver</span><span class="p">(</span>
-            <span class="n">name</span><span class="o">=</span><span class="n">browser</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
-            <span class="n">platform</span><span class="o">=</span><span class="n">browser</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;platform&#39;</span><span class="p">],</span>
-            <span class="n">version</span><span class="o">=</span><span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;version&#39;</span><span class="p">),</span>
-            <span class="n">dimensions</span><span class="o">=</span><span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;dimensions&#39;</span><span class="p">,</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;height&#34;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;width&#34;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">}),</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">browser</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+            <span class="n">platform</span><span class="o">=</span><span class="n">browser</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">],</span>
+            <span class="n">version</span><span class="o">=</span><span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;version&#39;</span><span class="p">),</span>
+            <span class="n">dimensions</span><span class="o">=</span><span class="n">browser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dimensions&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&#34;height&#34;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span> <span class="s2">&#34;width&#34;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">}),</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">load_website</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;http://www.google.com&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s2">&#34;http://www.google.com&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 <span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span></code></pre></div>
 <p>Specified:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Load with chrome in /path/to/example.story ...
@@ -399,7 +417,7 @@ SUCCESS in 0.1 seconds.
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

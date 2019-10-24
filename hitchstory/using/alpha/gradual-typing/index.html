@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Gradual typing of story steps - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -328,7 +346,7 @@ snippets with an invalid structure are used.</p>
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
 </span><span class="w">    </span>-<span class="w"> </span>Create<span class="w"> </span>file<span class="p">:</span><span class="w">
 </span><span class="w">        </span>details<span class="p">:</span><span class="w">
-</span><span class="w">          </span>file<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>step<span class="m">1.</span>txt<span class="w">
+</span><span class="w">          </span>file<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>step1.txt<span class="w">
 </span><span class="w">          </span>content<span class="p">:</span><span class="w"> </span>some<span class="w"> </span>other<span class="w"> </span>text</code></pre></div>
 <p>engine.py:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span>
@@ -340,15 +358,15 @@ snippets with an invalid structure are used.</p>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">set_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">contents</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;files_created&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">contents</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="s1">&#39;files_created&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
                 <span class="n">handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">details</span><span class="p">):</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;file name&#39;</span><span class="p">],</span> <span class="sa"></span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
-            <span class="n">handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;content&#39;</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;file name&#39;</span><span class="p">],</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+            <span class="n">handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
-<span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Create files&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;Create files&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Create files in /path/to/example.story ... SUCCESS in 0.1 seconds.
@@ -372,7 +390,7 @@ snippets with an invalid structure are used.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

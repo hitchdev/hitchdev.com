@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Why does StrictYAML not parse direct representations of python objects? - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -202,6 +202,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -302,7 +320,7 @@
 			<p>Regular YAML allows the direct representation of python objects.</p>
 
 <p>For example:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w"> </span><span class="cp">!python/hash:UserObject</span><span class="w">
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">---<span class="w"> </span>!python/hash<span class="p">:</span>UserObject<span class="w">
 </span><span class="w"></span>email<span class="p">:</span><span class="w"> </span>evilhacker@hacker.com<span class="w">
 </span><span class="w"></span>password<span class="p">:</span><span class="w"> </span>passwordtoset<span class="w">
 </span><span class="w"></span>type<span class="p">:</span><span class="w"> </span>admin</code></pre></div>
@@ -324,7 +342,7 @@ docs</a>.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

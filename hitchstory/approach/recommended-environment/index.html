@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Recommended Environment - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -202,6 +202,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -315,11 +333,11 @@ to run - i.e. in python, in the same virtualenv.</p>
 directly from this project&rsquo;s key.py file:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@expected</span><span class="p">(</span><span class="n">exceptions</span><span class="o">.</span><span class="n">HitchStoryException</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">bdd</span><span class="p">(</span><span class="o">*</span><span class="n">keywords</span><span class="p">):</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;
+    <span class="s2">&#34;&#34;&#34;
 </span><span class="s2">    Run story with name containing keywords.
 </span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="n">_storybook</span><span class="p">({</span>
-        <span class="sa"></span><span class="s2">&#34;overwrite artefacts&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;print output&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+        <span class="s2">&#34;overwrite artefacts&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="s2">&#34;print output&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
     <span class="p">})</span><span class="o">.</span><span class="n">shortcut</span><span class="p">(</span><span class="o">*</span><span class="n">keywords</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>This is done because while a lot of the time the configuration of how tests are run is simple - requiring
 just a one liner, far too frequently it becomes necessary to change the behavior of how tests are run - often
@@ -328,7 +346,7 @@ in a complex way.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

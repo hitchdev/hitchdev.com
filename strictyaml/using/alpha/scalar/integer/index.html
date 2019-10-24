@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Integers (Int) - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -214,6 +214,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -324,24 +342,24 @@ the same way.</p>
 </span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">5</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">load</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
-<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()})</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()})</span>
 
 <span class="n">parsed</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div>
 <p>Parsed correctly:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span></code></pre></div>
 <p>Cast with str:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">]))</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;1&#34;</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&#34;a&#34;</span><span class="p">]))</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span></code></pre></div>
 <p>Cast with float:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">]))</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&#34;a&#34;</span><span class="p">]))</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span></code></pre></div>
 <p>Greater than:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&#34;a&#34;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span></code></pre></div>
 <p>Less than:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s2">&#34;a&#34;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span></code></pre></div>
 <p>To get actual int, use .data:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)[</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)[</span><span class="s2">&#34;a&#34;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span></code></pre></div>
 <p>Cannot cast to bool:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">bool</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)[</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">:</span>
-<span class="n">Cannot</span> <span class="n">cast</span> <span class="sa"></span><span class="s1">&#39;YAML(1)&#39;</span> <span class="n">to</span> <span class="nb">bool</span><span class="o">.</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nb">bool</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">:</span>
+<span class="n">Cannot</span> <span class="n">cast</span> <span class="s1">&#39;YAML(1)&#39;</span> <span class="n">to</span> <span class="nb">bool</span><span class="o">.</span>
 <span class="n">Use</span> <span class="nb">bool</span><span class="p">(</span><span class="n">yamlobj</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">bool</span><span class="p">(</span><span class="n">yamlobj</span><span class="o">.</span><span class="n">text</span><span class="p">)</span> <span class="n">instead</span><span class="o">.</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Executable specification</p>
@@ -351,7 +369,7 @@ the same way.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

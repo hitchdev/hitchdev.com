@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Either/or schema validation of different, equally valid different kinds of YAML - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -214,6 +214,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -317,27 +335,34 @@ blocks of YAML.</p>
 <p>If the first thing does not parse correctly, it attempts to
 parse the second. If the second does not parse correctly,
 it raises an exception.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">YAMLValidationError</span><span class="p">,</span> <span class="n">load</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">YAMLValidationError</span><span class="p">,</span> <span class="n">load</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
-<span class="n">schema</span> <span class="o">=</span> <span class="n">Str</span><span class="p">()</span> <span class="o">|</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Bool</span><span class="p">()</span> <span class="o">|</span> <span class="n">Int</span><span class="p">()})</span></code></pre></div>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Str</span><span class="p">()</span> <span class="o">|</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Bool</span><span class="p">()</span> <span class="o">|</span> <span class="n">Int</span><span class="p">()})</span></code></pre></div>
 <p>Boolean first choice true:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>yes</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>yes</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">})</span></code></pre></div>
 <p>Boolean first choice false:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>no</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>no</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="bp">False</span><span class="p">})</span></code></pre></div>
 <p>Int second choice:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">5</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">5</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span></code></pre></div>
 <p>Invalid not bool or int:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>A</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="n">when</span> <span class="n">expecting</span> <span class="n">an</span> <span class="n">integer</span>
 <span class="n">found</span> <span class="n">arbitrary</span> <span class="n">text</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
     <span class="n">a</span><span class="p">:</span> <span class="n">A</span>
      <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre></div>
+<p>Invalid combinations of more than one map:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>x</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()})</span> <span class="o">|</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()}))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">InvalidValidatorError</span><span class="p">:</span>
+<span class="n">You</span> <span class="n">tried</span> <span class="n">to</span> <span class="n">Or</span> <span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span> <span class="n">together</span> <span class="mi">2</span> <span class="n">Map</span> <span class="n">validators</span><span class="o">.</span> <span class="n">Try</span> <span class="n">using</span> <span class="n">revalidation</span> <span class="n">instead</span><span class="o">.</span></code></pre></div>
+<p>Invalid combinations of more than one seq:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">-<span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span><span class="m">2</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Int</span><span class="p">())</span> <span class="o">|</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">()))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">InvalidValidatorError</span><span class="p">:</span>
+<span class="n">You</span> <span class="n">tried</span> <span class="n">to</span> <span class="n">Or</span> <span class="p">(</span><span class="s1">&#39;|&#39;</span><span class="p">)</span> <span class="n">together</span> <span class="mi">2</span> <span class="n">Seq</span> <span class="n">validators</span><span class="o">.</span> <span class="n">Try</span> <span class="n">using</span> <span class="n">revalidation</span> <span class="n">instead</span><span class="o">.</span></code></pre></div>
 <p>Change item after validated:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>yes</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">yaml</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="n">yaml</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
-<span class="k">assert</span> <span class="n">yaml</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span></code></pre></div>
+<span class="n">yaml</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="k">assert</span> <span class="n">yaml</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">5</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Executable specification</p>
 <p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/or.story">or.story</a>.</p>
@@ -346,7 +371,7 @@ it raises an exception.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Exceptions - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -315,20 +333,20 @@ can be expected by the code or unexpected.</p>
 <span class="kn">import</span> <span class="nn">hitchbuild</span>
 
 <span class="n">virtualenv</span> <span class="o">=</span> <span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">VirtualenvBuild</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
-    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
-        <span class="sa"></span><span class="s1">&#39;/path/to/share_dir/&#39;</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
+    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
+        <span class="s1">&#39;/path/to/share_dir/&#39;</span>
     <span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
 
 <span class="n">virtualenv</span><span class="o">.</span><span class="n">ensure_built</span><span class="p">()</span>
 
 <span class="n">pyrunner</span> <span class="o">=</span> <span class="n">ExamplePythonCode</span><span class="p">(</span>
     <span class="n">virtualenv</span><span class="o">.</span><span class="nb">bin</span><span class="o">.</span><span class="n">python</span><span class="p">,</span>
-    <span class="sa"></span><span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
 <span class="p">)</span></code></pre></div>
 <p>Occurs as expected:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;&#34;&#34;
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;
 </span><span class="s2">
 </span><span class="s2">class CustomException(Exception):
 </span><span class="s2">    pass
@@ -337,12 +355,12 @@ can be expected by the code or unexpected.</p>
 </span><span class="s2">
 </span><span class="s2">&#34;&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">expect_exceptions</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-<span class="n">result</span><span class="o">.</span><span class="n">exception_was_raised</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;__main__.CustomException&#34;</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">exception_was_raised</span><span class="p">(</span><span class="s2">&#34;__main__.CustomException&#34;</span><span class="p">)</span>
 
-<span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="sa"></span><span class="s2">&#34;This should hâppen&#34;</span>
-<span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">exception_type</span> <span class="o">==</span> <span class="sa"></span><span class="s2">&#34;__main__.CustomException&#34;</span></code></pre></div>
+<span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">message</span> <span class="o">==</span> <span class="s2">&#34;This should hâppen&#34;</span>
+<span class="k">assert</span> <span class="n">result</span><span class="o">.</span><span class="n">exception</span><span class="o">.</span><span class="n">exception_type</span> <span class="o">==</span> <span class="s2">&#34;__main__.CustomException&#34;</span></code></pre></div>
 <p>Different to expected exception:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;&#34;&#34;
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;
 </span><span class="s2">
 </span><span class="s2">class AnotherCustomException(Exception):
 </span><span class="s2">    pass
@@ -351,10 +369,10 @@ can be expected by the code or unexpected.</p>
 </span><span class="s2">
 </span><span class="s2">&#34;&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">expect_exceptions</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-<span class="n">result</span><span class="o">.</span><span class="n">exception_was_raised</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;__main__.CustomException&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchrunpy</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ExpectedExceptionWasDifferent</span><span class="p">:</span>
-<span class="n">Expected</span> <span class="n">exception</span> <span class="sa"></span><span class="s1">&#39;__main__.CustomException&#39;</span><span class="p">,</span> <span class="n">instead</span> <span class="sa"></span><span class="s1">&#39;__main__.AnotherCustomException&#39;</span> <span class="n">was</span> <span class="n">raised</span><span class="p">:</span>
+<span class="n">result</span><span class="o">.</span><span class="n">exception_was_raised</span><span class="p">(</span><span class="s2">&#34;__main__.CustomException&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchrunpy</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ExpectedExceptionWasDifferent</span><span class="p">:</span>
+<span class="n">Expected</span> <span class="n">exception</span> <span class="s1">&#39;__main__.CustomException&#39;</span><span class="p">,</span> <span class="n">instead</span> <span class="s1">&#39;__main__.AnotherCustomException&#39;</span> <span class="n">was</span> <span class="n">raised</span><span class="p">:</span>
 
-<span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">function</span> <span class="sa"></span><span class="s1">&#39;[[ BRIGHT ]]&lt;module&gt;[[ RESET ALL ]]&#39;</span>
+<span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="n">function</span> <span class="s1">&#39;[[ BRIGHT ]]&lt;module&gt;[[ RESET ALL ]]&#39;</span>
   <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">working</span><span class="o">/</span><span class="n">examplepythoncode</span><span class="o">.</span><span class="n">py</span>
 
 
@@ -365,7 +383,7 @@ can be expected by the code or unexpected.</p>
 
 
 
-<span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">function</span> <span class="sa"></span><span class="s1">&#39;[[ BRIGHT ]]run_example_code[[ RESET ALL ]]&#39;</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="n">function</span> <span class="s1">&#39;[[ BRIGHT ]]run_example_code[[ RESET ALL ]]&#39;</span>
   <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">working</span><span class="o">/</span><span class="n">examplepythoncode</span><span class="o">.</span><span class="n">py</span>
 
 
@@ -376,13 +394,13 @@ can be expected by the code or unexpected.</p>
 
 
 
-<span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">function</span> <span class="sa"></span><span class="s1">&#39;[[ BRIGHT ]]runcode[[ RESET ALL ]]&#39;</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">]:</span> <span class="n">function</span> <span class="s1">&#39;[[ BRIGHT ]]runcode[[ RESET ALL ]]&#39;</span>
   <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">code</span><span class="o">/</span><span class="n">working</span><span class="o">/</span><span class="n">examplepythoncode</span><span class="o">.</span><span class="n">py</span>
 
 
         <span class="mi">58</span> <span class="p">:</span>                             <span class="k">pass</span>
         <span class="mi">59</span> <span class="p">:</span>
-    <span class="o">--&gt;</span> <span class="p">[[</span> <span class="n">BRIGHT</span> <span class="p">]]</span><span class="mi">60</span><span class="p">[[</span> <span class="n">RESET</span> <span class="n">ALL</span> <span class="p">]]</span> <span class="p">:</span>                         <span class="k">raise</span> <span class="n">AnotherCustomException</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;This should happen&#39;</span><span class="p">)</span>
+    <span class="o">--&gt;</span> <span class="p">[[</span> <span class="n">BRIGHT</span> <span class="p">]]</span><span class="mi">60</span><span class="p">[[</span> <span class="n">RESET</span> <span class="n">ALL</span> <span class="p">]]</span> <span class="p">:</span>                         <span class="k">raise</span> <span class="n">AnotherCustomException</span><span class="p">(</span><span class="s1">&#39;This should happen&#39;</span><span class="p">)</span>
         <span class="mi">61</span> <span class="p">:</span>
 
 
@@ -391,7 +409,7 @@ can be expected by the code or unexpected.</p>
   <span class="p">[[</span> <span class="n">DIM</span> <span class="p">]][[</span> <span class="n">RED</span> <span class="p">]]</span><span class="bp">None</span><span class="p">[[</span> <span class="n">RESET</span> <span class="n">ALL</span> <span class="p">]]</span>
 <span class="p">[[</span> <span class="n">RED</span> <span class="p">]]</span><span class="n">This</span> <span class="n">should</span> <span class="n">happen</span><span class="p">[[</span> <span class="n">RESET</span> <span class="n">FORE</span> <span class="p">]]</span></code></pre></div>
 <p>Expect any kind of exception:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;&#34;&#34;
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;
 </span><span class="s2">
 </span><span class="s2">raise Exception(u&#34;ân exception&#34;)
 </span><span class="s2">
@@ -399,12 +417,12 @@ can be expected by the code or unexpected.</p>
 
 <span class="n">result</span><span class="o">.</span><span class="n">exception_was_raised</span><span class="p">()</span></code></pre></div>
 <p>No exception occurs when expected:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;pass&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">expect_exceptions</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="s2">&#34;pass&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">expect_exceptions</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-<span class="n">result</span><span class="o">.</span><span class="n">exception_was_raised</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;__main__.CustomException&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchrunpy</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ExpectedExceptionButNoExceptionOccurred</span><span class="p">:</span>
-<span class="n">Expected</span> <span class="n">exception</span> <span class="sa"></span><span class="s1">&#39;__main__.CustomException&#39;</span><span class="p">,</span> <span class="n">but</span> <span class="n">no</span> <span class="n">exception</span> <span class="n">occurred</span><span class="o">.</span></code></pre></div>
+<span class="n">result</span><span class="o">.</span><span class="n">exception_was_raised</span><span class="p">(</span><span class="s2">&#34;__main__.CustomException&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchrunpy</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ExpectedExceptionButNoExceptionOccurred</span><span class="p">:</span>
+<span class="n">Expected</span> <span class="n">exception</span> <span class="s1">&#39;__main__.CustomException&#39;</span><span class="p">,</span> <span class="n">but</span> <span class="n">no</span> <span class="n">exception</span> <span class="n">occurred</span><span class="o">.</span></code></pre></div>
 <p>Expected raised but with different message:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;&#34;&#34;
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">result</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="s2">&#34;&#34;&#34;
 </span><span class="s2">
 </span><span class="s2">class CustomException(Exception):
 </span><span class="s2">    pass
@@ -413,8 +431,8 @@ can be expected by the code or unexpected.</p>
 </span><span class="s2">
 </span><span class="s2">&#34;&#34;&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">expect_exceptions</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
-<span class="n">result</span><span class="o">.</span><span class="n">exception_was_raised</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;__main__.CustomException&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;This was</span><span class="se">\n</span><span class="s1">the expected messâge&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchrunpy</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ExpectedExceptionMessageWasDifferent</span><span class="p">:</span>
-<span class="n">Expected</span> <span class="n">exception</span> <span class="sa"></span><span class="s1">&#39;__main__.CustomException&#39;</span> <span class="n">was</span> <span class="n">raised</span><span class="p">,</span> <span class="n">but</span> <span class="n">message</span> <span class="n">was</span> <span class="n">different</span><span class="o">.</span>
+<span class="n">result</span><span class="o">.</span><span class="n">exception_was_raised</span><span class="p">(</span><span class="s2">&#34;__main__.CustomException&#34;</span><span class="p">,</span> <span class="s1">&#39;This was</span><span class="se">\n</span><span class="s1">the expected messâge&#39;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchrunpy</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ExpectedExceptionMessageWasDifferent</span><span class="p">:</span>
+<span class="n">Expected</span> <span class="n">exception</span> <span class="s1">&#39;__main__.CustomException&#39;</span> <span class="n">was</span> <span class="n">raised</span><span class="p">,</span> <span class="n">but</span> <span class="n">message</span> <span class="n">was</span> <span class="n">different</span><span class="o">.</span>
 
 <span class="n">ACTUAL</span><span class="p">:</span>
 <span class="n">This</span> <span class="n">was</span> <span class="ow">not</span>
@@ -437,7 +455,7 @@ can be expected by the code or unexpected.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

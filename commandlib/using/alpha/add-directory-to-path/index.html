@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Add directory to PATH (with_path) - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -318,9 +336,9 @@ the directory you use it on is already added.</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>ls <span class="nv">$1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">commandlib</span> <span class="kn">import</span> <span class="n">Command</span>
 
-<span class="n">runls</span> <span class="o">=</span> <span class="n">Command</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;./runls&#34;</span><span class="p">)</span></code></pre></div>
+<span class="n">runls</span> <span class="o">=</span> <span class="n">Command</span><span class="p">(</span><span class="s2">&#34;./runls&#34;</span><span class="p">)</span></code></pre></div>
 <p>Add bin_directory to PATH for runls:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">runls</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;harry&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_path</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;bin_directory&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">runls</span><span class="p">(</span><span class="s2">&#34;harry&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_path</span><span class="p">(</span><span class="s2">&#34;bin_directory&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>File &lsquo;output&rsquo; will contain:</p>
 
 <pre><code>hello harry
@@ -329,7 +347,7 @@ the directory you use it on is already added.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -363,14 +381,14 @@ the directory you use it on is already added.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/code-quality/tooling/" title="Appropriate tooling">
+      <a href="https://hitchdev.com/hitchstory/using/alpha/steps-and-step-arguments/" title="Arguments to steps">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Appropriate tooling
+              Arguments to steps
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

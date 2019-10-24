@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Why not X? on HitchDev</title>
+    <link>https://hitchdev.com/strictyaml/why-not/</link>
+    <description>Recent content in Why not X? on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hitchdev.com/strictyaml/why-not/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>What is wrong with TOML?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/toml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/toml/</guid>
+      <description># This is a TOML document.title=&amp;#34;TOML Example&amp;#34;[owner]name=&amp;#34;Tom Preston-Werner&amp;#34;dob=1979-05-27T07:32:00-08:00# First class dates TOML is a configuration designed as a sort of &amp;ldquo;improved&amp;rdquo; INI file. It&amp;rsquo;s analogous to this project - StrictYAML, a similar attempt to fix YAML&amp;rsquo;s flaws:
+# All about the charactername:FordPrefectage:42possessions:-Towel I&amp;rsquo;m not going to argue here that TOML is the worst file format out there - if you use it infrequently on small and simple files it does its job fine.</description>
+    </item>
+    
+    <item>
+      <title>Why avoid using environment variables as configuration?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/environment-variables-as-config/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/environment-variables-as-config/</guid>
+      <description>The use of &amp;ldquo;environment variables as configuration&amp;rdquo; is recommended by &amp;ldquo;12 factor&amp;rdquo;. While this is a common practice and often leads to few or no problems, calling it a best practice is a bit much.
+The reason cited by the 12 factor website for using them is:
+ The twelve-factor app stores config in environment variables (often shortened to env vars or env). Env vars are easy to change between deploys without changing any code; unlike config files, there is little chance of them being checked into the code repo accidentally; and unlike custom config files, or other config mechanisms such as Java System Properties, they are a language- and OS-agnostic standard.</description>
+    </item>
+    
+    <item>
+      <title>Why not HOCON?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/hocon/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/hocon/</guid>
+      <description>HOCON is another &amp;ldquo;redesigned&amp;rdquo; JSON, ironically enough, taking JSON and making it even more complicated.
+Along with JSON&amp;rsquo;s syntax typing - a downside of most non-YAML alternatives, HOCON makes the following mistakes in its design:
+ It does not fail loudly on duplicate keys. It has a confusing rules for deciding on concatenations and substitutions. -* It has a mechanism for substitutions similar to YAML&amp;rsquo;s node/anchor feature - which, unless used extremely sparingly, can create confusing markup that, ironically, is not human optimized.</description>
+    </item>
+    
+    <item>
+      <title>Why not JSON for simple configuration files?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/json/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/json/</guid>
+      <description>JSON is an ideal format for REST APIs and other forms of data intended for machine exchange and it probably always will be because:
+ It&amp;rsquo;s a simple spec. It has all the basic types which map on to all programming languages - number, string, list, mapping, boolean and no more. Its syntax contains a built in level of error detection - cut a JSON request in half and it is no longer still valid, eliminating an entire class of obscure and problematic bugs.</description>
+    </item>
+    
+    <item>
+      <title>Why not JSON5?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/json5/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/json5/</guid>
+      <description>JSON5 is also a proposed extension to JSON to make it more readable.
+Its main criticism of YAML is::
+There are other formats that are human-friendlier, like YAML, but changing from JSON to a completely different format is undesirable in many cases.
+This is, I belive, mistaken. It is better if a language is not subtly different if you are going to use it as such. Subtle differences invite mistakes brought on by confusion.</description>
+    </item>
+    
+    <item>
+      <title>Why not use INI files?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/ini/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/ini/</guid>
+      <description>INI is a very old and quite readable configuration format for small configuration files. It is still used by many programs today and it has some advantages due to this - e.g. python has inbuilt parser for it.
+Unfortunately it suffers from two major problems:
+ Different parsers will operate in subtly different ways that can lead to often obscure edge case bugs regarding the way whitespace is used, case sensitivity, comments and escape characters.</description>
+    </item>
+    
+    <item>
+      <title>Why not use JSON Schema for validation?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/json-schema/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/json-schema/</guid>
+      <description>JSON schema can also be used to validate YAML. This presumes that you might want to use jsonschema and pyyaml/ruamel.yaml together.
+[ TODO Flesh out ]
+ Line numbers Simpler errors in StrictYAML StrictYAML is a more flexible schema Turing incompleteness / inflexibility  </description>
+    </item>
+    
+    <item>
+      <title>Why not use SDLang?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/sdlang/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/sdlang/</guid>
+      <description>SDLang or &amp;ldquo;simple declarative language&amp;rdquo; is a proposed configuration language with an XML-like structure inspired by C.
+Example:
+// This is a node with a single string value title &amp;quot;Hello, World&amp;quot; // Multiple values are supported, too bookmarks 12 15 188 1234 // Nodes can have attributes author &amp;quot;Peter Parker&amp;quot; email=&amp;quot;peter@example.org&amp;quot; active=true // Nodes can be arbitrarily nested contents { section &amp;quot;First section&amp;quot; { paragraph &amp;quot;This is the first paragraph&amp;quot; paragraph &amp;quot;This is the second paragraph&amp;quot; } } // Anonymous nodes are supported &amp;quot;This text is the value of an anonymous node!</description>
+    </item>
+    
+    <item>
+      <title>Why not use XML for configuration or DSLs?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/xml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/xml/</guid>
+      <description>XML suffers from overcomplication much like vanilla YAML does - although to an ever greater degree, thanks to the committee driven design. Doctypes and namespaces are horrendous additions to the language, for instance. XML is not only not really human readable (beyond a very basic subset of the language), it&amp;rsquo;s often barely programmer readable despite being less expressive than most turing complete languages. It&amp;rsquo;s a flagrant violation of the rule of least power.</description>
+    </item>
+    
+    <item>
+      <title>Why not use kwalify with standard YAML to validate my YAML?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/pykwalify/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/pykwalify/</guid>
+      <description>Kwalify is a schema validation language that is written in YAML.
+It is a descriptive schema language suitable for validating simple YAML.
+Kwalify compiles to the strictyaml equivalent but is able to do less. You cannot, for example:
+ Plug generated lists that come from outside of the spec (e.g. a list of country code from pycountry). Validate parts of the schema which can be either one thing or another - e.</description>
+    </item>
+    
+    <item>
+      <title>Why not use python&#39;s schema library (or similar) for validation?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/python-schema/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/python-schema/</guid>
+      <description>Python&amp;rsquo;s &amp;lsquo;schema&amp;rsquo; (as well as similar libraries) can also be used to validate the structure of objects. Validating YAML is even cited as a reason on their README.
+Using a schema for validation requires running the YAML through a parser first which and then taking the output (usually a data structure like a dict) and passing it through the schema.
+Unfortunately there are a number of problems with this approach:</description>
+    </item>
+    
+    <item>
+      <title>Why not use the YAML 2.0 standard? - we don&#39;t need a new standard!</title>
+      <link>https://hitchdev.com/strictyaml/why-not/ordinary-yaml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/ordinary-yaml/</guid>
+      <description>StrictYAML is composed of two parts:
+ A new YAML specification which parses a restricted subset of the YAML 2.0 specification and only parse to ordered dict, list or string. An optional validator (which will, as requested, validate and cast parse some of those scalar string values to ints, floats, datetimes, etc.).  Note that StrictYAML is not a new standard. If you have a syntax highlighter or editor or anything else that recognizes or reads YAML it will recognize StrictYAML in the same way.</description>
+    </item>
+    
+    <item>
+      <title>Why shouldn&#39;t I just use python code for configuration?</title>
+      <link>https://hitchdev.com/strictyaml/why-not/turing-complete-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why-not/turing-complete-code/</guid>
+      <description>It is relatively common for many applications to avoid the use of a different markup language for configuration and simply allow configuration to be done using code. One famous and unapologetic example of this is Django, which requires all configuration to be in a &amp;ldquo;settings.py&amp;rdquo; or similar file.
+This seems like a great idea from the outset - python is more flexible than any configuration language, so, for instance, if you wanted to use a list comprehension or read a file or call an API to fill a value, you can.</description>
+    </item>
+    
+  </channel>
+</rss>

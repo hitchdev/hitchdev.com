@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Play multiple stories in sequence - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -338,15 +356,15 @@ failure. This behavior can be changed though.</p>
         <span class="n">random_variable</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">()</span>
     <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;step1.txt&#34;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;example&#34;</span><span class="p">):</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&#34;step1.txt&#34;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">&#34;example&#34;</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
             <span class="n">handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span></code></pre></div>
 <p>Running all stories in file order:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">results</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span>
     <span class="p">[</span>
-        <span class="sa"></span><span class="s2">&#34;base.story&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;example1.story&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;example2.story&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;base.story&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;example1.story&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;example2.story&#34;</span><span class="p">,</span>
     <span class="p">],</span>
     <span class="n">Engine</span><span class="p">()</span>
 <span class="p">)</span><span class="o">.</span><span class="n">ordered_by_file</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
@@ -361,8 +379,8 @@ RUNNING Create files in /path/to/example2.story ... SUCCESS in 0.1 seconds.
 
 <p>Running all tests ordered by name in &lsquo;example1.story&rsquo;:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span>
-    <span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">()</span>
-<span class="p">)</span><span class="o">.</span><span class="n">in_filename</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;example1.story&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+    <span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">()</span>
+<span class="p">)</span><span class="o">.</span><span class="n">in_filename</span><span class="p">(</span><span class="s2">&#34;example1.story&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Create file in /path/to/example1.story ... SUCCESS in 0.1 seconds.
@@ -370,7 +388,7 @@ RUNNING Create file again in /path/to/example1.story ... SUCCESS in 0.1 seconds.
 </code></pre>
 
 <p>Using .one() on a group of stories will fail:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">one</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchstory</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MoreThanOneStory</span><span class="p">:</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">one</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchstory</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MoreThanOneStory</span><span class="p">:</span>
 <span class="n">More</span> <span class="n">than</span> <span class="n">one</span> <span class="n">matching</span> <span class="n">story</span><span class="p">:</span>
 <span class="n">Base</span> <span class="n">story</span> <span class="p">(</span><span class="ow">in</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">base</span><span class="o">.</span><span class="n">story</span><span class="p">)</span>
 <span class="n">Create</span> <span class="nb">file</span> <span class="p">(</span><span class="ow">in</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">example1</span><span class="o">.</span><span class="n">story</span><span class="p">)</span>
@@ -384,7 +402,7 @@ RUNNING Create file again in /path/to/example1.story ... SUCCESS in 0.1 seconds.
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

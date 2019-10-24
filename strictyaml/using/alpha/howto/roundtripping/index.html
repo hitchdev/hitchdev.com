@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Reading in YAML, editing it and writing it back out - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -214,6 +214,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -334,21 +352,21 @@ locations, etc.) may not be identical.</p>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
 <span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span>
-    <span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
-    <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}),</span>
-    <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="n">EmptyDict</span><span class="p">()</span> <span class="o">|</span> <span class="n">Seq</span><span class="p">(</span><span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Str</span><span class="p">())),</span>
+    <span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
+    <span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}),</span>
+    <span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="n">EmptyDict</span><span class="p">()</span> <span class="o">|</span> <span class="n">Seq</span><span class="p">(</span><span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Str</span><span class="p">())),</span>
 <span class="p">})</span></code></pre></div>
 <p>Commented:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">)</span></code></pre></div>
 <p>Modified with invalid variable:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">to_modify</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="n">to_modify</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">to_modify</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;3&#39;</span>
-<span class="n">to_modify</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;not an integer&#39;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLSerializationError</span><span class="p">:</span>
-<span class="sa"></span><span class="s1">&#39;not an integer&#39;</span> <span class="ow">not</span> <span class="n">an</span> <span class="n">integer</span><span class="o">.</span></code></pre></div>
+<span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;3&#39;</span>
+<span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;not an integer&#39;</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLSerializationError</span><span class="p">:</span>
+<span class="s1">&#39;not an integer&#39;</span> <span class="ow">not</span> <span class="n">an</span> <span class="n">integer</span><span class="o">.</span></code></pre></div>
 <p>Modified with float:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">to_modify</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="n">to_modify</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;1.0001&#34;</span>
+<span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;1.0001&#34;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">to_modify</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Some comment</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span>a<span class="p">:</span><span class="w"> </span>â<span class="w"> </span><span class="c"># value comment</span><span class="w">
@@ -362,8 +380,8 @@ locations, etc.) may not be identical.</p>
 </span><span class="w"></span>-<span class="w"> </span>b<span class="p">:</span><span class="w"> </span><span class="m">2</span></code></pre></div>
 <p>Modified with one variable:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">to_modify</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="n">to_modify</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">to_modify</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s1">&#39;3&#39;</span>
+<span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;3&#39;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">to_modify</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Some comment</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span>a<span class="p">:</span><span class="w"> </span>â<span class="w"> </span><span class="c"># value comment</span><span class="w">
@@ -378,7 +396,7 @@ locations, etc.) may not be identical.</p>
 <p>Text across lines:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">to_modify</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
 
-<span class="n">to_modify</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;text</span><span class="se">\n</span><span class="s2">across</span><span class="se">\n</span><span class="s2">lines&#34;</span>
+<span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;text</span><span class="se">\n</span><span class="s2">across</span><span class="se">\n</span><span class="s2">lines&#34;</span>
 <span class="k">print</span><span class="p">(</span><span class="n">to_modify</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Some comment</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span>a<span class="p">:</span><span class="w"> </span>â<span class="w"> </span><span class="c"># value comment</span><span class="w">
@@ -396,7 +414,7 @@ locations, etc.) may not be identical.</p>
 <p>With empty dict:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">to_modify</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
 
-<span class="n">to_modify</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;c&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 <span class="k">print</span><span class="p">(</span><span class="n">to_modify</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Some comment</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span>a<span class="p">:</span><span class="w"> </span>â<span class="w"> </span><span class="c"># value comment</span><span class="w">
@@ -414,7 +432,7 @@ locations, etc.) may not be identical.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -428,7 +446,7 @@ locations, etc.) may not be identical.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/principles/" title="Principles of HitchDev">
+      <a href="https://hitchdev.com/hitchstory/why/principles/" title="Principles">
         <span class="direction">
           Previous
         </span>
@@ -438,7 +456,7 @@ locations, etc.) may not be identical.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Principles of HitchDev
+              Principles
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Timeout - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -321,17 +339,17 @@ time.sleep(3)
 <span class="kn">import</span> <span class="nn">hitchbuild</span>
 
 <span class="n">virtualenv</span> <span class="o">=</span> <span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">VirtualenvBuild</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
-    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
-        <span class="sa"></span><span class="s1">&#39;/path/to/share_dir/&#39;</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
+    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
+        <span class="s1">&#39;/path/to/share_dir/&#39;</span>
     <span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
 
 <span class="n">virtualenv</span><span class="o">.</span><span class="n">ensure_built</span><span class="p">()</span>
 
 <span class="n">pyrunner</span> <span class="o">=</span> <span class="n">ExamplePythonCode</span><span class="p">(</span>
     <span class="n">virtualenv</span><span class="o">.</span><span class="nb">bin</span><span class="o">.</span><span class="n">python</span><span class="p">,</span>
-    <span class="sa"></span><span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
 <span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="n">long_string</span><span class="p">)</span><span class="o">.</span><span class="n">with_timeout</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchrunpy</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">PythonTimeout</span><span class="p">:</span>
 <span class="n">Timed</span> <span class="n">out</span> <span class="n">waiting</span> <span class="k">for</span> <span class="nb">exit</span><span class="o">.</span></code></pre></div>
 <div class="admonition note">
@@ -342,7 +360,7 @@ time.sleep(3)
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -356,7 +374,7 @@ time.sleep(3)
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/code-quality/least-code/" title="The least code principle">
+      <a href="https://hitchdev.com/hitchstory/approach/test-realism/" title="The importance of test realism">
         <span class="direction">
           Previous
         </span>
@@ -366,7 +384,7 @@ time.sleep(3)
           </div>
           <div class="stretch">
             <div class="title">
-              The least code principle
+              The importance of test realism
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Shortcut lookup for story names - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -329,23 +347,23 @@ story, an error is raised.</p>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 
 <span class="k">class</span> <span class="nc">Engine</span><span class="p">(</span><span class="n">BaseEngine</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;step1.txt&#34;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;example&#34;</span><span class="p">):</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">create_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&#34;step1.txt&#34;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">&#34;example&#34;</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
             <span class="n">handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 
-<span class="n">story_collection</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span></code></pre></div>
+<span class="n">story_collection</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span></code></pre></div>
 <p>Story found and run:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">shortcut</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;file&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;again&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">shortcut</span><span class="p">(</span><span class="s2">&#34;file&#34;</span><span class="p">,</span> <span class="s2">&#34;again&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Create file again in /path/to/example1.story ... SUCCESS in 0.1 seconds.
 </code></pre>
 
 <p>Story not found:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">shortcut</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;toast&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchstory</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">StoryNotFound</span><span class="p">:</span>
-<span class="n">Story</span> <span class="sa"></span><span class="s1">&#39;toast&#39;</span> <span class="ow">not</span> <span class="n">found</span><span class="o">.</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">shortcut</span><span class="p">(</span><span class="s2">&#34;toast&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchstory</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">StoryNotFound</span><span class="p">:</span>
+<span class="n">Story</span> <span class="s1">&#39;toast&#39;</span> <span class="ow">not</span> <span class="n">found</span><span class="o">.</span></code></pre></div>
 <p>More than one story found:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">shortcut</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;file&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchstory</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MoreThanOneStory</span><span class="p">:</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">shortcut</span><span class="p">(</span><span class="s2">&#34;file&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">hitchstory</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">MoreThanOneStory</span><span class="p">:</span>
 <span class="n">More</span> <span class="n">than</span> <span class="n">one</span> <span class="n">matching</span> <span class="n">story</span><span class="p">:</span>
 <span class="n">Create</span> <span class="nb">file</span> <span class="p">(</span><span class="ow">in</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">example1</span><span class="o">.</span><span class="n">story</span><span class="p">)</span>
 <span class="n">Create</span> <span class="nb">file</span> <span class="n">again</span> <span class="p">(</span><span class="ow">in</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">example1</span><span class="o">.</span><span class="n">story</span><span class="p">)</span>
@@ -358,7 +376,7 @@ story, an error is raised.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>StrictYAML - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -190,6 +190,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -320,18 +338,18 @@ specification.</p>
 </span><span class="w"></span>-<span class="w"> </span>Towel</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span><span class="p">,</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">YAMLError</span></code></pre></div>
 <p>Default parse result:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">)</span>
-<span class="n">YAML</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Ford Prefect&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;42&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;possessions&#39;</span><span class="p">,</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Towel&#39;</span><span class="p">])]))</span></code></pre></div>
+<span class="n">YAML</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Ford Prefect&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;42&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;possessions&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Towel&#39;</span><span class="p">])]))</span></code></pre></div>
 <p>All data is string, list or OrderedDict:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
-<span class="n">OrderedDict</span><span class="p">([(</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Ford Prefect&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;42&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;possessions&#39;</span><span class="p">,</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Towel&#39;</span><span class="p">])])</span></code></pre></div>
+<span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Ford Prefect&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;42&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;possessions&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Towel&#39;</span><span class="p">])])</span></code></pre></div>
 <p>Quickstart with schema:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span><span class="p">,</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">YAMLError</span>
 
-<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;age&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;possessions&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())})</span></code></pre></div>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="s2">&#34;age&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;possessions&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())})</span></code></pre></div>
 <p>42 is now parsed as an integer:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">person</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">person</span><span class="o">.</span><span class="n">data</span>
-<span class="n">OrderedDict</span><span class="p">([(</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;Ford Prefect&#39;</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;possessions&#39;</span><span class="p">,</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;Towel&#39;</span><span class="p">])])</span></code></pre></div>
+<span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Ford Prefect&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;possessions&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Towel&#39;</span><span class="p">])])</span></code></pre></div>
 <p>A YAMLError will be raised if there are syntactic problems, violations of your schema or use of disallowed YAML features:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># All about the character</span><span class="w">
 </span><span class="w"></span>name<span class="p">:</span><span class="w"> </span>Ford<span class="w"> </span>Prefect<span class="w">
@@ -351,10 +369,10 @@ specification.</p>
 <p>If parsed correctly:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span><span class="p">,</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">YAMLError</span>
 
-<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;age&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;possessions&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())})</span></code></pre></div>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="s2">&#34;age&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;possessions&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())})</span></code></pre></div>
 <p>You can modify values and write out the YAML with comments preserved:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">person</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="n">person</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">43</span>
+<span class="n">person</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">43</span>
 <span class="k">print</span><span class="p">(</span><span class="n">person</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># All about the character</span><span class="w">
 </span><span class="w"></span>name<span class="p">:</span><span class="w"> </span>Ford<span class="w"> </span>Prefect<span class="w">
 </span><span class="w"></span>age<span class="p">:</span><span class="w"> </span><span class="m">43</span><span class="w">
@@ -362,7 +380,7 @@ specification.</p>
 </span><span class="w"></span>-<span class="w"> </span>Towel</code></pre></div>
 <p>As well as look up line numbers:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="n">person</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">person</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;possessions&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">start_line</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">person</span><span class="p">[</span><span class="s1">&#39;possessions&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">start_line</span>
 <span class="mi">5</span></code></pre></div>
 <h2 id="install">Install</h2>
 <div class="highlight"><pre class="chroma"><code class="language-sh" data-lang="sh">$ pip install strictyaml</code></pre></div>
@@ -373,19 +391,19 @@ less the same purpose as StrictYAML. I&rsquo;ve tried to make it the best one.
 Below is a series of documented justifications:</p>
 
 <ul>
-<li><a href="why-not/json">Why not JSON for simple configuration files?</a></li>
+<li><a href="why-not/json-schema">Why not use JSON Schema for validation?</a></li>
 <li><a href="why-not/toml">What is wrong with TOML?</a></li>
+<li><a href="why-not/turing-complete-code">Why shouldn&rsquo;t I just use python code for configuration?</a></li>
+<li><a href="why-not/json5">Why not JSON5?</a></li>
+<li><a href="why-not/json">Why not JSON for simple configuration files?</a></li>
+<li><a href="why-not/environment-variables-as-config">Why avoid using environment variables as configuration?</a></li>
+<li><a href="why-not/xml">Why not use XML for configuration or DSLs?</a></li>
+<li><a href="why-not/ini">Why not use INI files?</a></li>
 <li><a href="why-not/ordinary-yaml">Why not use the YAML 2.0 standard? - we don&rsquo;t need a new standard!</a></li>
-<li><a href="why-not/pykwalify">Why not use kwalify with standard YAML to validate my YAML?</a></li>
 <li><a href="why-not/python-schema">Why not use python&rsquo;s schema library (or similar) for validation?</a></li>
 <li><a href="why-not/hocon">Why not HOCON?</a></li>
-<li><a href="why-not/json5">Why not JSON5?</a></li>
-<li><a href="why-not/xml">Why not use XML for configuration or DSLs?</a></li>
-<li><a href="why-not/turing-complete-code">Why shouldn&rsquo;t I just use python code for configuration?</a></li>
-<li><a href="why-not/ini">Why not use INI files?</a></li>
 <li><a href="why-not/sdlang">Why not use SDLang?</a></li>
-<li><a href="why-not/environment-variables-as-config">Why avoid using environment variables as configuration?</a></li>
-<li><a href="why-not/json-schema">Why not use JSON Schema for validation?</a></li>
+<li><a href="why-not/pykwalify">Why not use kwalify with standard YAML to validate my YAML?</a></li>
 </ul>
 
 <h2 id="using-strictyaml">Using StrictYAML</h2>
@@ -393,52 +411,53 @@ Below is a series of documented justifications:</p>
 <p>How to:</p>
 
 <ul>
-<li><a href="using/alpha/howto/what-line">Get line numbers of YAML elements</a></li>
-<li><a href="using/alpha/howto/revalidation">Revalidate an already validated document</a></li>
+<li><a href="using/alpha/howto/merge-yaml-documents">Merge YAML documents</a></li>
 <li><a href="using/alpha/howto/build-yaml-document">Build a YAML document from scratch in code</a></li>
 <li><a href="using/alpha/howto/roundtripping">Reading in YAML, editing it and writing it back out</a></li>
-<li><a href="using/alpha/howto/label-exceptions">Labeling exceptions</a></li>
-<li><a href="using/alpha/howto/merge-yaml-documents">Merge YAML documents</a></li>
+<li><a href="using/alpha/howto/what-line">Get line numbers of YAML elements</a></li>
 <li><a href="using/alpha/howto/either-or-validation">Either/or schema validation of different, equally valid different kinds of YAML</a></li>
+<li><a href="using/alpha/howto/label-exceptions">Labeling exceptions</a></li>
 <li><a href="using/alpha/howto/without-a-schema">Parsing YAML without a schema</a></li>
+<li><a href="using/alpha/howto/revalidation">Revalidate an already validated document</a></li>
 </ul>
 
 <p>Compound validators:</p>
 
 <ul>
 <li><a href="using/alpha/compound/mapping-yaml-object">Using a YAML object of a parsed mapping</a></li>
-<li><a href="using/alpha/compound/sequences">Sequence/list validator (Seq)</a></li>
-<li><a href="using/alpha/compound/sequences-of-unique-items">Sequences of unique items (UniqueSeq)</a></li>
 <li><a href="using/alpha/compound/mapping-with-slug-keys">Mapping with defined keys and a custom key validator (Map)</a></li>
-<li><a href="using/alpha/compound/fixed-length-sequences">Fixed length sequences (FixedSeq)</a></li>
+<li><a href="using/alpha/compound/mapping">Mappings with defined keys (Map)</a></li>
+<li><a href="using/alpha/compound/update">Updating document with a schema</a></li>
+<li><a href="using/alpha/compound/optional-keys">Validating optional keys in mappings (Map)</a></li>
 <li><a href="using/alpha/compound/map-pattern">Mappings with arbitrary key names (MapPattern)</a></li>
 <li><a href="using/alpha/compound/optional-keys-with-defaults">Optional keys with defaults (Map/Optional)</a></li>
-<li><a href="using/alpha/compound/mapping">Mappings with defined keys (Map)</a></li>
-<li><a href="using/alpha/compound/optional-keys">Validating optional keys in mappings (Map)</a></li>
+<li><a href="using/alpha/compound/sequences">Sequence/list validator (Seq)</a></li>
+<li><a href="using/alpha/compound/sequences-of-unique-items">Sequences of unique items (UniqueSeq)</a></li>
+<li><a href="using/alpha/compound/fixed-length-sequences">Fixed length sequences (FixedSeq)</a></li>
 </ul>
 
 <p>Scalar validators:</p>
 
 <ul>
-<li><a href="using/alpha/scalar/regular-expressions">Validating strings with regexes (Regex)</a></li>
-<li><a href="using/alpha/scalar/comma-separated">Parsing comma separated items (CommaSeparated)</a></li>
-<li><a href="using/alpha/scalar/datetime">Datetimes (Datetime)</a></li>
 <li><a href="using/alpha/scalar/empty">Empty key validation</a></li>
-<li><a href="using/alpha/scalar/decimal">Decimal numbers (Decimal)</a></li>
-<li><a href="using/alpha/scalar/boolean">Boolean (Bool)</a></li>
-<li><a href="using/alpha/scalar/integer">Integers (Int)</a></li>
-<li><a href="using/alpha/scalar/enum">Enumerated scalars (Enum)</a></li>
+<li><a href="using/alpha/scalar/datetime">Datetimes (Datetime)</a></li>
 <li><a href="using/alpha/scalar/float">Floating point numbers (Float)</a></li>
 <li><a href="using/alpha/scalar/email-and-url">Email and URL validators</a></li>
+<li><a href="using/alpha/scalar/comma-separated">Parsing comma separated items (CommaSeparated)</a></li>
+<li><a href="using/alpha/scalar/integer">Integers (Int)</a></li>
+<li><a href="using/alpha/scalar/decimal">Decimal numbers (Decimal)</a></li>
+<li><a href="using/alpha/scalar/boolean">Boolean (Bool)</a></li>
+<li><a href="using/alpha/scalar/regular-expressions">Validating strings with regexes (Regex)</a></li>
 <li><a href="using/alpha/scalar/string">Parsing strings (Str)</a></li>
+<li><a href="using/alpha/scalar/enum">Enumerated scalars (Enum)</a></li>
 </ul>
 
 <p>Restrictions:</p>
 
 <ul>
 <li><a href="using/alpha/restrictions/disallowed-yaml">Disallowed YAML</a></li>
-<li><a href="using/alpha/restrictions/duplicate-keys">Duplicate keys</a></li>
 <li><a href="using/alpha/restrictions/loading-dirty-yaml">Dirty load</a></li>
+<li><a href="using/alpha/restrictions/duplicate-keys">Duplicate keys</a></li>
 </ul>
 
 <h2 id="design-justifications">Design justifications</h2>
@@ -447,16 +466,22 @@ Below is a series of documented justifications:</p>
 and/or not obvious. Those are documented here:</p>
 
 <ul>
-<li><a href="why/explicit-tags-removed">What is wrong with explicit tags?</a></li>
-<li><a href="why/syntax-typing-bad">What is syntax typing?</a></li>
-<li><a href="why/implicit-typing-removed">The Norway Problem - why StrictYAML won&rsquo;t do implicit typing</a></li>
-<li><a href="why/flow-style-removed">What is wrong with flow style YAML?</a></li>
-<li><a href="why/only-parse-strings-not-files">Why does StrictYAML only parse from strings and not files?</a></li>
-<li><a href="why/duplicate-keys-disallowed">What is wrong with duplicate keys?</a></li>
 <li><a href="why/speed-not-a-priority">Why is parsing speed not a high priority for StrictYAML?</a></li>
-<li><a href="why/not-parse-direct-representations-of-python-objects">Why does StrictYAML not parse direct representations of python objects?</a></li>
+<li><a href="why/syntax-typing-bad">What is syntax typing?</a></li>
 <li><a href="why/node-anchors-and-references-removed">What is wrong with node anchors and references?</a></li>
+<li><a href="why/duplicate-keys-disallowed">What is wrong with duplicate keys?</a></li>
+<li><a href="why/explicit-tags-removed">What is wrong with explicit tags?</a></li>
+<li><a href="why/implicit-typing-removed">The Norway Problem - why StrictYAML refuses to do implicit typing and so should you</a></li>
+<li><a href="why/not-parse-direct-representations-of-python-objects">Why does StrictYAML not parse direct representations of python objects?</a></li>
+<li><a href="why/only-parse-strings-not-files">Why does StrictYAML only parse from strings and not files?</a></li>
 <li><a href="why/turing-complete-schema">Why does StrictYAML make you define a schema in python - a turing complete language?</a></li>
+<li><a href="why/flow-style-removed">What is wrong with flow style YAML?</a></li>
+</ul>
+
+<h2 id="star-contributors">Star Contributors</h2>
+
+<ul>
+<li>@wwoods</li>
 </ul>
 
 <h2 id="contributors">Contributors</h2>
@@ -466,6 +491,8 @@ and/or not obvious. Those are documented here:</p>
 <li>@AlexandreDecan</li>
 <li>@lots0logs</li>
 <li>@tobbez</li>
+<li>@jaredsampson</li>
+<li>@BoboTIG</li>
 </ul>
 
 <h2 id="contributing">Contributing</h2>
@@ -481,7 +508,7 @@ and/or not obvious. Those are documented here:</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -495,7 +522,7 @@ and/or not obvious. Those are documented here:</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/hitchstory/using/alpha/parameterized-stories/" title="Story with parameters">
+      <a href="https://hitchdev.com/seleniumdirector/" title="SeleniumDirector">
         <span class="direction">
           Previous
         </span>
@@ -505,7 +532,7 @@ and/or not obvious. Those are documented here:</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Story with parameters
+              SeleniumDirector
             </div>
           </div>
         </div>
@@ -515,14 +542,14 @@ and/or not obvious. Those are documented here:</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/using/alpha/strong-typing/" title="Strong typing">
+      <a href="https://hitchdev.com/tropes/unit-test-paradox/" title="The Unit Test Paradox">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Strong typing
+              The Unit Test Paradox
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

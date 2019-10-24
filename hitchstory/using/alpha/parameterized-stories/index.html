@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Story with parameters - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -343,30 +361,30 @@ by surrounding the parameter name with (( brackets )).</p>
 <span class="k">class</span> <span class="nc">Engine</span><span class="p">(</span><span class="n">BaseEngine</span><span class="p">):</span>
     <span class="n">given_definition</span><span class="o">=</span><span class="n">GivenDefinition</span><span class="p">(</span>
         <span class="n">browser</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span>
-            <span class="n">schema</span><span class="o">=</span><span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;version&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}),</span>
+            <span class="n">schema</span><span class="o">=</span><span class="n">Map</span><span class="p">({</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="s2">&#34;version&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}),</span>
         <span class="p">),</span>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">set_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;browser&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
-        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;browser&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;version&#39;</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="s1">&#39;browser&#39;</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="s1">&#39;browser&#39;</span><span class="p">][</span><span class="s1">&#39;version&#39;</span><span class="p">])</span>
 
     <span class="k">def</span> <span class="nf">click_on_button</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;clicked!&#34;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;clicked!&#34;</span><span class="p">)</span>
 
-    <span class="nd">@validate</span><span class="p">(</span><span class="n">for_browser</span><span class="o">=</span><span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;version&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}))</span>
+    <span class="nd">@validate</span><span class="p">(</span><span class="n">for_browser</span><span class="o">=</span><span class="n">Map</span><span class="p">({</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="s2">&#34;version&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}))</span>
     <span class="k">def</span> <span class="nf">save_screenshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">for_browser</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;save screenshot:&#39;</span><span class="p">)</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;screenshot-{0}-{1}.png&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
-            <span class="n">for_browser</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
-            <span class="n">for_browser</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;version&#39;</span><span class="p">]</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;save screenshot:&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;screenshot-{0}-{1}.png&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="n">for_browser</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+            <span class="n">for_browser</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span>
         <span class="p">))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 <span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span>
 
-<span class="n">story_collection</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span></code></pre></div>
+<span class="n">story_collection</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span></code></pre></div>
 <p>Default:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Click magic button&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;Click magic button&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Click magic button in /path/to/example.story ... firefox
@@ -378,7 +396,7 @@ SUCCESS in 0.1 seconds.
 </code></pre>
 
 <p>Variation:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Click magic button/with chrome&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;Click magic button/with chrome&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Click magic button/with chrome in /path/to/example.story ... chrome
@@ -390,7 +408,7 @@ SUCCESS in 0.1 seconds.
 </code></pre>
 
 <p>Specify parameters with code:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span><span class="n">browser</span><span class="o">=</span><span class="p">{</span><span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;ie&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;version&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;6&#34;</span><span class="p">})</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Click magic button&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span><span class="n">browser</span><span class="o">=</span><span class="p">{</span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;ie&#34;</span><span class="p">,</span> <span class="s2">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;6&#34;</span><span class="p">})</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;Click magic button&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Click magic button in /path/to/example.story ... ie
@@ -409,7 +427,7 @@ SUCCESS in 0.1 seconds.
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -443,14 +461,14 @@ SUCCESS in 0.1 seconds.
 
   <div class="next">
   
-      <a href="https://hitchdev.com/strictyaml/" title="StrictYAML">
+      <a href="https://hitchdev.com/hitchstory/using/alpha/strong-typing/" title="Strong typing">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              StrictYAML
+              Strong typing
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

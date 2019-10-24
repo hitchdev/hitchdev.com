@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Revalidate an already validated document - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -214,6 +214,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -331,18 +349,18 @@ pass over a document.</p>
 </span><span class="w">  </span>-<span class="w"> </span>UK</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Map</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">load</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
-<span class="n">overall_schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;capitals&#34;</span><span class="p">:</span> <span class="n">Any</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;countries&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())})</span>
+<span class="n">overall_schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;capitals&#34;</span><span class="p">:</span> <span class="n">Any</span><span class="p">(),</span> <span class="s2">&#34;countries&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())})</span>
 <span class="n">parsed</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">overall_schema</span><span class="p">)</span></code></pre></div>
 <p>Reparse mapping:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;UK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;1&#34;</span><span class="p">)</span>
-<span class="n">parsed</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;capitals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">revalidate</span><span class="p">(</span><span class="n">Map</span><span class="p">({</span><span class="n">capital</span><span class="p">:</span> <span class="n">Int</span><span class="p">()</span> <span class="k">for</span> <span class="n">capital</span> <span class="ow">in</span> <span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;countries&#39;</span><span class="p">]}))</span>
-<span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;UK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="s1">&#39;UK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span>
+<span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;capitals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">revalidate</span><span class="p">(</span><span class="n">Map</span><span class="p">({</span><span class="n">capital</span><span class="p">:</span> <span class="n">Int</span><span class="p">()</span> <span class="k">for</span> <span class="n">capital</span> <span class="ow">in</span> <span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;countries&#39;</span><span class="p">]}))</span>
+<span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="s1">&#39;UK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
 <p>Reparse scalar:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;UK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;1&#34;</span><span class="p">)</span>
-<span class="n">parsed</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;UK&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">revalidate</span><span class="p">(</span><span class="n">Int</span><span class="p">())</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="s1">&#39;UK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="s2">&#34;1&#34;</span><span class="p">)</span>
+<span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="s1">&#39;UK&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">revalidate</span><span class="p">(</span><span class="n">Int</span><span class="p">())</span>
 
-<span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;UK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="sa"></span><span class="s1">&#39;UK&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">is_an</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span></code></pre></div>
+<span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="s1">&#39;UK&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Ensure</span><span class="p">(</span><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;capitals&#39;</span><span class="p">][</span><span class="s1">&#39;UK&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">is_an</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span></code></pre></div>
 <p>Parse error:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">capitals<span class="p">:</span><span class="w">
 </span><span class="w">  </span>UK<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
@@ -350,11 +368,11 @@ pass over a document.</p>
 </span><span class="w">  </span>France<span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
 </span><span class="w"></span>countries<span class="p">:</span><span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>Germany<span class="w">
-</span><span class="w">  </span>-<span class="w"> </span>UK</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">parsed</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;capitals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">revalidate</span><span class="p">(</span><span class="n">Map</span><span class="p">({</span><span class="n">capital</span><span class="p">:</span> <span class="n">Int</span><span class="p">()</span> <span class="k">for</span> <span class="n">capital</span> <span class="ow">in</span> <span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;countries&#39;</span><span class="p">]}))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
+</span><span class="w">  </span>-<span class="w"> </span>UK</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">parsed</span><span class="p">[</span><span class="s1">&#39;capitals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">revalidate</span><span class="p">(</span><span class="n">Map</span><span class="p">({</span><span class="n">capital</span><span class="p">:</span> <span class="n">Int</span><span class="p">()</span> <span class="k">for</span> <span class="n">capital</span> <span class="ow">in</span> <span class="n">parsed</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;countries&#39;</span><span class="p">]}))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="k">while</span> <span class="n">parsing</span> <span class="n">a</span> <span class="n">mapping</span>
-<span class="n">unexpected</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">schema</span> <span class="sa"></span><span class="s1">&#39;France&#39;</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-      <span class="n">France</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;3&#39;</span>
+<span class="n">unexpected</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">schema</span> <span class="s1">&#39;France&#39;</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+      <span class="n">France</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span>
     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">4</span><span class="p">)</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Executable specification</p>
@@ -364,7 +382,7 @@ pass over a document.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -378,7 +396,7 @@ pass over a document.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/restrictions/" title="Restrictions">
+      <a href="https://hitchdev.com/hitchstory/approach/complementary-tools/" title="Recommended complementary tools">
         <span class="direction">
           Previous
         </span>
@@ -388,7 +406,7 @@ pass over a document.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Restrictions
+              Recommended complementary tools
             </div>
           </div>
         </div>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Duplicate keys - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -214,6 +214,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -326,21 +344,21 @@ arrays where all of the keys are unique. It will throw a DuplicateKeysDisallowed
 <p>Nameless exception:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">DuplicateKeysDisallowed</span><span class="p">:</span>
 <span class="n">While</span> <span class="n">parsing</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
     <span class="n">a</span><span class="p">:</span> <span class="n">bull</span>
     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">Duplicate</span> <span class="n">key</span> <span class="sa"></span><span class="s1">&#39;a&#39;</span> <span class="n">found</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">2</span><span class="p">:</span>
+<span class="n">Duplicate</span> <span class="n">key</span> <span class="s1">&#39;a&#39;</span> <span class="n">found</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">2</span><span class="p">:</span>
     <span class="n">a</span><span class="p">:</span> <span class="n">bull</span>
      <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span></code></pre></div>
 <p>Named exception:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;mylabel&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">DuplicateKeysDisallowed</span><span class="p">:</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&#34;mylabel&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">DuplicateKeysDisallowed</span><span class="p">:</span>
 <span class="n">While</span> <span class="n">parsing</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;mylabel&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+  <span class="ow">in</span> <span class="s2">&#34;mylabel&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
     <span class="n">a</span><span class="p">:</span> <span class="n">bull</span>
     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">Duplicate</span> <span class="n">key</span> <span class="sa"></span><span class="s1">&#39;a&#39;</span> <span class="n">found</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;mylabel&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">2</span><span class="p">:</span>
+<span class="n">Duplicate</span> <span class="n">key</span> <span class="s1">&#39;a&#39;</span> <span class="n">found</span>
+  <span class="ow">in</span> <span class="s2">&#34;mylabel&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">2</span><span class="p">:</span>
     <span class="n">a</span><span class="p">:</span> <span class="n">bull</span>
      <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span></code></pre></div>
 <div class="admonition note">
@@ -351,7 +369,7 @@ arrays where all of the keys are unique. It will throw a DuplicateKeysDisallowed
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

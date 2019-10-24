@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Mappings with defined keys (Map) - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -214,6 +214,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -328,42 +346,42 @@ the keys in advance but you do know the type, use MapPattern.</p>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
-<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()})</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()})</span>
 
-<span class="n">schema_2</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa">u</span><span class="s2">&#34;â&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()})</span></code></pre></div>
+<span class="n">schema_2</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa">u</span><span class="s2">&#34;â&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()})</span></code></pre></div>
 <p>one key mapping:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">x<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}))</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="sa"></span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">x<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}))</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]))</span></code></pre></div>
 <p>key value:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema_2</span><span class="p">)[</span><span class="sa">u</span><span class="s1">&#39;â&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span></code></pre></div>
 <p>get item key not found:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema_2</span><span class="p">)[</span><span class="sa"></span><span class="s1">&#39;keynotfound&#39;</span><span class="p">]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">:</span>
-<span class="sa"></span><span class="s1">&#39;keynotfound&#39;</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema_2</span><span class="p">)[</span><span class="s1">&#39;keynotfound&#39;</span><span class="p">]</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="p">:</span>
+<span class="s1">&#39;keynotfound&#39;</span></code></pre></div>
 <p>cannot use .text:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema_2</span><span class="p">)</span><span class="o">.</span><span class="n">text</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">builtins</span><span class="o">.</span><span class="ne">TypeError</span><span class="p">:</span><span class="n">YAML</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="sa"></span><span class="s1">&#39;â&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]))</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">has</span> <span class="n">no</span> <span class="n">text</span> <span class="n">value</span><span class="o">.</span><span class="p">:</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema_2</span><span class="p">)</span><span class="o">.</span><span class="n">text</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">builtins</span><span class="o">.</span><span class="ne">TypeError</span><span class="p">:</span><span class="n">YAML</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="s1">&#39;â&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]))</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">mapping</span><span class="p">,</span> <span class="n">has</span> <span class="n">no</span> <span class="n">text</span> <span class="n">value</span><span class="o">.</span><span class="p">:</span></code></pre></div>
 <p>parse snippet where key is not found in schema:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
 </span><span class="w"></span>â<span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w"> </span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="k">while</span> <span class="n">parsing</span> <span class="n">a</span> <span class="n">mapping</span>
-<span class="n">unexpected</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">schema</span> <span class="sa"></span><span class="s1">&#39;â&#39;</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;</span><span class="se">\xE2</span><span class="s2">&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;3&#39;</span>
+<span class="n">unexpected</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">schema</span> <span class="s1">&#39;â&#39;</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="s2">&#34;</span><span class="se">\xE2</span><span class="s2">&#34;</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span>
     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span></code></pre></div>
 <p>sequence not expected when parsing:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">-<span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span><span class="m">2</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span><span class="m">3</span><span class="w"> </span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="n">when</span> <span class="n">expecting</span> <span class="n">a</span> <span class="n">mapping</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="o">-</span> <span class="sa"></span><span class="s1">&#39;1&#39;</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="o">-</span> <span class="s1">&#39;1&#39;</span>
      <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">found</span> <span class="n">a</span> <span class="n">sequence</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="o">-</span> <span class="sa"></span><span class="s1">&#39;3&#39;</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">3</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="o">-</span> <span class="s1">&#39;3&#39;</span>
     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span></code></pre></div>
 <p>List not expected when serializing:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">as_document</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLSerializationError</span><span class="p">:</span>
-<span class="n">Expected</span> <span class="n">a</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">found</span> <span class="sa"></span><span class="s1">&#39;[1, 2, 3]&#39;</span></code></pre></div>
+<span class="n">Expected</span> <span class="n">a</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">found</span> <span class="s1">&#39;[1, 2, 3]&#39;</span></code></pre></div>
 <p>Empty dict not valid when serializing:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">as_document</span><span class="p">({},</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLSerializationError</span><span class="p">:</span>
 <span class="n">Expected</span> <span class="n">a</span> <span class="n">non</span><span class="o">-</span><span class="n">empty</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">found</span> <span class="n">an</span> <span class="n">empty</span> <span class="nb">dict</span><span class="o">.</span>
@@ -374,23 +392,23 @@ the keys in advance but you do know the type, use MapPattern.</p>
 </span><span class="w"></span>c<span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
 </span><span class="w"></span>d<span class="p">:</span><span class="w"> </span><span class="m">4</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="k">while</span> <span class="n">parsing</span> <span class="n">a</span> <span class="n">mapping</span>
-<span class="n">unexpected</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">schema</span> <span class="sa"></span><span class="s1">&#39;d&#39;</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">d</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;4&#39;</span>
+<span class="n">unexpected</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">schema</span> <span class="s1">&#39;d&#39;</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">4</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">d</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span>
     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">4</span><span class="p">)</span></code></pre></div>
 <p>required key not found:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="k">while</span> <span class="n">parsing</span> <span class="n">a</span> <span class="n">mapping</span>
-<span class="n">required</span> <span class="n">key</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;c&#39;</span> <span class="ow">not</span> <span class="n">found</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">a</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;1&#39;</span>
+<span class="n">required</span> <span class="n">key</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span> <span class="ow">not</span> <span class="n">found</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span>
      <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre></div>
 <p>iterator:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
-</span><span class="w"></span>c<span class="p">:</span><span class="w"> </span><span class="m">3</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">assert</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)]</span> <span class="o">==</span> <span class="p">[</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">]</span></code></pre></div>
+</span><span class="w"></span>c<span class="p">:</span><span class="w"> </span><span class="m">3</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">assert</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)]</span> <span class="o">==</span> <span class="p">[</span><span class="s2">&#34;a&#34;</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="s2">&#34;c&#34;</span><span class="p">]</span></code></pre></div>
 <p>serialize:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">assert</span> <span class="n">as_document</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="sa">u</span><span class="s2">&#34;â&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]),</span> <span class="n">schema_2</span><span class="p">)</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">()</span> <span class="o">==</span> <span class="n">yaml_snippet</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">assert</span> <span class="n">as_document</span><span class="p">(</span><span class="n">OrderedDict</span><span class="p">([(</span><span class="sa">u</span><span class="s2">&#34;â&#34;</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;b&#34;</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="s2">&#34;c&#34;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)]),</span> <span class="n">schema_2</span><span class="p">)</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">()</span> <span class="o">==</span> <span class="n">yaml_snippet</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Executable specification</p>
 <p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/map.story">map.story</a>.</p>
@@ -399,7 +417,7 @@ the keys in advance but you do know the type, use MapPattern.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

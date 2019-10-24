@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Strong typing - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -334,7 +352,16 @@ objects.</p>
 </span><span class="w">        </span>options<span class="p">:</span><span class="w">
 </span><span class="w">          </span>tagline<span class="p">:</span><span class="w"> </span>Hoopy<span class="w">
 </span><span class="w">          </span>nametag<span class="p">:</span><span class="w"> </span>Ford<span class="w"> </span>Prefect<span class="w">
-</span><span class="w">    </span>-<span class="w"> </span>Put<span class="w"> </span>back<span class="w"> </span>items<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div>
+</span><span class="w">    </span>-<span class="w"> </span>Put<span class="w"> </span>back<span class="w"> </span>items<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span><span class="w">    </span>-<span class="w"> </span>Add<span class="w"> </span>generic<span class="w"> </span>product<span class="p">:</span><span class="w">
+</span><span class="w">        </span>name<span class="p">:</span><span class="w"> </span>Towel<span class="w">
+</span><span class="w">        </span>versions<span class="p">:</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span><span class="m">2.6</span><span class="w">
+</span><span class="w">          </span>-<span class="w"> </span><span class="m">2.3</span>.<span class="m">4</span><span class="w">
+</span><span class="w">        </span>quantity<span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span><span class="w">        </span>options<span class="p">:</span><span class="w">
+</span><span class="w">          </span>tagline<span class="p">:</span><span class="w"> </span>Hoopy<span class="w">
+</span><span class="w">          </span>nametag<span class="p">:</span><span class="w"> </span>Ford<span class="w"> </span>Prefect</code></pre></div>
 <p>engine.py:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">BaseEngine</span><span class="p">,</span> <span class="n">validate</span><span class="p">,</span> <span class="n">GivenDefinition</span><span class="p">,</span> <span class="n">GivenProperty</span>
 <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Map</span>
@@ -352,7 +379,7 @@ objects.</p>
         <span class="n">versions</span><span class="o">=</span><span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">()),</span>
         <span class="n">quantity</span><span class="o">=</span><span class="n">Int</span><span class="p">(),</span>
         <span class="n">options</span><span class="o">=</span><span class="n">Map</span><span class="p">({</span>
-            <span class="sa"></span><span class="s1">&#39;tagline&#39;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="sa"></span><span class="s1">&#39;nametag&#39;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()</span>
+            <span class="s1">&#39;tagline&#39;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="s1">&#39;nametag&#39;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()</span>
         <span class="p">}),</span>
     <span class="p">)</span>
     <span class="k">def</span> <span class="nf">add_product</span><span class="p">(</span>
@@ -362,20 +389,34 @@ objects.</p>
         <span class="n">versions</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
         <span class="n">options</span><span class="o">=</span><span class="bp">None</span>
     <span class="p">):</span>
-        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;quantity is of type {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">quantity</span><span class="p">))</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&#34;quantity is of type {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">quantity</span><span class="p">))</span>
         <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">versions</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span>
-        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;tagline&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span>
-        <span class="n">append</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;nametag&#39;</span><span class="p">])</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;tagline&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span>
+        <span class="n">append</span><span class="p">(</span><span class="n">options</span><span class="p">[</span><span class="s1">&#39;nametag&#39;</span><span class="p">])</span>
 
     <span class="nd">@validate</span><span class="p">(</span><span class="n">number_of_items</span><span class="o">=</span><span class="n">Int</span><span class="p">())</span>
     <span class="k">def</span> <span class="nf">put_back_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">number_of_items</span><span class="p">):</span>
         <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">number_of_items</span><span class="p">)</span> <span class="ow">is</span> <span class="nb">int</span>
-        <span class="n">append</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Items put back: &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">number_of_items</span><span class="p">))</span>
+        <span class="n">append</span><span class="p">(</span><span class="s2">&#34;Items put back: &#34;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">number_of_items</span><span class="p">))</span>
+      
+  
+    <span class="nd">@validate</span><span class="p">(</span><span class="n">kwargs</span><span class="o">=</span><span class="n">Map</span><span class="p">({</span>
+        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
+        <span class="s2">&#34;quantity&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span>
+        <span class="s2">&#34;versions&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">()),</span>
+        <span class="s2">&#34;options&#34;</span><span class="p">:</span> <span class="n">Map</span><span class="p">({</span>
+            <span class="s1">&#39;tagline&#39;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="s1">&#39;nametag&#39;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()</span>
+        <span class="p">})</span>
+    <span class="p">}))</span>
+    <span class="k">def</span> <span class="nf">add_generic_product</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;quantity&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">int</span><span class="p">,</span> <span class="s2">&#34;quantity is of type {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;quantity&#39;</span><span class="p">]))</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;versions&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span>
+        <span class="k">assert</span> <span class="nb">type</span><span class="p">(</span><span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;options&#39;</span><span class="p">][</span><span class="s1">&#39;tagline&#39;</span><span class="p">])</span> <span class="ow">is</span> <span class="nb">str</span>
 
     <span class="k">def</span> <span class="nf">tear_down</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">pass</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
-<span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Create files in /path/to/example.story ... SUCCESS in 0.1 seconds.
@@ -389,7 +430,7 @@ objects.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -403,7 +444,7 @@ objects.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/" title="StrictYAML">
+      <a href="https://hitchdev.com/hitchstory/using/alpha/parameterized-stories/" title="Story with parameters">
         <span class="direction">
           Previous
         </span>
@@ -413,7 +454,7 @@ objects.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              StrictYAML
+              Story with parameters
             </div>
           </div>
         </div>

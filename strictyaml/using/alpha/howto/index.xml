@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>How to... on HitchDev</title>
+    <link>https://hitchdev.com/strictyaml/using/alpha/howto/</link>
+    <description>Recent content in How to... on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hitchdev.com/strictyaml/using/alpha/howto/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Build a YAML document from scratch in code</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/howto/build-yaml-document/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/howto/build-yaml-document/</guid>
+      <description>YAML documents can be built from combinations of dicts, lists and strings if no schema is used.
+from ensure import Ensure from strictyaml import as_document from collections import OrderedDict # Can also use regular dict if an arbitrary ordering is ok yaml = as_document(OrderedDict( [(u&amp;#34;â&amp;#34;, &amp;#39;yes&amp;#39;), (&amp;#34;b&amp;#34;, &amp;#34;hâllo&amp;#34;), (&amp;#34;c&amp;#34;, [&amp;#34;1&amp;#34;, &amp;#34;2&amp;#34;, &amp;#34;3&amp;#34;])] )) Then dump:
+print(yaml.as_yaml())â:yesb:hâlloc:-1-2-3 However, any type that is not a string, dict or list cannot be parsed without a schema:</description>
+    </item>
+    
+    <item>
+      <title>Either/or schema validation of different, equally valid different kinds of YAML</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/howto/either-or-validation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/howto/either-or-validation/</guid>
+      <description>StrictYAML can be directed to parse two different elements or blocks of YAML.
+If the first thing does not parse correctly, it attempts to parse the second. If the second does not parse correctly, it raises an exception.
+from strictyaml import Map, Seq, Bool, Int, Str, YAMLValidationError, load from ensure import Ensure schema = Str() | Map({&amp;#34;a&amp;#34;: Bool() | Int()}) Boolean first choice true:
+a:yesEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: True}) Boolean first choice false:</description>
+    </item>
+    
+    <item>
+      <title>Get line numbers of YAML elements</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/howto/what-line/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/howto/what-line/</guid>
+      <description>Line numbers, the text of an item and text of surrounding lines can be grabbed from returned YAML objects - using .start_line, .end_line, lines(), lines_before(x) and lines_after(x).
+Example yaml_snippet:
+y:p# Some commenta:| x# Another commentb:yc:ad:bfrom strictyaml import Map, Str, YAMLValidationError, load from ensure import Ensure schema = Map({&amp;#34;y&amp;#34;: Str(), &amp;#34;a&amp;#34;: Str(), &amp;#34;b&amp;#34;: Str(), &amp;#34;c&amp;#34;: Str(), &amp;#34;d&amp;#34;: Str()}) snippet = load(yaml_snippet, schema) If there is preceding comment for an item the start line includes it:</description>
+    </item>
+    
+    <item>
+      <title>Labeling exceptions</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/howto/label-exceptions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/howto/label-exceptions/</guid>
+      <description>When raising exceptions, you can add a label that will replace with whatever you want.
+Example yaml_snippet:
+a:1b:-1-2from strictyaml import Map, Int, load, YAMLValidationError Label myfilename:
+load(yaml_snippet, Map({&amp;#34;a&amp;#34;: Int(), &amp;#34;b&amp;#34;: Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Int()})}), label=&amp;#34;myfilename&amp;#34;)strictyaml.exceptions.YAMLValidationError: when expecting a mapping in &amp;#34;myfilename&amp;#34;, line 2, column 1: b: ^ (line: 2) found a sequence in &amp;#34;myfilename&amp;#34;, line 4, column 1: - &amp;#39;2&amp;#39; ^ (line: 4) Executable specification
+Page automatically generated from handle-exceptions.story.</description>
+    </item>
+    
+    <item>
+      <title>Merge YAML documents</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/howto/merge-yaml-documents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/howto/merge-yaml-documents/</guid>
+      <description>Loaded YAML can be combined and dumped with the comments intact.
+from strictyaml import Map, MapPattern, Str, Seq, Int, load schema_1 = Map({ &amp;#34;a&amp;#34;: Str(), &amp;#34;b&amp;#34;: Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Int()}), &amp;#34;c&amp;#34;: Seq(MapPattern(Str(), Str())), }) schema_2 = Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Int()}) yaml_1 = load(yaml_snippet_1, schema_1) yaml_2 = load(yaml_snippet_2, schema_2) yaml_1[&amp;#39;b&amp;#39;] = yaml_2print(yaml_1.as_yaml())# Some commenta:â# value comment# Another commentb:x:8# y is now 9y:9c:-a:1-b:2 Executable specification
+Page automatically generated from merge-documents.story.
+ </description>
+    </item>
+    
+    <item>
+      <title>Parsing YAML without a schema</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/</guid>
+      <description>When using strictyaml you do not have to specify a schema. If you do this, the validator &amp;ldquo;Any&amp;rdquo; is used which will accept any mapping and any list and any scalar values (which will always be interpreted as a string, unlike regular YAML).
+This is the recommended approach when rapidly prototyping and the desired schema is fluid.
+When your prototype code is parsing YAML that has a more fixed structure, we recommend that you &amp;lsquo;lock it down&amp;rsquo; with a schema.</description>
+    </item>
+    
+    <item>
+      <title>Reading in YAML, editing it and writing it back out</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/howto/roundtripping/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/howto/roundtripping/</guid>
+      <description>Loaded YAML can be modified and dumped out again with comments preserved using .as_yaml().
+Note that due to some bugs in the library (ruamel.yaml) underlying StrictYAML, while the data parsed should be precisely the same, the exact syntax (newlines, comment locations, etc.) may not be identical.
+Example yaml_snippet:
+# Some commenta:â# value comment# Another commentb:x:4y:5c:-a:1-b:2from strictyaml import Map, MapPattern, EmptyDict, Str, Seq, Int, load from ensure import Ensure schema = Map({ &amp;#34;a&amp;#34;: Str(), &amp;#34;b&amp;#34;: Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Int()}), &amp;#34;c&amp;#34;: EmptyDict() | Seq(MapPattern(Str(), Str())), }) Commented:</description>
+    </item>
+    
+    <item>
+      <title>Revalidate an already validated document</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/howto/revalidation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/howto/revalidation/</guid>
+      <description>When parsing a YAML document you may wish to do more than one validation pass over a document.
+This is needed when:
+ It simplifies your code to apply validation in stages. You want to validate recursively. One part of the document validation depends upon another (this is the example given below).  Example yaml_snippet:
+capitals:UK:1Germany:2countries:-Germany-UKfrom strictyaml import Str, Int, Map, Seq, Any, load from ensure import Ensure overall_schema = Map({&amp;#34;capitals&amp;#34;: Any(), &amp;#34;countries&amp;#34;: Seq(Str())}) parsed = load(yaml_snippet, overall_schema) Reparse mapping:</description>
+    </item>
+    
+  </channel>
+</rss>

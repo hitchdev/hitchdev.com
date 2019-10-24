@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Why shouldn&#39;t I just use python code for configuration? - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -202,6 +202,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -299,11 +317,25 @@
 		<div class="wrapper">
 			<h1>Why shouldn&#39;t I just use python code for configuration? </h1>
 
-			<p>This isn&rsquo;t <a href="https://docs.djangoproject.com/en/1.10/ref/settings">uncommon</a> and can often seem like a nice, simple solution although using a turing complete language for configuration will often have <a href="http://nedbatchelder.com/blog/201112/duplicitous_django_settings.html">nasty side effects</a>.</p>
+			<p>It is relatively common for many applications to avoid the use of a different
+markup language for configuration and simply allow configuration to be
+done using code. One famous and unapologetic example of this is
+<a href="https://docs.djangoproject.com/en/1.10/ref/settings">Django</a>, which
+requires all configuration to be in a &ldquo;settings.py&rdquo; or similar file.</p>
 
-<p>Why does using YAML (or indeed, any configuration language) avoid this? Because they are <em>less powerful</em> languages than python.</p>
+<p>This seems like a great idea from the outset - python is more flexible
+than any configuration language, so, for instance, if you wanted to
+use a list comprehension or read a file or call an API to fill a value,
+you can.</p>
 
-<p>While this may not intrinsically seem like a good thing (more power seems better at first glance), it isn&rsquo;t:</p>
+<p>However, with this flexibility comes many traps and unsightly
+pitfalls. The Django pitfalls in particular are
+<a href="http://nedbatchelder.com/blog/201112/duplicitous_django_settings.html">cogently summed up by Ned Bachelder on
+his blog</a> -
+pitfalls which have been the cause of countless bugs over the
+years.</p>
+
+<p>The language expressiveness trade off applies at every level in code</p>
 
 <ul>
 <li><a href="http://lukeplant.me.uk/blog/posts/less-powerful-languages/">We need less powerful languages</a>.</li>
@@ -312,37 +344,15 @@
 <li><a href="https://blog.codinghorror.com/the-principle-of-least-power/">Principle of least power by Jeff Atwood (coding horror blogger / stack overflow founder)</a>.</li>
 </ul>
 
-<p>A good way of refactoring, in fact, is to take a large chunk of turing complete python code that <em>can</em> be transformed directly into YAML with no loss in expressiveness and and to transform it - for example, a list of translation strings, countries or other configuration information.</p>
+<p>A good way of refactoring, in fact, is to take a large chunk of turing complete python code that <em>can</em> be transformed directly into StrictYAML with no loss in expressiveness and and to transform it - for example, a list of translation strings, countries or parameters.</p>
 
-<p>This has a number of advantages.</p>
-
-<p>Less powerful languages are easier to maintain and can be given to non-programmers to maintain.</p>
-
-<p>For example, a YAML translations configuration file like this could easily be edited by a non programmer:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">Hello<span class="p">:</span><span class="w">
-</span><span class="w">  </span>French<span class="p">:</span><span class="w"> </span>Bonjour<span class="w">
-</span><span class="w">  </span>German<span class="p">:</span><span class="w"> </span>Guten<span class="w"> </span>tag<span class="w">
-</span><span class="w"></span>Goodbye<span class="p">:</span><span class="w">
-</span><span class="w">  </span>French<span class="p">:</span><span class="w"> </span>Au<span class="w"> </span>revoir<span class="w">
-</span><span class="w">  </span>German<span class="p">:</span><span class="w"> </span>Auf<span class="w"> </span>wiedersehen</code></pre></div>
-<p>Whereas this python is more likely to cause problems, especially in a large file:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">TRANS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="sa"></span><span class="s2">&#34;Hello&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="sa"></span><span class="s2">&#34;French&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;Bonjour&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;German&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;Guten tag&#34;</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="sa"></span><span class="s2">&#34;Hello&#34;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="sa"></span><span class="s2">&#34;French&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;Bonjour&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;German&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;Auf wiedersehen&#34;</span><span class="p">,</span>
-    <span class="p">},</span>
-<span class="p">}</span></code></pre></div>
 <p>It also makes it easier to have the markup generated by another program or a templating language. While you
-technicall <em>can</em> do this with turing complete code, it will often lead to a debugging nightmare - <a href="https://stackoverflow.com/questions/622659/what-are-the-good-and-bad-points-of-c-templates">just ask C++ programmers</a>!</p>
+technically <em>can</em> do this with turing complete code, it will often lead to a debugging nightmare - <a href="https://stackoverflow.com/questions/622659/what-are-the-good-and-bad-points-of-c-templates">just ask C++ programmers</a>!</p>
 
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

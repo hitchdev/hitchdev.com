@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scalar StrictYAML Validators on HitchDev</title>
+    <link>https://hitchdev.com/strictyaml/using/alpha/scalar/</link>
+    <description>Recent content in Scalar StrictYAML Validators on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hitchdev.com/strictyaml/using/alpha/scalar/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Boolean (Bool)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/boolean/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/boolean/</guid>
+      <description>Boolean values can be parsed using a Bool validator.
+It case-insensitively interprets &amp;ldquo;yes&amp;rdquo;, &amp;ldquo;true&amp;rdquo;, &amp;ldquo;1&amp;rdquo;, &amp;ldquo;on&amp;rdquo; as &amp;ldquo;True&amp;rdquo;, &amp;ldquo;y&amp;rdquo; and their opposites as False.
+Different values will trigger a validation error.
+When updating boolean values on a YAML object with True or False, the roundtripped string version is set to &amp;ldquo;yes&amp;rdquo; and &amp;ldquo;no&amp;rdquo;.
+To have your boolean values updated to a different yes/no string, update with a string instead - e.</description>
+    </item>
+    
+    <item>
+      <title>Datetimes (Datetime)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/datetime/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/datetime/</guid>
+      <description>Datetime validator parses using the python-dateutil library and returns a python datetime object.
+Example yaml_snippet:
+date:2016-10-22datetime1:2016-10-22T14:23:12+00:00datetime2:2016-10-22T14:23:12Zdatetime3:20161022T142312Zfrom strictyaml import Map, Datetime, YAMLValidationError, load, as_document from collections import OrderedDict from dateutil.tz.tz import tzutc from datetime import datetime from ensure import Ensure schema = Map({ &amp;#34;date&amp;#34;: Datetime(), &amp;#34;datetime1&amp;#34;: Datetime(), &amp;#34;datetime2&amp;#34;: Datetime(), &amp;#34;datetime3&amp;#34;: Datetime(), }) equivalent_data = OrderedDict([ (&amp;#34;date&amp;#34;, datetime(2016, 10, 22, 0, 0)), (&amp;#34;datetime1&amp;#34;, datetime(2016, 10, 22, 14, 23, 12, tzinfo=tzutc())), (&amp;#34;datetime2&amp;#34;, datetime(2016, 10, 22, 14, 23, 12, tzinfo=tzutc())), (&amp;#34;datetime3&amp;#34;, datetime(2016, 10, 22, 14, 23, 12, tzinfo=tzutc())), ]) Each of the four datetimes are valid and parsed:</description>
+    </item>
+    
+    <item>
+      <title>Decimal numbers (Decimal)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/decimal/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/decimal/</guid>
+      <description>StrictYAML parses to a YAML object representing a decimal, not the value directly to give you more flexibility and control over what you can do with the YAML.
+This is what that can object can do - in many cases if parsed as a decimal, it will behave in the same way.
+To get a python decimal.Decimal object, use .data.
+Parsing and validating as a Decimal is best for values which require precision, like prices.</description>
+    </item>
+    
+    <item>
+      <title>Email and URL validators</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</guid>
+      <description>StrictYAML can validate emails (using a simplified regex) and URLs.
+from strictyaml import Email, Url, Map, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Email(), &amp;#34;b&amp;#34;: Url()}) Parsed:
+a:billg@microsoft.comb:http://www.google.com/Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;billg@microsoft.com&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;http://www.google.com/&amp;#34;}) Exception:
+a:notanemailb:notaurlload(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting an email address found non-matching string in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: notanemail ^ (line: 1) Executable specification
+Page automatically generated from email-url.story.
+ </description>
+    </item>
+    
+    <item>
+      <title>Empty key validation</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/empty/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/empty/</guid>
+      <description>Sometimes you may wish to not specify a value or specify that it does not exist.
+Using StrictYAML you can accept this as a valid value and have it parsed to one of three things - None, {} (empty dict), or [] (empty list).
+Example yaml_snippet:
+a:from strictyaml import Map, Str, Enum, EmptyNone, EmptyDict, EmptyList, load, as_document from ensure import Ensure EmptyNone with empty value:
+Ensure(load(yaml_snippet, Map({&amp;#34;a&amp;#34;: EmptyNone() | Enum([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;,])}))).</description>
+    </item>
+    
+    <item>
+      <title>Enumerated scalars (Enum)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/enum/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/enum/</guid>
+      <description>StrictYAML allows you to ensure that a scalar value can only be one of a set number of items.
+It will throw an exception if any strings not in the list are found.
+from strictyaml import Map, Enum, MapPattern, YAMLValidationError, load from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Enum([&amp;#34;A&amp;#34;, &amp;#34;B&amp;#34;, &amp;#34;C&amp;#34;])}) Valid because it contains &amp;lsquo;A&amp;rsquo;:
+a:AEnsure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;A&amp;#34;}) Get .data from enum:
+a:Aassert isinstance(load(yaml_snippet, schema)[&amp;#39;a&amp;#39;].data, str) Valid because it contains &amp;lsquo;B&amp;rsquo;:</description>
+    </item>
+    
+    <item>
+      <title>Floating point numbers (Float)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/float/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/float/</guid>
+      <description>StrictYAML parses to a YAML object representing a decimal - e.g. YAML(1.0000000000000001)
+To get a python float literal, use .data.
+Parsing and validating as a Decimal is best for values which require precision, but float is better for values for which precision is not required.
+Example yaml_snippet:
+a:1.00000000000000000001b:5.4135from strictyaml import Map, MapPattern, Str, Float, load, as_document from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Float(), &amp;#34;b&amp;#34;: Float()}) Use .</description>
+    </item>
+    
+    <item>
+      <title>Integers (Int)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/integer/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/integer/</guid>
+      <description>StrictYAML parses to a YAML object, not the value directly to give you more flexibility and control over what you can do with the YAML.
+This is what that can object can do - in many cases if parsed as a integer, it will behave in the same way.
+Example yaml_snippet:
+a:1b:5from strictyaml import Map, Int, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Int(), &amp;#34;b&amp;#34;: Int()}) parsed = load(yaml_snippet, schema) Parsed correctly:</description>
+    </item>
+    
+    <item>
+      <title>Parsing comma separated items (CommaSeparated)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/comma-separated/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/comma-separated/</guid>
+      <description>Comma-separated values can be validated and parsed using the CommaSeparated validator.
+Note that the space following the commas is stripped by default when parsed.
+from strictyaml import CommaSeparated, Int, Str, Map, load, as_document from ensure import Ensure int_schema = Map({&amp;#34;a&amp;#34;: CommaSeparated(Int())}) str_schema = Map({&amp;#34;a&amp;#34;: CommaSeparated(Str())}) Parse as int:
+a:1,2,3Ensure(load(yaml_snippet, int_schema)).equals({&amp;#34;a&amp;#34;: [1, 2, 3]}) Parse as string:
+a:1,2,3Ensure(load(yaml_snippet, str_schema)).equals({&amp;#34;a&amp;#34;: [&amp;#34;1&amp;#34;, &amp;#34;2&amp;#34;, &amp;#34;3&amp;#34;]}) Parse empty comma separated string:
+a:Ensure(load(yaml_snippet, str_schema)).equals({&amp;#34;a&amp;#34;: []}) Invalid int comma separated sequence:</description>
+    </item>
+    
+    <item>
+      <title>Parsing strings (Str)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/string/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/string/</guid>
+      <description>StrictYAML parses to a YAML object, not the value directly to give you more flexibility and control over what you can do with the YAML.
+This is what that can object can do - in most cases if parsed as a string, it will behave in the same way.
+Example yaml_snippet:
+a:1b:yesc:âstringd:| multiline stringfrom strictyaml import Str, Map, load from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Str(), &amp;#34;b&amp;#34;: Str(), &amp;#34;c&amp;#34;: Str(), &amp;#34;d&amp;#34;: Str()}) parsed = load(yaml_snippet, schema) Parses correctly:</description>
+    </item>
+    
+    <item>
+      <title>Validating strings with regexes (Regex)</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/</guid>
+      <description>StrictYAML can validate regular expressions and return a string. If the regular expression does not match, an exception is raised.
+from strictyaml import Regex, Map, load, as_document from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Regex(u&amp;#34;[1-4]&amp;#34;), &amp;#34;b&amp;#34;: Regex(u&amp;#34;[5-9]&amp;#34;)}) Parsed correctly:
+a:1b:5Ensure(load(yaml_snippet, schema)).equals({&amp;#34;a&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;5&amp;#34;}) Non-matching:
+a:5b:5load(yaml_snippet, schema)strictyaml.exceptions.YAMLValidationError: when expecting string matching [1-4] found non-matching string in &amp;#34;&amp;lt;unicode string&amp;gt;&amp;#34;, line 1, column 1: a: &amp;#39;5&amp;#39; ^ (line: 1) Serialized successfully:</description>
+    </item>
+    
+  </channel>
+</rss>

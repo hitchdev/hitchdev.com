@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title> - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -196,6 +196,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -300,6 +318,53 @@
 <h3 id="latest">Latest</h3>
 
 <p>No relevant code changes.</p>
+
+<h3 id="1-0-5">1.0.5</h3>
+
+<ul>
+<li>BUGFIX : Fixed python 2 bug introduced when fixing #72.</li>
+<li>BUG: issue #72.  Now <strong>setitem</strong> uses schema.</li>
+</ul>
+
+<p>Before this commit, schemas could be violated when assigning to
+Map/Sequence members.  Now, modifications to the data must fit the
+data&rsquo;s schema.</p>
+
+<p>Furthermore, if the node on which <strong>setitem</strong> is called has a compound
+schema, the selected validator within the compound schema may change
+correctly.</p>
+
+<h3 id="1-0-4">1.0.4</h3>
+
+<ul>
+<li>FEATURE : Include tests / stories in package.</li>
+<li>BUG: issue #72.  Now <strong>setitem</strong> uses schema.</li>
+</ul>
+
+<p>Before this commit, schemas could be violated when assigning to
+Map/Sequence members.  Now, modifications to the data must fit the
+data&rsquo;s schema.</p>
+
+<h3 id="1-0-3">1.0.3</h3>
+
+<ul>
+<li>BUGFIX : Fix for #64 integer value on YAML object being interpreted as string.</li>
+</ul>
+
+<h3 id="1-0-2">1.0.2</h3>
+
+<ul>
+<li>BUGFIX : #63 CommaSeparated should recognize a blank string as a valid empty list.</li>
+<li>BUGFIX : #61 fix for exception when parsing MapPattern with a non-string (float) as a key - hat tip @dgg5503.</li>
+<li>BUGFIX : Fix deprecation warning on Iterable from collections raised by #60 - hat tip @dthonon.</li>
+<li>FEATURE : Raise exception if more than one sequence validators are combined.</li>
+</ul>
+
+<h3 id="1-0-1">1.0.1</h3>
+
+<ul>
+<li>FEATURE : #51 - OrValidation with multiple Map validators does not work effectively - raise exception if user tries to use more than one.</li>
+</ul>
 
 <h3 id="1-0-0">1.0.0</h3>
 
@@ -724,7 +789,7 @@
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

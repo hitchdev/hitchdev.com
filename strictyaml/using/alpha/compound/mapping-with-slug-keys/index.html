@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Mapping with defined keys and a custom key validator (Map) - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -214,6 +214,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -337,27 +355,27 @@ by the value provided by the validator.</p>
         <span class="k">return</span> <span class="n">slugify</span><span class="p">(</span><span class="nb">unicode</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">contents</span><span class="p">))</span>
 
 <span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span>
-    <span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
-    <span class="n">Optional</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;country-code&#34;</span><span class="p">):</span> <span class="n">Str</span><span class="p">(),</span>
-    <span class="sa"></span><span class="s2">&#34;dial-code&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
-    <span class="sa"></span><span class="s2">&#34;official-languages&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())</span>
+    <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
+    <span class="n">Optional</span><span class="p">(</span><span class="s2">&#34;country-code&#34;</span><span class="p">):</span> <span class="n">Str</span><span class="p">(),</span>
+    <span class="s2">&#34;dial-code&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
+    <span class="s2">&#34;official-languages&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">Str</span><span class="p">())</span>
 <span class="p">},</span> <span class="n">key_validator</span><span class="o">=</span><span class="n">Slug</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span>
     <span class="p">{</span>
-        <span class="sa"></span><span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;United Kingdom&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;country-code&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;GB&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;dial-code&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;+44&#34;</span><span class="p">,</span>
-        <span class="sa"></span><span class="s2">&#34;official-languages&#34;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s2">&#34;English&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;Welsh&#34;</span><span class="p">],</span>
+        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;United Kingdom&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;country-code&#34;</span><span class="p">:</span> <span class="s2">&#34;GB&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;dial-code&#34;</span><span class="p">:</span> <span class="s2">&#34;+44&#34;</span><span class="p">,</span>
+        <span class="s2">&#34;official-languages&#34;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&#34;English&#34;</span><span class="p">,</span> <span class="s2">&#34;Welsh&#34;</span><span class="p">],</span>
     <span class="p">}</span>
 <span class="p">)</span></code></pre></div>
-<p><div class="admonition note">
+<div class="admonition note">
 <p class="admonition-title">Executable specification</p>
 <p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/map-with-key-validator.story">map-with-key-validator.story</a>.</p>
-</div></p>
+</div>
 
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

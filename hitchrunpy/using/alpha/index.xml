@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using HitchRunPy on HitchDev</title>
+    <link>https://hitchdev.com/hitchrunpy/using/alpha/</link>
+    <description>Recent content in Using HitchRunPy on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hitchdev.com/hitchrunpy/using/alpha/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>CProfile</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/cprofile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/cprofile/</guid>
+      <description>Code snippets run by hitchrunpy can be profiled with cprofile.
+&amp;ldquo;long_string&amp;rdquo; is set to:
+def do_calculation(number): x = i^i for i in range(0, 5000 * 1000): do_calculation(i)  from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_cprofile(&amp;#34;profiledata.dat&amp;#34;).with_code(long_string).run() import pstats data = pstats.Stats(&amp;#34;profiledata.dat&amp;#34;).sort_stats(&amp;#39;cumulative&amp;#39;) data.calc_callees() Executable specification
+Page automatically generated from cprofile.story.
+ </description>
+    </item>
+    
+    <item>
+      <title>Error occurred</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/syntax-errors/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/syntax-errors/</guid>
+      <description>from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_code(&amp;#39;&amp;#39;&amp;#39;x =&amp;#39;&amp;#39;&amp;#39;).run()hitchrunpy.exceptions.ErrorRunningCode: Error running code. Output: File &amp;#34;/path/to/code/working/examplepythoncode.py&amp;#34;, line 56 x = ^ SyntaxError: invalid syntax Executable specification
+Page automatically generated from basic.story.
+ </description>
+    </item>
+    
+    <item>
+      <title>Exceptions</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/exceptions/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/exceptions/</guid>
+      <description>When python code snippets raise exceptions, those can be expected by the code or unexpected.
+If unexpected they will raise an exception.
+from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, ) Occurs as expected:
+result = pyrunner.with_code(&amp;#34;&amp;#34;&amp;#34; class CustomException(Exception): pass raise CustomException(&amp;#39;This should hâppen&amp;#39;) &amp;#34;&amp;#34;&amp;#34;).expect_exceptions().run() result.exception_was_raised(&amp;#34;__main__.CustomException&amp;#34;) assert result.exception.message == &amp;#34;This should hâppen&amp;#34; assert result.</description>
+    </item>
+    
+    <item>
+      <title>Interact with running code</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/interact-with-running-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/interact-with-running-code/</guid>
+      <description>If you need to test code asynchronously or interact with it in a terminal window, you can use .running_code() to get a RunningCode object.
+From the RunningCode object you can use .iprocess to get an icommandlib iprocess object.
+&amp;ldquo;long_string&amp;rdquo; is set to:
+import sys import time answer = input(&amp;quot;favorite color:&amp;quot;) with open(&amp;quot;color.txt&amp;quot;, &amp;quot;w&amp;quot;) as handle: handle.write(answer) answer = input(&amp;quot;favorite movie:&amp;quot;) with open(&amp;quot;movie.txt&amp;quot;, &amp;quot;w&amp;quot;) as handle: handle.write(answer) time.sleep(0.5) sys.exit(0)  from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.</description>
+    </item>
+    
+    <item>
+      <title>Run with environment variables</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/environment-vars/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/environment-vars/</guid>
+      <description>Environment variables within the running python snippets can be overridden or set by using .with_env.
+from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_env(MYVAR=&amp;#34;myenvironmentvar&amp;#34;).with_code(( &amp;#39;import os\n&amp;#39; &amp;#39;\n&amp;#39; &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:\n&amp;#39; &amp;#39; handle.write(os.environ[&amp;#34;MYVAR&amp;#34;])\n&amp;#39; )).run() Then the file &amp;ldquo;working/examplefile&amp;rdquo; in the working dir will contain:
+myenvironmentvar  Executable specification
+Page automatically generated from environment-vars.</description>
+    </item>
+    
+    <item>
+      <title>Setup code</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/setup-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/setup-code/</guid>
+      <description>from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_code(( &amp;#39;with open(&amp;#34;examplefile&amp;#34;, &amp;#34;w&amp;#34;) as handle:&amp;#39; &amp;#39; handle.write(exampletext)&amp;#39; )).with_setup_code(&amp;#34;exampletext = &amp;#39;exampletext&amp;#39;&amp;#34;)\ .run() Then the file &amp;ldquo;working/examplefile&amp;rdquo; in the working dir will contain:
+exampletext  Executable specification
+Page automatically generated from basic.story.
+ </description>
+    </item>
+    
+    <item>
+      <title>Timeout</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/timeout/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/timeout/</guid>
+      <description>If the python code snippets you are running encounter a very very long loop or infinite, you can get it to time out.
+&amp;ldquo;long_string&amp;rdquo; is set to:
+import time time.sleep(3)  from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )pyrunner.with_code(long_string).with_timeout(1.0).run()hitchrunpy.exceptions.PythonTimeout: Timed out waiting for exit. Executable specification
+Page automatically generated from timeout.story.</description>
+    </item>
+    
+    <item>
+      <title>Use modules</title>
+      <link>https://hitchdev.com/hitchrunpy/using/alpha/variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchrunpy/using/alpha/variables/</guid>
+      <description>This example shows how to feed variables containing strings to your running code.
+from hitchrunpy import ExamplePythonCode from ensure import Ensure import hitchbuildpy import hitchbuild virtualenv = hitchbuildpy.VirtualenvBuild( name=&amp;#34;py3.7&amp;#34;, base_python=hitchbuildpy.PyenvBuild(&amp;#34;3.7&amp;#34;).with_build_path( &amp;#39;/path/to/share_dir/&amp;#39; ), ).with_build_path(&amp;#34;/path/to/build_dir/&amp;#34;) virtualenv.ensure_built() pyrunner = ExamplePythonCode( virtualenv.bin.python, &amp;#39;/path/to/working_dir&amp;#39;, )some_string = u&amp;#34;â string of some kind&amp;#34; pyrunner.with_code(( &amp;#34;from write_to_file import write_text\n&amp;#34; &amp;#34;write_text()&amp;#34; )).with_modules(&amp;#34;write_to_file.py&amp;#34;).run() Then the file &amp;ldquo;working/examplefile&amp;rdquo; in the working dir will contain:
+â string of some kind  Executable specification</description>
+    </item>
+    
+  </channel>
+</rss>

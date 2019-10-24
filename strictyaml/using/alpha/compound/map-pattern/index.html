@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Mappings with arbitrary key names (MapPattern) - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -214,6 +214,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -317,23 +335,26 @@ keys are, use a MapPattern.</p>
 
 <p>When you wish to specify the exact key name, use the
 &lsquo;Map&rsquo; validator instead.</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">MapPattern</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">YAMLValidationError</span><span class="p">,</span> <span class="n">load</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">MapPattern</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">YAMLValidationError</span><span class="p">,</span> <span class="n">load</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
 <span class="n">schema</span> <span class="o">=</span> <span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Int</span><span class="p">())</span></code></pre></div>
 <p>Equivalence 1:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">â<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">2</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa">u</span><span class="s2">&#34;â&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span></code></pre></div>
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">2</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa">u</span><span class="s2">&#34;â&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span></code></pre></div>
 <p>Equivalence 2:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span><span class="w"></span>c<span class="p">:</span><span class="w"> </span><span class="m">3</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span></code></pre></div>
+</span><span class="w"></span>c<span class="p">:</span><span class="w"> </span><span class="m">3</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="mi">3</span><span class="p">})</span></code></pre></div>
 <p>Equivalence 3:</p>
-<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="p">})</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">))</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="p">})</span></code></pre></div>
+<p>With floats and ints:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="m">10.25</span><span class="p">:</span><span class="w"> </span><span class="m">23</span><span class="w">
+</span><span class="w"></span><span class="m">20.33</span><span class="p">:</span><span class="w"> </span><span class="m">76</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">(</span><span class="n">Float</span><span class="p">(),</span> <span class="n">Int</span><span class="p">()))</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">equals</span><span class="p">({</span><span class="mf">10.25</span><span class="p">:</span> <span class="mi">23</span><span class="p">,</span> <span class="mf">20.33</span><span class="p">:</span> <span class="mi">76</span><span class="p">})</span></code></pre></div>
 <p>Invalid 1:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">b<span class="p">:</span><span class="w"> </span>b</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="n">when</span> <span class="n">expecting</span> <span class="n">an</span> <span class="n">integer</span>
 <span class="n">found</span> <span class="n">arbitrary</span> <span class="n">text</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
     <span class="n">b</span><span class="p">:</span> <span class="n">b</span>
      <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre></div>
 <p>Invalid 2:</p>
@@ -341,26 +362,26 @@ keys are, use a MapPattern.</p>
 </span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">2</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="n">when</span> <span class="n">expecting</span> <span class="n">an</span> <span class="n">integer</span>
 <span class="n">found</span> <span class="n">arbitrary</span> <span class="n">text</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
     <span class="n">a</span><span class="p">:</span> <span class="n">a</span>
      <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre></div>
 <p>More than the maximum number of keys:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">â<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
 </span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">2</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Int</span><span class="p">(),</span> <span class="n">maximum_keys</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="k">while</span> <span class="n">parsing</span> <span class="n">a</span> <span class="n">mapping</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;</span><span class="se">\xE2</span><span class="s2">&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;1&#39;</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="s2">&#34;</span><span class="se">\xE2</span><span class="s2">&#34;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span>
      <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">expected</span> <span class="n">a</span> <span class="n">maximum</span> <span class="n">of</span> <span class="mi">1</span> <span class="n">key</span><span class="p">,</span> <span class="n">found</span> <span class="mf">2.</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">b</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;2&#39;</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">b</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span>
     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span></code></pre></div>
 <p>Fewer than the minimum number of keys:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">â<span class="p">:</span><span class="w"> </span><span class="m">1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Int</span><span class="p">(),</span> <span class="n">minimum_keys</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="k">while</span> <span class="n">parsing</span> <span class="n">a</span> <span class="n">mapping</span>
 <span class="n">expected</span> <span class="n">a</span> <span class="n">minimum</span> <span class="n">of</span> <span class="mi">2</span> <span class="n">keys</span><span class="p">,</span> <span class="n">found</span> <span class="mf">1.</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="sa"></span><span class="s2">&#34;</span><span class="se">\xE2</span><span class="s2">&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s1">&#39;1&#39;</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="s2">&#34;</span><span class="se">\xE2</span><span class="s2">&#34;</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span>
      <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span></code></pre></div>
 <p>Invalid with non-ascii:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
@@ -368,8 +389,8 @@ keys are, use a MapPattern.</p>
 </span><span class="w"></span>c<span class="p">:</span><span class="w"> </span><span class="m">3</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">strictyaml</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">YAMLValidationError</span><span class="p">:</span>
 <span class="n">when</span> <span class="n">expecting</span> <span class="n">an</span> <span class="n">integer</span>
 <span class="n">found</span> <span class="n">arbitrary</span> <span class="n">text</span>
-  <span class="ow">in</span> <span class="sa"></span><span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
-    <span class="n">b</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;y</span><span class="se">\xE2</span><span class="s2">s&#34;</span>
+  <span class="ow">in</span> <span class="s2">&#34;&lt;unicode string&gt;&#34;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="n">column</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="n">b</span><span class="p">:</span> <span class="s2">&#34;y</span><span class="se">\xE2</span><span class="s2">s&#34;</span>
     <span class="o">^</span> <span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Executable specification</p>
@@ -379,7 +400,7 @@ keys are, use a MapPattern.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

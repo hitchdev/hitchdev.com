@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Flaky story detection - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -345,12 +363,12 @@ is considered a failure.</p>
     <span class="k">def</span> <span class="nf">step_that_fails_on_fifth_run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_tries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tries</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tries</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">Failure</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Flaky story failure!&#34;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">Failure</span><span class="p">(</span><span class="s2">&#34;Flaky story failure!&#34;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">step_that_always_fails</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="n">Failure</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Consistent failure!&#34;</span><span class="p">)</span></code></pre></div>
+        <span class="k">raise</span> <span class="n">Failure</span><span class="p">(</span><span class="s2">&#34;Consistent failure!&#34;</span><span class="p">)</span></code></pre></div>
 <p>Run a single story that fails on fifth try:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">flake_result</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">with_flake_detection</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;flaky story&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">flake_result</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">with_flake_detection</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;flaky story&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
 
 <span class="k">assert</span> <span class="n">flake_result</span><span class="o">.</span><span class="n">is_flaky</span></code></pre></div>
 <p>Will output:</p>
@@ -377,7 +395,7 @@ FLAKINESS DETECTED in 0.1 seconds, 20% of stories failed.
 </code></pre>
 
 <p>Run a single story that fails every time:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">flake_result</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">with_flake_detection</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;consistent failure&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">flake_result</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">with_flake_detection</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;consistent failure&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
 
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">flake_result</span><span class="o">.</span><span class="n">is_flaky</span></code></pre></div>
 <p>Will output:</p>
@@ -454,7 +472,7 @@ NO FLAKINESS DETECTED in 0.1 seconds after running 'Consistent failure' story 5 
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

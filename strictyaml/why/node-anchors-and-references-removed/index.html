@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>What is wrong with node anchors and references? - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -202,6 +202,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -302,25 +320,25 @@
 			<p>An example of a snippet of YAML that uses node anchors and references is described on the <a href="https://en.wikipedia.org/wiki/YAML#Advanced_components">YAML wikipedia page</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># sequencer protocols for Laser eye surgery</span><span class="w">
 </span><span class="w"></span>---<span class="w">
-</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w">  </span>&amp;id<span class="m">001</span><span class="w">                  </span><span class="c"># defines anchor label &amp;id001</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w">  </span><span class="cp">&amp;id001</span><span class="w">                  </span><span class="c"># defines anchor label &amp;id001</span><span class="w">
 </span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
 </span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.4</span><span class="w">
 </span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">12</span><span class="w">
 </span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">1000</span><span class="w">
 </span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>1mm<span class="w">
 </span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span>&amp;id<span class="m">002</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span><span class="cp">&amp;id002</span><span class="w">
 </span><span class="w">    </span>instrument<span class="p">:</span><span class="w">      </span>Lasik<span class="w"> </span><span class="m">2000</span><span class="w">
 </span><span class="w">    </span>pulseEnergy<span class="p">:</span><span class="w">     </span><span class="m">5.0</span><span class="w">
 </span><span class="w">    </span>pulseDuration<span class="p">:</span><span class="w">   </span><span class="m">10</span><span class="w">
 </span><span class="w">    </span>repetition<span class="p">:</span><span class="w">      </span><span class="m">500</span><span class="w">
 </span><span class="w">    </span>spotSize<span class="p">:</span><span class="w">        </span>2mm<span class="w">
-</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span>*id<span class="m">001</span><span class="w">                   </span><span class="c"># refers to the first step (with anchor &amp;id001)</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span>*id<span class="m">002</span><span class="w">                   </span><span class="c"># refers to the second step</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span><span class="cp">*id001</span><span class="w">                   </span><span class="c"># refers to the first step (with anchor &amp;id001)</span><span class="w">
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span><span class="cp">*id002</span><span class="w">                   </span><span class="c"># refers to the second step</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> 
-</span><span class="w">    </span>&lt;&lt;<span class="p">:</span><span class="w"> </span>*id<span class="m">001</span><span class="w">
+</span><span class="w">    </span>&lt;&lt;<span class="p">:</span><span class="w"> </span><span class="cp">*id001</span><span class="w">
 </span><span class="w">    </span>spotSize<span class="p">:</span><span class="w"> </span>2mm<span class="w">                </span><span class="c"># redefines just this key, refers rest from &amp;id001</span><span class="w">
-</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span>*id<span class="m">002</span></code></pre></div>
+</span><span class="w"></span>-<span class="w"> </span>step<span class="p">:</span><span class="w"> </span><span class="cp">*id002</span></code></pre></div>
 <p>While the intent of the feature is obvious (it lets you deduplicate code), the effect is to make the markup
 more or less unreadable to non-programmers.</p>
 
@@ -404,7 +422,7 @@ manner, without duplication.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

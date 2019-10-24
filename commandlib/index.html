@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>CommandLib - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -193,6 +193,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -309,14 +327,14 @@ or <a href="https://pexpect.readthedocs.io/en/stable/">pexpect</a>.</p>
 </span><span class="c1"></span>import sys <span class="p">;</span> sys.stdout.write<span class="o">(</span><span class="s1">&#39; &#39;</span>.join<span class="o">(</span>sys.argv<span class="o">[</span><span class="m">1</span>:<span class="o">]))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">commandlib</span> <span class="kn">import</span> <span class="n">Command</span>
 
 <span class="c1"># Create base command</span>
-<span class="n">python</span> <span class="o">=</span> <span class="n">Command</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;python&#34;</span><span class="p">)</span>
+<span class="n">python</span> <span class="o">=</span> <span class="n">Command</span><span class="p">(</span><span class="s2">&#34;python&#34;</span><span class="p">)</span>
 
 <span class="c1"># Create command &#34;python manage.py&#34; that runs in the django directory</span>
-<span class="n">manage</span> <span class="o">=</span> <span class="n">python</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;manage.py&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">in_dir</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;django&#34;</span><span class="p">)</span>
+<span class="n">manage</span> <span class="o">=</span> <span class="n">python</span><span class="p">(</span><span class="s2">&#34;manage.py&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">in_dir</span><span class="p">(</span><span class="s2">&#34;django&#34;</span><span class="p">)</span>
 
 <span class="c1"># Build even more specific command</span>
-<span class="n">dev_manage</span> <span class="o">=</span> <span class="n">manage</span><span class="o">.</span><span class="n">with_trailing_args</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;--settings&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;local_settings.py&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run combined command</span>
-<span class="n">dev_manage</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;runserver&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;8080&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<span class="n">dev_manage</span> <span class="o">=</span> <span class="n">manage</span><span class="o">.</span><span class="n">with_trailing_args</span><span class="p">(</span><span class="s2">&#34;--settings&#34;</span><span class="p">,</span> <span class="s2">&#34;local_settings.py&#34;</span><span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Run combined command</span>
+<span class="n">dev_manage</span><span class="p">(</span><span class="s2">&#34;runserver&#34;</span><span class="p">,</span> <span class="s2">&#34;8080&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>runserver 8080 --settings local_settings.py
@@ -327,15 +345,15 @@ or <a href="https://pexpect.readthedocs.io/en/stable/">pexpect</a>.</p>
 <h2 id="docs">Docs</h2>
 
 <ul>
-<li><a href="using/alpha/run-interactively">Run commmands interactively using icommandlib or pexpect</a></li>
-<li><a href="using/alpha/command-path">Easily invoke commands from one directory (CommandPath)</a></li>
 <li><a href="using/alpha/use-current-python-environment">Easily invoke commands from the current virtualenv (python_bin)</a></li>
+<li><a href="using/alpha/run-interactively">Run commmands interactively using icommandlib or pexpect</a></li>
+<li><a href="using/alpha/pipe-data-out">Piping data out to string or file (.piped)</a></li>
+<li><a href="using/alpha/command-path">Easily invoke commands from one directory (CommandPath)</a></li>
 <li><a href="using/alpha/add-directory-to-path">Add directory to PATH (with_path)</a></li>
 <li><a href="using/alpha/pipe-data-in">Piping data in from string or file (.piped)</a></li>
-<li><a href="using/alpha/capture-output">Capture output (.output())</a></li>
-<li><a href="using/alpha/pipe-data-out">Piping data out to string or file (.piped)</a></li>
 <li><a href="using/alpha/ignore-nonzero-exit-codes">Run command and don&rsquo;t raise exception on nonzero exit code (ignore_errors())</a></li>
 <li><a href="using/alpha/environment-variables">Change your command&rsquo;s environment variables (with_env)</a></li>
+<li><a href="using/alpha/capture-output">Capture output (.output())</a></li>
 </ul>
 
 <h2 id="why">Why?</h2>
@@ -352,15 +370,15 @@ and the <a href="https://stackoverflow.com/questions/89228/calling-an-external-c
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">subprocess</span><span class="o">,</span> <span class="nn">os</span>
 <span class="n">previous_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;command_directory&#34;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s2">&#34;command_directory&#34;</span><span class="p">)</span>
 <span class="n">my_env</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">my_env</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;PATH&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="sa"></span><span class="s2">&#34;/usr/sbin:/sbin:&#34;</span> <span class="o">+</span> <span class="n">my_env</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;PATH&#34;</span><span class="p">]</span>
+<span class="n">my_env</span><span class="p">[</span><span class="s2">&#34;PATH&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&#34;/usr/sbin:/sbin:&#34;</span> <span class="o">+</span> <span class="n">my_env</span><span class="p">[</span><span class="s2">&#34;PATH&#34;</span><span class="p">]</span>
 <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">my_command</span><span class="p">,</span> <span class="n">env</span><span class="o">=</span><span class="n">my_env</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">previous_directory</span><span class="p">)</span></code></pre></div>
 <p>Equivalent:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">commandlib</span> <span class="kn">import</span> <span class="n">Command</span>
 
-<span class="n">Command</span><span class="p">(</span><span class="n">my_command</span><span class="p">)</span><span class="o">.</span><span class="n">with_path</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;/usr/sbin:/sbin:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">in_dir</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;command_directory&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<span class="n">Command</span><span class="p">(</span><span class="n">my_command</span><span class="p">)</span><span class="o">.</span><span class="n">with_path</span><span class="p">(</span><span class="s2">&#34;/usr/sbin:/sbin:&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">in_dir</span><span class="p">(</span><span class="s2">&#34;command_directory&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <h2 id="why-not-use-delegator-instead-kenneth-reitz-s-subprocesses-for-humans">Why not use Delegator instead (Kenneth Reitz&rsquo;s &lsquo;subprocesses for humans&rsquo;)?</h2>
 
 <p>Kenneth Reitz (author of requests &ldquo;urllib2/3 for humans&rdquo;), wrote a similarly inspired &ldquo;subprocess for humans&rdquo;
@@ -406,7 +424,7 @@ wrapper around subprocess.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -440,14 +458,14 @@ wrapper around subprocess.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/principles/commits/" title="Commit messages and their meanings">
+      <a href="https://hitchdev.com/faketime/" title="Faketime">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Commit messages and their meanings
+              Faketime
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>HitchStory - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -190,6 +190,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -323,7 +341,7 @@ code to execute them is written by you, in python.</p>
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>Form<span class="w"> </span>filled<span class="p">:</span><span class="w">
 </span><span class="w">      </span>username<span class="p">:</span><span class="w"> </span>AzureDiamond<span class="w">
-</span><span class="w">      </span>password<span class="p">:</span><span class="w"> </span>hunter<span class="m">2</span><span class="w">
+</span><span class="w">      </span>password<span class="p">:</span><span class="w"> </span>hunter2<span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>Clicked<span class="p">:</span><span class="w"> </span>login<span class="w">
 </span><span class="w">
 </span><span class="w">
@@ -335,7 +353,7 @@ code to execute them is written by you, in python.</p>
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>Clicked<span class="p">:</span><span class="w"> </span>new<span class="w"> </span>email<span class="w">
 </span><span class="w">  </span>-<span class="w"> </span>Form<span class="w"> </span>filled<span class="p">:</span><span class="w">
-</span><span class="w">      </span>to<span class="p">:</span><span class="w"> </span>Cthon<span class="m">98</span>@aol.com<span class="w">
+</span><span class="w">      </span>to<span class="p">:</span><span class="w"> </span>Cthon98@aol.com<span class="w">
 </span><span class="w">      </span>contents<span class="p">:</span><span class="w"> </span><span class="sd">|                # long form text</span><span class="w">
 </span><span class="w">        </span>Hey<span class="w"> </span>guys<span class="p">,</span><span class="w">
 </span><span class="w">
@@ -356,7 +374,7 @@ code to execute them is written by you, in python.</p>
     <span class="k">def</span> <span class="nf">set_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span> <span class="o">=</span> <span class="n">Webdriver</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">driver</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span>
-            <span class="sa"></span><span class="s2">&#34;http://localhost:5000{0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;website&#39;</span><span class="p">])</span>
+            <span class="s2">&#34;http://localhost:5000{0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="s1">&#39;website&#39;</span><span class="p">])</span>
         <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">form_filled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">textboxes</span><span class="p">):</span>
@@ -371,7 +389,7 @@ code to execute them is written by you, in python.</p>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 <span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span>
 
-<span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Email sent&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;Email sent&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Email sent in /path/to/example.story ...
@@ -396,18 +414,16 @@ SUCCESS in 0.1 seconds.
 
 <p>You <em>can</em> install hitchstory through pypi in any python 3 virtualenv:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ pip install hitchstory</code></pre></div>
-<p>However, it&rsquo;s recommended to use hitchstory with <a href="https://github.com/hitchdev/hitchkey">hitchkey</a>,
-which will take care of automatically setting up the <a href="approach/recommended-environment">recommended hitchstory environment</a>.</p>
+<p>However, it&rsquo;s recommended to install and set up hitchstory with <a href="https://github.com/hitchdev/hitchkey">hitchkey</a>,
+which will take care of automatically setting up a up the <a href="approach/recommended-environment">recommended hitchstory environment</a>.</p>
 
-<p>Install the bootstrapper in your system python:</p>
+<p>Either install hitchkey with <a href="https://github.com/mitsuhiko/pipsi">pipsi</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">pipsi install hitchkey</code></pre></div>
+<p>Or, if you&rsquo;d prefer, you can safely install with &ldquo;sudo pip&rdquo;:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">sudo pip install hitchkey</code></pre></div>
-<p>NOTE 1: If you</p>
-
-<p>NOTE 2: if you&rsquo;re morally against sudo pip install, please follow alternate rather than starting a flame war.</p>
-
 <p>Once hitchkey is installed:</p>
 
-<p>Go to a temporary directory and show basics:</p>
+<p>Example demo of hitchstory basics:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> temp
 hk --demo hitchstory <span class="p">;</span> hk bdd email</code></pre></div>
 <p>Example python API test demo (uses game of life):</p>
@@ -416,25 +432,25 @@ hk --demo pythonapi <span class="p">;</span> <span class="nb">cd</span> pythonap
 <h2 id="using-hitchstory">Using HitchStory</h2>
 
 <ul>
+<li><a href="using/alpha/special-failure-exception">Special exception named failure</a></li>
+<li><a href="using/alpha/inheritance">Inherit one story from another</a></li>
+<li><a href="using/alpha/flaky-story-detection">Flaky story detection</a></li>
+<li><a href="using/alpha/generate-documentation">Generate documentation from stories</a></li>
+<li><a href="using/alpha/aborting">Abort a story with ctrl-C</a></li>
+<li><a href="using/alpha/metadata">Extra story metadata - e.g. adding JIRA ticket numbers to stories</a></li>
+<li><a href="using/alpha/given">Given preconditions</a></li>
+<li><a href="using/alpha/gradual-typing">Gradual typing of story steps</a></li>
+<li><a href="using/alpha/play-multiple-stories">Play multiple stories in sequence</a></li>
 <li><a href="using/alpha/steps-and-step-arguments">Arguments to steps</a></li>
 <li><a href="using/alpha/rewrite-story">Story that rewrites itself</a></li>
 <li><a href="using/alpha/shortcut-lookup">Shortcut lookup for story names</a></li>
-<li><a href="using/alpha/failing-tests">Handling failing tests</a></li>
 <li><a href="using/alpha/continue-on-failure">Continue on failure when playing multiple stories</a></li>
-<li><a href="using/alpha/play-multiple-stories">Play multiple stories in sequence</a></li>
 <li><a href="using/alpha/variations">Variations</a></li>
-<li><a href="using/alpha/flaky-story-detection">Flaky story detection</a></li>
-<li><a href="using/alpha/generate-documentation">Generate documentation from stories</a></li>
-<li><a href="using/alpha/gradual-typing">Gradual typing of story steps</a></li>
-<li><a href="using/alpha/metadata">Extra story metadata - e.g. adding JIRA ticket numbers to stories</a></li>
-<li><a href="using/alpha/given">Given preconditions</a></li>
-<li><a href="using/alpha/expected-exceptions">Hiding stacktraces for expected exceptions</a></li>
-<li><a href="using/alpha/special-failure-exception">Special exception named failure</a></li>
-<li><a href="using/alpha/aborting">Abort a story with ctrl-C</a></li>
-<li><a href="using/alpha/parameterized-stories">Story with parameters</a></li>
-<li><a href="using/alpha/strong-typing">Strong typing</a></li>
 <li><a href="using/alpha/run-single-named-story">Running a single named story successfully</a></li>
-<li><a href="using/alpha/inheritance">Inherit one story from another</a></li>
+<li><a href="using/alpha/expected-exceptions">Hiding stacktraces for expected exceptions</a></li>
+<li><a href="using/alpha/failing-tests">Handling failing tests</a></li>
+<li><a href="using/alpha/strong-typing">Strong typing</a></li>
+<li><a href="using/alpha/parameterized-stories">Story with parameters</a></li>
 </ul>
 
 <h2 id="approach-to-using-hitchstory">Approach to using HitchStory</h2>
@@ -442,19 +458,19 @@ hk --demo pythonapi <span class="p">;</span> <span class="nb">cd</span> pythonap
 <p>Best practices, how the tool was meant to be used, etc.</p>
 
 <ul>
+<li><a href="approach/triality">Triality</a></li>
+<li><a href="approach/testing-nondeterministic-code">Testing non-deterministic code</a></li>
+<li><a href="approach/executable-specifications">Executable specifications</a></li>
 <li><a href="approach/complementary-tools">Recommended complementary tools</a></li>
 <li><a href="approach/human-writable">Does hitchstory let your BA or Product Manager write stories while you just write the code?</a></li>
-<li><a href="approach/test-realism">The importance of test realism</a></li>
-<li><a href="approach/testing-nondeterministic-code">Testing non-deterministic code</a></li>
-<li><a href="approach/testing-and-living-documentation">What is a testing and living documentation framework?</a></li>
 <li><a href="approach/screenplay-principle">Screenplay Principle</a></li>
-<li><a href="approach/test-investment">Tests are an investment</a></li>
-<li><a href="approach/executable-specifications">Executable specifications</a></li>
+<li><a href="approach/testing-and-living-documentation">What is a testing and living documentation framework?</a></li>
 <li><a href="approach/recommended-environment">Recommended Environment</a></li>
+<li><a href="approach/test-realism">The importance of test realism</a></li>
 <li><a href="approach/test-or-story">What is the difference betweeen a test and a story?</a></li>
-<li><a href="approach/stakeholder-collaboration">How can executable specifications and living documentation be used for stakeholder collaboration?</a></li>
-<li><a href="approach/triality">Triality</a></li>
 <li><a href="approach/flaky-tests">Flaky Tests</a></li>
+<li><a href="approach/test-investment">Tests are an investment</a></li>
+<li><a href="approach/stakeholder-collaboration">How can executable specifications and living documentation be used for stakeholder collaboration?</a></li>
 </ul>
 
 <h2 id="design-decisions-and-principles">Design decisions and principles</h2>
@@ -462,15 +478,15 @@ hk --demo pythonapi <span class="p">;</span> <span class="nb">cd</span> pythonap
 <p>Somewhat controversial design decisions are justified here.</p>
 
 <ul>
-<li><a href="why/rewrite">Why programatically rewrite stories?</a></li>
-<li><a href="why/no-cli">Why does hitchstory not have a command line interface?</a></li>
-<li><a href="why/principles">Principles</a></li>
-<li><a href="why/given-when-then">Why does hitchstory mandate the use of given but not when and then?</a></li>
 <li><a href="why/strictyaml">Why does HitchStory use StrictYAML?</a></li>
-<li><a href="why/interesting-to-the-business">Why does hitchstory not have an opinion on what counts as interesting to &ldquo;the business&rdquo;?</a></li>
 <li><a href="why/inheritance">Why is inheritance a feature of hitchstory stories?</a></li>
-<li><a href="why/declarative">Declarative User Stories</a></li>
+<li><a href="why/given-when-then">Why does hitchstory mandate the use of given but not when and then?</a></li>
 <li><a href="why/2-unit-tests-0-integration-tests">Two Unit Tests, Zero Integration Tests</a></li>
+<li><a href="why/no-cli">Why does hitchstory not have a command line interface?</a></li>
+<li><a href="why/interesting-to-the-business">Why does hitchstory not have an opinion on what counts as interesting to &ldquo;the business&rdquo;?</a></li>
+<li><a href="why/principles">Principles</a></li>
+<li><a href="why/rewrite">Why programatically rewrite stories?</a></li>
+<li><a href="why/declarative">Declarative User Stories</a></li>
 </ul>
 
 <h2 id="why-not-x-instead">Why not X instead?</h2>
@@ -478,15 +494,15 @@ hk --demo pythonapi <span class="p">;</span> <span class="nb">cd</span> pythonap
 <p>There are several tools you can use instead, this is why you should use this one instead:</p>
 
 <ul>
-<li><a href="why-not/gherkin">Why not use Behave, Lettuce or Cucumber (Gherkin)?</a></li>
-<li><a href="why-not/unit-test">Why use hitchstory instead of a unit testing framework?</a></li>
 <li><a href="why-not/robot">Why not use the Robot Framework?</a></li>
+<li><a href="why-not/unit-test">Why use hitchstory instead of a unit testing framework?</a></li>
+<li><a href="why-not/gherkin">Why not use Behave, Lettuce or Cucumber (Gherkin)?</a></li>
 </ul>
 
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -520,14 +536,14 @@ hk --demo pythonapi <span class="p">;</span> <span class="nb">cd</span> pythonap
 
   <div class="next">
   
-      <a href="https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/" title="How can executable specifications and living documentation be used for stakeholder collaboration?">
+      <a href="https://hitchdev.com/principles/" title="Principles of HitchDev">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              How can executable specifications and living documentation be used for stakeholder collaboration?
+              Principles of HitchDev
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

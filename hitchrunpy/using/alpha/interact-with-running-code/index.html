@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Interact with running code - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -337,28 +355,28 @@ sys.exit(0)
 <span class="kn">import</span> <span class="nn">hitchbuild</span>
 
 <span class="n">virtualenv</span> <span class="o">=</span> <span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">VirtualenvBuild</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
-    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
-        <span class="sa"></span><span class="s1">&#39;/path/to/share_dir/&#39;</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
+    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
+        <span class="s1">&#39;/path/to/share_dir/&#39;</span>
     <span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
 
 <span class="n">virtualenv</span><span class="o">.</span><span class="n">ensure_built</span><span class="p">()</span>
 
 <span class="n">pyrunner</span> <span class="o">=</span> <span class="n">ExamplePythonCode</span><span class="p">(</span>
     <span class="n">virtualenv</span><span class="o">.</span><span class="nb">bin</span><span class="o">.</span><span class="n">python</span><span class="p">,</span>
-    <span class="sa"></span><span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
 <span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">running_code</span> <span class="o">=</span> <span class="n">pyrunner</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="n">long_string</span><span class="p">)</span><span class="o">.</span><span class="n">with_terminal_size</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">running_code</span><span class="p">()</span>
 
 <span class="k">assert</span> <span class="ow">not</span> <span class="n">running_code</span><span class="o">.</span><span class="n">finished</span>
 
-<span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">wait_until_output_contains</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;favorite color:&#34;</span><span class="p">)</span>
-<span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;red</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
-<span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">wait_until_output_contains</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;favorite movie:&#34;</span><span class="p">)</span>
-<span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;the usual suspects</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+<span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">wait_until_output_contains</span><span class="p">(</span><span class="s2">&#34;favorite color:&#34;</span><span class="p">)</span>
+<span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">&#34;red</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
+<span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">wait_until_output_contains</span><span class="p">(</span><span class="s2">&#34;favorite movie:&#34;</span><span class="p">)</span>
+<span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s2">&#34;the usual suspects</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">)</span>
 <span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">wait_for_finish</span><span class="p">()</span>
 
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;screenshot.txt&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;screenshot.txt&#34;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
     <span class="n">handle</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">running_code</span><span class="o">.</span><span class="n">iprocess</span><span class="o">.</span><span class="n">stripshot</span><span class="p">())</span>
 
 <span class="k">assert</span> <span class="n">running_code</span><span class="o">.</span><span class="n">finished</span></code></pre></div>
@@ -380,7 +398,7 @@ cts
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -414,14 +432,14 @@ cts
 
   <div class="next">
   
-      <a href="https://hitchdev.com/code-quality/isolation/" title="Isolation">
+      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/label-exceptions/" title="Labeling exceptions">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Isolation
+              Labeling exceptions
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

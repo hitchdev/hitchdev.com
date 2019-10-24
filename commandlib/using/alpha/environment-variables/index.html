@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Change your command&#39;s environment variables (with_env) - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -313,21 +331,21 @@ be explicitly dropped.</p>
 default.</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">commandlib</span> <span class="kn">import</span> <span class="n">Command</span></code></pre></div>
 <p>With extra environment variable:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Command</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;./outputtext&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_env</span><span class="p">(</span><span class="n">ENVVAR</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;tom&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Command</span><span class="p">(</span><span class="s2">&#34;./outputtext&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_env</span><span class="p">(</span><span class="n">ENVVAR</span><span class="o">=</span><span class="s2">&#34;tom&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>hello tom
 </code></pre>
 
 <p>Dropping an environment variable:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Command</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;./outputpath&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">without_env</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;HOME&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Command</span><span class="p">(</span><span class="s2">&#34;./outputpath&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">without_env</span><span class="p">(</span><span class="s2">&#34;HOME&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>hello
 </code></pre>
 
 <p>Dropping nonexistent variable does nothing:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Command</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;outputtext&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">without_env</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;NONEXISTENTVAR&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_path</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Command</span><span class="p">(</span><span class="s2">&#34;outputtext&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">without_env</span><span class="p">(</span><span class="s2">&#34;NONEXISTENTVAR&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_path</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>hello
@@ -336,7 +354,7 @@ default.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -370,14 +388,14 @@ default.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/code-quality/naming/" title="Clear naming">
+      <a href="https://hitchdev.com/principles/commits/" title="Commit messages and their meanings">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Clear naming
+              Commit messages and their meanings
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

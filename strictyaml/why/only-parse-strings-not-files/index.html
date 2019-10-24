@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Why does StrictYAML only parse from strings and not files? - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -202,6 +202,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -316,7 +334,7 @@ I recommend that you pip install path.py and and use .text() on the
 Path object:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">path</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">parsed_data</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;myfile.yaml&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">())</span><span class="o">.</span><span class="n">data</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">parsed_data</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s2">&#34;myfile.yaml&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">())</span><span class="o">.</span><span class="n">data</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="k">print</span><span class="p">(</span><span class="n">parsed_data</span><span class="p">)</span>
 <span class="p">[</span> <span class="n">parsed</span> <span class="n">yaml</span> <span class="p">]</span></code></pre></div>
 <h2 id="counterarguments">Counterarguments</h2>
@@ -328,7 +346,7 @@ Path object:</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

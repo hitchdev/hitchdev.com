@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Extra story metadata - e.g. adding JIRA ticket numbers to stories - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -353,12 +371,12 @@ to play by JIRA ticket number.</p>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">reticulate_splines</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;reticulate splines&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;reticulate splines&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">kick_llamas_ass</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;kick llamas ass&#39;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;kick llamas ass&#39;</span><span class="p">)</span>
 
-<span class="n">story_collection</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span></code></pre></div>
+<span class="n">story_collection</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span></code></pre></div>
 <p>Run all stories:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
@@ -373,7 +391,7 @@ SUCCESS in 0.1 seconds.
 </code></pre>
 
 <p>Run only filtered stories:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">story</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;JIRA-124&#34;</span> <span class="ow">in</span> <span class="n">story</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;project_jiras&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">story_collection</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">story</span><span class="p">:</span> <span class="s2">&#34;JIRA-124&#34;</span> <span class="ow">in</span> <span class="n">story</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;project_jiras&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Build city in /path/to/example.story ... reticulate splines
@@ -381,8 +399,8 @@ SUCCESS in 0.1 seconds.
 </code></pre>
 
 <p>Info:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">([</span><span class="n">story</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;project_jiras&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">story</span> <span class="ow">in</span> <span class="n">story_collection</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span>
-    <span class="p">[[</span><span class="sa"></span><span class="s2">&#34;JIRA-123&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;JIRA-124&#34;</span><span class="p">],</span> <span class="p">[</span><span class="sa"></span><span class="s2">&#34;JIRA-789&#34;</span><span class="p">,</span> <span class="p">],</span> <span class="p">[</span><span class="sa"></span><span class="s2">&#34;JIRA-123&#34;</span><span class="p">]]</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Ensure</span><span class="p">([</span><span class="n">story</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="s1">&#39;project_jiras&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">story</span> <span class="ow">in</span> <span class="n">story_collection</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()])</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span>
+    <span class="p">[[</span><span class="s2">&#34;JIRA-123&#34;</span><span class="p">,</span> <span class="s2">&#34;JIRA-124&#34;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&#34;JIRA-789&#34;</span><span class="p">,</span> <span class="p">],</span> <span class="p">[</span><span class="s2">&#34;JIRA-123&#34;</span><span class="p">]]</span>
 <span class="p">)</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Executable specification</p>
@@ -392,7 +410,7 @@ SUCCESS in 0.1 seconds.
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

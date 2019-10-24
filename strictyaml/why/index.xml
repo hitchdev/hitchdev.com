@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Justifications on HitchDev</title>
+    <link>https://hitchdev.com/strictyaml/why/</link>
+    <description>Recent content in Design Justifications on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hitchdev.com/strictyaml/why/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Norway Problem - why StrictYAML refuses to do implicit typing and so should you</title>
+      <link>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</guid>
+      <description>A while back I met an old coworker and he started telling me about this interesting bug he faced:
+&amp;ldquo;So, we started internationalizing the website by creating a config file. We added the UK, Ireland, France and Germany at first.&amp;rdquo;
+countries:-GB-IE-FR-DE &amp;ldquo;This was all fine. However, one day after a quick configuration change all hell broke loose. It turned out that while the UK, France and Germany were all fine, Norway was not&amp;hellip;&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>What is syntax typing?</title>
+      <link>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</guid>
+      <description>Explicit syntax typing is the use of syntax to designate the type of some data. It is a feature of the design of most programming languages.
+x = &amp;#34;11&amp;#34; # this is a string y = 11 # this isn&amp;#39;t It it isn&amp;rsquo;t limited to programming languages though. It&amp;rsquo;s a common feature of serialization formats like JSON:
+{&amp;#34;x&amp;#34;: &amp;#34;11&amp;#34;, &amp;#34;y&amp;#34;: 42} But not others, like INI:
+server=192.0.2.62 port=143 Or CSV:</description>
+    </item>
+    
+    <item>
+      <title>What is wrong with duplicate keys?</title>
+      <link>https://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/</guid>
+      <description>Duplicate keys are allowed in regular YAML - as parsed by pyyaml, ruamel.yaml and poyo:
+x:cowy:dogx:bull Not only is it unclear whether x should be &amp;ldquo;cow&amp;rdquo; or &amp;ldquo;bull&amp;rdquo; (the parser will decide &amp;lsquo;bull&amp;rsquo;, but did you know that?), if there are 200 lines between x: cow and x: bull, a user might very likely change the first x and erroneously believe that the resulting value of x has been changed - when it hasn&amp;rsquo;t.</description>
+    </item>
+    
+    <item>
+      <title>What is wrong with explicit tags?</title>
+      <link>https://hitchdev.com/strictyaml/why/explicit-tags-removed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/explicit-tags-removed/</guid>
+      <description>Explicit tags are tags that have an explicit type attached that is used to determine what type to convert the data to when it is parsed.
+For example, if it were to be applied to &amp;ldquo;fix&amp;rdquo; the Godfather movie script parsing issue described above, it would look like this:
+-DonCorleone:Doyouhavefaithinmyjudgment?-Clemenza:!!strYes-DonCorleone:DoIhaveyourloyalty? Explicit typecasts in YAML markup are slightly confusing for non-programmers, much like the concept of &amp;lsquo;types&amp;rsquo; in general. StrictYAML&amp;rsquo;s philosophy is that types should be kept strictly separated from data, so this &amp;lsquo;feature&amp;rsquo; of YAML is switched off.</description>
+    </item>
+    
+    <item>
+      <title>What is wrong with flow style YAML?</title>
+      <link>https://hitchdev.com/strictyaml/why/flow-style-removed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/flow-style-removed/</guid>
+      <description>Flow style is essentially JSON embedded in YAML - making use of curly { } and square brackets to denote lists and mappings.
+Example:
+a:1b:{c:3,d:4} This use of JSONesque { and } is also ugly and hampers readability - especially when { and } are used for other purposes (e.g. templating) and the human reader/writer of YAML has to give themselves a headache figuring out what kind of curly bracket it is.</description>
+    </item>
+    
+    <item>
+      <title>What is wrong with node anchors and references?</title>
+      <link>https://hitchdev.com/strictyaml/why/node-anchors-and-references-removed/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/node-anchors-and-references-removed/</guid>
+      <description>An example of a snippet of YAML that uses node anchors and references is described on the YAML wikipedia page:
+# sequencer protocols for Laser eye surgery----step:&amp;amp;id001# defines anchor label &amp;amp;id001instrument:Lasik2000pulseEnergy:5.4pulseDuration:12repetition:1000spotSize:1mm-step:&amp;amp;id002instrument:Lasik2000pulseEnergy:5.0pulseDuration:10repetition:500spotSize:2mm-step:*id001# refers to the first step (with anchor &amp;amp;id001)-step:*id002# refers to the second step-step:&amp;lt;&amp;lt;:*id001spotSize:2mm# redefines just this key, refers rest from &amp;amp;id001-step:*id002 While the intent of the feature is obvious (it lets you deduplicate code), the effect is to make the markup more or less unreadable to non-programmers.</description>
+    </item>
+    
+    <item>
+      <title>Why does StrictYAML make you define a schema in python - a turing complete language?</title>
+      <link>https://hitchdev.com/strictyaml/why/turing-complete-schema/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/turing-complete-schema/</guid>
+      <description>StrictYAML defines schemas in python (i.e. turing complete) code. For example:
+Map({&amp;#34;name&amp;#34;: Str(), &amp;#34;email&amp;#34;: Str()}) Instead of:
+type:mapmapping:&amp;#34;name&amp;#34;:type:strrequired:yes&amp;#34;email&amp;#34;:type:strrequired:yes There are some trade offs here:
+Schema definition in a non-turing complete language like YAML makes the schema programming language independent and gives it more potential for being read and understood by non-programmers.
+However, schema definition in a non-turing complete language also restricts and makes certain use cases impossible or awkward.</description>
+    </item>
+    
+    <item>
+      <title>Why does StrictYAML not parse direct representations of python objects?</title>
+      <link>https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/</guid>
+      <description>Regular YAML allows the direct representation of python objects.
+For example:
+---!python/hash:UserObjectemail:evilhacker@hacker.compassword:passwordtosettype:admin If we load this YAML formatted string in, we get a user object. This was how YAML was intended to work since it allows the ability to write objects to and read them from, say, a database.
+By itself, this behavior isn&amp;rsquo;t necessarily capable of enacting a successful attack, so not all code that parses untrusted YAML is insecure, but it can be used, especially in conjunction with metaprogramming to execute arbitrary code on your system.</description>
+    </item>
+    
+    <item>
+      <title>Why does StrictYAML only parse from strings and not files?</title>
+      <link>https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/</guid>
+      <description>While other parsers will take strings, file handles and file names, StrictYAML will only parse YAML strings.
+This is done deliberately to reduce the module&amp;rsquo;s remit, with the intention of reducing both the potential bug surface and the number of exceptions that StrictYAML has to deal with - things like nonexistent files, file system errors, bad reads, unknown file extensions, etc. become the problem of some other module - ideally one more focused on handling those kinds of issues.</description>
+    </item>
+    
+    <item>
+      <title>Why is parsing speed not a high priority for StrictYAML?</title>
+      <link>https://hitchdev.com/strictyaml/why/speed-not-a-priority/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/why/speed-not-a-priority/</guid>
+      <description>JSON and StrictYAML are essentially complementary formats. They both allow a relatively loose representation of data that just contains, mappings and sequences. They are serialization formats that are relatively straightforward for both humans and machines to read and write.
+The main difference is simply one of degree:
+JSON is primariliy optimized for machine readability and writability, while still maintaining human readability.
+YAML is optimized for human readability and writability, while maintaining machine readability and writability.</description>
+    </item>
+    
+  </channel>
+</rss>

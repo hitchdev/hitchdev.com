@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Run command and don&#39;t raise exception on nonzero exit code (ignore_errors()) - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -308,7 +326,7 @@
 			<p>outputtext:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span><span class="nb">echo</span> hello &gt; output
-<span class="nb">exit</span> <span class="m">1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">commandlib</span> <span class="kn">import</span> <span class="n">Command</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Command</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;./outputtext&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ignore_errors</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<span class="nb">exit</span> <span class="m">1</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">commandlib</span> <span class="kn">import</span> <span class="n">Command</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">Command</span><span class="p">(</span><span class="s2">&#34;./outputtext&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ignore_errors</span><span class="p">()</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>File &lsquo;output&rsquo; will contain:</p>
 
 <pre><code>hello
@@ -317,7 +335,7 @@
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

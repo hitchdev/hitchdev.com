@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>General Approach on HitchDev</title>
+    <link>https://hitchdev.com/hitchstory/approach/</link>
+    <description>Recent content in General Approach on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hitchdev.com/hitchstory/approach/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Does hitchstory let your BA or Product Manager write stories while you just write the code?</title>
+      <link>https://hitchdev.com/hitchstory/approach/human-writable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/human-writable/</guid>
+      <description>It is possible but I wouldn&amp;rsquo;t necessarily recommend it.
+Having &amp;ldquo;analysts&amp;rdquo; write and read stories instead of programmers was an explicit goal of several BDD tools like cucumber. However, the reality of these tools is that &amp;ldquo;the business&amp;rdquo; is not often interested in reading these stories, let alone writing them.
+This is an explicit non-goal of hitchstory. The framework is designed to be useful even if it is solely used by developers.</description>
+    </item>
+    
+    <item>
+      <title>Executable specifications</title>
+      <link>https://hitchdev.com/hitchstory/approach/executable-specifications/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/executable-specifications/</guid>
+      <description>An executable specification is an idea taken from agile philosophy:
+ When trying to understand a class or operation most programmers will first look for sample code that already invokes it. Well-written unit/developers tests do exactly this – they provide a working specification of your functional code – and as a result unit tests effectively become a significant portion of your technical documentation. Similarly, acceptance tests can form an important part of your requirements documentation.</description>
+    </item>
+    
+    <item>
+      <title>Flaky Tests</title>
+      <link>https://hitchdev.com/hitchstory/approach/flaky-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/flaky-tests/</guid>
+      <description>Flaky tests are tests which will do not pass or fail consistently.
+Higher level tests suffer more from flakiness than low level tests, although this tends to be only because high level tests are testing more code.
+The probability of flakiness increases with the amount of code being tested.
+How to deal with flakiness? Extreme flakiness can lead to test failure habituation and, in extreme cases, test abandonment.
+Flakiness in any test should mainly be considered an undesirable property to test for and, when detected, a bug to be fixed.</description>
+    </item>
+    
+    <item>
+      <title>How can executable specifications and living documentation be used for stakeholder collaboration?</title>
+      <link>https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/</guid>
+      <description>A while back while I was still trialing this framework I received an enormous JIRA ticket describing the complex logic flows and behavior of a command line application.
+This was bad enough The worst part, though, was that I actually didn&amp;rsquo;t really understand what I was building.
+Collaborating with an executable specification Gradually I turned those descriptions in to an executable specification that described how the command line tool was supposed to behave.</description>
+    </item>
+    
+    <item>
+      <title>Recommended Environment</title>
+      <link>https://hitchdev.com/hitchstory/approach/recommended-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/recommended-environment/</guid>
+      <description>HitchStory was designed and built on the presumption that it would always be run in a different environment to the environment used to run the code. This is in stark contrast to how unit testing frameworks are presumed to run - i.e. in python, in the same virtualenv.
+There are two reasons for this:
+ HitchStory dependencies and related tools are unable to conflict with application code if they run in a separate, segrated environment.</description>
+    </item>
+    
+    <item>
+      <title>Recommended complementary tools</title>
+      <link>https://hitchdev.com/hitchstory/approach/complementary-tools/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/complementary-tools/</guid>
+      <description>This library was also designed alongside a number of other recommended tools which seamlessly integrate with hitchstory, providing functionality to easily build and to test various different kinds of software.
+ hitchkey - create a project &amp;ldquo;key.py&amp;rdquo; of simple methods that can be used to run project-specific commands written in python 3 in an isolated virtualenv and easily run them directly from the command line (e.g. &amp;ldquo;hk bdd my test name&amp;rdquo; or &amp;ldquo;hk regression&amp;rdquo;, &amp;ldquo;hk lint&amp;rdquo; or &amp;ldquo;hk deploy&amp;rdquo;).</description>
+    </item>
+    
+    <item>
+      <title>Screenplay Principle</title>
+      <link>https://hitchdev.com/hitchstory/approach/screenplay-principle/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/screenplay-principle/</guid>
+      <description>All of the writing in a screenplay must create an experience similar to that of watching a film. So, while in a novel you may be able to say:
+ Jessica sits on a bench and thinks of John. She misses him deeply. She thinks about the birthday parties, the Valentine’s Day dinners, the walks on the beach. She cries for the love they shared and the love they’ve lost.</description>
+    </item>
+    
+    <item>
+      <title>Testing non-deterministic code</title>
+      <link>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</guid>
+      <description>Non-deterministic code is an inevitable fact of life, but it&amp;rsquo;s a monumental pain to test.
+Non-deterministic code is code which can produce different outputs even when it is given the same inputs. For example: a program that is asked to output the three most popular fruits might list &amp;ldquo;apple, banana and orange&amp;rdquo; but it could give any arbitrary order for those fruits - for example &amp;ldquo;orange, banana and apple&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Tests are an investment</title>
+      <link>https://hitchdev.com/hitchstory/approach/test-investment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/test-investment/</guid>
+      <description>You are NOT ALLOWED to write any production code unless it is to make a failing unit test pass.  Now, most programmers when they first hear about this technique think &amp;ldquo;This is stupid!&amp;rdquo; &amp;ldquo;It&amp;rsquo;s going to slow me down, it&amp;rsquo;s a waste of effort, it will keep me from thinking, it will keep me from designing, it will just break my flow&amp;rdquo;.
+ Uncle Bob, The Three Laws of TDD   I remember the first time I followed this rule to the letter - the tests were good, the code was clean and I ended up throwing it all away.</description>
+    </item>
+    
+    <item>
+      <title>The importance of test realism</title>
+      <link>https://hitchdev.com/hitchstory/approach/test-realism/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/test-realism/</guid>
+      <description>Test realism is the strangely controversial principle that automated tests should test realistically.
+This means, among other things, where it is feasible, automated test builders should aim for:
+ Running the code in environments which closely mimic where it will be run for real. Testing against real code rather than mock code. Where mocks are used, realistic mocks are chosen or built. Prioritizing writing test scenarios that mimic the real life usage of the software.</description>
+    </item>
+    
+    <item>
+      <title>Triality</title>
+      <link>https://hitchdev.com/hitchstory/approach/triality/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/triality/</guid>
+      <description>All great software needs three things:
+ Specification Tests Documentation  Each of these things is intimately tied. Every new feature must be specified, tested and documented.
+If each of these things are done separately, it violates another core principle of software: DRY.
+However, if each of these things are intrinsically the same - the specification IS the test which IS the documentation, then there is no need to duplicate effort, code and writing.</description>
+    </item>
+    
+    <item>
+      <title>What is a testing and living documentation framework?</title>
+      <link>https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/</guid>
+      <description>While traditional testing frameworks are designed just to test code and find bugs, hitchstory is designed such that the &amp;ldquo;tests&amp;rdquo; you write can also be used as specifications that define how your application is supposed to work.
+The three critical features that let you do this are:
+ A clear separation of concerns between specification and execution code A clear segregation barrier between the environment that executes your tests and the environment under test.</description>
+    </item>
+    
+    <item>
+      <title>What is the difference betweeen a test and a story?</title>
+      <link>https://hitchdev.com/hitchstory/approach/test-or-story/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/approach/test-or-story/</guid>
+      <description>While a test is turing complete code that tests behavior, a story is turing-incomplete code which defines behavior. A combination of stories makes up an executable specification
+A story must be played using an execution engine.
+A story can be translated into readable documentation, often with the aid of artefacts created when running the story (e.g. screenshots).</description>
+    </item>
+    
+  </channel>
+</rss>

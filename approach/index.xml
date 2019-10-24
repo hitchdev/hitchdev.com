@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Approaches on HitchDev</title>
+    <title>HitchDev Approach Documentation on HitchDev</title>
     <link>https://hitchdev.com/approach/</link>
-    <description>Recent content in Approaches on HitchDev</description>
+    <description>Recent content in HitchDev Approach Documentation on HitchDev</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright (C) 2018</copyright>
     
 	<atom:link href="https://hitchdev.com/approach/index.xml" rel="self" type="application/rss+xml" />
     
@@ -38,12 +37,17 @@ Mac set up prerequisites To run integration tests / environment on a Mac, you ne
     </item>
     
     <item>
-      <title>HitchDev Approach Documentation</title>
-      <link>https://hitchdev.com/approach/</link>
+      <title>The Technical Debt Dial - We don&#39;t need better metaphors for technical debt. We need better units of account.</title>
+      <link>https://hitchdev.com/approach/technical-debt-dial/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/approach/</guid>
-      <description> Contributing to HitchDev Libraries  </description>
+      <guid>https://hitchdev.com/approach/technical-debt-dial/</guid>
+      <description>Week 41:
+[ picture of a bar chart with refactoring / features and bugs ]
+There are few developers who have worked in a business that haven&amp;rsquo;t had a conversation with &amp;ldquo;the business&amp;rdquo; that didn&amp;rsquo;t go something like this:
+Developer : Remember we need to clean out the reports module and upgrade some of our dependencies.
+Product owner : We don&amp;rsquo;t have time for that.
+Developer : You said last week that we could do this week.</description>
     </item>
     
   </channel>

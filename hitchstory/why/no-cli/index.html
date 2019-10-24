@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Why does hitchstory not have a command line interface? - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -202,6 +202,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -323,42 +341,42 @@ directory to put build artefacts in.</p>
 <a href="https://github.com/crdoconnor/strictyaml">this project</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@expected</span><span class="p">(</span><span class="n">HitchStoryException</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">bdd</span><span class="p">(</span><span class="o">*</span><span class="n">keywords</span><span class="p">):</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;
+    <span class="s2">&#34;&#34;&#34;
 </span><span class="s2">    Run story matching keywords.
 </span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="n">settings</span> <span class="o">=</span> <span class="n">_personal_settings</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
-    <span class="n">_storybook</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;engine&#34;</span><span class="p">])</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span>
-        <span class="o">**</span><span class="p">{</span><span class="sa"></span><span class="s2">&#34;python version&#34;</span><span class="p">:</span> <span class="n">settings</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;params&#34;</span><span class="p">][</span><span class="sa"></span><span class="s2">&#34;python version&#34;</span><span class="p">]}</span>
+    <span class="n">_storybook</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s2">&#34;engine&#34;</span><span class="p">])</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span>
+        <span class="o">**</span><span class="p">{</span><span class="s2">&#34;python version&#34;</span><span class="p">:</span> <span class="n">settings</span><span class="p">[</span><span class="s2">&#34;params&#34;</span><span class="p">][</span><span class="s2">&#34;python version&#34;</span><span class="p">]}</span>
     <span class="p">)</span><span class="o">.</span><span class="n">only_uninherited</span><span class="p">()</span><span class="o">.</span><span class="n">shortcut</span><span class="p">(</span><span class="o">*</span><span class="n">keywords</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Example hitchkey key.py code to lint, run all doctests and all stories
 with python 2.7 and 3.7:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@expected</span><span class="p">(</span><span class="n">HitchStoryException</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">regression</span><span class="p">():</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;
+    <span class="s2">&#34;&#34;&#34;
 </span><span class="s2">    Run regression testing - lint and then run all tests.
 </span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="n">lint</span><span class="p">()</span>
     <span class="n">doctests</span><span class="p">()</span>
     <span class="n">storybook</span> <span class="o">=</span> <span class="n">_storybook</span><span class="p">({})</span><span class="o">.</span><span class="n">only_uninherited</span><span class="p">()</span>
-    <span class="n">storybook</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="sa"></span><span class="s2">&#34;python version&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;2.7.14&#34;</span><span class="p">})</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span>
-        <span class="k">lambda</span> <span class="n">story</span><span class="p">:</span> <span class="ow">not</span> <span class="n">story</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;fails_on_python_2&#34;</span><span class="p">)</span>
+    <span class="n">storybook</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&#34;python version&#34;</span><span class="p">:</span> <span class="s2">&#34;2.7.14&#34;</span><span class="p">})</span><span class="o">.</span><span class="nb">filter</span><span class="p">(</span>
+        <span class="k">lambda</span> <span class="n">story</span><span class="p">:</span> <span class="ow">not</span> <span class="n">story</span><span class="o">.</span><span class="n">info</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&#34;fails_on_python_2&#34;</span><span class="p">)</span>
     <span class="p">)</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span>
-    <span class="n">storybook</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="sa"></span><span class="s2">&#34;python version&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.7.0&#34;</span><span class="p">})</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+    <span class="n">storybook</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span><span class="o">**</span><span class="p">{</span><span class="s2">&#34;python version&#34;</span><span class="p">:</span> <span class="s2">&#34;3.7.0&#34;</span><span class="p">})</span><span class="o">.</span><span class="n">ordered_by_name</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Example hitchkey key.py code to run a single test in <a href="../rewrite">rewrite mode</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="nd">@expected</span><span class="p">(</span><span class="n">HitchStoryException</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">rbdd</span><span class="p">(</span><span class="o">*</span><span class="n">keywords</span><span class="p">):</span>
-    <span class="sa"></span><span class="s2">&#34;&#34;&#34;
+    <span class="s2">&#34;&#34;&#34;
 </span><span class="s2">    Run story matching keywords and rewrite story if code changed.
 </span><span class="s2">    &#34;&#34;&#34;</span>
     <span class="n">settings</span> <span class="o">=</span> <span class="n">_personal_settings</span><span class="p">()</span><span class="o">.</span><span class="n">data</span>
-    <span class="n">settings</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;engine&#34;</span><span class="p">][</span><span class="sa"></span><span class="s2">&#34;rewrite&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
-    <span class="n">_storybook</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;engine&#34;</span><span class="p">])</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span>
-        <span class="o">**</span><span class="p">{</span><span class="sa"></span><span class="s2">&#34;python version&#34;</span><span class="p">:</span> <span class="n">settings</span><span class="p">[</span><span class="sa"></span><span class="s2">&#34;params&#34;</span><span class="p">][</span><span class="sa"></span><span class="s2">&#34;python version&#34;</span><span class="p">]}</span>
+    <span class="n">settings</span><span class="p">[</span><span class="s2">&#34;engine&#34;</span><span class="p">][</span><span class="s2">&#34;rewrite&#34;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">_storybook</span><span class="p">(</span><span class="n">settings</span><span class="p">[</span><span class="s2">&#34;engine&#34;</span><span class="p">])</span><span class="o">.</span><span class="n">with_params</span><span class="p">(</span>
+        <span class="o">**</span><span class="p">{</span><span class="s2">&#34;python version&#34;</span><span class="p">:</span> <span class="n">settings</span><span class="p">[</span><span class="s2">&#34;params&#34;</span><span class="p">][</span><span class="s2">&#34;python version&#34;</span><span class="p">]}</span>
     <span class="p">)</span><span class="o">.</span><span class="n">only_uninherited</span><span class="p">()</span><span class="o">.</span><span class="n">shortcut</span><span class="p">(</span><span class="o">*</span><span class="n">keywords</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

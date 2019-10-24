@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Piping data out to string or file (.piped) - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -311,25 +329,25 @@
 <p>bin_directory/command2:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span><span class="nb">echo</span> hello <span class="nv">$1</span> <span class="m">1</span>&gt;<span class="p">&amp;</span><span class="m">2</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">commandlib</span> <span class="kn">import</span> <span class="n">CommandPath</span>
-<span class="n">command_path</span> <span class="o">=</span> <span class="n">CommandPath</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;./bin_directory&#34;</span><span class="p">)</span></code></pre></div>
+<span class="n">command_path</span> <span class="o">=</span> <span class="n">CommandPath</span><span class="p">(</span><span class="s2">&#34;./bin_directory&#34;</span><span class="p">)</span></code></pre></div>
 <p>stdout to file handle:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;regular&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
-    <span class="n">command_path</span><span class="o">.</span><span class="n">command1</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;harry&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">piped</span><span class="o">.</span><span class="n">stdout_to_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;regular&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="n">command_path</span><span class="o">.</span><span class="n">command1</span><span class="p">(</span><span class="s2">&#34;harry&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">piped</span><span class="o">.</span><span class="n">stdout_to_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>File &lsquo;regular&rsquo; will contain:</p>
 
 <pre><code>hello harry
 </code></pre>
 
 <p>stdout to filename:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">command_path</span><span class="o">.</span><span class="n">command1</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;harry&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">piped</span><span class="o">.</span><span class="n">stdout_to_filename</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;regular&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">command_path</span><span class="o">.</span><span class="n">command1</span><span class="p">(</span><span class="s2">&#34;harry&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">piped</span><span class="o">.</span><span class="n">stdout_to_filename</span><span class="p">(</span><span class="s2">&#34;regular&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>File &lsquo;regular&rsquo; will contain:</p>
 
 <pre><code>hello harry
 </code></pre>
 
 <p>stderr to file handle:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;error&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
-    <span class="n">command_path</span><span class="o">.</span><span class="n">command2</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;tom&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">piped</span><span class="o">.</span><span class="n">stderr_to_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;error&#34;</span><span class="p">,</span> <span class="s2">&#34;w&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">handle</span><span class="p">:</span>
+    <span class="n">command_path</span><span class="o">.</span><span class="n">command2</span><span class="p">(</span><span class="s2">&#34;tom&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">piped</span><span class="o">.</span><span class="n">stderr_to_handle</span><span class="p">(</span><span class="n">handle</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span></code></pre></div>
 <p>File &lsquo;error&rsquo; will contain:</p>
 
 <pre><code>hello tom
@@ -338,7 +356,7 @@
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

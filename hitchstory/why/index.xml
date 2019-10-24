@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Design Justifications on HitchDev</title>
+    <link>https://hitchdev.com/hitchstory/why/</link>
+    <description>Recent content in Design Justifications on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hitchdev.com/hitchstory/why/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Declarative User Stories</title>
+      <link>https://hitchdev.com/hitchstory/why/declarative/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/declarative/</guid>
+      <description>HitchStory StoryFiles are declarative and not turing complete.
+At their core, they essentially just contain marked up data - a set of preconditions (in &amp;lsquo;given&amp;rsquo;), a set of steps and arguments and the ability to parameterize the preconditions, step arguments and inherit one story from another.
+No loops. No if statements. Deliberately turing incomplete.
+Using a less powerful language to write tests in sounds counter-intuitive. Surely you want as much power as possible when writing tests so you can do as much as possible?</description>
+    </item>
+    
+    <item>
+      <title>Principles</title>
+      <link>https://hitchdev.com/hitchstory/why/principles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/principles/</guid>
+      <description>This library was dogfooded for years to TDD / BDD, test and autodocument a variety of different kinds of software - web apps, python libraries, command line apps, replacing all other forms of unit, integration and end to end tests.
+Unlike traditional &amp;ldquo;BDD&amp;rdquo; frameworks like Cucumber, hitchstory is not primarily designed for &amp;ldquo;business readability&amp;rdquo;, but rather for simplicity ease of maintenance by developers.
+This means:
+ Stories can and should inherit from one another, because specifications ought to be DRY too.</description>
+    </item>
+    
+    <item>
+      <title>Two Unit Tests, Zero Integration Tests</title>
+      <link>https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/</guid>
+      <description>Hitchstory was inspired by the realization that integration tests are almost always more effective than unit tests.</description>
+    </item>
+    
+    <item>
+      <title>Why does HitchStory use StrictYAML?</title>
+      <link>https://hitchdev.com/hitchstory/why/strictyaml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/strictyaml/</guid>
+      <description>HitchStory stories are written using YAML because it:
+ Has a clear and obvious layout and relationships driven by its indentation structure. Has minimal syntactic noise. Displays complex hierarchical data cleanly. Displays multiline strings cleanly.  These features make it a particularly good fit for writing declarative stories with, since they often require a lot of hierarchical data and multiline strings to display clearly.
+Its relative existing popularity also means that it is somewhat familiar to a lot of people and there is a lot of existing tooling which can be used (e.</description>
+    </item>
+    
+    <item>
+      <title>Why does hitchstory mandate the use of given but not when and then?</title>
+      <link>https://hitchdev.com/hitchstory/why/given-when-then/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/given-when-then/</guid>
+      <description>Given-When-Then is a structured way of writing test cases or executable specs. It was invented by Dan North as part of behavior driven development.
+Hoare logic This pattern is a structure that essentially all test cases should be written, separating the preconditions from the actions from the observable outcome. It follows from Hoare logic - a means of reasoning rigorously about the correctness of a computer program.
+Many BDD frameworks have explicit keywords for given, when and then.</description>
+    </item>
+    
+    <item>
+      <title>Why does hitchstory not have a command line interface?</title>
+      <link>https://hitchdev.com/hitchstory/why/no-cli/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/no-cli/</guid>
+      <description>One of the main irritations I found with other testing frameworks was the lack of flexibility regarding which tests were run, how they are run and in which order and how they are run.
+Moreover, I have almost always ended up creating quite elaborate code that calls the tests and runs them in the manner and order I wanted.
+HitchStory pre-empts that step and requires you to write code in order to run your tests.</description>
+    </item>
+    
+    <item>
+      <title>Why does hitchstory not have an opinion on what counts as interesting to &#34;the business&#34;?</title>
+      <link>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</guid>
+      <description>When Cucumber first gained some popularity, there was something of a backlash from the original developers that the users &amp;ldquo;weren&amp;rsquo;t using it correctly&amp;rdquo;:
+The specific complaint was that it was being used as an integration testing framework rather than a tool for &amp;ldquo;communicating with the business&amp;rdquo; and that everything except the high level &amp;ldquo;business requirements&amp;rdquo; should be abstracted away.
+Hitchstory takes a different approach and recommends the screenplay principle instead, for the following reasons:</description>
+    </item>
+    
+    <item>
+      <title>Why is inheritance a feature of hitchstory stories?</title>
+      <link>https://hitchdev.com/hitchstory/why/inheritance/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/inheritance/</guid>
+      <description>Hitchstory stories allow inheritance to allow stories that branch from other stories.
+Dissenting views Inheritance is a feature which was deliberately left out of Cucumber:
+https://stackoverflow.com/questions/41872376/can-a-cucumber-feature-file-inherit-from-a-parent-feature-file
+However, it was deliberately added to hitchstory.</description>
+    </item>
+    
+    <item>
+      <title>Why not use Behave, Lettuce or Cucumber (Gherkin)?</title>
+      <link>https://hitchdev.com/hitchstory/why-not/gherkin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why-not/gherkin/</guid>
+      <description>HitchStory and Gherkin are both DSLs for writing user stories that can double as acceptance tests, but they have slightly different philosophies and approach.
+Gherkin&amp;rsquo;s philosophy emphasize the following values:
+ The use of English to facilitate customer collaboration. Showing information that is &amp;ldquo;interesting to the business&amp;rdquo;.  Whereas hitchstory&amp;rsquo;s philosophy emphasizes very similar values, with some important differences:
+ The use of typed YAML to define specs for readability, precision, clarity, terseness and ease of maintenance.</description>
+    </item>
+    
+    <item>
+      <title>Why not use the Robot Framework?</title>
+      <link>https://hitchdev.com/hitchstory/why-not/robot/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why-not/robot/</guid>
+      <description>HitchDev&amp;rsquo;s creation was, in a sense, inspired by the robot framework.
+I used it back in 2014 where it was deployed on a project I joined and became incredibly frustrated using when debugging test failures.
+Below I list the reasons that made me dislike this framework:
+1. The debugging tooling is terrible The last straw in 2014 was when I was trying to debug a test failure and discovered that the step that the line number and step the test failed on was not displayed to me.</description>
+    </item>
+    
+    <item>
+      <title>Why programatically rewrite stories?</title>
+      <link>https://hitchdev.com/hitchstory/why/rewrite/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why/rewrite/</guid>
+      <description>TODO</description>
+    </item>
+    
+    <item>
+      <title>Why use hitchstory instead of a unit testing framework?</title>
+      <link>https://hitchdev.com/hitchstory/why-not/unit-test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/hitchstory/why-not/unit-test/</guid>
+      <description>NOTE: This argument is a work in progress and there are still several things that need amending / adding.
+This is not an argument against the following:
+ Testing in general Test driven development Low level testing (of classes and methods or otherwise) Property based testing (e.g. hypothesis). Mocking Doctests  These are all good things in the right context. This is purely about the xUnit framework approach to testing - py.</description>
+    </item>
+    
+  </channel>
+</rss>

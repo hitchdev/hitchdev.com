@@ -9,8 +9,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>The Norway Problem - why StrictYAML won&#39;t do implicit typing - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <title>The Norway Problem - why StrictYAML refuses to do implicit typing and so should you - HitchDev</title>
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -202,6 +202,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -297,7 +315,7 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>The Norway Problem - why StrictYAML won&#39;t do implicit typing </h1>
+			<h1>The Norway Problem - why StrictYAML refuses to do implicit typing and so should you </h1>
 
 			
 
@@ -311,72 +329,111 @@ file. We added the UK, Ireland, France and Germany at first.&rdquo;</p>
 </span><span class="w"></span>-<span class="w"> </span>IE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>FR<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>DE</code></pre></div>
-<p>&ldquo;This was fine for a while. However, when we got around to adding
-Norway all hell broke loose&hellip;&rdquo;</p>
+<p>&ldquo;This was all fine. However, one day after a quick configuration change
+all hell broke loose. It turned out that while the UK, France and
+Germany were all fine, <em>Norway</em> was <em>not</em>&hellip;&rdquo;</p>
+
+<p>&ldquo;While the website went down and we were losing money we chased down
+a number of loose ends until finally finding the root cause.&rdquo;</p>
+
+<p>&ldquo;If turned out that if feed this configuration file into
+<a href="http://pyyaml.org">pyyaml</a>:&rdquo;</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">countries<span class="p">:</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>GB<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>IE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>FR<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>DE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>NO</code></pre></div>
-<p>The problem here is &ldquo;implicit typing&rdquo; - the YAML specification states that
-the parser should be clever about the strings that are entered in to it and
-attempt to interpret them and convert them into the relevant types for you.</p>
-
-<p>If you feed this configuration file into <a href="http://pyyaml.org">pyyaml</a> or <a href="https://github.com/hackebrot/poyo">Poyo</a>:</p>
+<p>&ldquo;This is what you got in return:&rdquo;</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">pyyaml</span> <span class="kn">import</span> <span class="n">load</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_configuration</span><span class="p">)</span>
-<span class="p">{</span><span class="sa"></span><span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;GB&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;IE&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">]}</span></code></pre></div>
-<p>Did you know it snows a <em>lot</em> in &ldquo;False&rdquo;?</p>
+<span class="p">{</span><span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;GB&#39;</span><span class="p">,</span> <span class="s1">&#39;IE&#39;</span><span class="p">,</span> <span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="bp">False</span><span class="p">]}</span></code></pre></div>
+<p>It snows a <em>lot</em> in False.</p>
 
-<p>Feeding the boolean &ldquo;False&rdquo; to just about any other part
-of the program where the string &ldquo;NO&rdquo; of course would break it,
-catastrophically, and at the least convenient moment.</p>
+<p>When this is fed to code that expects a string of the form &lsquo;NO&rsquo;,
+then the code will usually break, often with a cryptic error,
+Typically it would be a KeyError when trying to use &lsquo;False&rsquo;
+as a key in a dict when no such key exists.</p>
 
-<p>It was &ldquo;quick fixed&rdquo; by using quotes - but it&rsquo;s kind of a hack:</p>
+<p>It can be &ldquo;quick fixed&rdquo; by using quotes - a fix for sure, but
+kind of a hack - and by that time the damage is done:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">countries<span class="p">:</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>GB<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>IE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>FR<span class="w">
 </span><span class="w"></span>-<span class="w"> </span>DE<span class="w">
 </span><span class="w"></span>-<span class="w"> </span><span class="s1">&#39;NO&#39;</span></code></pre></div>
-<p>StrictYAML sidesteps this problem by optimizing for &ldquo;zero surprises&rdquo; -
-only <em>ever</em> parsing to a string or a data type <em>explicitly</em> defined
-by the schema:</p>
+<p>The most tragic aspect of this bug, howevere, is that it is
+<em>intended</em> behavior according to the YAML 2.0 specification.
+The real fix requires explicitly disregaring the spec - which
+is why most YAML parsers have it.</p>
+
+<p>StrictYAML sidesteps this problem by ignoring key parts of the
+spec, in an attempt to create a &ldquo;zero surprises&rdquo; parser.</p>
+
+<p><em>Everything</em> is a string by default:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">the_configuration</span><span class="p">)</span><span class="o">.</span><span class="n">data</span>
-<span class="p">{</span><span class="sa"></span><span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="p">[</span><span class="sa"></span><span class="s1">&#39;GB&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;IE&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;NO&#39;</span><span class="p">]}</span></code></pre></div>
+<span class="p">{</span><span class="s1">&#39;countries&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;GB&#39;</span><span class="p">,</span> <span class="s1">&#39;IE&#39;</span><span class="p">,</span> <span class="s1">&#39;FR&#39;</span><span class="p">,</span> <span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="s1">&#39;NO&#39;</span><span class="p">]}</span></code></pre></div>
 <h2 id="string-or-float">String or float?</h2>
 
-<p>This isn&rsquo;t just a problem with countries. This problem hit me a while back when
-trying to maintain a configuration file of various software versions. I had
-a config file like this, which wasn&rsquo;t a problem:</p>
+<p>Norway is just the tip of the iceberg. The first time this problem hit me
+I was maintaining a configuration file of application versions. I had
+a file like this initially - which caused no issues:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">python<span class="p">:</span><span class="w"> </span><span class="m">3.5</span>.<span class="m">3</span><span class="w">
 </span><span class="w"></span>postgres<span class="p">:</span><span class="w"> </span><span class="m">9.3</span>.<span class="m">0</span></code></pre></div>
-<p>And then, as soon as I changed it <em>very</em> slightly:</p>
+<p>However, if I changed it <em>very</em> slightly:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">python<span class="p">:</span><span class="w"> </span><span class="m">3.5</span>.<span class="m">3</span><span class="w">
 </span><span class="w"></span>postgres<span class="p">:</span><span class="w"> </span><span class="m">9.3</span></code></pre></div>
-<p>I started getting type errors:</p>
+<p>I started getting type errors because it was parsed like this:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">ruamel.yaml</span> <span class="kn">import</span> <span class="n">load</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span> <span class="o">==</span> <span class="p">[{</span><span class="sa"></span><span class="s2">&#34;python&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;3.5.3&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;postgres&#34;</span><span class="p">:</span> <span class="mf">9.3</span><span class="p">}]</span>    <span class="c1"># oops those *both* should have been strings</span></code></pre></div>
-<p>Again, it can be &lsquo;quick fixed&rsquo; with quotes, but again, the real fix
-is simply not to interpret types at all.</p>
-
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span> <span class="o">==</span> <span class="p">[{</span><span class="s2">&#34;python&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5.3&#34;</span><span class="p">,</span> <span class="s2">&#34;postgres&#34;</span><span class="p">:</span> <span class="mf">9.3</span><span class="p">}]</span>    <span class="c1"># oops those *both* should have been strings</span></code></pre></div>
+<p>Again, this led to type errors in my code. Again, I &lsquo;quick fixed&rsquo; it with quotes.
+However, the solution I really wanted was:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">versions</span><span class="p">)</span> <span class="o">==</span> <span class="p">[{</span><span class="s2">&#34;python&#34;</span><span class="p">:</span> <span class="s2">&#34;3.5.3&#34;</span><span class="p">,</span> <span class="s2">&#34;postgres&#34;</span><span class="p">:</span> <span class="s2">&#34;9.3&#34;</span><span class="p">}]</span>    <span class="c1"># that&#39;s better</span></code></pre></div>
 <h2 id="the-world-s-most-buggy-name">The world&rsquo;s most buggy name</h2>
 
-<p><a href="http://www.wired.com/2015/11/null">Christopher Null</a> has a name that is notorious for breaking
-software code - airlines, banks, everything. YAML, sadly, is no exception:</p>
+<p><a href="http://www.wired.com/2015/11/null">Christopher Null</a> has a name that is
+notorious for breaking software code - airlines, banks, every bug caused
+by a programmer who didn&rsquo;t know a type from their elbow has hit him.</p>
+
+<p>YAML, sadly, is no exception:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">first<span class="w"> </span>name<span class="p">:</span><span class="w"> </span>Christopher<span class="w">
 </span><span class="w"></span>surname<span class="p">:</span><span class="w"> </span>Null</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="c1"># Is it okay if we just call you Christopher None instead?</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="sa"></span><span class="s2">&#34;first name&#34;</span><span class="p">:</span> <span class="sa"></span><span class="s2">&#34;Christopher&#34;</span><span class="p">,</span> <span class="sa"></span><span class="s2">&#34;surname&#34;</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span></code></pre></div>
-<h2 id="theory-of-astonishment">Theory of astonishment</h2>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&#34;first name&#34;</span><span class="p">:</span> <span class="s2">&#34;Christopher&#34;</span><span class="p">,</span> <span class="s2">&#34;surname&#34;</span><span class="p">:</span> <span class="bp">None</span><span class="p">}</span></code></pre></div>
+<p>With StrictYAML:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">load</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">load</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="p">{</span><span class="s2">&#34;first name&#34;</span><span class="p">:</span> <span class="s2">&#34;Christopher&#34;</span><span class="p">,</span> <span class="s2">&#34;surname&#34;</span><span class="p">:</span> <span class="s2">&#34;Null&#34;</span><span class="p">}</span></code></pre></div>
+<h2 id="type-theoretical-concerns">Type theoretical concerns</h2>
 
-<p>In the above cases, implicit typing represents a major violation of <a href="https://en.wikipedia.org/wiki/Principle_of_least_astonishment">the principle of least astonishment</a>.</p>
+<p>Type theory is a popular topic with regards to programming languages,
+where a well designed type system is regarded (rightly) as a yoke that
+can catch bugs at an early stage of development while <em>poorly</em>
+designed type systems provide fertile breeding ground for edge case
+bugs.</p>
+
+<p>(it&rsquo;s equally true that extremely strict type systems require a lot
+more upfront and the law of diminishing returns applies to type
+strictness - a cogent answer to the question &ldquo;why is so little
+software written in haskell?&ldquo;).</p>
+
+<p>A less popular, although equally true idea is the notion that markup
+languages like YAML have the same issues with types - as demonstrated
+above.</p>
+
+<h2 id="user-experience">User Experience</h2>
+
+<p>In a way, type systems can be considered both a mathematical concern
+and a UX device. In the above case</p>
+
+<p>In the above, and in most cases, implicit typing represents a major violation
+of the UX <a href="https://en.wikipedia.org/wiki/Principle_of_least_astonishment">principle of least astonishment</a>.</p>
 
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -410,14 +467,14 @@ software code - airlines, banks, everything. YAML, sadly, is no exception:</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/tropes/unit-test-paradox/" title="The Unit Test Paradox">
+      <a href="https://hitchdev.com/approach/technical-debt-dial/" title="The Technical Debt Dial - We don&#39;t need better metaphors for technical debt. We need better units of account.">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              The Unit Test Paradox
+              The Technical Debt Dial - We don&#39;t need better metaphors for technical debt. We need better units of account.
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

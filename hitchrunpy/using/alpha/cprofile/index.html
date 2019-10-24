@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>CProfile - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -323,24 +341,23 @@ for i in range(0, 5000 * 1000):
 <span class="kn">import</span> <span class="nn">hitchbuild</span>
 
 <span class="n">virtualenv</span> <span class="o">=</span> <span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">VirtualenvBuild</span><span class="p">(</span>
-    <span class="n">name</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
-    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
-        <span class="sa"></span><span class="s1">&#39;/path/to/share_dir/&#39;</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&#34;py3.7&#34;</span><span class="p">,</span>
+    <span class="n">base_python</span><span class="o">=</span><span class="n">hitchbuildpy</span><span class="o">.</span><span class="n">PyenvBuild</span><span class="p">(</span><span class="s2">&#34;3.7&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span>
+        <span class="s1">&#39;/path/to/share_dir/&#39;</span>
     <span class="p">),</span>
-<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">with_build_path</span><span class="p">(</span><span class="s2">&#34;/path/to/build_dir/&#34;</span><span class="p">)</span>
 
 <span class="n">virtualenv</span><span class="o">.</span><span class="n">ensure_built</span><span class="p">()</span>
 
 <span class="n">pyrunner</span> <span class="o">=</span> <span class="n">ExamplePythonCode</span><span class="p">(</span>
     <span class="n">virtualenv</span><span class="o">.</span><span class="nb">bin</span><span class="o">.</span><span class="n">python</span><span class="p">,</span>
-    <span class="sa"></span><span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
-<span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pyrunner</span><span class="o">.</span><span class="n">with_cprofile</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;profiledata.dat&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="n">long_string</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+    <span class="s1">&#39;/path/to/working_dir&#39;</span><span class="p">,</span>
+<span class="p">)</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">pyrunner</span><span class="o">.</span><span class="n">with_cprofile</span><span class="p">(</span><span class="s2">&#34;profiledata.dat&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">with_code</span><span class="p">(</span><span class="n">long_string</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 
 <span class="kn">import</span> <span class="nn">pstats</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;profiledata.dat&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;cumulative&#39;</span><span class="p">)</span>
-<span class="n">data</span><span class="o">.</span><span class="n">calc_callees</span><span class="p">()</span>
-<span class="n">Ensure</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">stats</span><span class="p">)</span><span class="o">.</span><span class="n">has_key</span><span class="p">((</span><span class="sa"></span><span class="s1">&#39;examplepythoncode.py&#39;</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="sa"></span><span class="s1">&#39;do_calculation&#39;</span><span class="p">))</span></code></pre></div>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pstats</span><span class="o">.</span><span class="n">Stats</span><span class="p">(</span><span class="s2">&#34;profiledata.dat&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_stats</span><span class="p">(</span><span class="s1">&#39;cumulative&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">calc_callees</span><span class="p">()</span></code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Executable specification</p>
 <p>Page automatically generated from <a href="https://github.com/hitchdev/hitchstory/blob/master/hitch/cprofile.story">cprofile.story</a>.</p>
@@ -349,7 +366,7 @@ for i in range(0, 5000 * 1000):
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Inherit one story from another - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -208,6 +208,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -331,7 +349,7 @@ will be executed before the child story steps.</p>
 </span><span class="w">  </span>about<span class="p">:</span><span class="w"> </span>Simple<span class="w"> </span>log<span class="w"> </span>in.<span class="w">
 </span><span class="w">  </span>with<span class="p">:</span><span class="w">
 </span><span class="w">    </span>username<span class="p">:</span><span class="w"> </span>AzureDiamond<span class="w">
-</span><span class="w">    </span>password<span class="p">:</span><span class="w"> </span>hunter<span class="m">2</span><span class="w">
+</span><span class="w">    </span>password<span class="p">:</span><span class="w"> </span>hunter2<span class="w">
 </span><span class="w">  </span>given<span class="p">:</span><span class="w">
 </span><span class="w">    </span>url<span class="p">:</span><span class="w"> </span>/loginurl<span class="w">
 </span><span class="w">  </span>steps<span class="p">:</span><span class="w">
@@ -360,32 +378,32 @@ will be executed before the child story steps.</p>
 
 <span class="k">class</span> <span class="nc">Engine</span><span class="p">(</span><span class="n">BaseEngine</span><span class="p">):</span>
     <span class="n">given_definition</span> <span class="o">=</span> <span class="n">GivenDefinition</span><span class="p">(</span>
-        <span class="n">url</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">Str</span><span class="p">(),</span> <span class="n">document</span><span class="o">=</span><span class="sa"></span><span class="s2">&#34;Load: {{ url }}&#34;</span><span class="p">),</span>
+        <span class="n">url</span><span class="o">=</span><span class="n">GivenProperty</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">Str</span><span class="p">(),</span> <span class="n">document</span><span class="o">=</span><span class="s2">&#34;Load: {{ url }}&#34;</span><span class="p">),</span>
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">set_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;visit {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;url&#39;</span><span class="p">]))</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;visit {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">given</span><span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">]))</span>
 
     <span class="nd">@about</span><span class="p">((</span>
-        <span class="sa"></span><span class="s2">&#34;{</span><span class="si">% f</span><span class="s2">or name, value in textboxes.items() %}</span><span class="se">\n</span><span class="s2">&#34;</span>
-        <span class="sa"></span><span class="s2">&#34;- Enter text &#39;{{ value }}&#39; in {{ name }}.</span><span class="se">\n</span><span class="s2">&#34;</span>
-        <span class="sa"></span><span class="s2">&#34;{</span><span class="si">%- e</span><span class="s2">ndfor %}</span><span class="se">\n</span><span class="s2">&#34;</span>
+        <span class="s2">&#34;{</span><span class="si">% f</span><span class="s2">or name, value in textboxes.items() %}</span><span class="se">\n</span><span class="s2">&#34;</span>
+        <span class="s2">&#34;- Enter text &#39;{{ value }}&#39; in {{ name }}.</span><span class="se">\n</span><span class="s2">&#34;</span>
+        <span class="s2">&#34;{</span><span class="si">%- e</span><span class="s2">ndfor %}</span><span class="se">\n</span><span class="s2">&#34;</span>
     <span class="p">))</span>
     <span class="k">def</span> <span class="nf">fill_form</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">textboxes</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">text</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">textboxes</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
-            <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;with {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-            <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;enter {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&#34;with {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&#34;enter {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
 
-    <span class="nd">@about</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;* Click on {{ item }}&#34;</span><span class="p">)</span>
+    <span class="nd">@about</span><span class="p">(</span><span class="s2">&#34;* Click on {{ item }}&#34;</span><span class="p">)</span>
     <span class="k">def</span> <span class="nf">click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;clicked on {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="p">))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;clicked on {0}&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">item</span><span class="p">))</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">engine</span> <span class="kn">import</span> <span class="n">Engine</span>
 <span class="kn">from</span> <span class="nn">hitchstory</span> <span class="kn">import</span> <span class="n">StoryCollection</span>
 <span class="kn">from</span> <span class="nn">pathquery</span> <span class="kn">import</span> <span class="n">pathquery</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
-<span class="n">collection</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span></code></pre></div>
+<span class="n">collection</span> <span class="o">=</span> <span class="n">StoryCollection</span><span class="p">(</span><span class="n">pathquery</span><span class="p">(</span><span class="s2">&#34;.&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">ext</span><span class="p">(</span><span class="s2">&#34;story&#34;</span><span class="p">),</span> <span class="n">Engine</span><span class="p">())</span></code></pre></div>
 <p>Original story:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Login&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;Login&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Login in /path/to/example.story ... visit /loginurl
@@ -398,7 +416,7 @@ SUCCESS in 0.1 seconds.
 </code></pre>
 
 <p>Override given:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Log in on another url&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;Log in on another url&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Log in on another url in /path/to/example.story ... visit /alternativeloginurl
@@ -411,7 +429,7 @@ SUCCESS in 0.1 seconds.
 </code></pre>
 
 <p>Override parameters:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="sa"></span><span class="s2">&#34;Log in as president&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">collection</span><span class="o">.</span><span class="n">named</span><span class="p">(</span><span class="s2">&#34;Log in as president&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">play</span><span class="p">()</span></code></pre></div>
 <p>Will output:</p>
 
 <pre><code>RUNNING Log in as president in /path/to/example.story ... visit /loginurl
@@ -424,7 +442,7 @@ SUCCESS in 0.1 seconds.
 </code></pre>
 
 <p>Only children:</p>
-<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="sa"></span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
     <span class="n">story</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">story</span> <span class="ow">in</span> <span class="n">collection</span><span class="o">.</span><span class="n">only_uninherited</span><span class="p">()</span><span class="o">.</span><span class="n">ordered_by_file</span><span class="p">()</span>
 <span class="p">]))</span></code></pre></div>
 <p>Will output:</p>
@@ -441,7 +459,7 @@ Log in as president
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
@@ -455,7 +473,7 @@ Log in as president
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/strictyaml/using/alpha/howto/" title="How to...">
+      <a href="https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/" title="How can executable specifications and living documentation be used for stakeholder collaboration?">
         <span class="direction">
           Previous
         </span>
@@ -465,7 +483,7 @@ Log in as president
           </div>
           <div class="stretch">
             <div class="title">
-              How to...
+              How can executable specifications and living documentation be used for stakeholder collaboration?
             </div>
           </div>
         </div>

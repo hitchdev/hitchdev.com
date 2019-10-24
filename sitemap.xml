@@ -3,22 +3,710 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hitchdev.com/approach/semantic-versioning/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/faketime/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/changelog/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/aborting/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/add-directory-to-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/tooling/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/steps-and-step-arguments/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/boolean/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/build-yaml-document/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/cprofile/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/capture-output/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://hitchdev.com/</loc>
-    <priority>0</priority>
+    <loc>https://hitchdev.com/commandlib/using/alpha/environment-variables/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/naming/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/consistency/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/determinism/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/principles/commits/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/continue-on-failure/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/approach/contributing-to-hitch-libraries/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/datetime/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/decimal/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/declarative/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/loading-dirty-yaml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/disallowed-yaml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/human-writable/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/duplicate-keys/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/command-path/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/use-current-python-environment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/either-or-validation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/disappearing-element/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/email-and-url/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/empty/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/enum/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/syntax-errors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/exceptions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/executable-specifications/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/metadata/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/principles/extreme-dogfooding/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/fail-fast-fail-clearly/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/fixed-length-sequences/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/flaky-tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/flaky-story-detection/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/float/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/generate-documentation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/what-line/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/given/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/gradual-typing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/failing-tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/expected-exceptions/</loc>
   </url>
   
   <url>
     <loc>https://hitchdev.com/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/approach/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/principles/hitchdev/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/stakeholder-collaboration/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/inheritance/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/integer/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/interact-with-running-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/isolation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/label-exceptions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/mapping-with-slug-keys/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/map-pattern/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/mapping/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/merge-yaml-documents/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys-with-defaults/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/without-a-schema/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/comma-separated/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/string/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/pipe-data-in/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/pipe-data-out/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/play-multiple-stories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/principles/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/principles/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/roundtripping/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/recommended-environment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/complementary-tools/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/restrictions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/howto/revalidation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/ignore-nonzero-exit-codes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/run-interactively/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/environment-vars/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/run-single-named-story/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/screenplay-principle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/iframe/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/html-element-contents/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/html-ids/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/html-classes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/sequences/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/sequences-of-unique-items/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/setup-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/shortcut-lookup/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/should-contain-text/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/special-failure-exception/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/rewrite-story/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/parameterized-stories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/strong-typing/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/subelements/</loc>
   </url>
   
   <url>
     <loc>https://hitchdev.com/tags/</loc>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/test-investment/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/implicit-typing-removed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/approach/technical-debt-dial/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/tropes/unit-test-paradox/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/test-realism/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/least-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/timeout/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/triality/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/tropes/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/2-unit-tests-0-integration-tests/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/update/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/variables/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/commandlib/using/alpha/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchrunpy/using/alpha/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/mapping-yaml-object/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/using-selenium-element-object/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/compound/optional-keys/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/using/alpha/scalar/regular-expressions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/using/alpha/variations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/features-removed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/what-is-yaml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/testing-and-living-documentation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/syntax-typing-bad/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/approach/test-or-story/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/toml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/duplicate-keys-disallowed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/explicit-tags-removed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/flow-style-removed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/node-anchors-and-references-removed/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/when-to-use-validators/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/environment-variables-as-config/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/strictyaml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/turing-complete-schema/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/not-parse-direct-representations-of-python-objects/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/only-parse-strings-not-files/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/given-when-then/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/no-cli/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/interesting-to-the-business/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/inheritance/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why/speed-not-a-priority/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/hocon/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/json/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/json5/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why-not/gherkin/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/capybara-py-or-splinter/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/ini/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/json-schema/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/robot/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/sdlang/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/xml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/pykwalify/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/python-schema/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why-not/robot/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/ordinary-yaml/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/why-not/page-object/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why/rewrite/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/strictyaml/why-not/turing-complete-code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/hitchstory/why-not/unit-test/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/attributes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/code-quality/least-expressive-power/</loc>
   </url>
   
 </urlset>

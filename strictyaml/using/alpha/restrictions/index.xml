@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Restrictions on HitchDev</title>
+    <link>https://hitchdev.com/strictyaml/using/alpha/restrictions/</link>
+    <description>Recent content in Restrictions on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hitchdev.com/strictyaml/using/alpha/restrictions/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dirty load</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/restrictions/loading-dirty-yaml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/restrictions/loading-dirty-yaml/</guid>
+      <description>StrictYAML refuses to parse flow style and node anchors by default, but since there have since been some requests to parse flow style, this now allowed with the &amp;ldquo;dirty_load&amp;rdquo; method.
+from strictyaml import Map, Int, MapPattern, Seq, Str, Any, dirty_load schema = Map({&amp;#34;x&amp;#34;: Map({&amp;#34;a&amp;#34;: Any(), &amp;#34;b&amp;#34;: Any(), &amp;#34;c&amp;#34;: Any()}), &amp;#34;y&amp;#34;: MapPattern(Str(), Str()), &amp;#34;z&amp;#34;: Seq(Str())}) Flow style mapping:
+x:{a:1,b:2,c:3}y:{}z:[]assert dirty_load(yaml_snippet, schema, allow_flow_style=True) == {&amp;#34;x&amp;#34;: {&amp;#34;a&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;b&amp;#34;: &amp;#34;2&amp;#34;, &amp;#34;c&amp;#34;: &amp;#34;3&amp;#34;}, &amp;#34;y&amp;#34;: {}, &amp;#34;z&amp;#34;: []} Executable specification</description>
+    </item>
+    
+    <item>
+      <title>Disallowed YAML</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/restrictions/disallowed-yaml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/restrictions/disallowed-yaml/</guid>
+      <description>StrictYAML parses an opinionated subset of the YAML specification which refuses to parse features which are otherwise valid in standard YAML.
+For an explanation as to why these features are stripped out of StrictYAML, see the FAQ.
+Disallowed YAML features raise Disallowed exceptions while syntactically invalid YAML raises ScannerError or ComposerError.
+Every error inherits from YAMLError.
+from strictyaml import Map, Int, Any, load from strictyaml import TagTokenDisallowed, FlowMappingDisallowed, AnchorTokenDisallowed schema = Map({&amp;#34;x&amp;#34;: Map({&amp;#34;a&amp;#34;: Any(), &amp;#34;b&amp;#34;: Any(), &amp;#34;c&amp;#34;: Any()})}) Tag tokens:</description>
+    </item>
+    
+    <item>
+      <title>Duplicate keys</title>
+      <link>https://hitchdev.com/strictyaml/using/alpha/restrictions/duplicate-keys/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/strictyaml/using/alpha/restrictions/duplicate-keys/</guid>
+      <description>Duplicate keys are allowed in regular YAML - as parsed by pyyaml, ruamel.yaml and poyo:
+Not only is it unclear whether x should be &amp;ldquo;cow&amp;rdquo; or &amp;ldquo;bull&amp;rdquo; (the parser will decide &amp;lsquo;bull&amp;rsquo;, but did you know that?), if there are 200 lines between x: cow and x: bull, a user might very likely change the first x and erroneously believe that the resulting value of x has been changed - when it has not.</description>
+    </item>
+    
+  </channel>
+</rss>

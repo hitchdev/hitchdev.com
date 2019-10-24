@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <title>Merge YAML documents - HitchDev</title>
-    <meta name="generator" content="Hugo 0.31.1" />
+    <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
@@ -214,6 +214,24 @@
 
 
 
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
 <a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
 	
 	HitchRunPy
@@ -315,17 +333,17 @@
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Seq</span><span class="p">,</span> <span class="n">Int</span><span class="p">,</span> <span class="n">load</span>
 
 <span class="n">schema_1</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span>
-    <span class="sa"></span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
-    <span class="sa"></span><span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}),</span>
-    <span class="sa"></span><span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Str</span><span class="p">())),</span>
+    <span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span>
+    <span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()}),</span>
+    <span class="s2">&#34;c&#34;</span><span class="p">:</span> <span class="n">Seq</span><span class="p">(</span><span class="n">MapPattern</span><span class="p">(</span><span class="n">Str</span><span class="p">(),</span> <span class="n">Str</span><span class="p">())),</span>
 <span class="p">})</span>
 
-<span class="n">schema_2</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="sa"></span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="sa"></span><span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()})</span>
+<span class="n">schema_2</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;x&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">(),</span> <span class="s2">&#34;y&#34;</span><span class="p">:</span> <span class="n">Int</span><span class="p">()})</span>
 
 <span class="n">yaml_1</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet_1</span><span class="p">,</span> <span class="n">schema_1</span><span class="p">)</span>
 <span class="n">yaml_2</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet_2</span><span class="p">,</span> <span class="n">schema_2</span><span class="p">)</span>
 
-<span class="n">yaml_1</span><span class="p">[</span><span class="sa"></span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">yaml_2</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">yaml_1</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Some comment</span><span class="w">
+<span class="n">yaml_1</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">yaml_2</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="k">print</span><span class="p">(</span><span class="n">yaml_1</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># Some comment</span><span class="w">
 </span><span class="w">
 </span><span class="w"></span>a<span class="p">:</span><span class="w"> </span>â<span class="w"> </span><span class="c"># value comment</span><span class="w">
 </span><span class="w">
@@ -346,7 +364,7 @@
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2018 &ndash;
+				&copy; 2019 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="en-us">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>The Technical Debt Dial - We don&#39;t need better metaphors for technical debt. We need better units of account. - HitchDev</title>
+    <meta name="generator" content="Hugo 0.50" />
+
+    
+    <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
+    
+    <link rel="canonical" href="https://hitchdev.com/approach/technical-debt-dial/">
+    
+    <meta name="author" content="Colm O&#39;Connor">
+    
+
+    <meta property="og:url" content="https://hitchdev.com/approach/technical-debt-dial/">
+    <meta property="og:title" content="HitchDev">
+    <meta property="og:image" content="https://hitchdev.com/images/logo.png">
+    <meta name="apple-mobile-web-app-title" content="HitchDev">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://hitchdev.com/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://hitchdev.com/images/favicon.ico">
+
+    <style>
+      @font-face {
+        font-family: 'Icon';
+        src: url('https://hitchdev.com/fonts/icon.eot');
+        src: url('https://hitchdev.com/fonts/icon.eot')
+               format('embedded-opentype'),
+             url('https://hitchdev.com/fonts/icon.woff')
+               format('woff'),
+             url('https://hitchdev.com/fonts/icon.ttf')
+               format('truetype'),
+             url('https://hitchdev.com/fonts/icon.svg')
+               format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/application.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/temporary.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/palettes.css">
+    <link rel="stylesheet" href="https://hitchdev.com/stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="https://hitchdev.com/javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-green palette-accent-teal">
+
+
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+        
+        <a style="display:inline;" href="https://hitchdev.com/">hitchdev</a>
+        
+          
+            
+            / <a style="display:inline;" href='https://hitchdev.com/approach'>approach</a>
+            
+            
+        
+          
+            
+            / <a style="display:inline;" href='https://hitchdev.com/approach/technical-debt-dial'>technical-debt-dial</a>
+            
+            
+        
+          
+            
+        
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/hitchdev" title="@hitchdev on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://hitchdev.com/" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="https://hitchdev.com/images/logo.png">
+        </div>
+      
+      <div class="name">
+        <strong>HitchDev </strong>
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="CommandLib" href="https://hitchdev.com/commandlib/">
+	
+	CommandLib
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Faketime" href="https://hitchdev.com/faketime/">
+	
+	Faketime
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="HitchRunPy" href="https://hitchdev.com/hitchrunpy/">
+	
+	HitchRunPy
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="HitchStory" href="https://hitchdev.com/hitchstory/">
+	
+	HitchStory
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="SeleniumDirector" href="https://hitchdev.com/seleniumdirector/">
+	
+	SeleniumDirector
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="StrictYAML" href="https://hitchdev.com/strictyaml/">
+	
+	StrictYAML
+</a>
+
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/hitchdev" target="_blank" title="@hitchdev on GitHub">
+              @hitchdev on GitHub
+            </a>
+          </li>
+          
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>The Technical Debt Dial - We don&#39;t need better metaphors for technical debt. We need better units of account. </h1>
+
+			
+
+<p>Week 41:</p>
+
+<p>[ picture of a bar chart with refactoring / features and bugs ]</p>
+
+<p>There are few developers who have worked in a business that haven&rsquo;t had a conversation
+with &ldquo;the business&rdquo; that didn&rsquo;t go something like this:</p>
+
+<p>Developer : Remember we need to clean out the reports module and upgrade some of our dependencies.</p>
+
+<p>Product owner : We don&rsquo;t have time for that.</p>
+
+<p>Developer : You said last week that we could do this week.</p>
+
+<p>Product owner : I understand but I just don&rsquo;t think we&rsquo;ve got enough time this sprint.</p>
+
+<p>There are several odd things about this dynamic - the developer is, at best,
+selling the idea of letting the business allow them to improve the
+quality of their software. In theory the <em>business</em> should be asking the <em>developer</em>
+to improve the quality of their software as and when it is needed just as the business
+asks a developer to implement a feature.</p>
+
+<p>The other odd thing is that the product owner most likely has no idea how important the
+thing they&rsquo;re being &ldquo;sold&rdquo; on or its relative importance with all of the other competing
+priorities.</p>
+
+<p>A lot of ink has been spilled over this issue. A lot of developers think that
+the problem is that the business doesn&rsquo;t really &ldquo;get&rdquo; technical debt and thus
+develop ever more elaborate metaphors to establish what it means and why it&rsquo;s so
+important.</p>
+
+<p>I don&rsquo;t think that&rsquo;s true at all. I think non-techs get the concept easily. What they
+don&rsquo;t get is any kind of unit of account, and that&rsquo;s our fault.</p>
+
+<p>They can&rsquo;t see numbers; they can&rsquo;t visualize the issue so they resort to the next
+best thing: ignoring it and hoping it goes away.</p>
+
+<p>This isn&rsquo;t completely irrational. Sometimes it doesn&rsquo;t come back to bite them.</p>
+
+<p>In high trust teams this isn&rsquo;t such a huge issue. Developers can say &ldquo;I need some time
+to fix the hacks I made in ticket 155&rdquo; and the product owner schedules it in.
+In turn the product owner trusts the developer will not spend all of their time
+rewriting the code in haskell for fun or whatever.</p>
+
+<p>Unfortunately, most of us work in medium or low trust environments, so we need to
+figure out a way to deal with this problem.</p>
+
+<h2 id="shift-technical-debt-from-something-developers-whine-about-to-something-the-business-controls">Shift technical debt from something developers whine about to something the business controls</h2>
+
+<p>I have an internal &ldquo;tech debt dial&rdquo; which goes from 0% to 100%.</p>
+
+<p>If I dial it down to 0% that means the team should be in full on hack mode.</p>
+
+<p>Fuck tests, fuck good coding standards - the important thing is just to get it <em>done</em>.</p>
+
+<p>If I dial it up to 100% that means the team only works on code quality (refactoring) and/or
+tooling (e.g. tests / CI infrastructure).</p>
+
+<p>The developers could split this time any way they want - e.g. if they need to create
+entire stories to refactor chunks of code they could do that. Or, they could use part
+of the time in a new story to refactor the code related to that story.</p>
+
+<p>Ultimately on a normal day on a normal code base, 30% is a decent place to leave it. In practice on a lot
+of projects experienced developers have an internal &ldquo;sense&rdquo; that this is about right and they
+might dial it up in response to external pressures or dial it down in more relaxed times.</p>
+
+<p>With this, the developers retain full control when and where they engage in refactoring
+while</p>
+
+<h2 id="nice-idea-in-theory-but-my-product-owner-would-leave-it-at-0-permanently-what-s-the-point">Nice idea in theory, but my product owner would leave it at 0% permanently. What&rsquo;s the point?</h2>
+
+<p>Many developers are used to the idea that begging for time to refactor code
+always falls on deaf ears. Some will give up asking and resign themselves</p>
+
+<p>I try to communicate to the business representative (product owner/CEO) that:</p>
+
+<ul>
+<li><p>This is basically a proxy for the long term quality of your product. If you ask for 0% for 3 months don&rsquo;t be surprised if you get a pile of buggy shit that customers hate: it&rsquo;s what you asked for.</p></li>
+
+<li><p>It can be dialed up and down at will, pretty much at any time, and that the level is completely a business decision.</p></li>
+
+<li><p>Leaving it at 100% or 0% for extended periods is exactly as stupid as it sounds.</p></li>
+
+<li><p>The content of that time ought to be solely a tech decision. They should work on what they think the biggest problems are without having to justify that to anybody why they are doing it (note: this directly contradicts scrum, which says big tooling/refactoring stories get scheduled by the product owner).</p></li>
+
+<li><p>Very low % is actually okay for a short while if there&rsquo;s a good reason (e.g. a non-made up deadline like a trade show) and you dial it back up to compensate later. Hacks that get unwound quickly don&rsquo;t do much damage; hacks that fester do - debt compounds. 20% time now may be equivalent to 40% 6 months from now.</p></li>
+
+<li><p>Very low % on a per project basis is sometimes okay too (some projects get market tested, don&rsquo;t work out and get thrown in the trash. code quality should not be a priority if that is at all likely).</p></li>
+
+<li><p>The % is kind of a rough guideline. The team isn&rsquo;t going to follow it exactly, especially when shit goes down.</p></li>
+</ul>
+
+<h2 id="the-desired-level-of-quality-will-vary-from-team-to-team-and-industry-to-industry">The desired level of quality will vary from team to team and industry to industry</h2>
+
+<p>While lots of programmers would prefer to only work on high quality, clean code, the reality is
+that most of the market doesn&rsquo;t want that. Shifting consumer tastes and a constantly moving
+business landscape means that a great deal of the time the biggest risk to a software product
+isn&rsquo;t building the right thing in the wrong way, but building the wrong thing in the right way.</p>
+
+<p>In such markets, especially ones where a winner or several winners take all, sacrificing
+product quality in exchange for product speed can be a rational strategy.</p>
+
+<p>It can also make sense for a startup in initial stages that are trying to test if there <em>is</em>
+a market for their idea before securing money to build it. Conceptually, keeping the dial low
+isn&rsquo;t much different to using debt or venture financing to fund a risky venture.</p>
+
+<h2 id="how-do-i-introduce-the-dial-to-my-team">How do I introduce the dial to my team?</h2>
+
+<p>Let&rsquo;s say you&rsquo;re the lowest ranking and least important member (or perhaps the newest)
+member of your team and you desperately want to improve the code quality. You know that
+if you introduce a new &ldquo;thing&rdquo; the team may be resistant (perhaps you tried introducing
+them to linting and they demurred) and you want to avoid outright rejection again:</p>
+
+<p>Here&rsquo;s how you do it:</p>
+
+<p>1) Start by measuring - e.g. start a spreadsheet and collate estimates as to % of ticket was refactoring or tooling. This is politically safe - all it requires is asking questions.</p>
+
+<p>2) Ask team members how they feel about the status of the code quality (good/bad/terrible) and the direction (getting better/getting worse/staying the same).</p>
+
+<p>2) Aggregate these values and try to calculate what % of each cadence (sprint/week/whatever) was spent on refactoring.</p>
+
+<p>3) After a few sprints, start graphing, share the graph and start a discussion around the graph (what it means, etc.).</p>
+
+<h2 id="my-team-is-implicitly-at-0-thanks-to-all-the-pressure-we-re-under-i-think-the-manager-will-leave-it-at-0">My team is implicitly at &ldquo;0%&rdquo; thanks to all the pressure we&rsquo;re under. I think the manager will leave it at 0%.</h2>
+
+<p>What is measured gets improved &ndash; Peter Drucker</p>
+
+<p>Yes. Let&rsquo;s run through a simple scenario to see why:</p>
+
+<p>The primary reason for this is visibility.</p>
+
+<p>Firstly, it might not, but if it doesn&rsquo;t then that signals that the business truly doesn&rsquo;t care about quality.
+If they built a product which was experimental then their priority isn&rsquo;t product quality it&rsquo;s testing that
+product with customers to see whether it ever needed to be built in the first place. &ldquo;0%&rdquo; products aren&rsquo;t
+necessarily bad.</p>
+
+<p>In such cases if such work gets you down then really your only option is to leave and work for a company
+that does care, maybe in an industry where it will clearly matter.</p>
+
+<p>In practice every company and team will have</p>
+
+<p>All of the teams I&rsquo;ve worked at with shitty coding practices fell in to one of three groups:</p>
+
+<pre><code>Insulated from market pressures - e.g. government department or massive oligopoly corporation that has exactly zero risk of upstart competitors eating their lunch because they're in an industry with such high barriers to entry.
+
+Their competitive advantage wasn't based on the quality of their tech - e.g. it's an industry where sales/marketing is mainly what matters not tech quality, tech was a sideshow to a different product, etc. In one case they just battered the competition in court with their patent portfolio.
+
+On the road to bankruptcy (or at the very least, losing a bunch of money).
+</code></pre>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2019 Copyright (C) 2019 &ndash;
+				
+				Documentation built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+      <a href="https://hitchdev.com/strictyaml/why/implicit-typing-removed/" title="The Norway Problem - why StrictYAML refuses to do implicit typing and so should you">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              The Norway Problem - why StrictYAML refuses to do implicit typing and so should you
+            </div>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="https://hitchdev.com/tropes/unit-test-paradox/" title="The Unit Test Paradox">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              The Unit Test Paradox
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '';
+      var repo_id  = '';
+    
+    </script>
+
+    <script src="https://hitchdev.com/javascripts/application.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var headers   = document.getElementsByTagName("h2");
+      var scrollspy = document.getElementById('scrollspy');
+
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+
+
+        /* Add permanent link next to the headers */
+        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+        for(var i = 0; i < headers.length; i++) {
+            var a = document.createElement("a");
+            a.setAttribute("class", "headerlink");
+            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("title", "Permanent link")
+            a.innerHTML = "#";
+            headers[i].appendChild(a);
+        }
+      }
+    </script>
+
+    
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

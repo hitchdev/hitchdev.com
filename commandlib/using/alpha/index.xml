@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using Commandlib on HitchDev</title>
+    <link>https://hitchdev.com/commandlib/using/alpha/</link>
+    <description>Recent content in Using Commandlib on HitchDev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://hitchdev.com/commandlib/using/alpha/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Add directory to PATH (with_path)</title>
+      <link>https://hitchdev.com/commandlib/using/alpha/add-directory-to-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/commandlib/using/alpha/add-directory-to-path/</guid>
+      <description>If you want to run a command with an additional folder on the path you can specify it with with_path.
+Note that if you use CommandPath object, the directory you use it on is already added.
+bin_directory/ls:
+#!/bin/bash echo hello $1 &amp;gt; output runls:
+#!/bin/bash ls $1from commandlib import Command runls = Command(&amp;#34;./runls&amp;#34;) Add bin_directory to PATH for runls:
+runls(&amp;#34;harry&amp;#34;).with_path(&amp;#34;bin_directory&amp;#34;).run() File &amp;lsquo;output&amp;rsquo; will contain:
+hello harry  </description>
+    </item>
+    
+    <item>
+      <title>Capture output (.output())</title>
+      <link>https://hitchdev.com/commandlib/using/alpha/capture-output/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/commandlib/using/alpha/capture-output/</guid>
+      <description>You can run a command and capture the stdout and stderr to a string using .output().
+This is unsuitable for:
+ Capturing output from programs that draw all over the screen (like top). Capturing output from programs that output special terminal characters (e.g. color characters). Interacting with programs that use user input.  For all of the above use cases and more, command.interact() is more suitable.
+outputtext:
+#!/bin/bash echo hello from stdout &amp;gt;&amp;amp;2 echo &amp;#34;hello from stderr&amp;#34; raiseerror:</description>
+    </item>
+    
+    <item>
+      <title>Change your command&#39;s environment variables (with_env)</title>
+      <link>https://hitchdev.com/commandlib/using/alpha/environment-variables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/commandlib/using/alpha/environment-variables/</guid>
+      <description>Environment variables can be set and passed down to commands or, alternative, environment variables can be explicitly dropped.
+All parent environment variables will be passed on by default.
+from commandlib import Command With extra environment variable:
+Command(&amp;#34;./outputtext&amp;#34;).with_env(ENVVAR=&amp;#34;tom&amp;#34;).run() Will output:
+hello tom  Dropping an environment variable:
+Command(&amp;#34;./outputpath&amp;#34;).without_env(&amp;#34;HOME&amp;#34;).run() Will output:
+hello  Dropping nonexistent variable does nothing:
+Command(&amp;#34;outputtext&amp;#34;).without_env(&amp;#34;NONEXISTENTVAR&amp;#34;).with_path(&amp;#34;.&amp;#34;).run() Will output:
+hello  </description>
+    </item>
+    
+    <item>
+      <title>Easily invoke commands from one directory (CommandPath)</title>
+      <link>https://hitchdev.com/commandlib/using/alpha/command-path/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/commandlib/using/alpha/command-path/</guid>
+      <description>A CommandPath is an object that you can create to represent a directory with executables in it. You can then use that object to get command objects which you can then run.
+This feature was created to be able to create a &amp;ldquo;postgres&amp;rdquo; or &amp;ldquo;node&amp;rdquo; or &amp;ldquo;virtualenv&amp;rdquo; CommandPath object referencing their bin directory. Commands in those bin directories (e.g. postgres / psql) could be run and be able to directly call other commands in that directory without referencing the absolute path.</description>
+    </item>
+    
+    <item>
+      <title>Easily invoke commands from the current virtualenv (python_bin)</title>
+      <link>https://hitchdev.com/commandlib/using/alpha/use-current-python-environment/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/commandlib/using/alpha/use-current-python-environment/</guid>
+      <description>You can run python code in the same environment by importing &amp;ldquo;python&amp;rdquo; command object or the &amp;ldquo;python_bin&amp;rdquo; command path.
+If you are running the code in a virtualenv, for example, the python object will refer to the python binary in the virtualenv bin directory.
+outputtext.py:
+with open(&amp;#34;output&amp;#34;, &amp;#34;w&amp;#34;) as handle: handle.write(&amp;#34;hello&amp;#34;)from commandlib import python, python_bin Run python:
+python(&amp;#34;outputtext.py&amp;#34;).run() File &amp;lsquo;output&amp;rsquo; will contain:
+hello  Use python_bin:
+python_bin.python(&amp;#34;outputtext.py&amp;#34;).run() File &amp;lsquo;output&amp;rsquo; will contain:</description>
+    </item>
+    
+    <item>
+      <title>Piping data in from string or file (.piped)</title>
+      <link>https://hitchdev.com/commandlib/using/alpha/pipe-data-in/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/commandlib/using/alpha/pipe-data-in/</guid>
+      <description>bin_directory/command1:
+#!/bin/bash read X echo hello $X &amp;gt; outputfrom commandlib import CommandPath command_path = CommandPath(&amp;#34;./bin_directory&amp;#34;) from string:
+with open(&amp;#34;person&amp;#34;, &amp;#34;r&amp;#34;) as handle: command_path.command1().piped.from_string(&amp;#34;harry&amp;#34;).run() File &amp;lsquo;output&amp;rsquo; will contain:
+hello harry  from file handle:
+with open(&amp;#34;person&amp;#34;, &amp;#34;r&amp;#34;) as handle: command_path.command1().piped.from_handle(handle).run() File &amp;lsquo;output&amp;rsquo; will contain:
+hello harry  from filename:
+command_path.command1().piped.from_filename(&amp;#34;person&amp;#34;).run() File &amp;lsquo;output&amp;rsquo; will contain:
+hello harry  </description>
+    </item>
+    
+    <item>
+      <title>Piping data out to string or file (.piped)</title>
+      <link>https://hitchdev.com/commandlib/using/alpha/pipe-data-out/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/commandlib/using/alpha/pipe-data-out/</guid>
+      <description>bin_directory/command1:
+#!/bin/bash echo hello $1 bin_directory/command2:
+#!/bin/bash echo hello $1 1&amp;gt;&amp;amp;2from commandlib import CommandPath command_path = CommandPath(&amp;#34;./bin_directory&amp;#34;) stdout to file handle:
+with open(&amp;#34;regular&amp;#34;, &amp;#34;w&amp;#34;) as handle: command_path.command1(&amp;#34;harry&amp;#34;).piped.stdout_to_handle(handle).run() File &amp;lsquo;regular&amp;rsquo; will contain:
+hello harry  stdout to filename:
+command_path.command1(&amp;#34;harry&amp;#34;).piped.stdout_to_filename(&amp;#34;regular&amp;#34;).run() File &amp;lsquo;regular&amp;rsquo; will contain:
+hello harry  stderr to file handle:
+with open(&amp;#34;error&amp;#34;, &amp;#34;w&amp;#34;) as handle: command_path.command2(&amp;#34;tom&amp;#34;).piped.stderr_to_handle(handle).run() File &amp;lsquo;error&amp;rsquo; will contain:
+hello tom  </description>
+    </item>
+    
+    <item>
+      <title>Run command and don&#39;t raise exception on nonzero exit code (ignore_errors())</title>
+      <link>https://hitchdev.com/commandlib/using/alpha/ignore-nonzero-exit-codes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/commandlib/using/alpha/ignore-nonzero-exit-codes/</guid>
+      <description>outputtext:
+#!/bin/bash echo hello &amp;gt; output exit 1from commandlib import CommandCommand(&amp;#34;./outputtext&amp;#34;).ignore_errors().run() File &amp;lsquo;output&amp;rsquo; will contain:
+hello  </description>
+    </item>
+    
+    <item>
+      <title>Run commmands interactively using icommandlib or pexpect</title>
+      <link>https://hitchdev.com/commandlib/using/alpha/run-interactively/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/commandlib/using/alpha/run-interactively/</guid>
+      <description>However, if the command you want to run requires that:
+ It prompts the user for a response (yes or no / password / etc.) It &amp;lsquo;draws&amp;rsquo; on a terminal window - like &amp;lsquo;top&amp;rsquo;. You want to interact with the process and do other stuff while it runs (e.g. wait for a database service to warm up and then continue).  Then you need an interactive library.
+Commandlib can call and create an interactive process object for two other libraries this way - ICommandLib and pexpect.</description>
+    </item>
+    
+  </channel>
+</rss>
