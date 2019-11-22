@@ -11,6 +11,17 @@
     
     
     <item>
+      <title>The Mirror Test</title>
+      <link>https://hitchdev.com/tropes/mirror-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/tropes/mirror-tests/</guid>
+      <description>The mirror test is a kind of test which mirrors the implementation of the code rather than testing the behavior. They are most typically unit tests.
+How do you know if you&amp;rsquo;ve got a mirror test? A key defining feature of a mirror test is that it fails when the code under test has changed irrespective of whether or not there is a bug.
+Mirror tests not only impose a cost in terms of the cost to build, they also impose an ongoing maintenance cost as changes to the code</description>
+    </item>
+    
+    <item>
       <title>The Unit Test Paradox</title>
       <link>https://hitchdev.com/tropes/unit-test-paradox/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

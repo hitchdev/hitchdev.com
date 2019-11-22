@@ -9,18 +9,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
-    <title>Tests are an investment - HitchDev</title>
+    <title>The Mirror Test - HitchDev</title>
     <meta name="generator" content="Hugo 0.50" />
 
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/hitchstory/approach/test-investment/">
+    <link rel="canonical" href="https://hitchdev.com/tropes/mirror-tests/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/hitchstory/approach/test-investment/">
+    <meta property="og:url" content="https://hitchdev.com/tropes/mirror-tests/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,19 +100,13 @@
         
           
             
-            / <a style="display:inline;" href='https://hitchdev.com/hitchstory'>hitchstory</a>
+            / <a style="display:inline;" href='https://hitchdev.com/tropes'>tropes</a>
             
             
         
           
             
-            / <a style="display:inline;" href='https://hitchdev.com/hitchstory/approach'>approach</a>
-            
-            
-        
-          
-            
-            / <a style="display:inline;" href='https://hitchdev.com/hitchstory/approach/test-investment'>test-investment</a>
+            / <a style="display:inline;" href='https://hitchdev.com/tropes/mirror-tests'>mirror-tests</a>
             
             
         
@@ -315,84 +309,30 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>Tests are an investment </h1>
+			<h1>The Mirror Test </h1>
 
 			
 
-<blockquote>
-<ol>
-<li>You are NOT ALLOWED to write any production code unless it is to make a failing unit test pass.</li>
-</ol>
+<p>The mirror test is a kind of test which <em>mirrors</em> the implementation of
+the code rather than testing the behavior. They are most typically
+unit tests.</p>
 
-<p>Now, most programmers when they first hear about this technique think &ldquo;This is stupid!&rdquo;
-&ldquo;It&rsquo;s going to slow me down, it&rsquo;s a waste of effort, it will keep me from thinking, it
-will keep me from designing, it will just break my flow&rdquo;.</p>
+<h2 id="how-do-you-know-if-you-ve-got-a-mirror-test">How do you know if you&rsquo;ve got a mirror test?</h2>
 
-<ul>
-<li>Uncle Bob, The Three Laws of TDD</li>
-</ul>
-</blockquote>
+<p>A key defining feature of a mirror test is that it
+<em>fails when the code under test has changed</em>
+irrespective of whether or not there is a bug.</p>
 
-<p>I remember the first time I followed this rule to the letter - the tests were good, the code
-was clean and I ended up throwing it all away. I trialed the code in a real life situation
-and the code ultimately proved unnecessary. It solved the wrong problem.</p>
+<p>Mirror tests not only impose a cost in terms of the cost to
+build, they also impose an ongoing maintenance cost as
+changes to the code</p>
 
-<p>TDD is a fantastically powerful approach which I try to use as often as possible, but there
-have been situations where it <em>hasn&rsquo;t</em> paid off because the cost of the tests was too high
-and the benefit was minimal in the end.</p>
+<h2 id="why-does-anybody-write-mirror-tests">Why does anybody write mirror tests?</h2>
 
-<p>I am not anti-TDD. In fact, part of the reason for me writing this
-<a href="../testing-and-living-documentation">testing and living documentation framework</a>
-was because I wanted to bring down the overall cost of writing and maintaining tests
-as well as <a href="../turning-tests-into-specs-into-documentation">raise their value</a>
-so that the investment is more likely to pay off.</p>
-
-<h2 id="the-cost-of-building-mocks">The cost of building mocks</h2>
-
-<blockquote>
-<p>Indeed, so long as we keep our tests short, well factored and well named, they ought
-to read very nicely. They ought to read like specifications; because they <em>are</em> specifications.</p>
-
-<ul>
-<li>Uncle Bob, Test First</li>
-</ul>
-</blockquote>
-
-<p>Like Bob, I believe that instead of tests you should indeed be writing specifications. <em>Unlike</em>
-Bob, I don&rsquo;t believe turing complete code is an appropriate language for writing specifications
-in. <a href="../../why-not/unit-test">Unit testing is wrong</a>.</p>
-
-<p>If, instead of unit testing the hell out of everything, you subsribe to the notion that tests should
-<a href="../test-realism">closely mimic</a> your code&rsquo;s outside world, you must then start considering
-how to build an approximation of the outside world.</p>
-
-<p>This is not always easy. This is not always cheap. This does not always make sense. It <em>might</em>
-be cheap if there is an easy to use <a href="https://seleniumhq.org">pre-existing project</a> that mimics
-your code&rsquo;s outside world but there&rsquo;s no guarantee and if that project does not mimic reality
-correctly then you may also be out of luck and you either have to improve that project yourself.</p>
-
-<h2 id="the-costs-of-false-positives">The costs of false positives</h2>
-
-<p>Tests don&rsquo;t just fail in the presence of bugs. Tests can also fail in the presence of
-changed code where no bug was introduced. This is a very common feature, in fact, of
-tightly coupled tests.</p>
-
-<p>When tests fail in the presence of a non-bug they incur a cost in the form of</p>
-
-<h2 id="the-payoff-of-writing-tests">The payoff of writing tests</h2>
-
-<p>There are four ways that automated tests can pay off:</p>
-
-<ul>
-<li>Catching bugs</li>
-<li>Giving confidence in the code</li>
-<li>Documenting the code</li>
-<li>Providing freedom to refactor</li>
-</ul>
-
-<p>I do not count driving design, since I believe that this is an antipattern.</p>
-
-<h2 id="how-to-deal-with">How to deal with</h2>
+<p>Mirror tests tend to crop up when developers write code first and then
+decide afterwards that their code needs some tests. They see classes
+and think &ldquo;I should write some tests for that class&rdquo;. This &ldquo;locks down&rdquo;
+the implementation.</p>
 
 
 			<aside class="copyright" role="note">
@@ -411,7 +351,7 @@ tightly coupled tests.</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="https://hitchdev.com/hitchstory/approach/testing-nondeterministic-code/" title="Testing non-deterministic code">
+      <a href="https://hitchdev.com/hitchstory/approach/test-investment/" title="Tests are an investment">
         <span class="direction">
           Previous
         </span>
@@ -421,7 +361,7 @@ tightly coupled tests.</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Testing non-deterministic code
+              Tests are an investment
             </div>
           </div>
         </div>
@@ -431,14 +371,14 @@ tightly coupled tests.</p>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/tropes/mirror-tests/" title="The Mirror Test">
+      <a href="https://hitchdev.com/strictyaml/why/implicit-typing-removed/" title="The Norway Problem - why StrictYAML refuses to do implicit typing and so should you">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              The Mirror Test
+              The Norway Problem - why StrictYAML refuses to do implicit typing and so should you
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

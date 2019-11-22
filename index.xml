@@ -30,9 +30,10 @@ The chances are, if you ask for support on a beta program I will give a lot of i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
-      <description>Changelog Latest No relevant code changes.
-1.0.5  BUGFIX : Fixed python 2 bug introduced when fixing #72. BUG: issue #72. Now setitem uses schema.  Before this commit, schemas could be violated when assigning to Map/Sequence members. Now, modifications to the data must fit the data&amp;rsquo;s schema.
-Furthermore, if the node on which setitem is called has a compound schema, the selected validator within the compound schema may change correctly.</description>
+      <description>Changelog Latest  BUGFIX: handle deprecated collections import in the parser (#82)
+ bugfix - handle deprecated collections import in the parser
+ import sys
+  1.0.5  BUGFIX : Fixed python 2 bug introduced when fixing #72. BUG: issue #72. Now setitem uses schema.  Before this commit, schemas could be violated when assigning to Map/Sequence members. Now, modifications to the data must fit the data&amp;rsquo;s schema.</description>
     </item>
     
     <item>
@@ -1071,6 +1072,17 @@ Non-deterministic code is code which can produce different outputs even when it 
       <guid>https://hitchdev.com/hitchstory/approach/test-investment/</guid>
       <description>You are NOT ALLOWED to write any production code unless it is to make a failing unit test pass.  Now, most programmers when they first hear about this technique think &amp;ldquo;This is stupid!&amp;rdquo; &amp;ldquo;It&amp;rsquo;s going to slow me down, it&amp;rsquo;s a waste of effort, it will keep me from thinking, it will keep me from designing, it will just break my flow&amp;rdquo;.
  Uncle Bob, The Three Laws of TDD   I remember the first time I followed this rule to the letter - the tests were good, the code was clean and I ended up throwing it all away.</description>
+    </item>
+    
+    <item>
+      <title>The Mirror Test</title>
+      <link>https://hitchdev.com/tropes/mirror-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/tropes/mirror-tests/</guid>
+      <description>The mirror test is a kind of test which mirrors the implementation of the code rather than testing the behavior. They are most typically unit tests.
+How do you know if you&amp;rsquo;ve got a mirror test? A key defining feature of a mirror test is that it fails when the code under test has changed irrespective of whether or not there is a bug.
+Mirror tests not only impose a cost in terms of the cost to build, they also impose an ongoing maintenance cost as changes to the code</description>
     </item>
     
     <item>
