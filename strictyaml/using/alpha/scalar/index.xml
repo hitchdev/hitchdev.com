@@ -96,7 +96,7 @@ a:Aassert isinstance(load(yaml_snippet, schema)[&amp;#39;a&amp;#39;].data, str) 
 To get a python float literal, use .data.
 Parsing and validating as a Decimal is best for values which require precision, but float is better for values for which precision is not required.
 Example yaml_snippet:
-a:1.00000000000000000001b:5.4135from strictyaml import Map, MapPattern, Str, Float, load, as_document from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Float(), &amp;#34;b&amp;#34;: Float()}) Use .</description>
+a:1.00000000000000000001b:5.4135from strictyaml import Map, MapPattern, Str, Float, Bool, load, as_document from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Float(), &amp;#34;b&amp;#34;: Float()}) Use .</description>
     </item>
     
     <item>

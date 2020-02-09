@@ -11,14 +11,36 @@
     
     
     <item>
-      <title>The Mirror Test</title>
-      <link>https://hitchdev.com/tropes/mirror-tests/</link>
+      <title>Code coveragism</title>
+      <link>https://hitchdev.com/tropes/code-coveragism/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://hitchdev.com/tropes/mirror-tests/</guid>
-      <description>The mirror test is a kind of test which mirrors the implementation of the code rather than testing the behavior. They are most typically unit tests.
-How do you know if you&amp;rsquo;ve got a mirror test? A key defining feature of a mirror test is that it fails when the code under test has changed irrespective of whether or not there is a bug.
-Mirror tests not only impose a cost in terms of the cost to build, they also impose an ongoing maintenance cost as changes to the code</description>
+      <guid>https://hitchdev.com/tropes/code-coveragism/</guid>
+      <description>Code coveragism is a form of [goodharting] whereby if higher code coverage is treated as the most important or even the only test quality target it becomes a bad measure.
+Code coveragism will often cause poor quality tests to be written, [reflective tests], [tightly coupled tests] as well as tests covering [zombie code].
+Pushing for code coverage is the act of intentionally ramping up code coverage to anywhere between 60-100% in an attempt to ensure a better tested system.</description>
+    </item>
+    
+    <item>
+      <title>Goodhart&#39;s Tests</title>
+      <link>https://hitchdev.com/tropes/goodharts-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/tropes/goodharts-tests/</guid>
+      <description>Goodhart&amp;rsquo;s tests are tests which are written for the purpose of increasing test coverage. They are named as such after goodhart&amp;rsquo;s law:
+&amp;ldquo;A measure that becomes a target ceases to be a good measure&amp;rdquo;
+Once code coverage percentage becomes an aim, the temptation to write [mimetic tests] and [paper thin tests] often grows uncontrollably.</description>
+    </item>
+    
+    <item>
+      <title>Mimetic Tests</title>
+      <link>https://hitchdev.com/tropes/mimetic-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/tropes/mimetic-tests/</guid>
+      <description>A mimetic is a kind of test which mimics the implementation of the code rather than testing the behavior. They are a common form of unit test.
+How do you know if you&amp;rsquo;ve got a mimetic test? A fully mimetic test fails when 100% of the failures of the test are caused by code being changed rather than the presence of a bug or lack of desired functionality.
+Note that flakiness is different to mimeticism.</description>
     </item>
     
     <item>

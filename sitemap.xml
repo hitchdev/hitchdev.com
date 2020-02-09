@@ -64,6 +64,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/tropes/code-coveragism/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/code-quality/determinism/</loc>
   </url>
   
@@ -212,6 +216,10 @@
   </url>
   
   <url>
+    <loc>https://hitchdev.com/tropes/goodharts-tests/</loc>
+  </url>
+  
+  <url>
     <loc>https://hitchdev.com/hitchstory/using/alpha/gradual-typing/</loc>
   </url>
   
@@ -241,6 +249,10 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/seleniumdirector/using/alpha/hovering-over-an-element/</loc>
   </url>
   
   <url>
@@ -285,6 +297,10 @@
   
   <url>
     <loc>https://hitchdev.com/strictyaml/using/alpha/howto/merge-yaml-documents/</loc>
+  </url>
+  
+  <url>
+    <loc>https://hitchdev.com/tropes/mimetic-tests/</loc>
   </url>
   
   <url>
@@ -446,10 +462,6 @@
   
   <url>
     <loc>https://hitchdev.com/hitchstory/approach/test-investment/</loc>
-  </url>
-  
-  <url>
-    <loc>https://hitchdev.com/tropes/mirror-tests/</loc>
   </url>
   
   <url>

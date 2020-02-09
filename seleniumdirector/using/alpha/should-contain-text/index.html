@@ -351,7 +351,7 @@ part or all of the text specified.</p>
 </span><span class="w"></span>from<span class="w"> </span>selenium<span class="w"> </span>import<span class="w"> </span>webdriver<span class="w">
 </span><span class="w">
 </span><span class="w"></span>driver<span class="w"> </span>=<span class="w"> </span>webdriver.Chrome()<span class="w">
-</span><span class="w"></span>selector<span class="w"> </span>=<span class="w"> </span>WebDirector(driver<span class="p">,</span><span class="w"> </span><span class="s2">&#34;selectors.yml&#34;</span><span class="p">,</span><span class="w"> </span>default_timeout=<span class="m">5</span>)</code></pre></div>
+</span><span class="w"></span>selector<span class="w"> </span>=<span class="w"> </span>WebDirector(driver<span class="p">,</span><span class="w"> </span><span class="s2">&#34;../selectors.yml&#34;</span><span class="p">,</span><span class="w"> </span>default_timeout=<span class="m">5</span>)</code></pre></div>
 <p>successful:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">selector</span><span class="o">.</span><span class="n">visit</span><span class="p">(</span><span class="s2">&#34;http://localhost:8000&#34;</span><span class="p">)</span>
 <span class="n">selector</span><span class="o">.</span><span class="n">wait_for_page</span><span class="p">(</span><span class="s2">&#34;login&#34;</span><span class="p">)</span>
@@ -379,7 +379,7 @@ part or all of the text specified.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2019 &ndash;
+				&copy; 2020 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

@@ -340,7 +340,7 @@ for values for which precision is not required.</p>
 
 <p>Example yaml_snippet:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span><span class="m">1.00000000000000000001</span><span class="w">
-</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">5.4135</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="n">as_document</span>
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="m">5.4135</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">strictyaml</span> <span class="kn">import</span> <span class="n">Map</span><span class="p">,</span> <span class="n">MapPattern</span><span class="p">,</span> <span class="n">Str</span><span class="p">,</span> <span class="n">Float</span><span class="p">,</span> <span class="n">Bool</span><span class="p">,</span> <span class="n">load</span><span class="p">,</span> <span class="n">as_document</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 <span class="kn">from</span> <span class="nn">ensure</span> <span class="kn">import</span> <span class="n">Ensure</span>
 
@@ -380,6 +380,9 @@ for values for which precision is not required.</p>
 <span class="k">print</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mf">3.5</span><span class="p">])</span>
 <span class="k">print</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mf">2.1</span><span class="p">])</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="w">
 </span><span class="w"></span>c</code></pre></div>
+<p>Float or bool:</p>
+<div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">document</span> <span class="o">=</span> <span class="n">as_document</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Float</span><span class="p">()</span> <span class="o">|</span> <span class="n">Bool</span><span class="p">()}))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">document</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>yes</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Executable specification</p>
 <p>Page automatically generated from <a href="https://github.com/crdoconnor/strictyaml/blob/master/hitch/story/float.story">float.story</a>.</p>
@@ -388,7 +391,7 @@ for values for which precision is not required.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2019 &ndash;
+				&copy; 2020 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>

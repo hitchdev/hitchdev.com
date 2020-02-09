@@ -30,10 +30,10 @@ The chances are, if you ask for support on a beta program I will give a lot of i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
-      <description>Changelog Latest  BUGFIX: handle deprecated collections import in the parser (#82)
+      <description>Changelog Latest  BUGFIX : Fix accidental python 2 breakage. BUGFIX : Accidental misrecognition of boolean values as numbers - cause of #85. BUGFIX : Fix for #86 - handle changing multiline strings. BUGFIX: handle deprecated collections import in the parser (#82)
  bugfix - handle deprecated collections import in the parser
  import sys
-  1.0.5  BUGFIX : Fixed python 2 bug introduced when fixing #72. BUG: issue #72. Now setitem uses schema.  Before this commit, schemas could be violated when assigning to Map/Sequence members. Now, modifications to the data must fit the data&amp;rsquo;s schema.</description>
+  1.0.5  BUGFIX : Fixed python 2 bug introduced when fixing #72. BUG: issue #72.</description>
     </item>
     
     <item>
@@ -141,6 +141,17 @@ Command(&amp;#34;./outputpath&amp;#34;).without_env(&amp;#34;HOME&amp;#34;).run(
 hello  Dropping nonexistent variable does nothing:
 Command(&amp;#34;outputtext&amp;#34;).without_env(&amp;#34;NONEXISTENTVAR&amp;#34;).with_path(&amp;#34;.&amp;#34;).run() Will output:
 hello  </description>
+    </item>
+    
+    <item>
+      <title>Code coveragism</title>
+      <link>https://hitchdev.com/tropes/code-coveragism/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/tropes/code-coveragism/</guid>
+      <description>Code coveragism is a form of [goodharting] whereby if higher code coverage is treated as the most important or even the only test quality target it becomes a bad measure.
+Code coveragism will often cause poor quality tests to be written, [reflective tests], [tightly coupled tests] as well as tests covering [zombie code].
+Pushing for code coverage is the act of intentionally ramping up code coverage to anywhere between 60-100% in an attempt to ensure a better tested system.</description>
     </item>
     
     <item>
@@ -452,7 +463,7 @@ This cannot detect all kinds of flakiness, but it can be effective at detecting 
 To get a python float literal, use .data.
 Parsing and validating as a Decimal is best for values which require precision, but float is better for values for which precision is not required.
 Example yaml_snippet:
-a:1.00000000000000000001b:5.4135from strictyaml import Map, MapPattern, Str, Float, load, as_document from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Float(), &amp;#34;b&amp;#34;: Float()}) Use .</description>
+a:1.00000000000000000001b:5.4135from strictyaml import Map, MapPattern, Str, Float, Bool, load, as_document from collections import OrderedDict from ensure import Ensure schema = Map({&amp;#34;a&amp;#34;: Float(), &amp;#34;b&amp;#34;: Float()}) Use .</description>
     </item>
     
     <item>
@@ -489,6 +500,17 @@ Hitchstory lets you define preconditions using the &amp;lsquo;given&amp;rsquo; k
 The given property names need to first be specified in the engine using GivenDefinition and GivenProperty.
 By default, given properties will parse without a StrictYAML schema, but you can also specify your own StrictYAML schema.
 The following example shows a browser precondition being used to set up a mock selenium object.</description>
+    </item>
+    
+    <item>
+      <title>Goodhart&#39;s Tests</title>
+      <link>https://hitchdev.com/tropes/goodharts-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/tropes/goodharts-tests/</guid>
+      <description>Goodhart&amp;rsquo;s tests are tests which are written for the purpose of increasing test coverage. They are named as such after goodhart&amp;rsquo;s law:
+&amp;ldquo;A measure that becomes a target ceases to be a good measure&amp;rdquo;
+Once code coverage percentage becomes an aim, the temptation to write [mimetic tests] and [paper thin tests] often grows uncontrollably.</description>
     </item>
     
     <item>
@@ -534,6 +556,21 @@ from hitchstory import BaseEngine, no_stacktrace_for, Failure from code_that_doe
       <guid>https://hitchdev.com/principles/hitchdev/</guid>
       <description>The HitchDev framework is committed to the following principles:
  Automated consistent dev and test environment setup - there should be fewer than 5 steps to get the average dev or test environment set up. Executable specifications should define the behavior of projects only - where this becomes cumbersome, it&amp;rsquo;s a sign that the project should be broken into subprojects. The specifications should be terse and strongly typed. The projects should be tested against a realistic a model of the real world they will face as possible.</description>
+    </item>
+    
+    <item>
+      <title>Hover - hovering over an element</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/hovering-over-an-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/hovering-over-an-element/</guid>
+      <description>This example demonstrates hovering over an element. The method .hover() will act as if you are hovering over your mouse on an html element
+This example will show hovering over an element called &amp;lsquo;hover element&amp;rsquo; and that will make a message appear saying &amp;lsquo;Now You See Me&amp;rsquo;.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;p id=&amp;#34;id_main_hovered_element&amp;#34;&amp;gt;Hover Over Me&amp;lt;/a&amp;gt; &amp;lt;p style=&amp;#34;display:none;&amp;#34; id=&amp;#34;id_revealed_element&amp;#34;&amp;gt;Now You See Me&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; Javascript embedded in above HTML:
+ selectors.yml:
+dashboard:appearswhen:mainhoveredelementelements:mainhoveredelement:id=id_main_hovered_elementrevealedelement:id=id_revealed_element set up:</description>
     </item>
     
     <item>
@@ -645,6 +682,17 @@ Example yaml_snippet:
 from strictyaml import Map, MapPattern, Str, Seq, Int, load schema_1 = Map({ &amp;#34;a&amp;#34;: Str(), &amp;#34;b&amp;#34;: Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Int()}), &amp;#34;c&amp;#34;: Seq(MapPattern(Str(), Str())), }) schema_2 = Map({&amp;#34;x&amp;#34;: Int(), &amp;#34;y&amp;#34;: Int()}) yaml_1 = load(yaml_snippet_1, schema_1) yaml_2 = load(yaml_snippet_2, schema_2) yaml_1[&amp;#39;b&amp;#39;] = yaml_2print(yaml_1.as_yaml())# Some commenta:â# value comment# Another commentb:x:8# y is now 9y:9c:-a:1-b:2 Executable specification
 Page automatically generated from merge-documents.story.
  </description>
+    </item>
+    
+    <item>
+      <title>Mimetic Tests</title>
+      <link>https://hitchdev.com/tropes/mimetic-tests/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/tropes/mimetic-tests/</guid>
+      <description>A mimetic is a kind of test which mimics the implementation of the code rather than testing the behavior. They are a common form of unit test.
+How do you know if you&amp;rsquo;ve got a mimetic test? A fully mimetic test fails when 100% of the failures of the test are caused by code being changed rather than the presence of a bug or lack of desired functionality.
+Note that flakiness is different to mimeticism.</description>
     </item>
     
     <item>
@@ -987,7 +1035,7 @@ HTML:
 index.html:
 &amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a id=&amp;#34;id_ok_button&amp;#34; href=&amp;#34;/dashboard.html&amp;#34; class=&amp;#34;btn btn-primary btn-md&amp;#34;&amp;gt;login &amp;lt;i class=&amp;#34;fa fa-sign-in&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; selectors.yml:
 login:appearswhen:loginpageidentifierelements:loginpageidentifier:id=id_usernameloginbutton:id=id_ok_buttonnonexistent:id=not_there set up:
-fromseleniumdirectorimportWebDirectorfromseleniumimportwebdriverdriver=webdriver.Chrome()selector=WebDirector(driver,&amp;#34;selectors.yml&amp;#34;,default_timeout=5) successful:
+fromseleniumdirectorimportWebDirectorfromseleniumimportwebdriverdriver=webdriver.Chrome()selector=WebDirector(driver,&amp;#34;../selectors.yml&amp;#34;,default_timeout=5) successful:
 selector.visit(&amp;#34;http://localhost:8000&amp;#34;) selector.</description>
     </item>
     
@@ -1072,17 +1120,6 @@ Non-deterministic code is code which can produce different outputs even when it 
       <guid>https://hitchdev.com/hitchstory/approach/test-investment/</guid>
       <description>You are NOT ALLOWED to write any production code unless it is to make a failing unit test pass.  Now, most programmers when they first hear about this technique think &amp;ldquo;This is stupid!&amp;rdquo; &amp;ldquo;It&amp;rsquo;s going to slow me down, it&amp;rsquo;s a waste of effort, it will keep me from thinking, it will keep me from designing, it will just break my flow&amp;rdquo;.
  Uncle Bob, The Three Laws of TDD   I remember the first time I followed this rule to the letter - the tests were good, the code was clean and I ended up throwing it all away.</description>
-    </item>
-    
-    <item>
-      <title>The Mirror Test</title>
-      <link>https://hitchdev.com/tropes/mirror-tests/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://hitchdev.com/tropes/mirror-tests/</guid>
-      <description>The mirror test is a kind of test which mirrors the implementation of the code rather than testing the behavior. They are most typically unit tests.
-How do you know if you&amp;rsquo;ve got a mirror test? A key defining feature of a mirror test is that it fails when the code under test has changed irrespective of whether or not there is a bug.
-Mirror tests not only impose a cost in terms of the cost to build, they also impose an ongoing maintenance cost as changes to the code</description>
     </item>
     
     <item>

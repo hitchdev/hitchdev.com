@@ -25,6 +25,21 @@ index.html:
     </item>
     
     <item>
+      <title>Hover - hovering over an element</title>
+      <link>https://hitchdev.com/seleniumdirector/using/alpha/hovering-over-an-element/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/using/alpha/hovering-over-an-element/</guid>
+      <description>This example demonstrates hovering over an element. The method .hover() will act as if you are hovering over your mouse on an html element
+This example will show hovering over an element called &amp;lsquo;hover element&amp;rsquo; and that will make a message appear saying &amp;lsquo;Now You See Me&amp;rsquo;.
+HTML:
+index.html:
+&amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;p id=&amp;#34;id_main_hovered_element&amp;#34;&amp;gt;Hover Over Me&amp;lt;/a&amp;gt; &amp;lt;p style=&amp;#34;display:none;&amp;#34; id=&amp;#34;id_revealed_element&amp;#34;&amp;gt;Now You See Me&amp;lt;/a&amp;gt; &amp;lt;/div&amp;gt; Javascript embedded in above HTML:
+ selectors.yml:
+dashboard:appearswhen:mainhoveredelementelements:mainhoveredelement:id=id_main_hovered_elementrevealedelement:id=id_revealed_element set up:</description>
+    </item>
+    
+    <item>
       <title>Overlay - should_be_on_top</title>
       <link>https://hitchdev.com/seleniumdirector/using/alpha/element-should-be-on-top/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -99,7 +114,7 @@ HTML:
 index.html:
 &amp;lt;div class=&amp;#34;form-login&amp;#34;&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_username&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;username&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;input type=&amp;#34;text&amp;#34; id=&amp;#34;id_password&amp;#34; class=&amp;#34;form-control input-sm chat-input&amp;#34; placeholder=&amp;#34;password&amp;#34; /&amp;gt;&amp;lt;/br&amp;gt; &amp;lt;div class=&amp;#34;wrapper&amp;#34;&amp;gt; &amp;lt;span class=&amp;#34;group-btn&amp;#34;&amp;gt; &amp;lt;a id=&amp;#34;id_ok_button&amp;#34; href=&amp;#34;/dashboard.html&amp;#34; class=&amp;#34;btn btn-primary btn-md&amp;#34;&amp;gt;login &amp;lt;i class=&amp;#34;fa fa-sign-in&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/a&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; selectors.yml:
 login:appearswhen:loginpageidentifierelements:loginpageidentifier:id=id_usernameloginbutton:id=id_ok_buttonnonexistent:id=not_there set up:
-fromseleniumdirectorimportWebDirectorfromseleniumimportwebdriverdriver=webdriver.Chrome()selector=WebDirector(driver,&amp;#34;selectors.yml&amp;#34;,default_timeout=5) successful:
+fromseleniumdirectorimportWebDirectorfromseleniumimportwebdriverdriver=webdriver.Chrome()selector=WebDirector(driver,&amp;#34;../selectors.yml&amp;#34;,default_timeout=5) successful:
 selector.visit(&amp;#34;http://localhost:8000&amp;#34;) selector.</description>
     </item>
     

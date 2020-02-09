@@ -16,10 +16,10 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://hitchdev.com/strictyaml/changelog/</guid>
-      <description>Changelog Latest  BUGFIX: handle deprecated collections import in the parser (#82)
+      <description>Changelog Latest  BUGFIX : Fix accidental python 2 breakage. BUGFIX : Accidental misrecognition of boolean values as numbers - cause of #85. BUGFIX : Fix for #86 - handle changing multiline strings. BUGFIX: handle deprecated collections import in the parser (#82)
  bugfix - handle deprecated collections import in the parser
  import sys
-  1.0.5  BUGFIX : Fixed python 2 bug introduced when fixing #72. BUG: issue #72. Now setitem uses schema.  Before this commit, schemas could be violated when assigning to Map/Sequence members. Now, modifications to the data must fit the data&amp;rsquo;s schema.</description>
+  1.0.5  BUGFIX : Fixed python 2 bug introduced when fixing #72. BUG: issue #72.</description>
     </item>
     
     <item>

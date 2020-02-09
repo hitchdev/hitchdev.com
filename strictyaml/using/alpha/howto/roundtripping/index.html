@@ -378,6 +378,15 @@ locations, etc.) may not be identical.</p>
 </span><span class="w"></span>c<span class="p">:</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>a<span class="p">:</span><span class="w"> </span><span class="m">1.0001</span><span class="w">
 </span><span class="w"></span>-<span class="w"> </span>b<span class="p">:</span><span class="w"> </span><span class="m">2</span></code></pre></div>
+<p>Modify multi line string:</p>
+<div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>some<span class="w">
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">  text</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">schema</span> <span class="o">=</span> <span class="n">Map</span><span class="p">({</span><span class="s2">&#34;a&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">(),</span> <span class="s2">&#34;b&#34;</span><span class="p">:</span> <span class="n">Str</span><span class="p">()})</span>
+<span class="n">to_modify</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
+<span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;changed&#39;</span>
+<span class="k">print</span><span class="p">(</span><span class="n">to_modify</span><span class="o">.</span><span class="n">as_yaml</span><span class="p">())</span></code></pre></div><div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml">a<span class="p">:</span><span class="w"> </span>changed<span class="w">
+</span><span class="w"></span>b<span class="p">:</span><span class="w"> </span><span class="sd">|
+</span><span class="sd">  text</span></code></pre></div>
 <p>Modified with one variable:</p>
 <div class="highlight"><pre class="chroma"><code class="language-python" data-lang="python"><span class="n">to_modify</span> <span class="o">=</span> <span class="n">load</span><span class="p">(</span><span class="n">yaml_snippet</span><span class="p">,</span> <span class="n">schema</span><span class="p">)</span>
 <span class="n">to_modify</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">][</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
@@ -432,7 +441,7 @@ locations, etc.) may not be identical.</p>
 
 			<aside class="copyright" role="note">
 				
-				&copy; 2019 Copyright (C) 2019 &ndash;
+				&copy; 2020 Copyright (C) 2019 &ndash;
 				
 				Documentation built with
 				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
