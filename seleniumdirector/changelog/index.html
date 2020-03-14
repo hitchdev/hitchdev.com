@@ -15,12 +15,12 @@
     
     <meta name="description" content="The code that specifies | builds | runs | tests | documents your code.">
     
-    <link rel="canonical" href="https://hitchdev.com/approach/semantic-versioning/">
+    <link rel="canonical" href="https://hitchdev.com/seleniumdirector/changelog/">
     
     <meta name="author" content="Colm O&#39;Connor">
     
 
-    <meta property="og:url" content="https://hitchdev.com/approach/semantic-versioning/">
+    <meta property="og:url" content="https://hitchdev.com/seleniumdirector/changelog/">
     <meta property="og:title" content="HitchDev">
     <meta property="og:image" content="https://hitchdev.com/images/logo.png">
     <meta name="apple-mobile-web-app-title" content="HitchDev">
@@ -100,13 +100,13 @@
         
           
             
-            / <a style="display:inline;" href='https://hitchdev.com/approach'>approach</a>
+            / <a style="display:inline;" href='https://hitchdev.com/seleniumdirector'>seleniumdirector</a>
             
             
         
           
             
-            / <a style="display:inline;" href='https://hitchdev.com/approach/semantic-versioning'>semantic-versioning</a>
+            / <a style="display:inline;" href='https://hitchdev.com/seleniumdirector/changelog'>changelog</a>
             
             
         
@@ -311,46 +311,101 @@
 		<div class="wrapper">
 			<h1> </h1>
 
-			<p>ALPHA CHANGES (e.g. 0.1.0 -&gt; 0.1.1)</p>
+			
 
-<p>This program will probably have everything about it changed.</p>
+<h1 id="changelog">Changelog</h1>
 
-<p>BETA CHANGES (e.g. 0.1.0 -&gt; 0.2.0)</p>
+<h3 id="latest">Latest</h3>
 
-<p>The program is in BETA and is in a state where it is ready for dogfooding.</p>
+<p>No relevant code changes.</p>
 
-<p>The chances are, if you ask for support on a beta program I will give a lot of it, and freely. In return, you let me know what issues you found.</p>
-
-<p>0.1.5 -&gt; 0.2.0 &ndash; more serious change.
-0.3.0 -&gt; 0.3.1 &ndash; less serious change.</p>
-
-<p>BETA -&gt; PRODUCTION-WORTHY</p>
-
-<p>0.5.0 -&gt; 1.0.0 &mdash; no real change in functionality, this is about confidence levels in the code.</p>
-
-<p>MAJOR CHANGE (e.g. 1.0.0 -&gt; 2.0.0)</p>
+<h3 id="0-10-0">0.10.0</h3>
 
 <ul>
-<li>Breaking change(s) to publicly documented API in order to refactor.</li>
-<li>Breaking change(s) to publicly documented API in order to accomodate a new feature.</li>
-<li>Fixing a very serious bug that violates built up expectations about how the software should operate.</li>
-<li>All changes should be rare.</li>
+<li>FEATURE : Hover functionality to identify and reveal the secondary element</li>
 </ul>
 
-<p>MINOR CHANGE (1.1.5 -&gt; 1.2.0)</p>
+<h3 id="0-9-0">0.9.0</h3>
 
 <ul>
-<li>Fixing a serious bug that may or may not break existing code.</li>
-<li>Non-breaking change to publicly documented API.</li>
-<li>Breaking change to publicly documented beta API.</li>
+<li>FEATURE : Sub-elements - pick out elements within elements by specifying a selector within a selector.</li>
+<li>FEATURE : Selectors can use iframes.</li>
 </ul>
 
-<p>PATCH CHANGE (1.1.1 -&gt; 1.1.2)</p>
+<h3 id="0-8-0">0.8.0</h3>
 
 <ul>
-<li>Fixing an edge case bug.</li>
-<li>No change to publicly documented API.</li>
-<li>Non breaking change to public beta API.</li>
+<li>FEATURE : Should contain now usable with timeout.</li>
+</ul>
+
+<h3 id="0-7-0">0.7.0</h3>
+
+<ul>
+<li>FEATURE : should_disappear()</li>
+<li>FEATURE : Added timeouts to &lsquo;should_*&rsquo;</li>
+</ul>
+
+<h3 id="0-6-1">0.6.1</h3>
+
+<ul>
+<li>FEATURE : Clearer exceptions on should_contain and should_be_on_page.</li>
+<li>FEATURE : Timeout on explicit wait to appear on page.</li>
+</ul>
+
+<h3 id="0-6-0">0.6.0</h3>
+
+<ul>
+<li>FEATURE : Clearer timeout exceptions.</li>
+<li>FEATURE : Added a clearer exception for &lsquo;not found in selectors&rsquo;.</li>
+<li>FEATURE : Handle &lsquo;which&rsquo; property on &lsquo;text is&rsquo; attributes.</li>
+<li>FEATURE : Handle &lsquo;which&rsquo; property on attributes.</li>
+<li>FEATURE : Selects 2nd, 3rd, 4th &hellip; last of elements that contain text.</li>
+<li>FEATURE : Ability to select &lsquo;last&rsquo; element matching a class name.</li>
+<li>FEATURE : Allow default timeout to be set up front.</li>
+<li>FEATURE : Added the ability to pick a single element when more than one is matched by a class.</li>
+</ul>
+
+<h3 id="0-5-1">0.5.1</h3>
+
+<ul>
+<li>FEATURE : Add the ability to select by text contents or what elements contain.</li>
+</ul>
+
+<h3 id="0-4-0">0.4.0</h3>
+
+<ul>
+<li>BUGFIX : Locked down the execution space so that invalid conditions cause a true exception.</li>
+<li>FEATURE : Added time travel to selenium.</li>
+</ul>
+
+<h3 id="0-3-0">0.3.0</h3>
+
+<ul>
+<li>FEATURE : Classes selector.</li>
+</ul>
+
+<h3 id="0-2-0">0.2.0</h3>
+
+<ul>
+<li>FEATURE : Handle more than one element with the same ID.</li>
+</ul>
+
+<h3 id="0-1-3">0.1.3</h3>
+
+<ul>
+<li>FEATURE : .should_appear()</li>
+</ul>
+
+<h3 id="0-1-2">0.1.2</h3>
+
+<ul>
+<li>FEATURE : Selection by xpath.</li>
+</ul>
+
+<h3 id="0-1-1">0.1.1</h3>
+
+<ul>
+<li>FEATURE : Do selectors using attributes.</li>
 </ul>
 
 
@@ -370,11 +425,27 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
+      <a href="https://hitchdev.com/approach/semantic-versioning/" title="">
+        <span class="direction">
+          Previous
+        </span>
+        <div class="page">
+          <div class="button button-previous" role="button" aria-label="Previous">
+            <i class="icon icon-back"></i>
+          </div>
+          <div class="stretch">
+            <div class="title">
+              
+            </div>
+          </div>
+        </div>
+      </a>
+  
   </div>
 
   <div class="next">
   
-      <a href="https://hitchdev.com/seleniumdirector/changelog/" title="">
+      <a href="https://hitchdev.com/strictyaml/changelog/" title="">
         <span class="direction">
           Next
         </span>

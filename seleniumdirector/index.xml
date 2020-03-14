@@ -11,6 +11,16 @@
     
     
     <item>
+      <title></title>
+      <link>https://hitchdev.com/seleniumdirector/changelog/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hitchdev.com/seleniumdirector/changelog/</guid>
+      <description>Changelog Latest No relevant code changes.
+0.10.0  FEATURE : Hover functionality to identify and reveal the secondary element  0.9.0  FEATURE : Sub-elements - pick out elements within elements by specifying a selector within a selector. FEATURE : Selectors can use iframes.  0.8.0  FEATURE : Should contain now usable with timeout.  0.7.0  FEATURE : should_disappear() FEATURE : Added timeouts to &amp;lsquo;should_*&amp;rsquo;  0.6.1  FEATURE : Clearer exceptions on should_contain and should_be_on_page.</description>
+    </item>
+    
+    <item>
       <title>Element should not be on page</title>
       <link>https://hitchdev.com/seleniumdirector/using/alpha/disappearing-element/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
